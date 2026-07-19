@@ -1,0 +1,16 @@
+# Pinned environment for the FM-WOS benchmark (the paper's experiments ran on
+# exactly these versions; see paper section 6, Hardware and software).
+# Create: conda env create -f environment.yml && conda activate fmwos
+name: fmwos
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.15
+  - numpy=1.26.4
+  - pandas=3.0.3
+  - scipy=1.17.1
+  - matplotlib
+  - pip
+  - pip:
+      - torch==2.11.0
+      - ortools==9.14.6206

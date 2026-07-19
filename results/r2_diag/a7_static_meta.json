@@ -1,0 +1,9 @@
+{
+  "static": {
+    "n_ids_total": 3501,
+    "n_ids_nonzero_best": 1888,
+    "n_ids_zero_best": 1613,
+    "mean_best_known_nonzero": 518.053152118644,
+    "median_best_known_nonzero": 216.15899999999988
+  }
+}

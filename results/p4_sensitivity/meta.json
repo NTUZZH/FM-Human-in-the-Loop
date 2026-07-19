@@ -1,0 +1,63 @@
+{
+  "experiment": "p4_sensitivity",
+  "start_time": "2026-07-05T11:24:13",
+  "end_time": "2026-07-05T11:24:34",
+  "elapsed_seconds": 20.526,
+  "workers": 6,
+  "conditions": [
+    [
+      "baseline",
+      1.0,
+      1.0
+    ],
+    [
+      "sla0.5",
+      0.5,
+      1.0
+    ],
+    [
+      "sla1.5",
+      1.5,
+      1.0
+    ],
+    [
+      "crew0.75",
+      1.0,
+      0.75
+    ],
+    [
+      "crew1.25",
+      1.0,
+      1.25
+    ]
+  ],
+  "campuses": [
+    5,
+    9,
+    10,
+    12
+  ],
+  "sizes": [
+    150,
+    400
+  ],
+  "n_base_per_cell": 30,
+  "rl_tag": "v2rl",
+  "rl_dir": "results/p3_train/v2",
+  "rl_methods": [
+    "v2rl301",
+    "v2rl302",
+    "v2rl303"
+  ],
+  "out_dir": "./results/p4_sensitivity",
+  "n_configs": 1200,
+  "n_pending_this_run": 1200,
+  "n_completed_this_run": 1200,
+  "n_errors_this_run": 0,
+  "n_rows": 10800,
+  "n_infeasible": 0,
+  "filters": {
+    "limit": null
+  },
+  "git_describe": "benchmark-v0-16-ga996b59b"
+}

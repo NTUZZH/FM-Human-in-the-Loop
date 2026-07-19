@@ -1,0 +1,58 @@
+{
+  "experiment": "p4_dyneval",
+  "start_time": "2026-07-06T20:44:01",
+  "end_time": "2026-07-07T00:12:18",
+  "elapsed_seconds": 12496.69,
+  "workers": 12,
+  "regimes": [
+    "replay-default",
+    "replay-tight",
+    "storm",
+    "storm2"
+  ],
+  "rl_tag": "v2at",
+  "rl_dir": "results/p3_train/v2attn",
+  "rl_arch": "attn",
+  "rl_seeds": [
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310
+  ],
+  "rl_methods": [
+    "v2at304",
+    "v2at305",
+    "v2at306",
+    "v2at307",
+    "v2at308",
+    "v2at309",
+    "v2at310"
+  ],
+  "with_pmmix": false,
+  "with_storm2": true,
+  "storm_arrivals": [
+    1.25,
+    1.5,
+    2.0,
+    3.0
+  ],
+  "out_dir": "./results/p4_dyneval",
+  "rollcp_per_cell": 8,
+  "no_rollcp": true,
+  "n_configs": 5823,
+  "n_rollcp": 0,
+  "n_pending_this_run": 5609,
+  "n_completed_this_run": 5609,
+  "n_errors_this_run": 0,
+  "n_rows": 185003,
+  "n_infeasible": 0,
+  "filters": {
+    "campus": null,
+    "size": null,
+    "limit": null
+  },
+  "git_describe": "paper-v4-2-ge16baed2-dirty"
+}

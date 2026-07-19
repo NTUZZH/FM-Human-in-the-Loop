@@ -1,0 +1,66 @@
+{
+  "seed": 309,
+  "updates": 600,
+  "smoke": false,
+  "device": "cpu",
+  "n_envs": 16,
+  "steps_per_env": 512,
+  "sizes": [
+    150,
+    400
+  ],
+  "campuses": [
+    5,
+    9,
+    10,
+    12
+  ],
+  "gamma": 1.0,
+  "gae_lambda": 0.98,
+  "clip": 0.2,
+  "epochs": 4,
+  "minibatch": 1024,
+  "ent_coef": 0.01,
+  "val_coef": 0.5,
+  "max_grad_norm": 0.5,
+  "lr": 0.0003,
+  "reward_mode": "shaped",
+  "feature_drop": null,
+  "n_dev": 32,
+  "eval_every": 20,
+  "generator_enabled": true,
+  "n_replay_train_files": 760,
+  "curriculum": "v2",
+  "dev_tight_m": 0.6,
+  "curriculum_knobs": {
+    "replay_scale_prob": 0.6666666666666666,
+    "replay_scale_m_choices": [
+      0.5,
+      0.6,
+      0.8
+    ],
+    "gen_crew_choices": [
+      0.5,
+      0.6,
+      0.8,
+      1.0
+    ],
+    "gen_crew_weights": [
+      0.2,
+      0.25,
+      0.25,
+      0.3
+    ],
+    "gen_arrival_choices": [
+      1.0,
+      1.25,
+      1.5
+    ],
+    "gen_arrival_weights": [
+      0.5,
+      0.3,
+      0.2
+    ]
+  },
+  "arch": "mlp"
+}

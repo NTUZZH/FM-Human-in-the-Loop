@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "tiny_8_2_3",
+    "campus": 5,
+    "track": "replay",
+    "size_class": 50,
+    "window_start": "2018-03-05T00:00:00",
+    "window_bh": 40.0,
+    "provenance": "R",
+    "seed": null
+  },
+  "trades": ["D20", "E10"],
+  "technicians": [
+    {"id": "T0", "trade": "D20"},
+    {"id": "T1", "trade": "D20"},
+    {"id": "T2", "trade": "E10"}
+  ],
+  "work_orders": [
+    {"id": "WO01", "trade": "D20", "p_bh": 6.0, "release_bh": 0.0, "due_bh": 8.0, "priority": 1, "weight": 8.0, "building": "A050", "is_pm": false},
+    {"id": "WO02", "trade": "D20", "p_bh": 6.0, "release_bh": 0.0, "due_bh": 8.0, "priority": 1, "weight": 8.0, "building": "A050", "is_pm": false},
+    {"id": "WO03", "trade": "D20", "p_bh": 6.0, "release_bh": 0.0, "due_bh": 8.0, "priority": 1, "weight": 8.0, "building": "A051", "is_pm": false},
+    {"id": "WO04", "trade": "D20", "p_bh": 2.0, "release_bh": 0.0, "due_bh": 171.4, "priority": 4, "weight": 1.0, "building": "A052", "is_pm": true},
+    {"id": "WO05", "trade": "E10", "p_bh": 8.0, "release_bh": 0.0, "due_bh": 171.4, "priority": 4, "weight": 1.0, "building": "B010", "is_pm": true},
+    {"id": "WO06", "trade": "E10", "p_bh": 4.0, "release_bh": 1.0, "due_bh": 9.0, "priority": 1, "weight": 8.0, "building": "B011", "is_pm": false},
+    {"id": "WO07", "trade": "E10", "p_bh": 3.0, "release_bh": 2.0, "due_bh": 26.0, "priority": 2, "weight": 4.0, "building": "B012", "is_pm": false},
+    {"id": "WO08", "trade": "E10", "p_bh": 2.0, "release_bh": 2.0, "due_bh": 173.4, "priority": 4, "weight": 1.0, "building": "B013", "is_pm": true}
+  ]
+}

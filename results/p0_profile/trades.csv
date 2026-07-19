@@ -1,0 +1,25 @@
+trade,rows,total_labor_h,median_labor_h,description,campuses
+D30,433026,1558744.0,1.5,HVAC,10
+D50,415782,666059.0,0.16,Electrical,10
+D20,261972,802593.0,1.0,Plumbing,10
+D40,91577,548579.0,1.0,Fire Protection,10
+C10,77795,170741.0,1.0,Interior Construction,9
+E10,46077,164548.0,1.25,Equipment,10
+B20,34426,82280.0,1.0,Exterior Enclosure,9
+C30,24365,183407.0,2.75,Interior Finishes,9
+D90,22328,102825.0,1.0,General,8
+E20,16401,80510.0,2.0,Furnishings,9
+B30,15102,158631.0,5.0,Roofing,7
+D10,5077,42988.0,1.0,Conveying,9
+UNK,3465,62529.0,5.25,Unclassified,8
+C20,1700,13179.0,2.0,Stairs,7
+G20,1552,14699.0,2.0,Site Improvements,7
+G40,1441,6225.0,2.0,Site Electrical Utilities,4
+F10,1073,10530.0,2.5,Special Construction,7
+G30,380,5563.0,4.0,Site Mechanical Utilities,6
+F20,292,2970.0,4.5,"Selective Building Demolition 
+",5
+B10,121,1827.0,6.0,Superstructure,5
+G10,55,502.0,2.0,Site Preparation,3
+A10,30,395.0,5.0,Foundations,4
+G90,2,16.0,8.0,Other Site Construction,1

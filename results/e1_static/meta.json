@@ -1,0 +1,34 @@
+{
+  "experiment": "e1_static",
+  "start_time": "2026-07-05T02:58:22",
+  "end_time": "2026-07-05T04:14:17",
+  "elapsed_seconds": 4555.067,
+  "workers": 8,
+  "cpsat_workers": 2,
+  "seed": 301,
+  "ga_budget_s": 60.0,
+  "methods": [
+    "edd",
+    "wspt",
+    "atc",
+    "pfifo",
+    "mor",
+    "random",
+    "ga",
+    "cpsat60",
+    "cpsat300"
+  ],
+  "n_test_target": 3501,
+  "n_pending_this_run": 3501,
+  "n_completed_this_run": 3501,
+  "n_errors_this_run": 0,
+  "n_instances_in_results": 3501,
+  "n_rows": 31509,
+  "n_infeasible": 0,
+  "filters": {
+    "campus": null,
+    "size": null,
+    "limit": null
+  },
+  "git_describe": "benchmark-v0-2-ged58bea-dirty"
+}

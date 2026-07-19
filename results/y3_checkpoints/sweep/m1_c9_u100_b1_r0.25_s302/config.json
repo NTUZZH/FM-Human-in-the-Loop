@@ -1,0 +1,47 @@
+{
+  "cell": {
+    "beta": 1.0,
+    "rho": 0.25,
+    "eps": 0.0,
+    "theta": 1.0,
+    "mechanism": "targeted",
+    "family": "F-NL",
+    "master_seed": 12345,
+    "channel": "full_class_shift",
+    "regime": "storm2",
+    "campus": 9,
+    "u": 100
+  },
+  "seed": 302,
+  "outer_iters": 8,
+  "updates_per_iter": 75,
+  "n_envs": 16,
+  "steps_per_env": 512,
+  "configured_env_steps": 4915200,
+  "y1_budget": 4915200,
+  "budget_frac": 1.0,
+  "fair_compute_ok": true,
+  "gate": 1.0,
+  "channel": "full_class_shift",
+  "deadline_head": true,
+  "override_weight": 5.0,
+  "confirm_weight": 1.0,
+  "il_coef": 1.0,
+  "buffer_capacity": 60000,
+  "head_epochs": 30,
+  "ppo": {
+    "gamma": 1.0,
+    "lam": 0.98,
+    "clip": 0.2,
+    "epochs": 4,
+    "ent_coef": 0.01,
+    "val_coef": 0.5,
+    "lr": 0.0003,
+    "minibatch": 1024
+  },
+  "y1_config_ref": {
+    "updates": 600,
+    "n_envs": 16,
+    "steps_per_env": 512
+  }
+}

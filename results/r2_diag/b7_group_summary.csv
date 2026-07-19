@@ -1,0 +1,4 @@
+group,n,pct_of_raw,pct_missing_campus,pct_missing_woid,pct_missing_start,pct_missing_ppm,pct_missing_priority,pct_missing_systemcode,pct_missing_laborhours,pm_share_of_nonmissing
+retained,1906865,51.1,0.0,0.0,0.0,0.64,20.65,0.64,0.0,0.6039
+R2_missing_key,1362908,36.52,0.0,0.5,100.0,1.1,35.52,2.57,0.99,0.5764
+R3_zero_hours,461669,12.37,0.0,0.0,0.0,2.25,15.45,2.3,45.01,0.6725

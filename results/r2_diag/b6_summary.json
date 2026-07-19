@@ -1,0 +1,20 @@
+{
+  "cell": "c12/400 baseline",
+  "n_base_instances": 30,
+  "best_mean_wwt": 1431.2891133333333,
+  "top_tier_methods": [
+    "v2rl302",
+    "edd",
+    "pfifo",
+    "random",
+    "v2rl301",
+    "atc",
+    "wspt",
+    "v2rl303",
+    "mor"
+  ],
+  "top_tier_spread_abs": 20.16115333333346,
+  "top_tier_spread_pct_of_best": 1.4086010398262647,
+  "top_tier_spread_pct_of_mean": 1.3983757351265966,
+  "full_spread_all_methods_abs": 20.16115333333346
+}

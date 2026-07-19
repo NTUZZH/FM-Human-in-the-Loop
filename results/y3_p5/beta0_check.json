@@ -1,0 +1,119 @@
+{
+ "note": "beta=0 overload mechanism check; F-NL, master_seed 12345. Clip asymmetry: c*=clip(c-s,1,4) bounds class 4 to more-urgent-only and class 1 to less-urgent-only, a class-level constant bias present at every beta. Recoverable per-order share is 0 at beta=0.",
+ "clip_asymmetry_synthetic": {
+  "1": {
+   "E_cstar_minus_c": 0.3744805,
+   "E_s_effective": -0.3744805
+  },
+  "2": {
+   "E_cstar_minus_c": 0.065645,
+   "E_s_effective": -0.065645
+  },
+  "3": {
+   "E_cstar_minus_c": -0.067771,
+   "E_s_effective": 0.067771
+  },
+  "4": {
+   "E_cstar_minus_c": -0.375691,
+   "E_s_effective": 0.375691
+  }
+ },
+ "clip_asymmetry_empirical_c10_beta0": {
+  "1": {
+   "n": 4644,
+   "E_cstar_minus_c": 0.37962962962962965,
+   "E_s": 0.002583979328165375
+  },
+  "2": {
+   "n": 21649,
+   "E_cstar_minus_c": 0.08259041988082591,
+   "E_s": -0.01658275209016583
+  },
+  "3": {
+   "n": 49167,
+   "E_cstar_minus_c": -0.06736225517115138,
+   "E_s": 0.0010779587934997051
+  },
+  "4": {
+   "n": 289920,
+   "E_cstar_minus_c": -0.3754794426048565,
+   "E_s": 0.0010382174392935982
+  }
+ },
+ "clip_asymmetry_empirical_c9_beta0": {
+  "1": {
+   "n": 2639,
+   "E_cstar_minus_c": 0.38385752178855626,
+   "E_s": 0.01818870784388026
+  },
+  "2": {
+   "n": 13617,
+   "E_cstar_minus_c": 0.0752001175001836,
+   "E_s": -0.010207828449731953
+  },
+  "3": {
+   "n": 301,
+   "E_cstar_minus_c": -0.09634551495016612,
+   "E_s": 0.03322259136212625
+  },
+  "4": {
+   "n": 72248,
+   "E_cstar_minus_c": -0.37577510796146607,
+   "E_s": 0.0017716753404938546
+  }
+ },
+ "hat_s_c9_u130_beta0_seed301": {
+  "overall_mean_hat_s": 0.04078713969474541,
+  "overall_std_hat_s": 0.20196575983521853,
+  "final_pearson_r": -0.012241217857495627,
+  "final_sign_acc": 0.49857588498575883,
+  "E_hat_s_by_recorded_class": {
+   "1": {
+    "n": 859,
+    "E_hat_s": 0.01778646106197476,
+    "std_hat_s": 0.22526244473004117
+   },
+   "2": {
+    "n": 4468,
+    "E_hat_s": 0.047317824531146455,
+    "std_hat_s": 0.19476948196447386
+   },
+   "3": {
+    "n": 101,
+    "E_hat_s": -0.03889782726764679,
+    "std_hat_s": 0.26354437805614134
+   },
+   "4": {
+    "n": 24254,
+    "E_hat_s": 0.040730516653585666,
+    "std_hat_s": 0.2019683097594482
+   }
+  }
+ },
+ "pooled_twt": {
+  "c10_u130_b0": {
+   "n_rows": 30,
+   "rule_sum": 965195.4888000002,
+   "m0_sum": 645169.8274000001,
+   "pct_below_rule": 33.156564148251334
+  },
+  "c10_u110_b0": {
+   "n_rows": 30,
+   "rule_sum": 250042.7508,
+   "m0_sum": 185946.22980000003,
+   "pct_below_rule": 25.634224865518465
+  },
+  "c9_u130_b0": {
+   "n_rows": 30,
+   "rule_sum": 183166.5084,
+   "m0_sum": 156290.1676,
+   "pct_below_rule": 14.673174170742673
+  },
+  "c9_u100_b0": {
+   "n_rows": 30,
+   "rule_sum": 53016.23639999999,
+   "m0_sum": 53589.76240000001,
+   "pct_below_rule": -1.0817931240400536
+  }
+ }
+}
