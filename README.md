@@ -189,9 +189,14 @@ python scripts/y3_figs_f4.py && python scripts/y3_figs_f5.py
 - `results/y3_checkpoints/`: the trained models (final weights, config, and
   training metrics) for the sweep, the pilots, and the insurance runs.
 
-Each experiment directory carries a `RUN_PLAN.md` written before the runs were
-launched, stating each run's purpose, the expected result, what the opposite
-outcome would mean, and the contamination and data-accuracy checks performed.
+- `results/y3_w7/`: leave-one-campus-out transfer, holding each campus out in
+  turn and scoring a layer fitted on the others against one fitted natively.
+
+Each experiment directory carries a `RUN_PLAN.md` stating each run's purpose, the
+expected result, what the opposite outcome would mean, and the contamination and
+data-accuracy checks performed. Most were written before their runs were
+launched; where a plan was recorded afterwards, or where a run was added after
+seeing a first result, the file says so and labels which parts were which.
 
 ## Practitioner pilot (instrument released, responses pending)
 
