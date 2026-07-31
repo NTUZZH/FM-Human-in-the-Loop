@@ -1,0 +1,182 @@
+{
+  "generated_utc": "2026-07-30T18:52:35+00:00",
+  "script": "scripts/y3_calib_overrides.py",
+  "raw_path": "/home/ziheng/PaperY-FMScheduling/data/raw/FMUCD.csv",
+  "raw_sha256": "4464648252c4bdca2a6deba9d467e94aec7568d675f51e06d6d343b3c09f006a",
+  "seed": 301,
+  "window_days": 30,
+  "n_folds": 5,
+  "cleaning": {
+    "rows_raw": 3731442,
+    "rows_post_r2_r3": 1906865,
+    "unparseable_wostartdate": 1362858,
+    "unparseable_woenddate": 25292,
+    "rows_in": 1906865,
+    "R2_dropped_missing_key": 0,
+    "R3_dropped_zero_hours": 0,
+    "R7_rows_before_dedup": 1906865,
+    "R7_work_orders_after_dedup": 1454039,
+    "R4_labor_cap_hours": 90.86480000000446,
+    "R4_rows_capped": 7271,
+    "rows_out": 1454039,
+    "pm_share": 0.6157447779477426
+  },
+  "data_checks": {
+    "D1_raw_sha256": {
+      "value": "4464648252c4bdca2a6deba9d467e94aec7568d675f51e06d6d343b3c09f006a",
+      "expected": "4464648252c4bdca2a6deba9d467e94aec7568d675f51e06d6d343b3c09f006a",
+      "passed": true
+    },
+    "D2_rows_raw": {
+      "value": 3731442,
+      "expected": 3731442,
+      "passed": true
+    },
+    "D3_rows_post_r2_r3": {
+      "value": 1906865,
+      "expected": 1906865,
+      "passed": true
+    },
+    "D3b_work_orders_after_r7": {
+      "value": 1454039,
+      "expected": 1454039,
+      "passed": true
+    },
+    "D4_labor_cap_p995_hours": {
+      "value": 90.8648,
+      "expected": 90.86,
+      "passed": true
+    },
+    "D5_priority_mapping_vs_committed": {
+      "n_rows": 77,
+      "unmatched_keys": 0,
+      "mapped_class_mismatches": 0,
+      "rule_mismatches": 0,
+      "row_count_mismatches": 2,
+      "max_abs_row_count_delta": 1,
+      "passed": true,
+      "note": "R7 picks the dominant labour line by max LaborHours with a non-stable sort, so a single campus-9 work order with tied hours falls on the other side of the pm/cm split than in the committed run. No mapped class, rule or campus total changes."
+    },
+    "D6_per_campus_rows": {
+      "value": {
+        "1": 125637,
+        "2": 40567,
+        "5": 393669,
+        "9": 144114,
+        "10": 608217,
+        "12": 137058
+      },
+      "expected": {
+        "1": 125637,
+        "2": 40567,
+        "5": 393669,
+        "9": 144114,
+        "10": 608217,
+        "12": 137058
+      },
+      "passed": true
+    },
+    "D7_date_parsing": {
+      "unparseable_wostartdate": 1362858,
+      "unparseable_woenddate": 25292,
+      "work_orders_with_end_before_start": 7774,
+      "note": "every unparseable WOStartDate is a date-only value on campuses 3,4,6,7,8,11; those campuses are dropped by inherited rule R2, which is why the pipeline's campus set has six members."
+    },
+    "D8_campus_set": {
+      "analysed_set": [
+        1,
+        2,
+        5,
+        9,
+        10,
+        12
+      ],
+      "present_but_outside": [
+        3,
+        4,
+        6,
+        8,
+        11
+      ],
+      "rows_outside": 4777,
+      "note": "the inherited set is docs/decision_log.md 2026-07-04 'Campus set': the six timestamp-complete campuses. The residue outside it is the handful of rows on other campuses whose start timestamp happened to carry a time component."
+    }
+  },
+  "inherited_filters": "fmwos.io.clean R1/R2/R3/R4/R6/R7 and fmwos.calib priority mapping v2 R5a-R5d, campus set {1,2,5,9,10,12}; reconstruction asserted against results/p1_calib/priority_mapping.csv and results/y3_p6/priority_reliability.csv",
+  "candidate_set_variants": {
+    "all": {
+      "match_on": [],
+      "backlog_window_days": null
+    },
+    "trade": {
+      "match_on": [
+        "trade"
+      ],
+      "backlog_window_days": null
+    },
+    "bldg": {
+      "match_on": [
+        "bldg"
+      ],
+      "backlog_window_days": null
+    },
+    "trade_bldg": {
+      "match_on": [
+        "trade",
+        "bldg"
+      ],
+      "backlog_window_days": null
+    },
+    "trade_w30": {
+      "match_on": [
+        "trade"
+      ],
+      "backlog_window_days": 30
+    },
+    "trade_bldg_w30": {
+      "match_on": [
+        "trade",
+        "bldg"
+      ],
+      "backlog_window_days": 30
+    },
+    "trade_size_w30": {
+      "match_on": [
+        "trade",
+        "sizeq"
+      ],
+      "backlog_window_days": 30
+    }
+  },
+  "predictability_labels": [
+    [
+      "cm",
+      "trade_w30"
+    ],
+    [
+      "cm",
+      "trade"
+    ],
+    [
+      "cm",
+      "trade_bldg_w30"
+    ],
+    [
+      "all",
+      "trade_w30"
+    ],
+    [
+      "all",
+      "trade"
+    ]
+  ],
+  "primary_label": [
+    "cm",
+    "trade_w30"
+  ],
+  "cv": "5 contiguous blocks of the campus closure-event timeline; random 5-fold reported as a robustness column only",
+  "beta_hat_definition": "1 - SS_res(class + observable features) / SS_res(class only), both out of sample on pooled held-out probabilities: the share of the class-residual variation of the deviation indicator that observable features recover. It is the empirical analogue of the paper's beta, not a measurement of it. It is a LOWER bound on the recoverable share of the underlying propensity for two reasons: the outcome is binary, so its residual sum of squares retains irreducible Bernoulli noise that no model can remove, and f is restricted to a linear logistic model over about thirty coded features.",
+  "epsilon_note": "FMUCD records no review, reassignment, reopen or re-prioritisation event, so the supervisor's override noise epsilon is not identifiable. unexplained_share_upper = 1 - beta_hat is an upper bound on the noise share of the departure process.",
+  "honest_framing": "A departure from the recorded priority order is not evidence of hidden urgency. It is consistent with hidden urgency and equally consistent with trade eligibility, crew availability, travel, batching, parts lead time and access windows, none of which this corpus records. Every rate here is an upper bound on how often the recorded priority failed to determine the order of service.",
+  "runtime_seconds": 296.8
+}

@@ -1,0 +1,90 @@
+% ------------------------------------------------------------------
+% W3: censoring-aware ordinal shift likelihood (Paper Y3).
+% Every number below is read from results/y3_w3/ by
+% scripts/y3_w3_macros.py; the comment on each line names the exact
+% file and field. Macro names contain no digits by construction.
+% TWT* is scored by the independent validator
+% hitl.true_objective.score_true; pooling matches
+% y3_beta0_check.pooled_twt and contrasts match y3_p4_m0grid._contrast
+% (seed-averaged per-instance paired Wilcoxon, zero_method='pratt',
+% Holm-corrected within the cell's contrast family).
+% ------------------------------------------------------------------
+
+% --- Reproduction of the published pipeline through the W3 code path.
+\newcommand{\CensReproMzeroGain}{45.4\%}      % pilot.json published.MzeroGain_pct_allseeds 45.3620 (== macro MzeroGain 45.3620)
+\newcommand{\CensReproSeedThreeOhOne}{45.1911\%} % pilot.json rungs.mse_published.pct_below_rule_seed301 (published seed-301 value 45.1911, difference +0.000000 pp)
+\newcommand{\CensReproMaxDeltaTWT}{$<10^{-12}$}  % pilot.json rungs.mse_published.max_abs_dTWT_vs_published_m0 = 9.09e-13 per-instance TWT*, far below the source CSV's six-decimal precision
+\newcommand{\CensReexpressionMaxDeltaTWT}{0}  % pilot.json reexpression_bit_exact.max_abs_dTWT -- the re-expressed outer loop with censoring off reproduces the shipped pipeline exactly
+\newcommand{\CensParams}{1761}                 % summary.json cells.*.variants.tobit.n_params_estimator -- the incumbent's count, asserted before every fit and on mismatch the run aborts
+\newcommand{\CensParamsFittedScale}{1762}      % summary.json cells.c9_u130_b0.variants.tobit_sig.n_params_total -- 1761 plus the one fitted scale
+
+% --- The beta = 0 fitted shift (C9, u130, seeds 301-303; the raw
+%     estimator output and the correction the corrected class applies,
+%     clip(hat_s, c-4, c-1), which differ at the boundary classes).
+\newcommand{\CensBetaZeroHatSIncumbent}{0.021}   % summary.json cells.c9_u130_b0.variants.mse_published.mean_hat_s 0.0206
+\newcommand{\CensBetaZeroAppliedIncumbent}{0.064} % summary.json cells.c9_u130_b0.variants.mse_published.mean_applied_shift 0.0637
+\newcommand{\CensBetaZeroHatSCensored}{-0.83}   % summary.json cells.c9_u130_b0.variants.tobit.mean_hat_s -0.8278 (a Tobit LOCATION under left censoring sits below the censoring point; the deployed number is the applied shift below)
+\newcommand{\CensBetaZeroAppliedCensored}{-0.038} % summary.json cells.c9_u130_b0.variants.tobit.mean_applied_shift -0.0384
+\newcommand{\CensBetaZeroAppliedCensoredAnchored}{0.093} % summary.json cells.c9_u130_b0.variants.tobit_imp.mean_applied_shift 0.0934
+\newcommand{\CensBetaZeroPearsonIncumbent}{-0.003} % summary.json cells.c9_u130_b0.variants.mse_published.pearson_r -0.0033 (unrecoverable at beta=0)
+\newcommand{\CensBetaZeroPearsonCensored}{0.001} % summary.json cells.c9_u130_b0.variants.tobit.pearson_r 0.0007
+\newcommand{\CensBetaZeroTrueEffectiveShift}{0.283} % summary.json cells.c9_u130_b0.variants.mse_published.mean_true_effective_shift 0.2828 -- the clip's own class-level bias E[c - c*] over the held-out orders
+
+% --- Rank agreement with the TRUE urgency ordering at beta = 0,
+%     Kendall tau-b at a common RULE(ATC) reference trajectory.
+\newcommand{\CensBetaZeroKendallRule}{0.547}     % summary.json cells.c9_u130_b0.variants.mse_published.kendall_recorded_field_floor 0.5474 -- the recorded-field rule, hat_s == 0
+\newcommand{\CensBetaZeroKendallIncumbent}{0.385} % summary.json cells.c9_u130_b0.variants.mse_published.kendall_tau 0.3846 -- BELOW the rule's own
+\newcommand{\CensBetaZeroKendallCensored}{0.430} % summary.json cells.c9_u130_b0.variants.tobit.kendall_tau 0.4297
+
+% --- The beta = 0 regime-map cells, before and after the censored
+%     likelihood (pooled over seeds 301-303 and the held-out instances).
+\newcommand{\CensOverloadCnineBefore}{14.7\%}  % summary.json cells.c9_u130_b0.variants.mse_published.pooled_pct_below_rule 14.6732 (C9 u130, extreme overload); the published value for the same cell-seeds is 14.6732
+\newcommand{\CensOverloadCnineAfter}{2.3\%}   % summary.json cells.c9_u130_b0.variants.tobit.pooled_pct_below_rule 2.2527; paired Wilcoxon vs the incumbent W/T/L 0/0/10, Holm p = 0.0098
+\newcommand{\CensOverloadCnineAnchored}{16.4\%} % summary.json cells.c9_u130_b0.variants.tobit_imp.pooled_pct_below_rule 16.3646 (censoring only the structurally impossible labels)
+\newcommand{\CensOverloadCnineClassMeanOracle}{-0.03\%} % summary.json cells.c9_u130_b0.variants.classmean_oracle.pooled_pct_below_rule -0.0342 -- the TRUE class-mean effective shift applied exactly (EVAL-ONLY reference)
+\newcommand{\CensBandCnineBefore}{-1.1\%}  % summary.json cells.c9_u100_b0.variants.mse_published.pooled_pct_below_rule -1.0818 (C9 u100, inside the realistic band); the published value for the same cell-seeds is -1.0818
+\newcommand{\CensBandCnineAfter}{-2.2\%}   % summary.json cells.c9_u100_b0.variants.tobit.pooled_pct_below_rule -2.2093; paired Wilcoxon vs the incumbent W/T/L 6/0/4, Holm p = 1.0000
+\newcommand{\CensBandCnineAnchored}{-1.9\%} % summary.json cells.c9_u100_b0.variants.tobit_imp.pooled_pct_below_rule -1.9244 (censoring only the structurally impossible labels)
+\newcommand{\CensBandCnineClassMeanOracle}{0.01\%} % summary.json cells.c9_u100_b0.variants.classmean_oracle.pooled_pct_below_rule 0.0117 -- the TRUE class-mean effective shift applied exactly (EVAL-ONLY reference)
+\newcommand{\CensOverloadCtenBefore}{33.2\%}  % summary.json cells.c10_u130_b0.variants.mse_published.pooled_pct_below_rule 33.1566 (C10 u130, extreme overload); the published value for the same cell-seeds is 33.1566
+\newcommand{\CensOverloadCtenAfter}{7.7\%}   % summary.json cells.c10_u130_b0.variants.tobit.pooled_pct_below_rule 7.7152; paired Wilcoxon vs the incumbent W/T/L 0/0/10, Holm p = 0.0078
+\newcommand{\CensOverloadCtenAnchored}{39.4\%} % summary.json cells.c10_u130_b0.variants.tobit_imp.pooled_pct_below_rule 39.3781 (censoring only the structurally impossible labels)
+\newcommand{\CensOverloadCtenClassMeanOracle}{-0.01\%} % summary.json cells.c10_u130_b0.variants.classmean_oracle.pooled_pct_below_rule -0.0118 -- the TRUE class-mean effective shift applied exactly (EVAL-ONLY reference)
+\newcommand{\CensBandCtenBefore}{12.9\%}  % summary.json cells.c10_u100_b0.variants.mse_published.pooled_pct_below_rule 12.8939 (C10 u100, inside the realistic band); the published value for the same cell-seeds is 12.8939
+\newcommand{\CensBandCtenAfter}{-2.4\%}   % summary.json cells.c10_u100_b0.variants.tobit.pooled_pct_below_rule -2.4420; paired Wilcoxon vs the incumbent W/T/L 0/0/10, Holm p = 0.0059
+\newcommand{\CensBandCtenAnchored}{15.0\%} % summary.json cells.c10_u100_b0.variants.tobit_imp.pooled_pct_below_rule 15.0277 (censoring only the structurally impossible labels)
+\newcommand{\CensBandCtenClassMeanOracle}{-0.02\%} % summary.json cells.c10_u100_b0.variants.classmean_oracle.pooled_pct_below_rule -0.0164 -- the TRUE class-mean effective shift applied exactly (EVAL-ONLY reference)
+
+% --- The headline cell (C9 storm2 u100, beta 1.0, rho 0.25,
+%     seeds 301-305, 10 held-out instances): is the realistic band
+%     unharmed?
+\newcommand{\CensHeadlineIncumbent}{44.5\%}  % summary.json cells.c9_u100_b1.variants.mse_published.pooled_pct_below_rule 44.5052 (published for the same cell-seeds 44.5052), seed sd 1.12
+\newcommand{\CensHeadlineCensored}{40.5\%}   % summary.json cells.c9_u100_b1.variants.tobit.pooled_pct_below_rule 40.5191, seed sd 4.83; vs the incumbent -3.99 pp, W/T/L 1/0/9, Holm p = 0.0410
+\newcommand{\CensHeadlineAnchored}{47.2\%}   % summary.json cells.c9_u100_b1.variants.tobit_imp.pooled_pct_below_rule 47.2211, seed sd 0.69; vs the incumbent +2.72 pp, W/T/L 7/0/3, Holm p = 0.0977
+\newcommand{\CensHeadlineExpectedShift}{47.3\%}   % summary.json cells.c9_u100_b1.variants.tobit_exp.pooled_pct_below_rule 47.2945, seed sd 1.21; vs the incumbent +2.79 pp, W/T/L 7/0/3, Holm p = 0.0977
+\newcommand{\CensHeadlineSignAccIncumbent}{0.702} % summary.json cells.c9_u100_b1.variants.mse_published.sign_acc_nonzero 0.7025
+\newcommand{\CensHeadlineSignAccAnchored}{0.734} % summary.json cells.c9_u100_b1.variants.tobit_imp.sign_acc_nonzero 0.7338
+\newcommand{\CensHeadlinePearsonIncumbent}{0.392} % summary.json cells.c9_u100_b1.variants.mse_published.pearson_r 0.3922
+\newcommand{\CensHeadlinePearsonAnchored}{0.265} % summary.json cells.c9_u100_b1.variants.tobit_imp.pearson_r 0.2646
+\newcommand{\CensHeadlineKendallIncumbent}{0.805} % summary.json cells.c9_u100_b1.variants.mse_published.kendall_tau 0.8047 (recorded-field floor 0.6681)
+\newcommand{\CensHeadlineKendallAnchored}{0.788} % summary.json cells.c9_u100_b1.variants.tobit_imp.kendall_tau 0.7884
+
+% --- The constant-correction diagnostic: a class-level constant
+%     shift changes nothing at the beta = 0 overload cell.
+\newcommand{\CensConstSweepMaxEffect}{0.13\%} % constsweep_c9_u130_b0.json curves.* -- the LARGEST absolute reduction over the whole grid [-0.40, 1.00] of uniform, class-four-only and true-class-mean constants (the +1.0 class-four-only point excluded; see the report)
+\newcommand{\CensConstSweepKendall}{0.547}     % constsweep_c9_u130_b0.json curves.uniform[*].kendall_tau -- unchanged at every constant, i.e. a constant reorders nothing
+
+% --- Where the beta = 0 reduction actually comes from: the fitted
+%     hat_s map degraded one way at a time, no refitting.
+\newcommand{\CensMechanismFitted}{14.7\%}  % mechanism_c9_u130_b0.json arms.fitted.pooled_pct_below_rule 14.6732 (W/T/L vs the tuned rule 10/0/0)
+\newcommand{\CensMechanismClassMean}{0.00\%}  % mechanism_c9_u130_b0.json arms.class_mean.pooled_pct_below_rule -0.0014 (W/T/L vs the tuned rule 1/8/1)
+\newcommand{\CensMechanismLevelOnly}{0.00\%}  % mechanism_c9_u130_b0.json arms.level_only.pooled_pct_below_rule -0.0010 (W/T/L vs the tuned rule 1/8/1)
+\newcommand{\CensMechanismCentred}{12.5\%}  % mechanism_c9_u130_b0.json arms.centred.pooled_pct_below_rule 12.5355 (W/T/L vs the tuned rule 10/0/0)
+\newcommand{\CensMechanismShuffled}{-4.6\%}  % mechanism_c9_u130_b0.json arms.shuffled.pooled_pct_below_rule -4.6477 (W/T/L vs the tuned rule 2/0/8)
+\newcommand{\CensMechanismGaussian}{-13.0\%}  % mechanism_c9_u130_b0.json arms.gaussian.pooled_pct_below_rule -13.0185 (W/T/L vs the tuned rule 1/0/9)
+
+% --- Reproduction caveat on the published BetaZeroHatSMean.
+% scripts/y3_beta0_check.py sets torch.set_num_threads(4) at import,
+% whereas every results/y3_p4 number was produced at one thread.
+\newcommand{\CensThreadOneHatS}{0.019}  % threadcheck.json mine.1.overall_mean_hat_s 0.0194 (published 0.0408, difference -0.0214)
+\newcommand{\CensThreadFourHatS}{0.041} % threadcheck.json mine.4.overall_mean_hat_s 0.0408 (published 0.0408, difference +0.0000)

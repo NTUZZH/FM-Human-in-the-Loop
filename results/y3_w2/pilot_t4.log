@@ -1,0 +1,21 @@
+config diff vs published task: NONE (16 fields checked)
+held-out instances match the published run: 10
+training rung (i) mse_published (torch threads=4) ...
+[M0 it0] reviews=6677 over=611 orr=0.092  sign_acc=0.673 exact_acc=0.370 (zero=0.375) r=0.494 n_agg=7288
+[M0 it1] reviews=6639 over=214 orr=0.032  sign_acc=0.677 exact_acc=0.370 (zero=0.375) r=0.497 n_agg=14141
+[M0 it2] reviews=6611 over=156 orr=0.024  sign_acc=0.713 exact_acc=0.372 (zero=0.375) r=0.455 n_agg=20908
+[M0 it3] reviews=6575 over=160 orr=0.024  sign_acc=0.746 exact_acc=0.370 (zero=0.375) r=0.495 n_agg=27643
+[M0 it4] reviews=6529 over=101 orr=0.015  sign_acc=0.654 exact_acc=0.372 (zero=0.375) r=0.454 n_agg=34273
+[M0 it5] reviews=6657 over=204 orr=0.031  sign_acc=0.618 exact_acc=0.371 (zero=0.375) r=0.445 n_agg=41134
+[M0 it6] reviews=6612 over=155 orr=0.023  sign_acc=0.777 exact_acc=0.370 (zero=0.375) r=0.491 n_agg=47901
+[M0 it7] reviews=6571 over=104 orr=0.016  sign_acc=0.775 exact_acc=0.370 (zero=0.375) r=0.427 n_agg=54576
+
+published (macro)      : \newcommand{\MzeroGain}{45.4\%}     % m0_alone pct_below_rule 45.3620
+published 10-seed mean : 45.3620 %
+published seed 301     : 45.1911 %
+mine     seed 301      : 46.7514 %
+difference             : +1.560299 pct points
+max |dTWT*| m0_alone   : 396.75   over 10 instances
+max |dTWT*| rule       : 1.818989404e-12
+elapsed (upper bound, contended box): 49.2 s
+FIDELITY: MISMATCH -- do not proceed

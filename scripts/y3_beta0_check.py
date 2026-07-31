@@ -1,4 +1,4 @@
-"""Verify the beta=0 overload mechanism (F3/boundary item).
+"""Verify the beta=0 overload mechanism (R2 F3/boundary item).
 
 Claim to test: at beta=0 the per-order latent is unrecoverable (recoverable
 share is 0), yet the clip at the class boundaries, c*=clip(c-s,1,4), leaves a
@@ -106,7 +106,7 @@ def train_hat_s(campus, u, beta=0.0, rho=0.25, seed=301, n_train=16, n_probe=4, 
 
 
 def pooled_twt(campus, u, beta):
-    """Sum RULE and M0 TWT* over the e3_map rows for this cell."""
+    """Sum RULE and M0 TWT* over the e3_map rows for this cell (matches decisions.md)."""
     rows = list(csv.DictReader(open(os.path.join(ROOT, "results", "y3_p4", "e3_map.csv"))))
     rule = m0 = 0.0
     n = 0

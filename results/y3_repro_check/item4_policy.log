@@ -1,0 +1,8 @@
+[item4 M1] seed 301 nparam=14276 gate=1.0  max|d|_alone=2.274e-12 max|d|_sup=2.274e-12
+[item4 M1] seed 302 nparam=14276 gate=1.0  max|d|_alone=1.819e-12 max|d|_sup=1.819e-12
+[item4 M1] seed 303 nparam=14276 gate=1.0  max|d|_alone=3.183e-12 max|d|_sup=1.364e-12
+[item4 PI0] seed 301 nparam=12323 gate=0.0  |d|_aloneMean=0.000e+00 |d|_supMean=0.000e+00
+[item4 PI0] seed 302 nparam=12323 gate=0.0  |d|_aloneMean=0.000e+00 |d|_supMean=0.000e+00
+[item4 PI0] seed 303 nparam=12323 gate=0.0  |d|_aloneMean=0.000e+00 |d|_supMean=0.000e+00
+
+[item4] M1 max|d| (per-instance) = 3.183e-12 ; PI-0 max|d| (per-seed mean) = 0.000e+00 -> PASS

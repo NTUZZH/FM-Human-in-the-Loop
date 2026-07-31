@@ -123,7 +123,7 @@ def _load(p):
 
 def _utilization(inst):
     """Pooled + worst-trade utilization over the fixed storm2 window (copied from
-    the storm2 contention scan). util_g = sum p_bh in trade g / (k_g * H)."""
+    scripts/y3_cont_storm2-util.py). util_g = sum p_bh in trade g / (k_g * H)."""
     kg = defaultdict(int)
     for t in inst["technicians"]:
         kg[t["trade"]] += 1

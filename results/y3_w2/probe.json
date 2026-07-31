@@ -1,0 +1,29 @@
+{
+ "log_entry_keys_with_wrapper": [
+  "cand_ids",
+  "confirmation",
+  "decider_pick",
+  "executed_pick",
+  "executed_shift",
+  "improvement",
+  "margin",
+  "noise",
+  "now",
+  "override",
+  "preferred_pick",
+  "reviewed"
+ ],
+ "n_instances_probed": 4,
+ "n_reviewed": 1619,
+ "n_overrides": 80,
+ "n_confirmations": 1539,
+ "queue_size_at_reviewed": {
+  "mean": 50.03520691785052,
+  "median": 31.0,
+  "p90": 129.20000000000005,
+  "p99": 164.81999999999994,
+  "max": 176,
+  "min": 2,
+  "frac_gt_64": 0.30203829524397774
+ }
+}

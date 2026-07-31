@@ -1,0 +1,18 @@
+
+=== seed 303  variant choice_tol ===
+/home/ziheng/PaperY3/fm-hitl/src/fmwos/hitl/choice_estimator.py:768: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  best, best_ll = float(model.tau()), -np.inf
+[choice_tol it0] rev=6669 over=561 orr=0.084 sign=0.605 r=-0.095 ep=36/40 val=2.8045
+[choice_tol it1] rev=6676 over=342 orr=0.051 sign=0.605 r=-0.148 ep=3/12 val=2.4342
+[choice_tol it2] rev=6677 over=310 orr=0.046 sign=0.605 r=-0.140 ep=4/13 val=2.1556
+[choice_tol it3] rev=6687 over=274 orr=0.041 sign=0.605 r=-0.126 ep=11/20 val=2.1705
+[choice_tol it4] rev=6677 over=288 orr=0.043 sign=0.605 r=-0.126 ep=8/17 val=2.1328
+[choice_tol it5] rev=6676 over=258 orr=0.039 sign=0.605 r=-0.127 ep=0/9 val=2.0865
+[choice_tol it6] rev=6672 over=256 orr=0.038 sign=0.604 r=-0.136 ep=15/24 val=2.0139
+[choice_tol it7] rev=6676 over=271 orr=0.041 sign=0.598 r=-0.170 ep=2/11 val=2.0151
+  -> pearson -0.1698  sign 0.5983  kendall 0.6602  llhold -2.3306  TWT* 2328.47 (rule 3644.83, +36.116%) p=0.001953
+
+[seed 303 written to /home/ziheng/PaperY3/fm-hitl/results/y3_w2/choice_tol_s303.json]
+
+DONE. /home/ziheng/PaperY3/fm-hitl/results/y3_w2/choice_tol_s303.json

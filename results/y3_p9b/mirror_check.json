@@ -1,0 +1,45 @@
+{
+ "PASS": true,
+ "cells": {
+  "c9_storm2_u100_b0.20_r0.25_eps0.00": {
+   "PASS": true,
+   "max_abs_diff": 0.0,
+   "max_abs_diff_per_decider": {
+    "m0_alone": 0.0,
+    "m0_sup": 0.0,
+    "oracle": 0.0,
+    "rule": 0.0,
+    "rule_sup": 0.0
+   },
+   "n_bit_exact": 500,
+   "n_compared": 500
+  },
+  "c9_storm2_u100_b0.20_r0.25_eps0.25": {
+   "PASS": true,
+   "max_abs_diff": 0.0,
+   "max_abs_diff_per_decider": {
+    "m0_alone": 0.0,
+    "m0_sup": 0.0,
+    "oracle": 0.0,
+    "rule": 0.0,
+    "rule_sup": 0.0
+   },
+   "n_bit_exact": 500,
+   "n_compared": 500
+  },
+  "c9_storm2_u100_b0.25_r0.25_eps0.00": {
+   "PASS": true,
+   "max_abs_diff": 0.0,
+   "max_abs_diff_per_decider": {
+    "m0_alone": 0.0,
+    "m0_sup": 0.0,
+    "oracle": 0.0,
+    "rule": 0.0,
+    "rule_sup": 0.0
+   },
+   "n_bit_exact": 500,
+   "n_compared": 500
+  }
+ },
+ "gate": "per-cell bit-exact mirror of results/y3_p9/cache under the published review policy"
+}

@@ -1,0 +1,504 @@
+{
+  "boundary_statement": "The pilot asks practitioners to rank pairs of real work orders drawn from the same corpus the study models; it does not place a practitioner inside the dispatch loop. It therefore grounds two premises of the supervisor model, that an urgency ordering exists which practitioners share beyond the recorded priority class and that it is partly predictable from the observable order attributes the estimator reads, and it grounds nothing else. It does not validate the correction loop, the dispatching results, or any reported reduction in true weighted tardiness, every one of which is measured against a simulated supervisor.",
+  "preregistration": "results/y3_w8/selftest/PREREGISTRATION.md",
+  "inputs": {
+    "manifest": "/home/ziheng/PaperY3/fm-hitl/pilot/y3_w8_manifest.csv",
+    "responses_dir": "results/y3_w8/selftest/responses/R5_beta0.50_q0.50",
+    "load": {
+      "files": [
+        {
+          "file": "SYNTHETIC_R5_beta0.50_q0.50_R1.csv",
+          "rows": 56,
+          "used": 56
+        },
+        {
+          "file": "SYNTHETIC_R5_beta0.50_q0.50_R2.csv",
+          "rows": 56,
+          "used": 56
+        },
+        {
+          "file": "SYNTHETIC_R5_beta0.50_q0.50_R3.csv",
+          "rows": 56,
+          "used": 56
+        },
+        {
+          "file": "SYNTHETIC_R5_beta0.50_q0.50_R4.csv",
+          "rows": 56,
+          "used": 56
+        },
+        {
+          "file": "SYNTHETIC_R5_beta0.50_q0.50_R5.csv",
+          "rows": 56,
+          "used": 56
+        }
+      ],
+      "rows_read": 280,
+      "rows_blank": 0,
+      "rows_unknown_item": 0,
+      "rows_side_conflict": 0,
+      "rows_bad_choice": 0,
+      "duplicates_overwritten": 0,
+      "raters": [
+        "SYNTHETIC-R1",
+        "SYNTHETIC-R2",
+        "SYNTHETIC-R3",
+        "SYNTHETIC-R4",
+        "SYNTHETIC-R5"
+      ],
+      "rater_meta": {
+        "SYNTHETIC-R1": {
+          "role": "SYNTHETIC FIXTURE",
+          "years": "",
+          "source": "SYNTHETIC_R5_beta0.50_q0.50_R1.csv"
+        },
+        "SYNTHETIC-R2": {
+          "role": "SYNTHETIC FIXTURE",
+          "years": "",
+          "source": "SYNTHETIC_R5_beta0.50_q0.50_R2.csv"
+        },
+        "SYNTHETIC-R3": {
+          "role": "SYNTHETIC FIXTURE",
+          "years": "",
+          "source": "SYNTHETIC_R5_beta0.50_q0.50_R3.csv"
+        },
+        "SYNTHETIC-R4": {
+          "role": "SYNTHETIC FIXTURE",
+          "years": "",
+          "source": "SYNTHETIC_R5_beta0.50_q0.50_R4.csv"
+        },
+        "SYNTHETIC-R5": {
+          "role": "SYNTHETIC FIXTURE",
+          "years": "",
+          "source": "SYNTHETIC_R5_beta0.50_q0.50_R5.csv"
+        }
+      },
+      "answers_per_rater": {
+        "SYNTHETIC-R1": 56,
+        "SYNTHETIC-R2": 56,
+        "SYNTHETIC-R3": 56,
+        "SYNTHETIC-R4": 56,
+        "SYNTHETIC-R5": 56
+      }
+    }
+  },
+  "design": {
+    "n_items": 56,
+    "n_unique_pairs": 50,
+    "n_repeat_pairs": 6,
+    "strata": {
+      "S1_equal_class": 18,
+      "S2_one_apart": 14,
+      "S3_class_vs_attributes": 12,
+      "S4_far_apart": 6
+    },
+    "campuses": [
+      1,
+      2,
+      5,
+      9,
+      10,
+      12
+    ]
+  },
+  "n_raters": 5,
+  "agreement": {
+    "computable": true,
+    "n_raters": 5,
+    "n_pairs": 50,
+    "krippendorff_alpha": 0.0036111653328128046,
+    "ci95": [
+      -0.0840750773993808,
+      0.09272128318251764
+    ],
+    "permutation_p": 0.4433556644335566,
+    "permutation_resamples": 10000,
+    "fleiss_kappa": -0.00039039625219591784,
+    "mean_pairwise_cohen_kappa": 0.005366574167086559,
+    "mean_pairwise_percent_agreement": 0.5080000000000001,
+    "mean_pairwise_percent_agreement_ci95": [
+      0.46399999999999997,
+      0.5560999999999995
+    ],
+    "pairwise": [
+      {
+        "rater_a": "SYNTHETIC-R1",
+        "rater_b": "SYNTHETIC-R2",
+        "n": 50,
+        "percent_agreement": 0.44,
+        "cohen_kappa": -0.17056856187290959
+      },
+      {
+        "rater_a": "SYNTHETIC-R1",
+        "rater_b": "SYNTHETIC-R3",
+        "n": 50,
+        "percent_agreement": 0.46,
+        "cohen_kappa": -0.0904684975767367
+      },
+      {
+        "rater_a": "SYNTHETIC-R1",
+        "rater_b": "SYNTHETIC-R4",
+        "n": 50,
+        "percent_agreement": 0.5,
+        "cohen_kappa": -0.02965403624382201
+      },
+      {
+        "rater_a": "SYNTHETIC-R1",
+        "rater_b": "SYNTHETIC-R5",
+        "n": 50,
+        "percent_agreement": 0.54,
+        "cohen_kappa": 0.0973312401883831
+      },
+      {
+        "rater_a": "SYNTHETIC-R2",
+        "rater_b": "SYNTHETIC-R3",
+        "n": 50,
+        "percent_agreement": 0.58,
+        "cohen_kappa": 0.13509060955518942
+      },
+      {
+        "rater_a": "SYNTHETIC-R2",
+        "rater_b": "SYNTHETIC-R4",
+        "n": 50,
+        "percent_agreement": 0.54,
+        "cohen_kappa": -0.007005253940455299
+      },
+      {
+        "rater_a": "SYNTHETIC-R2",
+        "rater_b": "SYNTHETIC-R5",
+        "n": 50,
+        "percent_agreement": 0.58,
+        "cohen_kappa": 0.20574886535552186
+      },
+      {
+        "rater_a": "SYNTHETIC-R3",
+        "rater_b": "SYNTHETIC-R4",
+        "n": 50,
+        "percent_agreement": 0.48,
+        "cohen_kappa": -0.06035889070146834
+      },
+      {
+        "rater_a": "SYNTHETIC-R3",
+        "rater_b": "SYNTHETIC-R5",
+        "n": 50,
+        "percent_agreement": 0.52,
+        "cohen_kappa": 0.05213270142180102
+      },
+      {
+        "rater_a": "SYNTHETIC-R4",
+        "rater_b": "SYNTHETIC-R5",
+        "n": 50,
+        "percent_agreement": 0.44,
+        "cohen_kappa": -0.07858243451463791
+      }
+    ],
+    "per_stratum": {
+      "S1_equal_class": {
+        "computable": true,
+        "n_pairs": 18,
+        "krippendorff_alpha": 0.1603773584905661,
+        "ci95": [
+          -0.030980603448276023,
+          0.34200916024237366
+        ],
+        "note": "a stratum holds few pairs; the interval is wide by design and is reported, not smoothed"
+      },
+      "S2_one_apart": {
+        "computable": true,
+        "n_pairs": 14,
+        "krippendorff_alpha": -0.13022113022113024,
+        "ci95": [
+          -0.19161184210526327,
+          -0.078125
+        ],
+        "note": "a stratum holds few pairs; the interval is wide by design and is reported, not smoothed"
+      },
+      "S3_class_vs_attributes": {
+        "computable": true,
+        "n_pairs": 12,
+        "krippendorff_alpha": -0.011428571428571344,
+        "ci95": [
+          -0.15881032547699236,
+          0.15311004784688997
+        ],
+        "note": "a stratum holds few pairs; the interval is wide by design and is reported, not smoothed"
+      },
+      "S4_far_apart": {
+        "computable": true,
+        "n_pairs": 6,
+        "krippendorff_alpha": -0.03571428571428581,
+        "ci95": [
+          -0.1809954751131222,
+          0.09375
+        ],
+        "note": "a stratum holds few pairs; the interval is wide by design and is reported, not smoothed"
+      }
+    },
+    "statistic_choice": "Krippendorff's alpha, nominal difference function. The design is fully crossed but responses may be missing, the rater count is small and may vary by item, and alpha is defined for any number of raters without discarding incomplete items; Fleiss' kappa and mean pairwise Cohen's kappa are reported alongside as conventional references. The interval is a percentile bootstrap over pairs, which are the units the sampling rule drew; raters are a small convenience sample and resampling three of them would produce an interval with no usable coverage."
+  },
+  "within_rater": {
+    "computable": true,
+    "n_repeat_pairs": 6,
+    "pooled_consistent": 12,
+    "pooled_trials": 30,
+    "pooled_rate": 0.4,
+    "ci95_exact": [
+      0.22655764882859367,
+      0.5939650699481813
+    ],
+    "binomial_p_greater_than_chance": 0.8997557889670134,
+    "cohen_kappa_first_vs_second": -0.20535714285714285,
+    "per_rater": {
+      "SYNTHETIC-R1": {
+        "consistent": 1,
+        "repeats_answered": 6,
+        "rate": 0.16666666666666666
+      },
+      "SYNTHETIC-R2": {
+        "consistent": 2,
+        "repeats_answered": 6,
+        "rate": 0.3333333333333333
+      },
+      "SYNTHETIC-R3": {
+        "consistent": 3,
+        "repeats_answered": 6,
+        "rate": 0.5
+      },
+      "SYNTHETIC-R4": {
+        "consistent": 2,
+        "repeats_answered": 6,
+        "rate": 0.3333333333333333
+      },
+      "SYNTHETIC-R5": {
+        "consistent": 4,
+        "repeats_answered": 6,
+        "rate": 0.6666666666666666
+      }
+    },
+    "note": "6 repeats per rater: a single rater's rate moves in steps of 0.17 and cannot separate, say, 0.75 from 0.95. The pooled rate over 30 rater-repeat trials is the reportable quantity; the per-rater column is descriptive."
+  },
+  "class_test": {
+    "computable": true,
+    "n_raters": 5,
+    "n_class_differing": 32,
+    "n_scored": 32,
+    "n_dropped_tied_majority": 0,
+    "majority_agrees_with_class": 19,
+    "rate": 0.59375,
+    "ci95_wilson": [
+      0.4226002487538286,
+      0.7448036515733456
+    ],
+    "binomial_p_vs_chance": 0.18854279373772442,
+    "settles_null": 0.9,
+    "binomial_p_vs_settles_null": 5.506868666316355e-06,
+    "per_stratum": {
+      "S2_one_apart": {
+        "computable": true,
+        "n": 14,
+        "agree": 10,
+        "rate": 0.7142857142857143,
+        "ci95_wilson": [
+          0.4535091567010681,
+          0.8827862135542308
+        ]
+      },
+      "S3_class_vs_attributes": {
+        "computable": true,
+        "n": 12,
+        "agree": 6,
+        "rate": 0.5,
+        "ci95_wilson": [
+          0.2537815976337061,
+          0.7462184023662939
+        ]
+      },
+      "S4_far_apart": {
+        "computable": true,
+        "n": 6,
+        "agree": 3,
+        "rate": 0.5,
+        "ci95_wilson": [
+          0.1876163064826506,
+          0.8123836935173494
+        ]
+      }
+    },
+    "class_silent_pairs": {
+      "computable": true,
+      "n_pairs": 18,
+      "n_decisive": 11,
+      "decisive_rate": 0.6111111111111112,
+      "supermajority_threshold": 0.6666666666666666,
+      "note": "on these pairs the recorded class is silent, so a decisive majority cannot come from the class"
+    },
+    "per_rater": {
+      "SYNTHETIC-R1": {
+        "n": 32,
+        "agree": 21,
+        "rate": 0.65625
+      },
+      "SYNTHETIC-R2": {
+        "n": 32,
+        "agree": 16,
+        "rate": 0.5
+      },
+      "SYNTHETIC-R3": {
+        "n": 32,
+        "agree": 15,
+        "rate": 0.46875
+      },
+      "SYNTHETIC-R4": {
+        "n": 32,
+        "agree": 16,
+        "rate": 0.5
+      },
+      "SYNTHETIC-R5": {
+        "n": 32,
+        "agree": 20,
+        "rate": 0.625
+      }
+    },
+    "caveat": ""
+  },
+  "predictability": {
+    "computable": true,
+    "n_labelled_pairs": 50,
+    "n_dropped_tied_majority": 0,
+    "n_dropped_unanswered": 0,
+    "base_rate_chose_A": 0.6,
+    "models": {
+      "M0_constant": {
+        "computable": true,
+        "n": 50,
+        "auc": 0.5,
+        "auc_ci95": [
+          0.5,
+          0.5
+        ],
+        "accuracy": 0.6,
+        "brier": 0.24,
+        "features": 0,
+        "note": "null model: area fixed at 0.5 by definition; Brier and accuracy are cross-validated"
+      },
+      "M1_recorded_class": {
+        "computable": true,
+        "n": 50,
+        "auc": 0.565,
+        "auc_ci95": [
+          0.3878130131362891,
+          0.735966735966736
+        ],
+        "accuracy": 0.54,
+        "brier": 0.24589148852837373,
+        "features": 1
+      },
+      "M2_attributes": {
+        "computable": true,
+        "n": 50,
+        "auc": 0.5033333333333333,
+        "auc_ci95": [
+          0.3446507905262611,
+          0.6688336493726985
+        ],
+        "accuracy": 0.5,
+        "brier": 0.2547610079053608,
+        "features": 3,
+        "permutation_p": 0.4930139720558882,
+        "permutation_resamples": 500
+      },
+      "M3_class_plus_attributes": {
+        "computable": true,
+        "n": 50,
+        "auc": 0.47333333333333333,
+        "auc_ci95": [
+          0.31433234351432887,
+          0.641712591812462
+        ],
+        "accuracy": 0.5,
+        "brier": 0.26987250940426416,
+        "features": 4
+      }
+    },
+    "protocol": "20 repeats of stratified 5-fold cross-validation; L2-penalised logistic regression with a pre-registered penalty of 1.0 on features standardised inside each training fold; out-of-fold probabilities averaged over repeats; interval is a percentile bootstrap over pairs.",
+    "features": "trade or system as a corpus-level urgency prior for the merged trade, job size as log1p of estimated labour hours, and days waited, each entered as the A-minus-B difference. These are the three observable inputs the estimator reads. A scalar trade encoding computed from the corpus, not from the responses, keeps the model at three parameters, which fifty pairs can support.",
+    "caveat": ""
+  },
+  "translation": {
+    "computable": true,
+    "disclaimer": "This is a translation under stated assumptions, not a measurement of the model's parameters. The pilot measures how practitioners rank pairs of real work orders; epsilon and beta are properties of a simulated supervisor acting inside a dispatch loop. The two are analogues, and the arithmetic below only says which parameter values a reader should regard as plausible.",
+    "epsilon": {
+      "computable": true,
+      "per_rater_error_rate_q": 0.43675444679663195,
+      "q_ci95": [
+        0.3325186577555585,
+        NaN
+      ],
+      "implied_epsilon_range": [
+        0.43675444679663195,
+        0.8735088935932639
+      ],
+      "paper_epsilon_grid": [
+        0.0,
+        0.1,
+        0.25
+      ],
+      "paper_grid_values_inside_range": [],
+      "assumptions": "Assume one consensus ordering per pair and that each practitioner reports it independently with a constant error rate q. Then two practitioners agree with probability (1-q)^2 + q^2, so the observed pairwise agreement identifies q = (1 - sqrt(2*P_agree - 1)) / 2. The model's epsilon is the probability that a reviewed decision yields a corrupted correction; on a two-alternative item a corrupted correction is wrong with probability 1/2 under the random-pick branch and with probability 1 in the worst case, which brackets epsilon in [q, 2q].",
+      "conservatism": "Genuine differences of professional judgement between practitioners are counted as error by the single-consensus model, so q over-states any one practitioner's error against their own standard, and the translated epsilon band is an upper reading rather than a point estimate."
+    },
+    "beta": {
+      "computable": true,
+      "measured_auc": 0.5033333333333333,
+      "measured_auc_ci95": [
+        0.3446507905262611,
+        0.6688336493726985
+      ],
+      "implied_beta_low": 0.001097242490731035,
+      "implied_beta_from_auc_ci": [
+        0.0,
+        0.1376034509924689
+      ],
+      "majority_label_error_rate": 0.38267342723464454,
+      "deattenuated_auc": 0.5142053639459823,
+      "implied_beta_deattenuated": 0.00351087342187025,
+      "implied_beta_range": [
+        0.001097242490731035,
+        0.00351087342187025
+      ],
+      "paper_beta_band": [
+        0.75,
+        1.0
+      ],
+      "assumptions": "Under the paper's latent, xi = sqrt(beta) f(x) + sqrt(1-beta) z, an oracle scoring pairs by f(x) attains a known area under the ROC curve at each beta; that map is computed by seeded Monte Carlo and inverted here. Two corrections act in opposite directions. The pilot's model is a three-feature linear proxy for a function no one has written down, fitted on about fifty pairs, so it under-fits and pushes the reading down. Symmetric error in the majority label attenuates the area by the exact factor (1 - 2e), where e is the probability that a majority of practitioners errs, and dividing it out pushes the reading up.",
+      "reading": "Report the range, never either endpoint alone, and call it a range of plausible values rather than an interval or a bound. The lower endpoint credits the proxy with capturing all of the practitioners' urgency function, which it will not; the upper endpoint removes the label noise but not the proxy's under-fitting, so where the proxy happens to be well specified it can sit above the true recoverable share."
+    }
+  },
+  "primary_family": {
+    "H1_raters_agree_above_chance": {
+      "raw_p": 0.4433556644335566,
+      "holm_p": 0.8867113288671132,
+      "verdict": "not supported at alpha = 0.05"
+    },
+    "H2_attributes_predict_majority": {
+      "raw_p": 0.4930139720558882,
+      "holm_p": 0.8867113288671132,
+      "verdict": "not supported at alpha = 0.05"
+    },
+    "H3_class_does_not_settle_order": {
+      "raw_p": 5.506868666316355e-06,
+      "holm_p": 1.6520605998949065e-05,
+      "verdict": "supported"
+    }
+  },
+  "instrument_check_H4": {
+    "passed": false,
+    "pooled_rate": 0.4,
+    "ci95_exact": [
+      0.22655764882859367,
+      0.5939650699481813
+    ],
+    "floor": 0.6,
+    "binomial_p_greater_than_chance": 0.8997557889670134,
+    "consequence": "the manuscript must state that the instrument did not demonstrate stable within-rater judgement at this sample size, and must attach that caveat wherever H1 to H3 are quoted"
+  }
+}

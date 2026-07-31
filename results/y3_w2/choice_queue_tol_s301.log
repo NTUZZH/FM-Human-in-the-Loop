@@ -1,0 +1,18 @@
+
+=== seed 301  variant choice_queue_tol ===
+/home/ziheng/PaperY3/fm-hitl/src/fmwos/hitl/choice_estimator.py:768: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  best, best_ll = float(model.tau()), -np.inf
+[choice_queue_tol it0] rev=6683 over=599 orr=0.090 sign=0.372 r=-0.217 ep=35/40 val=2.9276
+[choice_queue_tol it1] rev=6674 over=433 orr=0.065 sign=0.372 r=-0.211 ep=1/10 val=2.5587
+[choice_queue_tol it2] rev=6673 over=400 orr=0.060 sign=0.372 r=-0.199 ep=9/18 val=2.3840
+[choice_queue_tol it3] rev=6674 over=325 orr=0.049 sign=0.372 r=-0.179 ep=8/17 val=2.2512
+[choice_queue_tol it4] rev=6672 over=313 orr=0.047 sign=0.372 r=-0.183 ep=4/13 val=2.2218
+[choice_queue_tol it5] rev=6667 over=298 orr=0.045 sign=0.372 r=-0.179 ep=11/20 val=2.1209
+[choice_queue_tol it6] rev=6655 over=244 orr=0.037 sign=0.372 r=-0.183 ep=2/11 val=2.0483
+[choice_queue_tol it7] rev=6667 over=245 orr=0.037 sign=0.372 r=-0.185 ep=4/13 val=2.0097
+  -> pearson -0.1852  sign 0.3720  kendall 0.5990  llhold -2.0548  TWT* 2245.97 (rule 3644.83, +38.379%) p=0.001953
+
+[seed 301 written to /home/ziheng/PaperY3/fm-hitl/results/y3_w2/choice_queue_tol_s301.json]
+
+DONE. /home/ziheng/PaperY3/fm-hitl/results/y3_w2/choice_queue_tol_s301.json

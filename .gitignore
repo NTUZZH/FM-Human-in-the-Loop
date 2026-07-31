@@ -1,0 +1,7 @@
+data/processed/
+train_log/
+__pycache__/
+*.pyc
+paper/
+
+*.pkl

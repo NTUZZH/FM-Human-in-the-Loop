@@ -1,0 +1,18 @@
+
+=== seed 301  variant choice_queue_k64 ===
+/home/ziheng/PaperY3/fm-hitl/src/fmwos/hitl/choice_estimator.py:768: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  best, best_ll = float(model.tau()), -np.inf
+[choice_queue_k64 it0] rev=6683 over=599 orr=0.090 sign=0.372 r=-0.230 ep=37/40 val=2.2956
+[choice_queue_k64 it1] rev=6664 over=337 orr=0.051 sign=0.379 r=-0.190 ep=14/23 val=1.9628
+[choice_queue_k64 it2] rev=6658 over=320 orr=0.048 sign=0.377 r=-0.190 ep=30/39 val=1.7716
+[choice_queue_k64 it3] rev=6660 over=304 orr=0.046 sign=0.377 r=-0.197 ep=4/13 val=1.7079
+[choice_queue_k64 it4] rev=6626 over=235 orr=0.035 sign=0.377 r=-0.210 ep=1/10 val=1.6268
+[choice_queue_k64 it5] rev=6631 over=248 orr=0.037 sign=0.372 r=-0.203 ep=16/25 val=1.5674
+[choice_queue_k64 it6] rev=6640 over=239 orr=0.036 sign=0.377 r=-0.186 ep=2/11 val=1.5434
+[choice_queue_k64 it7] rev=6632 over=248 orr=0.037 sign=0.373 r=-0.182 ep=1/10 val=1.5326
+  -> pearson -0.1822  sign 0.3732  kendall 0.5499  llhold -2.0987  TWT* 2115.79 (rule 3644.83, +41.951%) p=0.001953
+
+[seed 301 written to /home/ziheng/PaperY3/fm-hitl/results/y3_w2/k64_s301.json]
+
+DONE. /home/ziheng/PaperY3/fm-hitl/results/y3_w2/k64_s301.json

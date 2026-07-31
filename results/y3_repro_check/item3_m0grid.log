@@ -1,0 +1,10 @@
+[item3] seed 301 done cached=False elapsed=36.3s (wall 36s)
+[item3] seed 302 done cached=False elapsed=36.2s (wall 36s)
+[item3] seed 303 done cached=False elapsed=36.1s (wall 36s)
+[item3] decider rule       max|fresh-committed| = 1.819e-12
+[item3] decider m0_alone   max|fresh-committed| = 3.183e-12
+[item3] decider oracle     max|fresh-committed| = 9.095e-13
+[item3] decider rule_sup   max|fresh-committed| = 1.364e-12
+[item3] decider m0_sup     max|fresh-committed| = 2.274e-12
+
+[item3] GLOBAL max abs diff = 3.183e-12  -> PASS

@@ -8,7 +8,7 @@ The P1.5 re-scope gives ``score_true`` a ``deadline_mode``:
     reproduces the PRE-P1.5 scorer byte-for-byte:
         TWT_true = sum_j w*_j * max(0, C_j - d_recorded_j).
 (b) FULL_CLASS_SHIFT     -- deadline_mode="true" (the headline) equals the
-    verified d* scoring EXACTLY on a storm2 gate cell:
+    verified y3_verc / y3_cont d* scoring EXACTLY on a storm2 gate cell:
         TWT_true = sum_j w*_j * max(0, C_j - d*_j),  d*_j = r_j + SLA(c*_j).
 (c) DEFAULT FROM CHANNEL -- a caller who passes nothing gets "true" under a
     full_class_shift overlay and "recorded" under a weight_only overlay.
@@ -47,7 +47,7 @@ def _cell_files(n=6):
 
 
 def _verc_dstar_score(inst, sched, applied):
-    """Independent copy of the validator's _score_twt_star (reads d*=r+SLA(c*), w*)."""
+    """Independent copy of y3_verc/_score_twt_star (reads d*=r+SLA(c*), w*)."""
     wstar = applied["w_star"]
     cs = applied["c_star"]
     dstar = {w["id"]: float(w["release_bh"]) + _SLA[cs[w["id"]]]

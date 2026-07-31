@@ -19,7 +19,7 @@
  "notes": "Both insurance policies are 1 seed (301). Reference deciders read per-instance from committed caches (primary_multiseed.csv for the eps=0 cell; results/y3_p5/gaps/cache executed-label eps=0.25 seed301 for the noise cell) and NEVER recomputed. Contrasts = per-instance paired Wilcoxon over n=10, WIN = strictly lower TWT*.",
  "A_ilpure": {
   "cell": "c9_storm2_u100_b1.00_r0.25_eps0",
-  "ckpt": "results/y3_checkpoints/insure/ilpure_s301/final.pt",
+  "ckpt": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_insure/ilpure_s301/final.pt",
   "gate": 1.0,
   "nparam": 14276,
   "seed": 301,
@@ -253,7 +253,7 @@
  },
  "B_m1_eps0.25": {
   "cell": "c9_storm2_u100_b1.00_r0.25_eps0.25",
-  "ckpt": "results/y3_checkpoints/insure/m1_eps0.25_exec_s301/final.pt",
+  "ckpt": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_insure/m1_eps0.25_exec_s301/final.pt",
   "gate": 1.0,
   "nparam": 14276,
   "seed": 301,

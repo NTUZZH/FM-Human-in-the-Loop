@@ -1,0 +1,68 @@
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/repro_check.json
+[repro] compared 500 per-instance TWT* values; 500 bit-exact; max|diff| = 0.0
+[repro] published MzeroGain = 45.3620%  recomputed = 45.3620%  diff = 0.00e+00 pp
+[repro] PASS = True
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/composition_by_campus.csv (5 rows)
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/composition_detail.json
+[composition] campus C5, all evaluated instances                         n_wo=  33031 pm=0.4499 cls4=0.4499 pm->cls4=1.0000
+[composition] campus C9, all evaluated instances                         n_wo= 118642 pm=0.8116 cls4=0.8116 pm->cls4=1.0000
+[composition] campus C10, all evaluated instances                        n_wo= 474118 pm=0.7894 cls4=0.7919 pm->cls4=1.0000
+[composition] campus C12, all evaluated instances                        n_wo=  27627 pm=0.1835 cls4=0.4583 pm->cls4=1.0000
+[composition] headline cell (C9 storm2 u100), 10 held-out instances      n_wo=  22639 pm=0.8085 cls4=0.8085 pm->cls4=1.0000
+[composition] raw-row pm_share_r5a reference: {'campus_1': 0.4281, 'campus_2': 0.5417, 'campus_5': 0.4489, 'campus_9': 0.8105, 'campus_10': 0.8195, 'campus_12': 0.1612}
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/attainment_per_seed_class.csv (384 rows)
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/true_class_composition.csv (15 rows)
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/attainment_by_class.csv (90 rows)
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/attainment_pm_split.csv (180 rows)
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/per_seed_totals.csv (96 rows)
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/twt_decomposition.json
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/table_attainment.tex
+[write] /home/ziheng/PaperY3/fm-hitl/results/y3_p8/macros_p8.tex (81 macro lines)
+
+=== attainment (%% of orders finished within d*, mean over seeds) ===
+-- Headline (C9, util 1.00, beta 1.00, rho 0.25)
+   decider                                      c*=1     c*=2     c*=3     c*=4      all
+   Tuned rule (RULE)                           84.57    90.47   100.00   100.00    96.52
+   Rule + supervisor (RULE+SUP)                84.80    92.94   100.00   100.00    97.13
+   Correction layer (M0)                       84.51    97.57   100.00   100.00    98.22
+   Correction layer + supervisor (M0+SUP)      84.67    98.16   100.00   100.00    98.37
+   End-to-end learner (M1)                     84.56    95.61   100.00   100.00    97.75
+   Myopic full-information reference (ORACLE)    84.51    99.01   100.00   100.00    98.56
+-- Busy load (C9, util 0.90, beta 1.00, rho 0.25)
+   decider                                      c*=1     c*=2     c*=3     c*=4      all
+   Tuned rule (RULE)                           85.17    96.75   100.00   100.00    98.13
+   Rule + supervisor (RULE+SUP)                84.97    97.51   100.00   100.00    98.30
+   Correction layer (M0)                       85.32    98.61   100.00   100.00    98.58
+   Correction layer + supervisor (M0+SUP)      85.39    98.73   100.00   100.00    98.61
+   End-to-end learner (M1)                     85.21    98.79   100.00   100.00    98.61
+   Myopic full-information reference (ORACLE)    85.30    98.80   100.00   100.00    98.62
+-- Low recoverable share (C9, util 1.00, beta 0.75, rho 0.25)
+   decider                                      c*=1     c*=2     c*=3     c*=4      all
+   Tuned rule (RULE)                           86.05    90.53   100.00   100.00    96.95
+   Rule + supervisor (RULE+SUP)                86.16    93.29   100.00   100.00    97.50
+   Correction layer (M0)                       86.09    96.21   100.00   100.00    98.08
+   Correction layer + supervisor (M0+SUP)      86.19    97.72   100.00   100.00    98.38
+   End-to-end learner (M1)                     85.95    96.91   100.00   100.00    98.20
+   Myopic full-information reference (ORACLE)    86.05    98.75   100.00   100.00    98.58
+
+=== exact PM/CM decomposition of the reduction vs RULE ===
+-- Low recoverable share (C9, util 1.00, beta 0.75, rho 0.25)  (PM share of orders 0.8085)
+   m0_alone   total -1133.33  = PM -1119.82 (98.8%) + CM -13.51 (1.2%)  residual -4.547e-13
+   m0_sup     total -1390.95  = PM -1376.54 (99.0%) + CM -14.41 (1.0%)  residual -2.274e-13
+   m1_alone   total -1185.26  = PM -1204.24 (101.6%) + CM --18.98 (-1.6%)  residual -6.821e-13
+   oracle     total -1440.39  = PM -1449.51 (100.6%) + CM --9.12 (-0.6%)  residual -9.095e-13
+   rule_sup   total -804.15  = PM -799.20 (99.4%) + CM -4.95 (0.6%)  residual -1.137e-12
+-- Headline (C9, util 1.00, beta 1.00, rho 0.25)  (PM share of orders 0.8085)
+   m0_alone   total -1653.37  = PM -1646.55 (99.6%) + CM -6.82 (0.4%)  residual -4.547e-13
+   m0_sup     total -1785.30  = PM -1774.74 (99.4%) + CM -10.56 (0.6%)  residual 0.000e+00
+   m1_alone   total -1384.37  = PM -1406.49 (101.6%) + CM --22.13 (-1.6%)  residual 2.274e-13
+   oracle     total -1829.81  = PM -1840.37 (100.6%) + CM --10.56 (-0.6%)  residual 0.000e+00
+   rule_sup   total -952.06  = PM -951.48 (99.9%) + CM -0.58 (0.1%)  residual -2.274e-13
+-- Busy load (C9, util 0.90, beta 1.00, rho 0.25)  (PM share of orders 0.8161)
+   m0_alone   total -320.11  = PM -306.33 (95.7%) + CM -13.78 (4.3%)  residual -4.547e-13
+   m0_sup     total -330.21  = PM -316.38 (95.8%) + CM -13.83 (4.2%)  residual 1.137e-13
+   m1_alone   total -297.05  = PM -310.97 (104.7%) + CM --13.91 (-4.7%)  residual -3.411e-13
+   oracle     total -320.38  = PM -321.01 (100.2%) + CM --0.63 (-0.2%)  residual -5.684e-14
+   rule_sup   total -133.11  = PM -132.89 (99.8%) + CM -0.22 (0.2%)  residual -4.547e-13
+
+[repro] PASS=True  recomputed MzeroGain=45.3620%

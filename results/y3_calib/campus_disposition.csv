@@ -1,0 +1,7 @@
+campus,n_work_orders,end_timestamp_coverage,n_end_before_start,n_woduration_without_end,woduration_without_end_max,woduration_fallback_usable,n_analysable,n_corrective,cm_class_counts,cm_class_entropy_nats,n_cm_classes_present,building_coverage,description_coverage,n_unique_descriptions,status,status_reason
+1,125637,0.9858,5,0,,0,123852,71849,"{""1"": 470, ""2"": 57344, ""3"": 12294, ""4"": 1741}",0.6051,4,0.9849,0.9997,69207,headline,
+2,40567,0.0719,0,37650,0.0,0,2917,18593,"{""1"": 427, ""2"": 9805, ""3"": 8361}",0.7835,3,1.0,1.0,99,excluded,"completion timestamp on only 7.2% of orders, and the WODuration field is identically zero on exactly those 37650 orders, so no completion time can be recovered from it"
+5,393669,0.0,0,0,,0,0,216964,"{""3"": 216964}",-0.0,1,0.9992,0.9998,216813,excluded,"completion timestamp on only 0.0% of orders, with no WODuration value to fall back on either; recorded class constant across corrective orders (no deviation can exist by construction)"
+9,144114,0.9932,221,0,,0,142907,27302,"{""1"": 4079, ""2"": 22810, ""3"": 413}",0.4976,3,0.0,1.0,91780,headline,
+10,608217,1.0,0,0,,0,608217,109790,"{""1"": 8044, ""2"": 36788, ""3"": 63645, ""4"": 1313}",0.9269,4,0.9999,0.9998,138628,headline,
+12,137058,0.446,7513,0,,0,53620,114969,"{""1"": 22893, ""2"": 20343, ""3"": 35554, ""4"": 36179}",1.3546,4,0.0,0.9993,123990,flagged,"completion timestamp on only 44.6% of orders, with no WODuration value to fall back on either; backlog reconstructed from a subset, so the deviation rate is biased downward"

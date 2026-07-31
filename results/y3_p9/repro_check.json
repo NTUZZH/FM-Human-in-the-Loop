@@ -1,0 +1,52 @@
+{
+ "PASS": true,
+ "cache_dir_used": "/home/ziheng/PaperY3/fm-hitl/results/y3_p9/cache",
+ "cell": "c9_storm2_u100_b1.00_r0.25",
+ "difference_pct_points": 0.0,
+ "eval_inst_ids": [
+  "c09_storm2_w80_u100_0020",
+  "c09_storm2_w80_u100_0021",
+  "c09_storm2_w80_u100_0022",
+  "c09_storm2_w80_u100_0023",
+  "c09_storm2_w80_u100_0024",
+  "c09_storm2_w80_u100_0025",
+  "c09_storm2_w80_u100_0026",
+  "c09_storm2_w80_u100_0027",
+  "c09_storm2_w80_u100_0028",
+  "c09_storm2_w80_u100_0029"
+ ],
+ "gate": "reproduction of \\MzeroGain through scripts/y3_realistic_cell.py",
+ "ladder_published": {
+  "m0_alone": 1991.4613160000001,
+  "m0_sup": 1859.5345760000005,
+  "oracle": 1815.0186800000004,
+  "rule": 3644.8307200000004,
+  "rule_sup": 2692.77344
+ },
+ "ladder_recomputed": {
+  "m0_alone": 1991.4613160000001,
+  "m0_sup": 1859.5345760000005,
+  "oracle": 1815.0186800000004,
+  "rule": 3644.8307200000004,
+  "rule_sup": 2692.77344
+ },
+ "max_abs_diff_vs_committed_cache": 0.0,
+ "n_bit_exact": 500,
+ "n_per_instance_values_compared": 500,
+ "published_MzeroGain_macro": "45.4%",
+ "published_MzeroGain_value": 45.36203546923573,
+ "published_cache_compared": "/home/ziheng/PaperY3/fm-hitl/results/y3_p4/cache",
+ "recomputed_MzeroGain_value": 45.36203546923573,
+ "seeds": [
+  301,
+  302,
+  303,
+  304,
+  305,
+  306,
+  307,
+  308,
+  309,
+  310
+ ]
+}

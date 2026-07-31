@@ -1,0 +1,81 @@
+{
+  "D1_raw_sha256": {
+    "value": "4464648252c4bdca2a6deba9d467e94aec7568d675f51e06d6d343b3c09f006a",
+    "expected": "4464648252c4bdca2a6deba9d467e94aec7568d675f51e06d6d343b3c09f006a",
+    "passed": true
+  },
+  "D2_rows_raw": {
+    "value": 3731442,
+    "expected": 3731442,
+    "passed": true
+  },
+  "D3_rows_post_r2_r3": {
+    "value": 1906865,
+    "expected": 1906865,
+    "passed": true
+  },
+  "D3b_work_orders_after_r7": {
+    "value": 1454039,
+    "expected": 1454039,
+    "passed": true
+  },
+  "D4_labor_cap_p995_hours": {
+    "value": 90.8648,
+    "expected": 90.86,
+    "passed": true
+  },
+  "D5_priority_mapping_vs_committed": {
+    "n_rows": 77,
+    "unmatched_keys": 0,
+    "mapped_class_mismatches": 0,
+    "rule_mismatches": 0,
+    "row_count_mismatches": 2,
+    "max_abs_row_count_delta": 1,
+    "passed": true,
+    "note": "R7 picks the dominant labour line by max LaborHours with a non-stable sort, so a single campus-9 work order with tied hours falls on the other side of the pm/cm split than in the committed run. No mapped class, rule or campus total changes."
+  },
+  "D6_per_campus_rows": {
+    "value": {
+      "1": 125637,
+      "2": 40567,
+      "5": 393669,
+      "9": 144114,
+      "10": 608217,
+      "12": 137058
+    },
+    "expected": {
+      "1": 125637,
+      "2": 40567,
+      "5": 393669,
+      "9": 144114,
+      "10": 608217,
+      "12": 137058
+    },
+    "passed": true
+  },
+  "D7_date_parsing": {
+    "unparseable_wostartdate": 1362858,
+    "unparseable_woenddate": 25292,
+    "work_orders_with_end_before_start": 7774,
+    "note": "every unparseable WOStartDate is a date-only value on campuses 3,4,6,7,8,11; those campuses are dropped by inherited rule R2, which is why the pipeline's campus set has six members."
+  },
+  "D8_campus_set": {
+    "analysed_set": [
+      1,
+      2,
+      5,
+      9,
+      10,
+      12
+    ],
+    "present_but_outside": [
+      3,
+      4,
+      6,
+      8,
+      11
+    ],
+    "rows_outside": 4777,
+    "note": "the inherited set is docs/decision_log.md 2026-07-04 'Campus set': the six timestamp-complete campuses. The residue outside it is the handful of rows on other campuses whose start timestamp happened to carry a time component."
+  }
+}

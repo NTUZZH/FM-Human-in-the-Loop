@@ -1,0 +1,17 @@
+{
+ "arm": "stability",
+ "assert_stability_class": true,
+ "beta": 0.25,
+ "eps": 0.0,
+ "policy": "stability",
+ "seed": 308,
+ "sig": "ee15ec6fd368868f",
+ "split_fit": true,
+ "supervisor_constructions": {
+  "band_map:cold": 16,
+  "band_map:set": 132,
+  "cls:StabilityRoutingSupervisor": 148,
+  "mechanism:stability": 148,
+  "policy:stability": 148
+ }
+}

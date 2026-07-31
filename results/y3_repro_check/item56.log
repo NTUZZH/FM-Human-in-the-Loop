@@ -1,0 +1,18 @@
+== ITEM 5 held-out discipline ==
+total files: 30
+estimator train [0:16]: c09_storm2_w80_u100_0000.json ... c09_storm2_w80_u100_0015.json
+estimator probe [16:20]: ['c09_storm2_w80_u100_0016.json', 'c09_storm2_w80_u100_0017.json', 'c09_storm2_w80_u100_0018.json', 'c09_storm2_w80_u100_0019.json']
+policy    train [0:20]: c09_storm2_w80_u100_0000.json ... c09_storm2_w80_u100_0019.json
+policy    probe [20:26] (DIAG ONLY): ['c09_storm2_w80_u100_0020.json', 'c09_storm2_w80_u100_0021.json', 'c09_storm2_w80_u100_0022.json', 'c09_storm2_w80_u100_0023.json', 'c09_storm2_w80_u100_0024.json', 'c09_storm2_w80_u100_0025.json']
+eval            [20:30]: ['c09_storm2_w80_u100_0020.json', 'c09_storm2_w80_u100_0021.json', 'c09_storm2_w80_u100_0022.json', 'c09_storm2_w80_u100_0023.json', 'c09_storm2_w80_u100_0024.json', 'c09_storm2_w80_u100_0025.json', 'c09_storm2_w80_u100_0026.json', 'c09_storm2_w80_u100_0027.json', 'c09_storm2_w80_u100_0028.json', 'c09_storm2_w80_u100_0029.json']
+estimator_train disjoint eval: True
+policy_train    disjoint eval: True
+ITEM 5: PASS
+
+== ITEM 6 H3 override-rate trajectory ==
+recomputed: [0.051848, 0.006851, 0.005014, 0.004361, 0.004015, 0.003791, 0.003482, 0.003242]
+committed : [0.051848, 0.006851, 0.005014, 0.004361, 0.004015, 0.003791, 0.003482, 0.003242]
+max|d| vs committed mean_trajectory = 0.000e+00
+mean_first 0.05185 (macro 0.052 -> True) ; mean_last 0.00324 (macro 0.003 -> True)
+falls on all 10 seeds: True
+ITEM 6: PASS

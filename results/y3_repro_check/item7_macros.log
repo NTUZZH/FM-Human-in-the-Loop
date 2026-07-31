@@ -1,0 +1,16 @@
+== ITEM 7 macro consistency ==
+macro                printed    recomputed   match
+MzeroGain            45.4%      45.4         OK   [primary_multiseed.csv (rerun-validated items3/4)]
+MzeroSupGain         49.0%      49.0         OK   [primary_multiseed.csv]
+OracleGap            50.2%      50.2         OK   [primary_multiseed.csv]
+SupGain              26.1%      26.1         OK   [primary_multiseed.csv]
+MoneGain             38.0%      38.0         OK   [primary_multiseed.csv]
+MoneSupGain          38.3%      38.3         OK   [primary_multiseed.csv]
+MzeroGapClosed       90%        90           OK   [primary (RULE-M0)/(RULE-ORACLE)]
+HoneGain             16.4%      16.4         OK   [primary seed-avg per-instance (M1+SUP vs RULE+SUP)]
+HtwoGain             38.0%      38.0         OK   [primary seed-avg per-instance (M1 alone vs RULE)]
+RuleOverrideRate     0.097      0.097        OK   [m0_gate.csv rule_sup_orr (10 seeds)]
+MzeroTestOverride    0.029      0.029        OK   [m0_gate.csv m0_sup_orr (10 seeds)]
+PIzeroAttrib         35.6%      35.6         OK   [FRESH 10 PI-0 evals + committed m1_sup (seed-avg per-instance)]
+PIzeroAttribP        0.006      0.006        OK   [FRESH PI-0 attribution family Holm-p]
+ITEM 7: PASS

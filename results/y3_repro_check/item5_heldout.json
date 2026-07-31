@@ -1,0 +1,82 @@
+{
+ "n_files_total": 30,
+ "estimator_train_files[0:16]": [
+  "c09_storm2_w80_u100_0000.json",
+  "c09_storm2_w80_u100_0001.json",
+  "c09_storm2_w80_u100_0002.json",
+  "c09_storm2_w80_u100_0003.json",
+  "c09_storm2_w80_u100_0004.json",
+  "c09_storm2_w80_u100_0005.json",
+  "c09_storm2_w80_u100_0006.json",
+  "c09_storm2_w80_u100_0007.json",
+  "c09_storm2_w80_u100_0008.json",
+  "c09_storm2_w80_u100_0009.json",
+  "c09_storm2_w80_u100_0010.json",
+  "c09_storm2_w80_u100_0011.json",
+  "c09_storm2_w80_u100_0012.json",
+  "c09_storm2_w80_u100_0013.json",
+  "c09_storm2_w80_u100_0014.json",
+  "c09_storm2_w80_u100_0015.json"
+ ],
+ "estimator_probe_files[16:20]": [
+  "c09_storm2_w80_u100_0016.json",
+  "c09_storm2_w80_u100_0017.json",
+  "c09_storm2_w80_u100_0018.json",
+  "c09_storm2_w80_u100_0019.json"
+ ],
+ "policy_train_pool_files[0:20]": [
+  "c09_storm2_w80_u100_0000.json",
+  "c09_storm2_w80_u100_0001.json",
+  "c09_storm2_w80_u100_0002.json",
+  "c09_storm2_w80_u100_0003.json",
+  "c09_storm2_w80_u100_0004.json",
+  "c09_storm2_w80_u100_0005.json",
+  "c09_storm2_w80_u100_0006.json",
+  "c09_storm2_w80_u100_0007.json",
+  "c09_storm2_w80_u100_0008.json",
+  "c09_storm2_w80_u100_0009.json",
+  "c09_storm2_w80_u100_0010.json",
+  "c09_storm2_w80_u100_0011.json",
+  "c09_storm2_w80_u100_0012.json",
+  "c09_storm2_w80_u100_0013.json",
+  "c09_storm2_w80_u100_0014.json",
+  "c09_storm2_w80_u100_0015.json",
+  "c09_storm2_w80_u100_0016.json",
+  "c09_storm2_w80_u100_0017.json",
+  "c09_storm2_w80_u100_0018.json",
+  "c09_storm2_w80_u100_0019.json"
+ ],
+ "policy_probe_files[20:26]_DIAGNOSTIC_ONLY": [
+  "c09_storm2_w80_u100_0020.json",
+  "c09_storm2_w80_u100_0021.json",
+  "c09_storm2_w80_u100_0022.json",
+  "c09_storm2_w80_u100_0023.json",
+  "c09_storm2_w80_u100_0024.json",
+  "c09_storm2_w80_u100_0025.json"
+ ],
+ "eval_files[20:30]": [
+  "c09_storm2_w80_u100_0020.json",
+  "c09_storm2_w80_u100_0021.json",
+  "c09_storm2_w80_u100_0022.json",
+  "c09_storm2_w80_u100_0023.json",
+  "c09_storm2_w80_u100_0024.json",
+  "c09_storm2_w80_u100_0025.json",
+  "c09_storm2_w80_u100_0026.json",
+  "c09_storm2_w80_u100_0027.json",
+  "c09_storm2_w80_u100_0028.json",
+  "c09_storm2_w80_u100_0029.json"
+ ],
+ "assert_estimator_train_disjoint_eval": true,
+ "assert_policy_train_disjoint_eval": true,
+ "assert_estimator_train_subset_policy_train": true,
+ "policy_probe_overlaps_eval": [
+  "c09_storm2_w80_u100_0020.json",
+  "c09_storm2_w80_u100_0021.json",
+  "c09_storm2_w80_u100_0022.json",
+  "c09_storm2_w80_u100_0023.json",
+  "c09_storm2_w80_u100_0024.json",
+  "c09_storm2_w80_u100_0025.json"
+ ],
+ "note_policy_probe": "policy probe files[20:26] overlaps eval on 6 instances BUT is DIAGNOSTIC-ONLY: y3_p2_train.train_m1 uses it only for augmented_rule.probe_shift_accuracy (hat_s recovery vs true shift, logged to metrics.csv) and eval_policy_alone TWT logging; it never contributes gradients and final.pt is the terminal iterate with NO probe-based selection/early-stopping. Policy WEIGHTS train on files[0:20], paper eval TWT* is harvested on files[20:30].",
+ "PASS": true
+}

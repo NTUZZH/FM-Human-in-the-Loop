@@ -1,0 +1,116 @@
+{
+  "note": "Power by simulation under the fixture's generative model, which is a stand-in for practitioner behaviour and not a measurement of it. Uncorrected per-hypothesis alpha = 0.05; the analysis applies Holm across the four primary tests, so realised power is somewhat lower than shown.",
+  "sims": 200,
+  "permutations": 400,
+  "bootstrap": 2000,
+  "cells": [
+    {
+      "n_raters": 2,
+      "beta": 0.4,
+      "q": 0.2,
+      "sims": 200,
+      "mean_alpha": 0.3582383787625926,
+      "power_H1_agreement": 0.765,
+      "mean_auc": 0.7226916599405879,
+      "power_H2_predictability": 0.64,
+      "h2_estimable_share": 1.0,
+      "power_H4_within_rater": 0.23
+    },
+    {
+      "n_raters": 3,
+      "beta": 0.4,
+      "q": 0.2,
+      "sims": 200,
+      "mean_alpha": 0.3595852665329555,
+      "power_H1_agreement": 1.0,
+      "mean_auc": 0.6934186646765693,
+      "power_H2_predictability": 0.655,
+      "h2_estimable_share": 1.0,
+      "power_H4_within_rater": 0.45
+    },
+    {
+      "n_raters": 5,
+      "beta": 0.4,
+      "q": 0.2,
+      "sims": 200,
+      "mean_alpha": 0.3576048473101085,
+      "power_H1_agreement": 1.0,
+      "mean_auc": 0.7366829271266353,
+      "power_H2_predictability": 0.845,
+      "h2_estimable_share": 1.0,
+      "power_H4_within_rater": 0.585
+    },
+    {
+      "n_raters": 8,
+      "beta": 0.4,
+      "q": 0.2,
+      "sims": 200,
+      "mean_alpha": 0.35947697615218843,
+      "power_H1_agreement": 1.0,
+      "mean_auc": 0.7650917930458121,
+      "power_H2_predictability": 0.865,
+      "h2_estimable_share": 1.0,
+      "power_H4_within_rater": 0.76
+    },
+    {
+      "n_raters": 5,
+      "beta": 0.1,
+      "q": 0.2,
+      "sims": 200,
+      "mean_alpha": 0.35475049925459373,
+      "power_H1_agreement": 1.0,
+      "mean_auc": 0.5536489189276506,
+      "power_H2_predictability": 0.205,
+      "h2_estimable_share": 1.0,
+      "power_H4_within_rater": 0.71
+    },
+    {
+      "n_raters": 5,
+      "beta": 0.2,
+      "q": 0.2,
+      "sims": 200,
+      "mean_alpha": 0.3535997337026873,
+      "power_H1_agreement": 1.0,
+      "mean_auc": 0.6265983396989507,
+      "power_H2_predictability": 0.415,
+      "h2_estimable_share": 1.0,
+      "power_H4_within_rater": 0.69
+    },
+    {
+      "n_raters": 5,
+      "beta": 0.6,
+      "q": 0.2,
+      "sims": 200,
+      "mean_alpha": 0.35655697707617234,
+      "power_H1_agreement": 1.0,
+      "mean_auc": 0.815154884210595,
+      "power_H2_predictability": 0.98,
+      "h2_estimable_share": 1.0,
+      "power_H4_within_rater": 0.64
+    },
+    {
+      "n_raters": 5,
+      "beta": 0.4,
+      "q": 0.1,
+      "sims": 200,
+      "mean_alpha": 0.6429686594955847,
+      "power_H1_agreement": 1.0,
+      "mean_auc": 0.779232650236911,
+      "power_H2_predictability": 0.93,
+      "h2_estimable_share": 1.0,
+      "power_H4_within_rater": 0.99
+    },
+    {
+      "n_raters": 5,
+      "beta": 0.4,
+      "q": 0.3,
+      "sims": 200,
+      "mean_alpha": 0.1621534818289536,
+      "power_H1_agreement": 0.91,
+      "mean_auc": 0.6665383630676385,
+      "power_H2_predictability": 0.595,
+      "h2_estimable_share": 1.0,
+      "power_H4_within_rater": 0.23
+    }
+  ]
+}

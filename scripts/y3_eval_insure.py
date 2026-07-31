@@ -8,7 +8,7 @@ verbatim for the policy rollouts. Only the two NEW policy checkpoints are rolled
 out here; every reference decider (RULE, M0, ORACLE, fair-M1, and their +SUP) is
 read per-instance from the committed caches and NEVER recomputed:
 
-  (A) IL-PURE  (results/y3_checkpoints/insure/ilpure_s301, gate=1, deadline_head, il_pure,
+  (A) IL-PURE  (train_log/y3_insure/ilpure_s301, gate=1, deadline_head, il_pure,
       PPO zeroed, label_source=preferred, eps=0 cell c9 u100 b1.0 rho0.25 seed301).
       ALONE and +SUP (noise-free supervisor, matching the primary cell).
       References: the committed seed-301 rows of primary_multiseed.csv
@@ -16,7 +16,7 @@ read per-instance from the committed caches and NEVER recomputed:
       m1_sup=fair-M1+SUP). Question: with the RL term removed, does the policy
       HURT / HELP / WASH relative to fair-M1 (is imitation doing most of the work)?
 
-  (B) M1-eps0.25-executed  (results/y3_checkpoints/insure/m1_eps0.25_exec_s301, trained
+  (B) M1-eps0.25-executed  (train_log/y3_insure/m1_eps0.25_exec_s301, trained
       UNDER eps=0.25 noise with executed-pick imitation targets, cell c9 u100 b1.0
       rho0.25 eps0.25 seed301). ALONE (noise-free by definition) and +SUP where the
       TEST supervisor also carries eps=0.25 (matched deployment).
@@ -31,7 +31,7 @@ read per-instance from the committed caches and NEVER recomputed:
 Both policies are 1 seed (301). Every contrast is a per-instance paired Wilcoxon
 over the n=10 held-out instances at seed 301 (a WIN = strictly lower TWT*).
 
-Additive only: writes results/y3_p5/insure/. Never touches
+Additive only: writes results/y3_p5/insure/ + notes/insure_eval.md. Never touches
 paper/ or any results/y3_p4, primary, or gaps artifact.
 
 Run (CPU, coexistence: <=6 workers, OMP=1/worker, niced):
@@ -87,8 +87,8 @@ FAIR_NPARAM = 14276
 PRIMARY_CSV = os.path.join(_ROOT, "results", "y3_p5", "harvest", "primary_multiseed.csv")
 GAPS_CACHE = os.path.join(_ROOT, "results", "y3_p5", "gaps", "cache")
 GAPS_SUMMARY = os.path.join(_ROOT, "results", "y3_p5", "gaps", "summary.json")
-ILPURE_CKPT = os.path.join(_ROOT, "results", "y3_checkpoints", "insure", "ilpure_s301", "final.pt")
-M1EPS_CKPT = os.path.join(_ROOT, "results", "y3_checkpoints", "insure", "m1_eps0.25_exec_s301", "final.pt")
+ILPURE_CKPT = os.path.join(_ROOT, "train_log", "y3_insure", "ilpure_s301", "final.pt")
+M1EPS_CKPT = os.path.join(_ROOT, "train_log", "y3_insure", "m1_eps0.25_exec_s301", "final.pt")
 
 
 # --------------------------------------------------------------------------- #
@@ -576,7 +576,7 @@ def main():
     print("[insure] wrote %s" % jpath)
 
     write_md(A, B, os.path.join(_ROOT, "notes", "insure_eval.md"))
-    print("[insure] wrote results/y3_p5/insure/insure_eval.json")
+    print("[insure] wrote notes/insure_eval.md")
 
     # ---- console ----------------------------------------------------------- #
     print("\n===== (A) IL-PURE (imitation-only), eps=0 cell, seed 301, n=%d =====" % A["n_eval"])

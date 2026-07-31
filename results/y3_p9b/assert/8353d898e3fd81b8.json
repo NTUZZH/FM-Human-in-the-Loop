@@ -1,0 +1,15 @@
+{
+ "arm": "targeted_split",
+ "assert_stability_class": false,
+ "beta": 0.2,
+ "eps": 0.25,
+ "policy": "targeted",
+ "seed": 309,
+ "sig": "8353d898e3fd81b8",
+ "split_fit": true,
+ "supervisor_constructions": {
+  "cls:Supervisor": 148,
+  "mechanism:targeted": 148,
+  "policy:targeted": 148
+ }
+}

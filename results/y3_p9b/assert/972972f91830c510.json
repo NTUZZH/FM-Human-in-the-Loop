@@ -1,0 +1,15 @@
+{
+ "arm": "targeted_pub",
+ "assert_stability_class": false,
+ "beta": 1.0,
+ "eps": 0.0,
+ "policy": "targeted",
+ "seed": 305,
+ "sig": "972972f91830c510",
+ "split_fit": false,
+ "supervisor_constructions": {
+  "cls:Supervisor": 148,
+  "mechanism:targeted": 148,
+  "policy:targeted": 148
+ }
+}

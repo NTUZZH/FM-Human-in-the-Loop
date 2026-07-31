@@ -1,0 +1,8 @@
+== ITEM 2 OVERLAY DETERMINISM ==
+coeff run1==run2         : True
+coeff fresh==committed   : True  (maxdiff 0.000e+00)
+apply c09_storm2_w80_u100_0020 n_wos=2253  s/c*/w*/d* max|d1-d2| = {'shift': '0.0e+00', 'c_star': '0.0e+00', 'w_star': '0.0e+00', 'd_star': '0.0e+00'}
+apply c09_storm2_w80_u100_0021 n_wos=2227  s/c*/w*/d* max|d1-d2| = {'shift': '0.0e+00', 'c_star': '0.0e+00', 'w_star': '0.0e+00', 'd_star': '0.0e+00'}
+apply c09_storm2_w80_u100_0022 n_wos=2214  s/c*/w*/d* max|d1-d2| = {'shift': '0.0e+00', 'c_star': '0.0e+00', 'w_star': '0.0e+00', 'd_star': '0.0e+00'}
+apply all maps byte-equal: True
+ITEM 2: PASS

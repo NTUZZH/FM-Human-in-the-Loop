@@ -1,0 +1,13 @@
+{
+ "published_MzeroGain_pct": 45.36203546923573,
+ "reproduced_MzeroGain_pct": 45.36203546923573,
+ "difference_pp": 0.0,
+ "n_seeds": 10,
+ "per_instance_comparisons": 50,
+ "max_abs_diff": 0.0,
+ "bit_identical": true,
+ "rule_twt_mean": 3644.8307200000004,
+ "m0_twt_mean": 1991.4613160000001,
+ "macro": "\\MzeroGain",
+ "macro_value": "45.4%"
+}

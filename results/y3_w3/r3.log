@@ -1,0 +1,175 @@
+[constsweep] cell=c9_u130_b0  108 jobs
+  [  1/108] uniform         -0.400 s301 ->   0.020% <RULE  tau=0.547 (wall 16s)
+  [  2/108] uniform         -0.200 s301 ->   0.027% <RULE  tau=0.547 (wall 16s)
+  [  3/108] uniform         -0.050 s301 ->   0.015% <RULE  tau=0.547 (wall 16s)
+  [  4/108] uniform         -0.100 s301 ->   0.005% <RULE  tau=0.547 (wall 16s)
+  [  5/108] uniform         -0.020 s301 ->   0.000% <RULE  tau=0.547 (wall 33s)
+  [  6/108] uniform         +0.000 s301 ->   0.000% <RULE  tau=0.547 (wall 33s)
+  [  7/108] uniform         +0.020 s301 ->  -0.002% <RULE  tau=0.547 (wall 33s)
+  [  8/108] uniform         +0.050 s301 ->  -0.002% <RULE  tau=0.547 (wall 33s)
+  [  9/108] uniform         +0.080 s301 ->  -0.043% <RULE  tau=0.547 (wall 49s)
+  [ 10/108] uniform         +0.150 s301 ->  -0.026% <RULE  tau=0.547 (wall 49s)
+  [ 11/108] uniform         +0.100 s301 ->  -0.048% <RULE  tau=0.547 (wall 49s)
+  [ 12/108] uniform         +0.200 s301 ->  -0.041% <RULE  tau=0.547 (wall 49s)
+  [ 13/108] uniform         +0.300 s301 ->  -0.058% <RULE  tau=0.547 (wall 66s)
+  [ 14/108] uniform         +0.600 s301 ->  -0.113% <RULE  tau=0.547 (wall 66s)
+  [ 15/108] uniform         +1.000 s301 ->  -0.129% <RULE  tau=0.547 (wall 66s)
+  [ 16/108] uniform         +0.400 s301 ->  -0.050% <RULE  tau=0.547 (wall 66s)
+  [ 17/108] uniform         -0.400 s302 ->   0.020% <RULE  tau=0.547 (wall 82s)
+  [ 18/108] uniform         -0.100 s302 ->   0.005% <RULE  tau=0.547 (wall 82s)
+  [ 19/108] uniform         -0.200 s302 ->   0.027% <RULE  tau=0.547 (wall 82s)
+  [ 20/108] uniform         -0.050 s302 ->   0.015% <RULE  tau=0.547 (wall 82s)
+  [ 21/108] uniform         -0.020 s302 ->   0.000% <RULE  tau=0.547 (wall 99s)
+  [ 22/108] uniform         +0.000 s302 ->   0.000% <RULE  tau=0.547 (wall 99s)
+  [ 23/108] uniform         +0.020 s302 ->  -0.002% <RULE  tau=0.547 (wall 99s)
+  [ 24/108] uniform         +0.050 s302 ->  -0.002% <RULE  tau=0.547 (wall 99s)
+  [ 25/108] uniform         +0.080 s302 ->  -0.043% <RULE  tau=0.547 (wall 115s)
+  [ 26/108] uniform         +0.100 s302 ->  -0.048% <RULE  tau=0.547 (wall 115s)
+  [ 27/108] uniform         +0.150 s302 ->  -0.026% <RULE  tau=0.547 (wall 115s)
+  [ 28/108] uniform         +0.200 s302 ->  -0.041% <RULE  tau=0.547 (wall 115s)
+  [ 29/108] uniform         +0.400 s302 ->  -0.050% <RULE  tau=0.547 (wall 131s)
+  [ 30/108] uniform         +0.300 s302 ->  -0.058% <RULE  tau=0.547 (wall 131s)
+  [ 31/108] uniform         +0.600 s302 ->  -0.113% <RULE  tau=0.547 (wall 132s)
+  [ 32/108] uniform         +1.000 s302 ->  -0.129% <RULE  tau=0.547 (wall 132s)
+  [ 33/108] uniform         -0.400 s303 ->   0.020% <RULE  tau=0.547 (wall 148s)
+  [ 34/108] uniform         -0.200 s303 ->   0.027% <RULE  tau=0.547 (wall 148s)
+  [ 35/108] uniform         -0.100 s303 ->   0.005% <RULE  tau=0.547 (wall 148s)
+  [ 36/108] uniform         -0.050 s303 ->   0.015% <RULE  tau=0.547 (wall 148s)
+  [ 37/108] uniform         -0.020 s303 ->   0.000% <RULE  tau=0.547 (wall 164s)
+  [ 38/108] uniform         +0.000 s303 ->   0.000% <RULE  tau=0.547 (wall 164s)
+  [ 39/108] uniform         +0.050 s303 ->  -0.002% <RULE  tau=0.547 (wall 165s)
+  [ 40/108] uniform         +0.020 s303 ->  -0.002% <RULE  tau=0.547 (wall 165s)
+  [ 41/108] uniform         +0.080 s303 ->  -0.043% <RULE  tau=0.547 (wall 181s)
+  [ 42/108] uniform         +0.100 s303 ->  -0.048% <RULE  tau=0.547 (wall 181s)
+  [ 43/108] uniform         +0.150 s303 ->  -0.026% <RULE  tau=0.547 (wall 181s)
+  [ 44/108] uniform         +0.200 s303 ->  -0.041% <RULE  tau=0.547 (wall 182s)
+  [ 45/108] uniform         +0.300 s303 ->  -0.058% <RULE  tau=0.547 (wall 197s)
+  [ 46/108] uniform         +0.400 s303 ->  -0.050% <RULE  tau=0.547 (wall 197s)
+  [ 47/108] uniform         +0.600 s303 ->  -0.113% <RULE  tau=0.547 (wall 198s)
+  [ 48/108] uniform         +1.000 s303 ->  -0.129% <RULE  tau=0.547 (wall 198s)
+  [ 49/108] class4_only     -0.400 s301 ->   0.000% <RULE  tau=0.547 (wall 213s)
+  [ 50/108] class4_only     -0.200 s301 ->   0.000% <RULE  tau=0.547 (wall 214s)
+  [ 51/108] class4_only     -0.100 s301 ->   0.000% <RULE  tau=0.547 (wall 214s)
+  [ 52/108] class4_only     -0.050 s301 ->   0.000% <RULE  tau=0.547 (wall 215s)
+  [ 53/108] class4_only     -0.020 s301 ->   0.000% <RULE  tau=0.547 (wall 230s)
+  [ 54/108] class4_only     +0.000 s301 ->   0.000% <RULE  tau=0.547 (wall 230s)
+  [ 55/108] class4_only     +0.020 s301 ->   0.000% <RULE  tau=0.547 (wall 231s)
+  [ 56/108] class4_only     +0.050 s301 ->   0.000% <RULE  tau=0.547 (wall 232s)
+  [ 57/108] class4_only     +0.080 s301 ->   0.000% <RULE  tau=0.547 (wall 246s)
+  [ 58/108] class4_only     +0.100 s301 ->   0.000% <RULE  tau=0.547 (wall 247s)
+  [ 59/108] class4_only     +0.150 s301 ->   0.000% <RULE  tau=0.547 (wall 247s)
+  [ 60/108] class4_only     +0.200 s301 ->   0.000% <RULE  tau=0.547 (wall 248s)
+  [ 61/108] class4_only     +0.300 s301 ->   0.000% <RULE  tau=0.547 (wall 263s)
+  [ 62/108] class4_only     +0.400 s301 ->   0.000% <RULE  tau=0.547 (wall 263s)
+  [ 63/108] class4_only     +0.600 s301 ->   0.004% <RULE  tau=0.547 (wall 264s)
+  [ 64/108] class4_only     +1.000 s301 ->  -1.162% <RULE  tau=0.547 (wall 265s)
+  [ 65/108] class4_only     -0.400 s302 ->   0.000% <RULE  tau=0.547 (wall 279s)
+  [ 66/108] class4_only     -0.200 s302 ->   0.000% <RULE  tau=0.547 (wall 280s)
+  [ 67/108] class4_only     -0.100 s302 ->   0.000% <RULE  tau=0.547 (wall 280s)
+  [ 68/108] class4_only     -0.050 s302 ->   0.000% <RULE  tau=0.547 (wall 281s)
+  [ 69/108] class4_only     -0.020 s302 ->   0.000% <RULE  tau=0.547 (wall 296s)
+  [ 70/108] class4_only     +0.000 s302 ->   0.000% <RULE  tau=0.547 (wall 296s)
+  [ 71/108] class4_only     +0.020 s302 ->   0.000% <RULE  tau=0.547 (wall 297s)
+  [ 72/108] class4_only     +0.050 s302 ->   0.000% <RULE  tau=0.547 (wall 297s)
+  [ 73/108] class4_only     +0.080 s302 ->   0.000% <RULE  tau=0.547 (wall 312s)
+  [ 74/108] class4_only     +0.100 s302 ->   0.000% <RULE  tau=0.547 (wall 313s)
+  [ 75/108] class4_only     +0.150 s302 ->   0.000% <RULE  tau=0.547 (wall 313s)
+  [ 76/108] class4_only     +0.200 s302 ->   0.000% <RULE  tau=0.547 (wall 314s)
+  [ 77/108] class4_only     +0.300 s302 ->   0.000% <RULE  tau=0.547 (wall 329s)
+  [ 78/108] class4_only     +0.400 s302 ->   0.000% <RULE  tau=0.547 (wall 329s)
+  [ 79/108] class4_only     +0.600 s302 ->   0.004% <RULE  tau=0.547 (wall 330s)
+  [ 80/108] class4_only     +1.000 s302 ->  -1.162% <RULE  tau=0.547 (wall 330s)
+  [ 81/108] class4_only     -0.400 s303 ->   0.000% <RULE  tau=0.547 (wall 345s)
+  [ 82/108] class4_only     -0.200 s303 ->   0.000% <RULE  tau=0.547 (wall 345s)
+  [ 83/108] class4_only     -0.100 s303 ->   0.000% <RULE  tau=0.547 (wall 346s)
+  [ 84/108] class4_only     -0.050 s303 ->   0.000% <RULE  tau=0.547 (wall 347s)
+  [ 85/108] class4_only     -0.020 s303 ->   0.000% <RULE  tau=0.547 (wall 361s)
+  [ 86/108] class4_only     +0.000 s303 ->   0.000% <RULE  tau=0.547 (wall 362s)
+  [ 87/108] class4_only     +0.020 s303 ->   0.000% <RULE  tau=0.547 (wall 363s)
+  [ 88/108] class4_only     +0.050 s303 ->   0.000% <RULE  tau=0.547 (wall 363s)
+  [ 89/108] class4_only     +0.080 s303 ->   0.000% <RULE  tau=0.547 (wall 378s)
+  [ 90/108] class4_only     +0.100 s303 ->   0.000% <RULE  tau=0.547 (wall 378s)
+  [ 91/108] class4_only     +0.150 s303 ->   0.000% <RULE  tau=0.547 (wall 379s)
+  [ 92/108] class4_only     +0.200 s303 ->   0.000% <RULE  tau=0.547 (wall 380s)
+  [ 93/108] class4_only     +0.300 s303 ->   0.000% <RULE  tau=0.547 (wall 394s)
+  [ 94/108] class4_only     +0.400 s303 ->   0.000% <RULE  tau=0.547 (wall 395s)
+  [ 95/108] class4_only     +0.600 s303 ->   0.004% <RULE  tau=0.547 (wall 396s)
+  [ 96/108] class4_only     +1.000 s303 ->  -1.162% <RULE  tau=0.547 (wall 397s)
+  [ 97/108] true_classmean  +0.000 s301 ->   0.000% <RULE  tau=0.547 (wall 411s)
+  [ 98/108] true_classmean  +0.250 s301 ->   0.000% <RULE  tau=0.547 (wall 412s)
+  [ 99/108] true_classmean  +0.500 s301 ->  -0.040% <RULE  tau=0.547 (wall 412s)
+  [100/108] true_classmean  +1.000 s301 ->  -0.034% <RULE  tau=0.547 (wall 413s)
+  [101/108] true_classmean  +0.000 s302 ->   0.000% <RULE  tau=0.547 (wall 427s)
+  [102/108] true_classmean  +0.250 s302 ->   0.000% <RULE  tau=0.547 (wall 428s)
+  [103/108] true_classmean  +0.500 s302 ->  -0.040% <RULE  tau=0.547 (wall 429s)
+  [104/108] true_classmean  +1.000 s302 ->  -0.034% <RULE  tau=0.547 (wall 430s)
+  [105/108] true_classmean  +0.000 s303 ->   0.000% <RULE  tau=0.547 (wall 444s)
+  [106/108] true_classmean  +0.250 s303 ->   0.000% <RULE  tau=0.547 (wall 445s)
+  [107/108] true_classmean  +0.500 s303 ->  -0.040% <RULE  tau=0.547 (wall 446s)
+  [108/108] true_classmean  +1.000 s303 ->  -0.034% <RULE  tau=0.547 (wall 446s)
+
+CONSTANT-CORRECTION SWEEP, cell c9_u130_b0 (pooled over seeds [301, 302, 303])
+
+  uniform
+       const       %<RULE      tau
+      -0.400        0.020    0.547
+      -0.200        0.027    0.547
+      -0.100        0.005    0.547
+      -0.050        0.015    0.547
+      -0.020        0.000    0.547
+      +0.000        0.000    0.547
+      +0.020       -0.002    0.547
+      +0.050       -0.002    0.547
+      +0.080       -0.043    0.547
+      +0.100       -0.048    0.547
+      +0.150       -0.026    0.547
+      +0.200       -0.041    0.547
+      +0.300       -0.058    0.547
+      +0.400       -0.050    0.547
+      +0.600       -0.113    0.547
+      +1.000       -0.129    0.547
+
+  class4_only
+       const       %<RULE      tau
+      -0.400        0.000    0.547
+      -0.200        0.000    0.547
+      -0.100        0.000    0.547
+      -0.050        0.000    0.547
+      -0.020        0.000    0.547
+      +0.000        0.000    0.547
+      +0.020        0.000    0.547
+      +0.050        0.000    0.547
+      +0.080        0.000    0.547
+      +0.100        0.000    0.547
+      +0.150        0.000    0.547
+      +0.200        0.000    0.547
+      +0.300        0.000    0.547
+      +0.400        0.000    0.547
+      +0.600        0.004    0.547
+      +1.000       -1.162    0.547
+
+  true_classmean
+       const       %<RULE      tau
+      +0.000        0.000    0.547
+      +0.250        0.000    0.547
+      +0.500       -0.040    0.547
+      +1.000       -0.034    0.547
+
+wrote /home/ziheng/PaperY3/fm-hitl/results/y3_w3/constsweep_c9_u130_b0.json
+[w3] cell=c10_u130_b0  15 jobs (5 variants x 3 seeds), 4 workers
+  [ 1/15] tobit_exp        s301   27.391% <RULE  mean_hat_s=-0.6421 applied=+0.1070  r=+0.001  tau=0.407  (2255s, wall 2255s)
+  [ 2/15] tobit_imp        s301   37.836% <RULE  mean_hat_s=+0.0765 applied=+0.0986  r=-0.003  tau=0.370  (2534s, wall 2534s)
+  [ 3/15] mse_published    s301   30.189% <RULE  mean_hat_s=+0.0382 applied=+0.0671  r=-0.002  tau=0.400  (2540s, wall 2541s)
+  [ 4/15] classmean_oracle s301   -0.012% <RULE  mean_hat_s=+0.2963 applied=+0.2963  r=+0.008  tau=0.532  (684s, wall 2939s)
+  [ 5/15] tobit            s301    5.350% <RULE  mean_hat_s=-0.4242 applied=-0.0609  r=+0.000  tau=0.530  (3225s, wall 3225s)
+  [ 6/15] mse_published    s302   33.066% <RULE  mean_hat_s=+0.0254 applied=+0.0638  r=+0.001  tau=0.371  (2435s, wall 4969s)
+  [ 7/15] tobit_imp        s302   40.570% <RULE  mean_hat_s=+0.0883 applied=+0.1101  r=-0.002  tau=0.361  (2195s, wall 5135s)
+  [ 8/15] tobit_exp        s302   36.003% <RULE  mean_hat_s=-0.6208 applied=+0.1080  r=+0.001  tau=0.383  (1989s, wall 5214s)
+  [ 9/15] classmean_oracle s302   -0.012% <RULE  mean_hat_s=+0.2963 applied=+0.2963  r=+0.008  tau=0.532  (346s, wall 5315s)
+  [10/15] tobit            s302   11.777% <RULE  mean_hat_s=-0.4927 applied=-0.0441  r=+0.001  tau=0.485  (3013s, wall 5554s)
+  [11/15] mse_published    s303   36.215% <RULE  mean_hat_s=+0.0577 applied=+0.0891  r=-0.001  tau=0.356  (2193s, wall 7328s)
+  [12/15] tobit_imp        s303   39.728% <RULE  mean_hat_s=+0.0974 applied=+0.1159  r=+0.000  tau=0.340  (2213s, wall 7528s)
+  [13/15] tobit_exp        s303   32.281% <RULE  mean_hat_s=-0.6011 applied=+0.1113  r=+0.001  tau=0.386  (1976s, wall 7530s)
+  [14/15] classmean_oracle s303   -0.012% <RULE  mean_hat_s=+0.2963 applied=+0.2963  r=+0.008  tau=0.532  (342s, wall 7671s)
+  [15/15] tobit            s303    6.019% <RULE  mean_hat_s=-0.6211 applied=-0.0669  r=+0.002  tau=0.516  (2809s, wall 8023s)
+[w3] cell=c10_u130_b0 complete.

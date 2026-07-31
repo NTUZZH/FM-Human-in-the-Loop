@@ -30,16 +30,16 @@
    "c09_storm2_w80_u100_0029"
   ],
   "pi0_ckpts": {
-   "301": "results/y3_checkpoints/sweep/pi0_c9_u100_s301/final.pt",
-   "302": "results/y3_checkpoints/sweep/pi0_c9_u100_s302/final.pt",
-   "303": "results/y3_checkpoints/sweep/pi0_c9_u100_s303/final.pt",
-   "304": "results/y3_checkpoints/sweep/pi0_c9_u100_s304/final.pt",
-   "305": "results/y3_checkpoints/sweep/pi0_c9_u100_s305/final.pt",
-   "306": "results/y3_checkpoints/sweep/pi0_c9_u100_s306/final.pt",
-   "307": "results/y3_checkpoints/sweep/pi0_c9_u100_s307/final.pt",
-   "308": "results/y3_checkpoints/sweep/pi0_c9_u100_s308/final.pt",
-   "309": "results/y3_checkpoints/sweep/pi0_c9_u100_s309/final.pt",
-   "310": "results/y3_checkpoints/sweep/pi0_c9_u100_s310/final.pt"
+   "301": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_sweep/pi0_c9_u100_s301/final.pt",
+   "302": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_sweep/pi0_c9_u100_s302/final.pt",
+   "303": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_sweep/pi0_c9_u100_s303/final.pt",
+   "304": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_sweep/pi0_c9_u100_s304/final.pt",
+   "305": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_sweep/pi0_c9_u100_s305/final.pt",
+   "306": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_sweep/pi0_c9_u100_s306/final.pt",
+   "307": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_sweep/pi0_c9_u100_s307/final.pt",
+   "308": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_sweep/pi0_c9_u100_s308/final.pt",
+   "309": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_sweep/pi0_c9_u100_s309/final.pt",
+   "310": "/home/ziheng/PaperY3/fm-hitl/train_log/y3_sweep/pi0_c9_u100_s310/final.pt"
   },
   "pi0_gate": 0.0,
   "pi0_nparam": 12323,

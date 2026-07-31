@@ -1,0 +1,18 @@
+[grid] published map, read from /home/ziheng/PaperY3/fm-hitl/results/y3_p4/e3_map_summary.json:
+       campuses=[9, 10] u=[70, 90, 100, 110, 130] beta=[0.0, 0.5, 1.0] rho=0.25 seeds=3 cells=30 channel=full_class_shift
+[map] 90 cell-seed tasks, 9 workers (1 thread each) -> /home/ziheng/PaperY3/fm-hitl/results/y3_w1b/map.csv
+  [map 1/90] stability      c10 u130 b0.00 r0.25 s301 | rule=32173 m0=19417 rsup=9826 m0sup=7050 | rev=0.248 und=0.969 q=0.797 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (2058s, wall 2058s)
+  [map 2/90] stability      c10 u130 b0.00 r0.25 s302 | rule=32173 m0=20548 rsup=9645 m0sup=7230 | rev=0.249 und=0.971 q=0.819 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (2098s, wall 2098s)
+  [map 3/90] stability      c10 u130 b0.00 r0.25 s303 | rule=32173 m0=19805 rsup=10042 m0sup=7306 | rev=0.249 und=0.972 q=0.826 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (2141s, wall 2141s)
+  [map 4/90] stability      c10 u130 b0.50 r0.25 s302 | rule=62994 m0=16684 rsup=23242 m0sup=6106 | rev=0.249 und=0.968 q=0.755 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (2269s, wall 2269s)
+  [map 5/90] stability      c10 u130 b0.50 r0.25 s301 | rule=62994 m0=16864 rsup=24207 m0sup=6834 | rev=0.249 und=0.967 q=0.743 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (2296s, wall 2296s)
+  [map 6/90] stability      c10 u130 b0.50 r0.25 s303 | rule=62994 m0=21151 rsup=24205 m0sup=9603 | rev=0.249 und=0.974 q=0.805 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (2408s, wall 2408s)
+  [map 7/90] stability      c10 u130 b1.00 r0.25 s302 | rule=96719 m0=11246 rsup=48547 m0sup=9321 | rev=0.250 und=0.954 q=0.541 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (2673s, wall 2673s)
+  [map 8/90] stability      c10 u130 b1.00 r0.25 s301 | rule=96719 m0=9778 rsup=44513 m0sup=7135 | rev=0.250 und=0.956 q=0.556 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (2675s, wall 2675s)
+  [map 9/90] stability      c10 u130 b1.00 r0.25 s303 | rule=96719 m0=7626 rsup=45438 m0sup=4926 | rev=0.250 und=0.952 q=0.530 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (2758s, wall 2758s)
+  [map 10/90] stability      c10 u110 b0.00 r0.25 s301 | rule=8335 m0=5808 rsup=2990 m0sup=2905 | rev=0.249 und=0.868 q=0.394 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (1012s, wall 3070s)
+  [map 11/90] stability      c10 u110 b0.00 r0.25 s302 | rule=8335 m0=6090 rsup=2975 m0sup=3325 | rev=0.250 und=0.857 q=0.326 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (1015s, wall 3113s)
+  [map 12/90] stability      c10 u110 b0.00 r0.25 s303 | rule=8335 m0=6041 rsup=2786 m0sup=3106 | rev=0.249 und=0.857 q=0.316 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (1071s, wall 3212s)
+  [map 13/90] stability      c10 u110 b0.50 r0.25 s302 | rule=15631 m0=5894 rsup=7482 m0sup=3233 | rev=0.250 und=0.896 q=0.429 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (1111s, wall 3407s)
+  [map 14/90] stability      c10 u110 b0.50 r0.25 s301 | rule=15631 m0=4948 rsup=8232 m0sup=2942 | rev=0.250 und=0.930 q=0.493 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (1158s, wall 3427s)
+  [map 15/90] stability      c10 u110 b0.50 r0.25 s303 | rule=15631 m0=5001 rsup=7037 m0sup=2975 | rev=0.250 und=0.940 q=0.502 sup={'StabilityRoutingSupervisor': 148} hasplus2=0  (1105s, wall 3513s)

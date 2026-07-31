@@ -1,0 +1,125 @@
+[checks] pool=30 files; held-out ids, file digests and overlay digest all identical to results/y3_p9/data_checks.json
+[cfgdiff] c9_storm2_u100_b0.20_r0.25_eps0.00       shared fields differ in NOTHING; review policy {'mech': 'targeted'} -> {'policy': 'stability', 'split_fit': True, 'cal_frac': 0.3, 'alpha': 0.1, 'band_mode': 'global'}  OK
+[cfgdiff] c9_storm2_u100_b0.20_r0.25_eps0.25       shared fields differ in NOTHING; review policy {'mech': 'targeted'} -> {'policy': 'stability', 'split_fit': True, 'cal_frac': 0.3, 'alpha': 0.1, 'band_mode': 'global'}  OK
+[cfgdiff] c9_storm2_u100_b0.25_r0.25_eps0.00       shared fields differ in NOTHING; review policy {'mech': 'targeted'} -> {'policy': 'stability', 'split_fit': True, 'cal_frac': 0.3, 'alpha': 0.1, 'band_mode': 'global'}  OK
+  [repro 1/10] targeted_pub   b=1.00 eps=0.00 seed=303 | rule=3645 m0=2096 m0+sup=1898 rule+sup=2693 oracle=1815 | gain=42.51% | rev=0.248 und=n/a q=- 
+  [repro 2/10] targeted_pub   b=1.00 eps=0.00 seed=308 | rule=3645 m0=1872 m0+sup=1822 rule+sup=2693 oracle=1815 | gain=48.64% | rev=0.247 und=n/a q=- 
+  [repro 3/10] targeted_pub   b=1.00 eps=0.00 seed=302 | rule=3645 m0=2001 m0+sup=1860 rule+sup=2693 oracle=1815 | gain=45.11% | rev=0.248 und=n/a q=- 
+  [repro 4/10] targeted_pub   b=1.00 eps=0.00 seed=306 | rule=3645 m0=1902 m0+sup=1857 rule+sup=2693 oracle=1815 | gain=47.81% | rev=0.248 und=n/a q=- 
+  [repro 5/10] targeted_pub   b=1.00 eps=0.00 seed=304 | rule=3645 m0=1981 m0+sup=1829 rule+sup=2693 oracle=1815 | gain=45.64% | rev=0.247 und=n/a q=- 
+  [repro 6/10] targeted_pub   b=1.00 eps=0.00 seed=305 | rule=3645 m0=2038 m0+sup=1893 rule+sup=2693 oracle=1815 | gain=44.08% | rev=0.248 und=n/a q=- 
+  [repro 7/10] targeted_pub   b=1.00 eps=0.00 seed=301 | rule=3645 m0=1998 m0+sup=1831 rule+sup=2693 oracle=1815 | gain=45.19% | rev=0.247 und=n/a q=- 
+  [repro 8/10] targeted_pub   b=1.00 eps=0.00 seed=307 | rule=3645 m0=1971 m0+sup=1873 rule+sup=2693 oracle=1815 | gain=45.93% | rev=0.248 und=n/a q=- 
+  [repro 9/10] targeted_pub   b=1.00 eps=0.00 seed=310 | rule=3645 m0=2038 m0+sup=1897 rule+sup=2693 oracle=1815 | gain=44.08% | rev=0.248 und=n/a q=- 
+  [repro 10/10] targeted_pub   b=1.00 eps=0.00 seed=309 | rule=3645 m0=2018 m0+sup=1834 rule+sup=2693 oracle=1815 | gain=44.64% | rev=0.246 und=n/a q=- 
+[repro] 500 per-instance TWT* compared, 500 bit-exact, max|diff| = 0.0
+[repro] published MzeroGain = 45.3620354692%  recomputed = 45.3620354692%  diff = 0.00e+00 pp
+[repro] PASS = True
+  [mirror 1/30] targeted_pub   b=0.20 eps=0.00 seed=306 | rule=2242 m0=1949 m0+sup=1587 rule+sup=1715 oracle=1430 | gain=13.09% | rev=0.247 und=n/a q=- 
+  [mirror 2/30] targeted_pub   b=0.20 eps=0.00 seed=308 | rule=2242 m0=1911 m0+sup=1528 rule+sup=1715 oracle=1430 | gain=14.78% | rev=0.248 und=n/a q=- 
+  [mirror 3/30] targeted_pub   b=0.20 eps=0.00 seed=303 | rule=2242 m0=1913 m0+sup=1523 rule+sup=1715 oracle=1430 | gain=14.71% | rev=0.246 und=n/a q=- 
+  [mirror 4/30] targeted_pub   b=0.20 eps=0.00 seed=305 | rule=2242 m0=1926 m0+sup=1547 rule+sup=1715 oracle=1430 | gain=14.10% | rev=0.246 und=n/a q=- 
+  [mirror 5/30] targeted_pub   b=0.20 eps=0.00 seed=302 | rule=2242 m0=1988 m0+sup=1551 rule+sup=1715 oracle=1430 | gain=11.35% | rev=0.246 und=n/a q=- 
+  [mirror 6/30] targeted_pub   b=0.20 eps=0.00 seed=301 | rule=2242 m0=1991 m0+sup=1551 rule+sup=1715 oracle=1430 | gain=11.22% | rev=0.248 und=n/a q=- 
+  [mirror 7/30] targeted_pub   b=0.20 eps=0.00 seed=307 | rule=2242 m0=1922 m0+sup=1549 rule+sup=1715 oracle=1430 | gain=14.31% | rev=0.246 und=n/a q=- 
+  [mirror 8/30] targeted_pub   b=0.20 eps=0.00 seed=304 | rule=2242 m0=1973 m0+sup=1592 rule+sup=1715 oracle=1430 | gain=12.01% | rev=0.246 und=n/a q=- 
+  [mirror 9/30] targeted_pub   b=0.20 eps=0.00 seed=309 | rule=2242 m0=1998 m0+sup=1592 rule+sup=1715 oracle=1430 | gain=10.91% | rev=0.249 und=n/a q=- 
+  [mirror 10/30] targeted_pub   b=0.20 eps=0.00 seed=310 | rule=2242 m0=2021 m0+sup=1572 rule+sup=1715 oracle=1430 | gain=9.86% | rev=0.247 und=n/a q=- 
+  [mirror 11/30] targeted_pub   b=0.20 eps=0.25 seed=301 | rule=2242 m0=2105 m0+sup=1696 rule+sup=1729 oracle=1430 | gain=6.12% | rev=0.249 und=n/a q=- 
+  [mirror 12/30] targeted_pub   b=0.20 eps=0.25 seed=304 | rule=2242 m0=2032 m0+sup=1629 rule+sup=1737 oracle=1430 | gain=9.39% | rev=0.246 und=n/a q=- 
+  [mirror 13/30] targeted_pub   b=0.20 eps=0.25 seed=302 | rule=2242 m0=2059 m0+sup=1646 rule+sup=1765 oracle=1430 | gain=8.16% | rev=0.249 und=n/a q=- 
+  [mirror 14/30] targeted_pub   b=0.20 eps=0.25 seed=305 | rule=2242 m0=2012 m0+sup=1600 rule+sup=1752 oracle=1430 | gain=10.25% | rev=0.247 und=n/a q=- 
+  [mirror 15/30] targeted_pub   b=0.20 eps=0.25 seed=303 | rule=2242 m0=2152 m0+sup=1654 rule+sup=1773 oracle=1430 | gain=4.02% | rev=0.248 und=n/a q=- 
+  [mirror 16/30] targeted_pub   b=0.20 eps=0.25 seed=306 | rule=2242 m0=2077 m0+sup=1657 rule+sup=1773 oracle=1430 | gain=7.36% | rev=0.249 und=n/a q=- 
+  [mirror 17/30] targeted_pub   b=0.20 eps=0.25 seed=307 | rule=2242 m0=2194 m0+sup=1700 rule+sup=1754 oracle=1430 | gain=2.17% | rev=0.247 und=n/a q=- 
+  [mirror 18/30] targeted_pub   b=0.25 eps=0.00 seed=301 | rule=2288 m0=1907 m0+sup=1584 rule+sup=1703 oracle=1460 | gain=16.64% | rev=0.249 und=n/a q=- 
+  [mirror 19/30] targeted_pub   b=0.20 eps=0.25 seed=308 | rule=2242 m0=2130 m0+sup=1679 rule+sup=1729 oracle=1430 | gain=5.01% | rev=0.249 und=n/a q=- 
+  [mirror 20/30] targeted_pub   b=0.25 eps=0.00 seed=304 | rule=2288 m0=1958 m0+sup=1590 rule+sup=1703 oracle=1460 | gain=14.40% | rev=0.248 und=n/a q=- 
+  [mirror 21/30] targeted_pub   b=0.20 eps=0.25 seed=309 | rule=2242 m0=2169 m0+sup=1706 rule+sup=1789 oracle=1430 | gain=3.29% | rev=0.248 und=n/a q=- 
+  [mirror 22/30] targeted_pub   b=0.20 eps=0.25 seed=310 | rule=2242 m0=2079 m0+sup=1664 rule+sup=1771 oracle=1430 | gain=7.31% | rev=0.249 und=n/a q=- 
+  [mirror 23/30] targeted_pub   b=0.25 eps=0.00 seed=303 | rule=2288 m0=2041 m0+sup=1584 rule+sup=1703 oracle=1460 | gain=10.79% | rev=0.246 und=n/a q=- 
+  [mirror 24/30] targeted_pub   b=0.25 eps=0.00 seed=302 | rule=2288 m0=1951 m0+sup=1586 rule+sup=1703 oracle=1460 | gain=14.71% | rev=0.248 und=n/a q=- 
+  [mirror 25/30] targeted_pub   b=0.25 eps=0.00 seed=305 | rule=2288 m0=2002 m0+sup=1582 rule+sup=1703 oracle=1460 | gain=12.47% | rev=0.246 und=n/a q=- 
+  [mirror 26/30] targeted_pub   b=0.25 eps=0.00 seed=306 | rule=2288 m0=1873 m0+sup=1539 rule+sup=1703 oracle=1460 | gain=18.12% | rev=0.245 und=n/a q=- 
+  [mirror 27/30] targeted_pub   b=0.25 eps=0.00 seed=307 | rule=2288 m0=1902 m0+sup=1570 rule+sup=1703 oracle=1460 | gain=16.87% | rev=0.247 und=n/a q=- 
+  [mirror 28/30] targeted_pub   b=0.25 eps=0.00 seed=308 | rule=2288 m0=1956 m0+sup=1583 rule+sup=1703 oracle=1460 | gain=14.48% | rev=0.246 und=n/a q=- 
+  [mirror 29/30] targeted_pub   b=0.25 eps=0.00 seed=309 | rule=2288 m0=1913 m0+sup=1562 rule+sup=1703 oracle=1460 | gain=16.35% | rev=0.248 und=n/a q=- 
+  [mirror 30/30] targeted_pub   b=0.25 eps=0.00 seed=310 | rule=2288 m0=1940 m0+sup=1544 rule+sup=1703 oracle=1460 | gain=15.21% | rev=0.245 und=n/a q=- 
+[mirror] c9_storm2_u100_b0.20_r0.25_eps0.00       500/500 per-instance TWT* bit-exact vs y3_p9, max|diff| = 0.0  OK
+[mirror] c9_storm2_u100_b0.20_r0.25_eps0.25       500/500 per-instance TWT* bit-exact vs y3_p9, max|diff| = 0.0  OK
+[mirror] c9_storm2_u100_b0.25_r0.25_eps0.00       500/500 per-instance TWT* bit-exact vs y3_p9, max|diff| = 0.0  OK
+[cells] arm stability -- deployable stability routing (split protocol)
+  [stability 1/30] stability      b=0.20 eps=0.00 seed=306 | rule=2242 m0=2023 m0+sup=1639 rule+sup=1822 oracle=1430 | gain=9.80% | rev=0.247 und=0.826 q=0.344 
+  [stability 2/30] stability      b=0.20 eps=0.00 seed=302 | rule=2242 m0=2048 m0+sup=1682 rule+sup=1805 oracle=1430 | gain=8.68% | rev=0.243 und=0.814 q=0.231 
+  [stability 3/30] stability      b=0.20 eps=0.00 seed=301 | rule=2242 m0=2068 m0+sup=1708 rule+sup=1783 oracle=1430 | gain=7.80% | rev=0.246 und=0.822 q=0.313 
+  [stability 4/30] stability      b=0.20 eps=0.00 seed=305 | rule=2242 m0=1969 m0+sup=1656 rule+sup=1805 oracle=1430 | gain=12.17% | rev=0.246 und=0.822 q=0.293 
+  [stability 5/30] stability      b=0.20 eps=0.00 seed=308 | rule=2242 m0=2070 m0+sup=1658 rule+sup=1756 oracle=1430 | gain=7.69% | rev=0.246 und=0.820 q=0.330 
+  [stability 6/30] stability      b=0.20 eps=0.00 seed=303 | rule=2242 m0=1948 m0+sup=1614 rule+sup=1764 oracle=1430 | gain=13.13% | rev=0.245 und=0.824 q=0.319 
+  [stability 7/30] stability      b=0.20 eps=0.00 seed=304 | rule=2242 m0=2017 m0+sup=1693 rule+sup=1783 oracle=1430 | gain=10.07% | rev=0.246 und=0.832 q=0.384 
+  [stability 8/30] stability      b=0.20 eps=0.00 seed=307 | rule=2242 m0=2068 m0+sup=1715 rule+sup=1806 oracle=1430 | gain=7.76% | rev=0.247 und=0.825 q=0.320 
+  [stability 9/30] stability      b=0.20 eps=0.00 seed=309 | rule=2242 m0=2058 m0+sup=1660 rule+sup=1793 oracle=1430 | gain=8.23% | rev=0.247 und=0.829 q=0.306 
+  [stability 10/30] stability      b=0.20 eps=0.25 seed=302 | rule=2242 m0=2181 m0+sup=1793 rule+sup=1794 oracle=1430 | gain=2.75% | rev=0.246 und=0.973 q=1.018 
+  [stability 11/30] stability      b=0.20 eps=0.25 seed=301 | rule=2242 m0=2149 m0+sup=1812 rule+sup=1841 oracle=1430 | gain=4.16% | rev=0.244 und=0.973 q=1.026 
+  [stability 12/30] stability      b=0.20 eps=0.00 seed=310 | rule=2242 m0=2019 m0+sup=1631 rule+sup=1821 oracle=1430 | gain=9.95% | rev=0.249 und=0.827 q=0.339 
+  [stability 13/30] stability      b=0.20 eps=0.25 seed=304 | rule=2242 m0=2080 m0+sup=1715 rule+sup=1794 oracle=1430 | gain=7.24% | rev=0.249 und=0.973 q=1.028 
+  [stability 14/30] stability      b=0.20 eps=0.25 seed=303 | rule=2242 m0=2159 m0+sup=1751 rule+sup=1838 oracle=1430 | gain=3.73% | rev=0.241 und=0.975 q=1.033 
+  [stability 15/30] stability      b=0.20 eps=0.25 seed=305 | rule=2242 m0=2179 m0+sup=1849 rule+sup=1829 oracle=1430 | gain=2.81% | rev=0.241 und=0.978 q=1.047 
+  [stability 16/30] stability      b=0.20 eps=0.25 seed=306 | rule=2242 m0=2175 m0+sup=1806 rule+sup=1803 oracle=1430 | gain=3.00% | rev=0.245 und=0.976 q=1.032 
+  [stability 17/30] stability      b=0.20 eps=0.25 seed=308 | rule=2242 m0=2129 m0+sup=1685 rule+sup=1839 oracle=1430 | gain=5.04% | rev=0.245 und=0.979 q=1.028 
+  [stability 18/30] stability      b=0.20 eps=0.25 seed=307 | rule=2242 m0=2308 m0+sup=1884 rule+sup=1905 oracle=1430 | gain=-2.92% | rev=0.247 und=0.978 q=1.043 
+  [stability 19/30] stability      b=0.25 eps=0.00 seed=302 | rule=2288 m0=1925 m0+sup=1640 rule+sup=1759 oracle=1460 | gain=15.87% | rev=0.249 und=0.817 q=0.304 
+  [stability 20/30] stability      b=0.25 eps=0.00 seed=303 | rule=2288 m0=1942 m0+sup=1654 rule+sup=1765 oracle=1460 | gain=15.11% | rev=0.248 und=0.815 q=0.295 
+  [stability 21/30] stability      b=0.20 eps=0.25 seed=309 | rule=2242 m0=2119 m0+sup=1681 rule+sup=1893 oracle=1430 | gain=5.51% | rev=0.245 und=0.977 q=1.030 
+  [stability 22/30] stability      b=0.25 eps=0.00 seed=304 | rule=2288 m0=1949 m0+sup=1669 rule+sup=1789 oracle=1460 | gain=14.79% | rev=0.244 und=0.824 q=0.334 
+  [stability 23/30] stability      b=0.20 eps=0.25 seed=310 | rule=2242 m0=2054 m0+sup=1717 rule+sup=1806 oracle=1430 | gain=8.40% | rev=0.247 und=0.974 q=1.026 
+  [stability 24/30] stability      b=0.25 eps=0.00 seed=301 | rule=2288 m0=2042 m0+sup=1627 rule+sup=1817 oracle=1460 | gain=10.75% | rev=0.243 und=0.827 q=0.336 
+  [stability 25/30] stability      b=0.25 eps=0.00 seed=305 | rule=2288 m0=1993 m0+sup=1651 rule+sup=1821 oracle=1460 | gain=12.89% | rev=0.246 und=0.822 q=0.319 
+  [stability 26/30] stability      b=0.25 eps=0.00 seed=308 | rule=2288 m0=1909 m0+sup=1665 rule+sup=1786 oracle=1460 | gain=16.54% | rev=0.246 und=0.812 q=0.275 
+  [stability 27/30] stability      b=0.25 eps=0.00 seed=306 | rule=2288 m0=2088 m0+sup=1743 rule+sup=1829 oracle=1460 | gain=8.72% | rev=0.248 und=0.826 q=0.305 
+  [stability 28/30] stability      b=0.25 eps=0.00 seed=307 | rule=2288 m0=1897 m0+sup=1672 rule+sup=1775 oracle=1460 | gain=17.09% | rev=0.244 und=0.819 q=0.295 
+  [stability 29/30] stability      b=0.25 eps=0.00 seed=310 | rule=2288 m0=2018 m0+sup=1646 rule+sup=1802 oracle=1460 | gain=11.77% | rev=0.245 und=0.827 q=0.345 
+  [stability 30/30] stability      b=0.25 eps=0.00 seed=309 | rule=2288 m0=2041 m0+sup=1728 rule+sup=1802 oracle=1460 | gain=10.78% | rev=0.250 und=0.808 q=0.260 
+[cells] arm targeted_split -- oracle-informed reference, same fold split
+  [targeted_split 1/30] targeted_split b=0.20 eps=0.00 seed=303 | rule=2242 m0=1986 m0+sup=1535 rule+sup=1715 oracle=1430 | gain=11.42% | rev=0.247 und=n/a q=0.398 
+  [targeted_split 2/30] targeted_split b=0.20 eps=0.00 seed=308 | rule=2242 m0=1914 m0+sup=1537 rule+sup=1715 oracle=1430 | gain=14.64% | rev=0.247 und=n/a q=0.462 
+  [targeted_split 3/30] targeted_split b=0.20 eps=0.00 seed=307 | rule=2242 m0=1963 m0+sup=1550 rule+sup=1715 oracle=1430 | gain=12.46% | rev=0.248 und=n/a q=0.397 
+  [targeted_split 4/30] targeted_split b=0.20 eps=0.00 seed=302 | rule=2242 m0=1908 m0+sup=1545 rule+sup=1715 oracle=1430 | gain=14.90% | rev=0.248 und=n/a q=0.391 
+  [targeted_split 5/30] targeted_split b=0.20 eps=0.00 seed=304 | rule=2242 m0=1929 m0+sup=1555 rule+sup=1715 oracle=1430 | gain=13.98% | rev=0.246 und=n/a q=0.486 
+  [targeted_split 6/30] targeted_split b=0.20 eps=0.00 seed=305 | rule=2242 m0=1921 m0+sup=1536 rule+sup=1715 oracle=1430 | gain=14.33% | rev=0.248 und=n/a q=0.472 
+  [targeted_split 7/30] targeted_split b=0.20 eps=0.00 seed=306 | rule=2242 m0=1914 m0+sup=1519 rule+sup=1715 oracle=1430 | gain=14.65% | rev=0.246 und=n/a q=0.467 
+  [targeted_split 8/30] targeted_split b=0.20 eps=0.00 seed=301 | rule=2242 m0=1965 m0+sup=1566 rule+sup=1715 oracle=1430 | gain=12.36% | rev=0.248 und=n/a q=0.505 
+  [targeted_split 9/30] targeted_split b=0.20 eps=0.00 seed=310 | rule=2242 m0=1913 m0+sup=1546 rule+sup=1715 oracle=1430 | gain=14.69% | rev=0.246 und=n/a q=0.490 
+  [targeted_split 10/30] targeted_split b=0.20 eps=0.25 seed=301 | rule=2242 m0=2039 m0+sup=1659 rule+sup=1729 oracle=1430 | gain=9.07% | rev=0.246 und=n/a q=1.027 
+  [targeted_split 11/30] targeted_split b=0.20 eps=0.00 seed=309 | rule=2242 m0=1976 m0+sup=1559 rule+sup=1715 oracle=1430 | gain=11.90% | rev=0.248 und=n/a q=0.476 
+  [targeted_split 12/30] targeted_split b=0.20 eps=0.25 seed=302 | rule=2242 m0=2009 m0+sup=1632 rule+sup=1765 oracle=1430 | gain=10.42% | rev=0.246 und=n/a q=1.031 
+  [targeted_split 13/30] targeted_split b=0.20 eps=0.25 seed=303 | rule=2242 m0=2162 m0+sup=1655 rule+sup=1773 oracle=1430 | gain=3.56% | rev=0.248 und=n/a q=1.018 
+  [targeted_split 14/30] targeted_split b=0.20 eps=0.25 seed=304 | rule=2242 m0=2076 m0+sup=1652 rule+sup=1737 oracle=1430 | gain=7.43% | rev=0.247 und=n/a q=1.028 
+  [targeted_split 15/30] targeted_split b=0.20 eps=0.25 seed=306 | rule=2242 m0=2202 m0+sup=1710 rule+sup=1773 oracle=1430 | gain=1.79% | rev=0.249 und=n/a q=1.039 
+  [targeted_split 16/30] targeted_split b=0.20 eps=0.25 seed=305 | rule=2242 m0=2057 m0+sup=1643 rule+sup=1752 oracle=1430 | gain=8.28% | rev=0.248 und=n/a q=1.028 
+  [targeted_split 17/30] targeted_split b=0.20 eps=0.25 seed=307 | rule=2242 m0=2125 m0+sup=1674 rule+sup=1754 oracle=1430 | gain=5.22% | rev=0.248 und=n/a q=1.032 
+  [targeted_split 18/30] targeted_split b=0.20 eps=0.25 seed=308 | rule=2242 m0=2138 m0+sup=1686 rule+sup=1729 oracle=1430 | gain=4.64% | rev=0.248 und=n/a q=1.024 
+  [targeted_split 19/30] targeted_split b=0.25 eps=0.00 seed=301 | rule=2288 m0=1886 m0+sup=1547 rule+sup=1703 oracle=1460 | gain=17.57% | rev=0.247 und=n/a q=0.387 
+  [targeted_split 20/30] targeted_split b=0.25 eps=0.00 seed=303 | rule=2288 m0=1934 m0+sup=1552 rule+sup=1703 oracle=1460 | gain=15.45% | rev=0.245 und=n/a q=0.296 
+  [targeted_split 21/30] targeted_split b=0.20 eps=0.25 seed=310 | rule=2242 m0=2121 m0+sup=1676 rule+sup=1771 oracle=1430 | gain=5.40% | rev=0.249 und=n/a q=1.022 
+  [targeted_split 22/30] targeted_split b=0.20 eps=0.25 seed=309 | rule=2242 m0=2168 m0+sup=1743 rule+sup=1789 oracle=1430 | gain=3.33% | rev=0.249 und=n/a q=1.022 
+  [targeted_split 23/30] targeted_split b=0.25 eps=0.00 seed=302 | rule=2288 m0=1884 m0+sup=1538 rule+sup=1703 oracle=1460 | gain=17.64% | rev=0.247 und=n/a q=0.482 
+  [targeted_split 24/30] targeted_split b=0.25 eps=0.00 seed=304 | rule=2288 m0=1919 m0+sup=1556 rule+sup=1703 oracle=1460 | gain=16.11% | rev=0.248 und=n/a q=0.362 
+  [targeted_split 25/30] targeted_split b=0.25 eps=0.00 seed=305 | rule=2288 m0=1913 m0+sup=1551 rule+sup=1703 oracle=1460 | gain=16.36% | rev=0.246 und=n/a q=0.524 
+  [targeted_split 26/30] targeted_split b=0.25 eps=0.00 seed=306 | rule=2288 m0=1939 m0+sup=1562 rule+sup=1703 oracle=1460 | gain=15.25% | rev=0.248 und=n/a q=0.316 
+  [targeted_split 27/30] targeted_split b=0.25 eps=0.00 seed=307 | rule=2288 m0=1975 m0+sup=1583 rule+sup=1703 oracle=1460 | gain=13.68% | rev=0.248 und=n/a q=0.397 
+  [targeted_split 28/30] targeted_split b=0.25 eps=0.00 seed=309 | rule=2288 m0=1989 m0+sup=1580 rule+sup=1703 oracle=1460 | gain=13.07% | rev=0.242 und=n/a q=0.403 
+  [targeted_split 29/30] targeted_split b=0.25 eps=0.00 seed=310 | rule=2288 m0=1920 m0+sup=1559 rule+sup=1703 oracle=1460 | gain=16.05% | rev=0.248 und=n/a q=0.505 
+  [targeted_split 30/30] targeted_split b=0.25 eps=0.00 seed=308 | rule=2288 m0=1884 m0+sup=1540 rule+sup=1703 oracle=1460 | gain=17.66% | rev=0.245 und=n/a q=0.497 
+[cells] eps-invariance of RULE and ORACLE asserted in both arms
+[cells] RULE and ORACLE bit-identical to results/y3_p9/cache in both arms (max|diff| = 0.0)
+[cells] wrote /home/ziheng/PaperY3/fm-hitl/results/y3_p9b/cells.csv (600 rows)
+[proof] stability      supervisors: {'cls:StabilityRoutingSupervisor': 4440, 'policy:stability': 4440, 'mechanism:stability': 4440, 'band_map:cold': 480, 'band_map:set': 3960}  PASS=True
+         c9_storm2_u100_b0.20_r0.25_eps0.00       reviewed=0.2462 undetermined=0.8241 band_q=0.3179
+         c9_storm2_u100_b0.20_r0.25_eps0.25       reviewed=0.2450 undetermined=0.9756 band_q=1.0311
+         c9_storm2_u100_b0.25_r0.25_eps0.00       reviewed=0.2463 undetermined=0.8197 band_q=0.3067
+[proof] targeted_split supervisors: {'cls:Supervisor': 4440, 'policy:targeted': 4440, 'mechanism:targeted': 4440}  PASS=True
+         c9_storm2_u100_b0.20_r0.25_eps0.00       reviewed=0.2472 undetermined=n/a (none produced) band_q=0.4544
+         c9_storm2_u100_b0.20_r0.25_eps0.25       reviewed=0.2477 undetermined=n/a (none produced) band_q=1.0271
+         c9_storm2_u100_b0.25_r0.25_eps0.00       reviewed=0.2465 undetermined=n/a (none produced) band_q=0.4169
+[tables] wrote cell_summary.json, comparison_table.md, macros_snippet.tex
+[y3_p9b] part=all complete.

@@ -1,0 +1,51 @@
+
+=== seed 303  variant mse_published ===
+/home/ziheng/PaperY3/fm-hitl/src/fmwos/hitl/choice_estimator.py:764: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  best, best_ll = float(model.tau()), -np.inf
+[M0 it0] reviews=6669 over=561 orr=0.084  sign_acc=0.712 exact_acc=0.377 (zero=0.375) r=0.399 n_agg=7230
+[M0 it1] reviews=6619 over=179 orr=0.027  sign_acc=0.842 exact_acc=0.378 (zero=0.375) r=0.464 n_agg=14028
+[M0 it2] reviews=6614 over=123 orr=0.019  sign_acc=0.732 exact_acc=0.371 (zero=0.375) r=0.415 n_agg=20765
+[M0 it3] reviews=6617 over=128 orr=0.019  sign_acc=0.718 exact_acc=0.373 (zero=0.375) r=0.413 n_agg=27510
+[M0 it4] reviews=6672 over=184 orr=0.028  sign_acc=0.740 exact_acc=0.373 (zero=0.375) r=0.441 n_agg=34366
+[M0 it5] reviews=6663 over=218 orr=0.033  sign_acc=0.702 exact_acc=0.374 (zero=0.375) r=0.446 n_agg=41247
+[M0 it6] reviews=6649 over=192 orr=0.029  sign_acc=0.704 exact_acc=0.371 (zero=0.375) r=0.399 n_agg=48088
+[M0 it7] reviews=6616 over=182 orr=0.028  sign_acc=0.686 exact_acc=0.372 (zero=0.375) r=0.406 n_agg=54886
+  -> pearson 0.4056  sign 0.6855  kendall 0.7924  llhold -2.7211  TWT* 2095.56 (rule 3644.83, +42.506%) p=0.001953
+
+=== seed 303  variant mse_es ===
+[mse_es it0] rev=6669 over=561 orr=0.084 sign=0.647 r=0.420 ep=16/25 val=0.2948
+[mse_es it1] rev=6630 over=210 orr=0.032 sign=0.769 r=0.500 ep=27/36 val=0.2726
+[mse_es it2] rev=6595 over=123 orr=0.019 sign=0.758 r=0.428 ep=39/40 val=0.2521
+[mse_es it3] rev=6599 over=140 orr=0.021 sign=0.657 r=0.418 ep=6/15 val=0.2458
+[mse_es it4] rev=6638 over=174 orr=0.026 sign=0.777 r=0.361 ep=2/11 val=0.2407
+[mse_es it5] rev=6650 over=175 orr=0.026 sign=0.628 r=0.491 ep=10/19 val=0.2427
+[mse_es it6] rev=6673 over=267 orr=0.040 sign=0.767 r=0.386 ep=8/17 val=0.2473
+[mse_es it7] rev=6623 over=152 orr=0.023 sign=0.618 r=0.405 ep=12/21 val=0.2386
+  -> pearson 0.4053  sign 0.6178  kendall 0.7986  llhold -2.7524  TWT* 1948.59 (rule 3644.83, +46.538%) p=0.001953
+
+=== seed 303  variant choice ===
+[choice it0] rev=6669 over=561 orr=0.084 sign=0.599 r=-0.241 ep=28/37 val=2.3345
+[choice it1] rev=6673 over=347 orr=0.052 sign=0.602 r=-0.110 ep=2/11 val=2.1532
+[choice it2] rev=6674 over=314 orr=0.047 sign=0.601 r=-0.095 ep=2/11 val=2.0204
+[choice it3] rev=6676 over=306 orr=0.046 sign=0.604 r=-0.110 ep=2/11 val=1.9737
+[choice it4] rev=6668 over=277 orr=0.042 sign=0.603 r=-0.045 ep=12/21 val=1.9202
+[choice it5] rev=6676 over=257 orr=0.038 sign=0.596 r=-0.112 ep=3/12 val=1.8765
+[choice it6] rev=6677 over=274 orr=0.041 sign=0.596 r=-0.104 ep=9/18 val=1.8359
+[choice it7] rev=6669 over=241 orr=0.036 sign=0.596 r=-0.105 ep=1/10 val=1.8075
+  -> pearson -0.1053  sign 0.5960  kendall 0.6376  llhold -2.4070  TWT* 2360.68 (rule 3644.83, +35.232%) p=0.001953
+
+=== seed 303  variant choice_queue ===
+[choice_queue it0] rev=6687 over=642 orr=0.096 sign=0.372 r=-0.167 ep=35/40 val=2.1713
+[choice_queue it1] rev=6671 over=397 orr=0.060 sign=0.374 r=-0.184 ep=23/32 val=1.9327
+[choice_queue it2] rev=6668 over=327 orr=0.049 sign=0.372 r=-0.162 ep=18/27 val=1.7765
+[choice_queue it3] rev=6654 over=287 orr=0.043 sign=0.373 r=-0.167 ep=12/21 val=1.7153
+[choice_queue it4] rev=6652 over=244 orr=0.037 sign=0.373 r=-0.160 ep=0/9 val=1.6902
+[choice_queue it5] rev=6641 over=240 orr=0.036 sign=0.374 r=-0.147 ep=1/10 val=1.6452
+[choice_queue it6] rev=6617 over=215 orr=0.032 sign=0.371 r=-0.126 ep=0/9 val=1.6089
+[choice_queue it7] rev=6657 over=232 orr=0.035 sign=0.371 r=-0.130 ep=0/9 val=1.6124
+  -> pearson -0.1302  sign 0.3709  kendall 0.5657  llhold -2.1067  TWT* 2045.55 (rule 3644.83, +43.878%) p=0.001953
+
+[seed 303 written to /home/ziheng/PaperY3/fm-hitl/results/y3_w2/ladder_s303.json]
+
+DONE. /home/ziheng/PaperY3/fm-hitl/results/y3_w2/ladder_s303.json

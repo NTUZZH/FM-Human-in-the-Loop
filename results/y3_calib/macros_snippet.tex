@@ -1,0 +1,68 @@
+% ---------------------------------------------------------------------------
+% Real-data calibration of the supervisor model against FMUCD (Y3 calib run).
+% Source dir: results/y3_calib/. Script: scripts/y3_calib_overrides.py.
+% Every value below is read from the file named in its trailing comment.
+% OBSERVATIONAL, NOT CAUSAL: a deviation is an upper bound on how often the
+% recorded priority failed to determine service order, not an override rate.
+% ---------------------------------------------------------------------------
+\newcommand{\calibNcampAll}{six}                  % campuses in the inherited campus set; campus_disposition.csv rows
+\newcommand{\calibNcampHead}{three}               % campuses with usable completion timestamps and a non-constant class; campus_disposition.csv status=headline (campuses 1, 9, 10)
+\newcommand{\calibNcampFlag}{one}                 % campus analysed but flagged; campus_disposition.csv status=flagged (campus 12)
+\newcommand{\calibEndCov1}{99\%}                  % campus 1 completion-timestamp coverage; campus_disposition.csv end_timestamp_coverage
+\newcommand{\calibEndCov9}{99\%}                  % campus 9 completion-timestamp coverage; campus_disposition.csv end_timestamp_coverage
+\newcommand{\calibEndCov10}{100\%}                % campus 10 completion-timestamp coverage; campus_disposition.csv end_timestamp_coverage
+\newcommand{\calibEndCov12}{45\%}                 % campus 12 completion-timestamp coverage; campus_disposition.csv end_timestamp_coverage
+\newcommand{\calibDevUnresLo}{0.85}               % lowest headline-campus deviation rate, corrective work, all candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevUnresHi}{0.99}               % highest headline-campus deviation rate, corrective work, all candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevUnresMed}{0.93}              % median headline-campus deviation rate, corrective work, all candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevUnresEvents}{207{,}639}      % start events behind the all corrective-work rates; deviation_rates.csv n_events summed over headline campuses
+\newcommand{\calibDevTradeLo}{0.73}               % lowest headline-campus deviation rate, corrective work, trade candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTradeHi}{0.88}               % highest headline-campus deviation rate, corrective work, trade candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTradeMed}{0.78}              % median headline-campus deviation rate, corrective work, trade candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTradeEvents}{207{,}211}      % start events behind the trade corrective-work rates; deviation_rates.csv n_events summed over headline campuses
+\newcommand{\calibDevTradeWLo}{0.55}              % lowest headline-campus deviation rate, corrective work, trade_w30 candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTradeWHi}{0.84}              % highest headline-campus deviation rate, corrective work, trade_w30 candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTradeWMed}{0.69}             % median headline-campus deviation rate, corrective work, trade_w30 candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTradeWEvents}{205{,}866}     % start events behind the trade_w30 corrective-work rates; deviation_rates.csv n_events summed over headline campuses
+\newcommand{\calibDevTradeSLo}{0.34}              % lowest headline-campus deviation rate, corrective work, trade_size_w30 candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTradeSHi}{0.74}              % highest headline-campus deviation rate, corrective work, trade_size_w30 candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTradeSMed}{0.37}             % median headline-campus deviation rate, corrective work, trade_size_w30 candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTradeSEvents}{202{,}454}     % start events behind the trade_size_w30 corrective-work rates; deviation_rates.csv n_events summed over headline campuses
+\newcommand{\calibNcampTight}{two}                % campuses that record a BuildingID and so admit the tightest candidate set (same trade, same building, 30-day backlog); deviation_rates.csv variant=trade_bldg_w30 with n_events>0
+\newcommand{\calibDevTightLo}{0.18}               % lowest headline-campus deviation rate, corrective work, trade_bldg_w30 candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTightHi}{0.25}               % highest headline-campus deviation rate, corrective work, trade_bldg_w30 candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTightMed}{0.22}              % median headline-campus deviation rate, corrective work, trade_bldg_w30 candidate set; deviation_rates.csv dev_rate
+\newcommand{\calibDevTightEvents}{114{,}879}      % start events behind the trade_bldg_w30 corrective-work rates; deviation_rates.csv n_events summed over headline campuses
+\newcommand{\calibDevTradeC1}{0.78}               % campus 1 corrective deviation rate, trade candidate set, n_events 70714; deviation_rates.csv
+\newcommand{\calibDevTradeWC1}{0.55}              % campus 1 corrective deviation rate, trade_w30 candidate set, n_events 69815; deviation_rates.csv
+\newcommand{\calibDevTradeC9}{0.73}               % campus 9 corrective deviation rate, trade candidate set, n_events 26811; deviation_rates.csv
+\newcommand{\calibDevTradeWC9}{0.69}              % campus 9 corrective deviation rate, trade_w30 candidate set, n_events 26630; deviation_rates.csv
+\newcommand{\calibDevTradeC10}{0.88}              % campus 10 corrective deviation rate, trade candidate set, n_events 109686; deviation_rates.csv
+\newcommand{\calibDevTradeWC10}{0.84}             % campus 10 corrective deviation rate, trade_w30 candidate set, n_events 109421; deviation_rates.csv
+\newcommand{\calibFracUrgentMed}{0.15}            % median over headline campuses of the mean share of the visible same-trade backlog that outranked the served order; deviation_rates.csv frac_more_urgent_mean (cm, trade_w30)
+\newcommand{\calibFracUrgentMedianMed}{0.07}      % median over headline campuses of the MEDIAN such share, i.e. the typical event; deviation_rates.csv frac_more_urgent_median
+\newcommand{\calibClassGapMed}{1.2}               % median over headline campuses of the mean class gap between the served order and the most urgent order left open, counted only on deviating events; deviation_rates.csv class_gap_mean_on_dev
+\newcommand{\calibAucClassLo}{0.59}               % lowest headline-campus class-only null AUC; predictability.csv auc_class_only (population cm, variant trade_w30)
+\newcommand{\calibAucClassHi}{0.88}               % highest headline-campus class-only null AUC; predictability.csv auc_class_only
+\newcommand{\calibAucFeatLo}{0.75}                % lowest headline-campus class+features AUC; predictability.csv auc_class_coded
+\newcommand{\calibAucFeatHi}{0.96}                % highest headline-campus class+features AUC; predictability.csv auc_class_coded
+\newcommand{\calibAucFeatMed}{0.87}               % median headline-campus class+features AUC; predictability.csv auc_class_coded
+\newcommand{\calibAucIncLo}{0.075}                % smallest headline-campus AUC increment over the class-only null; predictability.csv auc_increment_over_class
+\newcommand{\calibAucIncHi}{0.163}                % largest headline-campus AUC increment over the class-only null; predictability.csv auc_increment_over_class
+\newcommand{\calibBetaLo}{0.11}                   % lowest headline-campus recoverable share of the class-residual deviation variation; predictability.csv beta_hat
+\newcommand{\calibBetaHi}{0.27}                   % highest headline-campus recoverable share; predictability.csv beta_hat
+\newcommand{\calibBetaMed}{0.20}                  % median headline-campus recoverable share; predictability.csv beta_hat
+\newcommand{\calibBetaNosizeMed}{0.20}            % median recoverable share with log labour content ablated out; predictability.csv beta_hat_nosize
+\newcommand{\calibEpsUpperMed}{0.80}              % median unexplained share of the class-residual deviation variation, an UPPER bound on the noise share, NOT epsilon; predictability.csv unexplained_share_upper
+\newcommand{\calibPredEvents}{205{,}866}          % events behind the predictability numbers; predictability.csv n_events summed over headline campuses
+\newcommand{\calibAucTradeMed}{0.87}              % median headline-campus AUC from the recorded class plus the system code alone; predictability.csv auc_class_trade
+\newcommand{\calibAucNontradeMed}{0.72}           % median headline-campus AUC from the recorded class plus every observable EXCEPT the system code; predictability.csv auc_class_nontrade
+\newcommand{\calibAucPermMax}{0.50}               % worst-case AUC of the identical pipeline on a permuted label (chance is 0.50); predictability.csv auc_class_coded_permuted
+\newcommand{\calibTradeRateLo}{0.16}              % lowest per-system-code deviation rate over headline campuses (system codes with at least 200 events); deviation_by_trade.csv dev_rate
+\newcommand{\calibTradeRateHi}{0.93}              % highest per-system-code deviation rate over headline campuses; deviation_by_trade.csv dev_rate
+\newcommand{\calibNtradeCells}{32}                % system-code cells behind that spread; deviation_by_trade.csv rows with n_events>=200 on headline campuses
+\newcommand{\calibAucRandomCVMed}{0.88}           % same model scored under random 5-fold instead of contiguous temporal blocks, i.e. the optimism a leaky split would have bought; predictability.csv auc_class_coded_randomcv
+\newcommand{\calibTextIncLo}{$-$0.003}            % smallest headline-campus AUC increment from free text over class+coded features; text_features.csv auc_increment_text
+\newcommand{\calibTextIncHi}{0.013}               % largest headline-campus AUC increment from free text; text_features.csv auc_increment_text
+\newcommand{\calibTextIncMed}{0.001}              % median headline-campus AUC increment from free text; text_features.csv auc_increment_text
+\newcommand{\calibTextAucMed}{0.87}               % median headline-campus AUC with free text added; text_features.csv auc_class_coded_text

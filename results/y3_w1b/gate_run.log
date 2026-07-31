@@ -1,0 +1,23 @@
+[grid] published map, read from /home/ziheng/PaperY3/fm-hitl/results/y3_p4/e3_map_summary.json:
+       campuses=[9, 10] u=[70, 90, 100, 110, 130] beta=[0.0, 0.5, 1.0] rho=0.25 seeds=3 cells=30 channel=full_class_shift
+==============================================================================
+REPRODUCTION GATE -- headline cell, seeds 301-310, published protocol
+==============================================================================
+[gate] 10 cell-seed tasks, 9 workers (1 thread each) -> /home/ziheng/PaperY3/fm-hitl/results/y3_w1b/gate.csv
+  [gate 1/10] targeted_pub   c9  u100 b1.00 r0.25 s309 | rule=3645 m0=2018 rsup=2693 m0sup=1834 | rev=0.246 und=n/a q=- sup={'Supervisor': 148} hasplus2=247363  (40s, wall 40s)
+  [gate 2/10] targeted_pub   c9  u100 b1.00 r0.25 s304 | rule=3645 m0=1981 rsup=2693 m0sup=1829 | rev=0.247 und=n/a q=- sup={'Supervisor': 148} hasplus2=247228  (40s, wall 40s)
+  [gate 3/10] targeted_pub   c9  u100 b1.00 r0.25 s308 | rule=3645 m0=1872 rsup=2693 m0sup=1822 | rev=0.247 und=n/a q=- sup={'Supervisor': 148} hasplus2=247292  (42s, wall 42s)
+  [gate 4/10] targeted_pub   c9  u100 b1.00 r0.25 s302 | rule=3645 m0=2001 rsup=2693 m0sup=1860 | rev=0.248 und=n/a q=- sup={'Supervisor': 148} hasplus2=247299  (42s, wall 42s)
+  [gate 5/10] targeted_pub   c9  u100 b1.00 r0.25 s307 | rule=3645 m0=1971 rsup=2693 m0sup=1873 | rev=0.248 und=n/a q=- sup={'Supervisor': 148} hasplus2=247311  (44s, wall 44s)
+  [gate 6/10] targeted_pub   c9  u100 b1.00 r0.25 s301 | rule=3645 m0=1998 rsup=2693 m0sup=1831 | rev=0.247 und=n/a q=- sup={'Supervisor': 148} hasplus2=247271  (45s, wall 45s)
+  [gate 7/10] targeted_pub   c9  u100 b1.00 r0.25 s306 | rule=3645 m0=1902 rsup=2693 m0sup=1857 | rev=0.248 und=n/a q=- sup={'Supervisor': 148} hasplus2=247231  (45s, wall 45s)
+  [gate 8/10] targeted_pub   c9  u100 b1.00 r0.25 s303 | rule=3645 m0=2096 rsup=2693 m0sup=1898 | rev=0.248 und=n/a q=- sup={'Supervisor': 148} hasplus2=247363  (47s, wall 47s)
+  [gate 9/10] targeted_pub   c9  u100 b1.00 r0.25 s305 | rule=3645 m0=2038 rsup=2693 m0sup=1893 | rev=0.248 und=n/a q=- sup={'Supervisor': 148} hasplus2=247297  (51s, wall 51s)
+  [gate 10/10] targeted_pub   c9  u100 b1.00 r0.25 s310 | rule=3645 m0=2038 rsup=2693 m0sup=1897 | rev=0.248 und=n/a q=- sup={'Supervisor': 148} hasplus2=247274  (39s, wall 78s)
+[dump] wrote /home/ziheng/PaperY3/fm-hitl/results/y3_w1b/gate_records.json (10 records)
+------------------------------------------------------------------------------
+  per-instance TWT* vs the committed y3_p4 records: 50 comparisons, max |diff| = 0.000e+00
+  \MzeroGain published  : 45.3620 %  (macro rounds to 45.4%)
+  \MzeroGain reproduced : 45.3620 %  (10 seeds, this code path)
+  difference            : 0.000e+00 percentage points
+  REPRODUCTION GATE: PASS

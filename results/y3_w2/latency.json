@@ -1,0 +1,37 @@
+{
+ "per_order": {
+  "secs": 1.0084973126649857,
+  "n_decisions": 13388,
+  "ms_per_decision": 0.07532845179750415
+ },
+ "queue": {
+  "secs": 2.7504147682338953,
+  "n_decisions": 13388,
+  "ms_per_decision": 0.20543880850268115
+ },
+ "per_order2": {
+  "secs": 0.9112148322165012,
+  "n_decisions": 13388,
+  "ms_per_decision": 0.06806205797852563
+ },
+ "queue2": {
+  "secs": 2.7706930497661233,
+  "n_decisions": 13388,
+  "ms_per_decision": 0.2069534695074786
+ },
+ "summary": {
+  "ms_per_decision_per_order_best": 0.06806205797852563,
+  "ms_per_decision_queue_best": 0.20543880850268115,
+  "ratio_queue_over_per_order": 3.0184043004914645,
+  "n_instances": 3,
+  "reps": 2,
+  "threads": 1,
+  "loadavg_at_end": "37.49 38.79 35.11 37/2093 4160215",
+  "top_processes": [
+   "1340 python -u scripts/p2_train_mappo.py --model_suffix single-joint --algo single --seed 303 --max_updates 2000",
+   " 112 /home/ziheng/miniconda3/envs/fjsp/bin/python scripts/y3_w1_sweep.py --part alpha --workers 8",
+   " 110 /home/ziheng/miniconda3/envs/fjsp/bin/python scripts/y3_w1_sweep.py --part alpha --workers 8"
+  ],
+  "caveat": "shared box; absolute ms is an UPPER BOUND, not a measurement. Both deciders were timed in the same process, interleaved, so the RATIO is the reportable quantity. Estimated from the FASTEST of two passes each."
+ }
+}

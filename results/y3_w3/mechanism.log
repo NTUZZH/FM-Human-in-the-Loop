@@ -1,0 +1,20 @@
+[mechanism] cell=c9_u130_b0 seeds=[301, 302, 303]
+  seed 301 done (wall 173s): {'fitted': 16.03, 'class_mean': -0.0, 'centred': 12.3, 'level_only': -0.0, 'shuffled': -5.05, 'gaussian': -15.04, 'zero': 0.0}
+  seed 302 done (wall 344s): {'fitted': 13.11, 'class_mean': -0.0, 'centred': 12.3, 'level_only': 0.0, 'shuffled': -3.56, 'gaussian': -10.48, 'zero': 0.0}
+  seed 303 done (wall 508s): {'fitted': 14.88, 'class_mean': -0.0, 'centred': 13.0, 'level_only': -0.0, 'shuffled': -5.33, 'gaussian': -13.54, 'zero': 0.0}
+
+WHERE THE beta = 0 REDUCTION COMES FROM (cell c9_u130_b0, seeds [301, 302, 303])
+arm              %<RULE     W/T/L  p vs RULE   mean/sd of the applied shift by class
+fitted           14.673    10/0/0     0.0020   c1 -0.060+-0.163  c2 +0.042+-0.191  c3 -0.050+-0.231  c4 +0.087+-0.066
+class_mean       -0.001     1/8/1     1.0000   c1 +0.000+-0.000  c2 +0.042+-0.000  c3 -0.053+-0.000  c4 +0.033+-0.000
+centred          12.536    10/0/0     0.0020   c1 -0.068+-0.173  c2 +0.008+-0.191  c3 -0.083+-0.230  c4 +0.063+-0.055
+level_only       -0.001     1/8/1     1.0000   c1 +0.000+-0.000  c2 +0.034+-0.000  c3 +0.034+-0.000  c4 +0.034+-0.000
+shuffled         -4.648     2/0/8     0.0195   c1 -0.070+-0.171  c2 +0.035+-0.191  c3 +0.036+-0.139  c4 +0.088+-0.067
+gaussian        -13.018     1/0/9     0.0039   c1 -0.058+-0.097  c2 +0.035+-0.191  c3 +0.053+-0.169  c4 +0.094+-0.123
+zero              0.000    0/10/0     1.0000   c1 +0.000+-0.000  c2 +0.000+-0.000  c3 +0.000+-0.000  c4 +0.000+-0.000
+
+wrote /home/ziheng/PaperY3/fm-hitl/results/y3_w3/mechanism_c9_u130_b0.json
+threads=1  mean_hat_s=+0.019356 (published +0.040787, d=-0.021431)  pearson=-0.007763 (published -0.012241)
+threads=4  mean_hat_s=+0.040787 (published +0.040787, d=+0.000000)  pearson=+0.000958 (published -0.012241)
+wrote /home/ziheng/PaperY3/fm-hitl/results/y3_w3/threadcheck.json
+MECH_DONE

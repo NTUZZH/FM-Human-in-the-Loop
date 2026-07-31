@@ -22,7 +22,8 @@ locked file):
 
   TASK 1b  M0 TRANSFER GAIN UNDER INDUCED CONTENTION (TWT*(d*)).
     Campuses 1/2 carry only replay+generator (no storm2), so contention is
-    induced with the crew multiplier (``fmwos.tightness.scale_crew``, exactly as a contention scan) to bring pooled utilisation to ~1.0. On
+    induced with the crew multiplier (``fmwos.tightness.scale_crew``, exactly as
+    scripts/y3_cont_crew-starvation.py) to bring pooled utilisation to ~1.0. On
     the crew-scaled held-out instances, score RULE (plain ATC), the TRANSFERRED
     M0 (estimator from 5/9/10/12), the NATIVE M0 (estimator from campus 1/2) and
     ORACLE-GREEDY on TWT*(w*,d*). Report the transfer gain over RULE and how much
@@ -201,7 +202,7 @@ def twt_ladder(overlay, eval_pack, estimators, seed):
         # (w*,d*) and per-order p_bh use the unscaled ids (crew scaling appends a
         # suffix to meta.id, which would reseed the latent noise z). The env runs
         # on the crew-scaled instance; work orders + ids are identical, so
-        # preferred_pick keys line up. Same discipline as the contention replay.
+        # preferred_pick keys line up. Same discipline as y3_cont_crew-starvation.
         osup = Supervisor(overlay, orig, rho=0.0, applied=applied)
         per["oracle"].append(sc(dec.run_oracle_greedy(DispatchEnv(run), osup, seed=seed)))
         for name, est in estimators.items():

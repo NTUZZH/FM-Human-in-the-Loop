@@ -1,12 +1,13 @@
 # FM-Human-in-the-Loop — learning maintenance work-order dispatch from supervisor overrides
 
-Companion repository for the manuscript *"A Correction Layer that Learns Hidden
-Urgency from Supervisor Overrides for Maintenance Work-Order Dispatching"*
-(submitted). It releases the supervisor overlay, the correction-layer (M0)
-pipeline, the learned-dispatcher (M1) and belief (M2) variants, trained
-checkpoints, evaluation scripts, and the per-method scored results behind every
-reported number, together with the underlying dispatch benchmark so the study
-reproduces end to end.
+Companion repository for the manuscript *"SURGE: A rule-preserving correction
+layer that learns hidden urgency from supervisor overrides to automate
+maintenance work-order dispatching"* (submitted). It releases the supervisor
+overlay, the SURGE correction-layer pipeline (named M0 throughout the code), the
+review-routing test, the end-to-end learner (M1) and belief (M2) variants,
+trained checkpoints, evaluation scripts, the practitioner-pilot instrument, and
+the per-method scored results behind every reported number, together with the
+underlying dispatch benchmark so the study reproduces end to end.
 
 The base benchmark is described in *"When Does Learned Dispatching Beat
 Priority Rules? An Open Benchmark for Technician-Constrained Maintenance
@@ -35,10 +36,11 @@ The base benchmark provides, for reuse and verification:
 
 Raw data: FMUCD (Facility Management Unified Classification Database),
 Mendeley Data, DOI [10.17632/cb8d2nsjss.1](https://doi.org/10.17632/cb8d2nsjss.1),
-CC BY-NC 4.0. The exact distribution file used has SHA-256
-`4464648252c4bdca2a6deba9d467e94aec7568d675f51e06d6d343b3c09f006a`.
-Everything in this repository is released under **CC BY-NC 4.0**, inherited
-from FMUCD; commercial users must license FMUCD independently.
+released by its authors under **CC BY 4.0**. The exact distribution file used has
+SHA-256 `4464648252c4bdca2a6deba9d467e94aec7568d675f51e06d6d343b3c09f006a`.
+Everything in this repository is released under **CC BY-NC 4.0**. That is our own
+choice for this repository and is not inherited from FMUCD, whose licence carries
+no non-commercial restriction.
 
 ## Reproduce
 
@@ -97,11 +99,18 @@ where recorded priority and true urgency disagree.
 **The methods.** M0, M1, and M2 all recover the same latent urgency; they differ
 in how.
 
-- **M0**, the correction layer (`src/fmwos/hitl/augmented_rule.py`): fits an
-  urgency estimator to the override log, then re-scores the base dispatching rule
-  with corrected weights. No reinforcement learning. This is the deployable
-  headline method.
-- **M1**, the learned dispatcher (`src/fmwos/hitl/latent_head.py`,
+- **M0**, called **SURGE** in the paper, the correction layer
+  (`src/fmwos/hitl/augmented_rule.py`): fits an urgency estimator to the override
+  log, then re-scores the base dispatching rule with a corrected priority class,
+  which moves both the tardiness weight and the deadline. No reinforcement
+  learning. This is the deployable headline method.
+- **Review routing** (`src/fmwos/hitl/routing.py`): a split-conformal interval
+  around each order's estimated shift, and an exact pairwise test of whether any
+  shift inside those intervals would change the pick. A decision the test settles
+  runs unreviewed; the rest are referred, in order of margin. The calibration
+  never sees the true urgency, and the module rejects any label an override or a
+  confirmation could not have produced.
+- **M1**, the end-to-end learner (`src/fmwos/hitl/latent_head.py`,
   `src/fmwos/hitl/intervention.py`): a PPO policy with an urgency head, trained by
   intervention (DAgger) on the same overrides.
 - **M2**, the belief variant (`src/fmwos/hitl/belief.py`): a Bayesian estimator
@@ -109,9 +118,23 @@ in how.
 - **PI-0**: a blind reinforcement-learning control that never sees the overrides,
   used to check that M1's gain comes from learning the overrides rather than from
   more training.
+- **Estimator variants reported as ablations**: a conditional-logit and
+  queue-conditioned choice model (`src/fmwos/hitl/choice_estimator.py`), and a
+  two-limit censored likelihood for the class-boundary labels
+  (`src/fmwos/hitl/censored.py`).
 
-With no supervisor attached, the loop is byte-identical to the Y1 dispatcher; the
-`y3_e0_anchor.py` script asserts that equivalence.
+With no supervisor attached, the loop reproduces the Y1 dispatcher exactly; the
+`y3_e0_anchor.py` script asserts that equivalence by replay.
+
+**Reproducibility hazard: run one numeric thread per process.** The pipeline
+reproduces the published numbers exactly only at `OMP_NUM_THREADS=1`,
+`MKL_NUM_THREADS=1` and `torch.set_num_threads(1)`. At four threads the
+floating-point reduction order changes and the headline cell moves by more than
+one percentage point. Every published cell was produced single-threaded, and each
+worker asserts its own thread and environment caps before it computes anything;
+parallelism belongs across processes, not inside them. The hazard and the
+enforcement are set out in `results/y3_w1b/RUN_PLAN.md` and
+`results/y3_p9b/RUN_PLAN.md`.
 
 **Reproduce.**
 
@@ -147,8 +170,44 @@ python scripts/y3_figs_f4.py && python scripts/y3_figs_f5.py
 - `results/y3_p5/`: the multi-seed ladder (`harvest/`), the ablations, the review
   and label-noise sweeps (`gaps/`), the M2 variant, and the insurance checks.
 - `results/y3_p6/`: transfer to held-out campuses and the FMUCD corpus checks.
+- `results/y3_p7/`, `results/y3_p8/`, `results/y3_p9/`, `results/y3_p9b/`:
+  instance statistics and queue depth on the held-out slice, the practitioner
+  metrics, and the deployable-placement cells and grid.
+- `results/y3_w1/`, `results/y3_w1b/`: the review-routing sweep, band coverage,
+  per-decision verdicts, and the regime map recomputed under the deployable
+  placement.
+- `results/y3_w2/`: the estimator ladder (squared error, choice likelihood,
+  queue-conditioned choice likelihood) with held-out choice log-likelihoods.
+- `results/y3_w3/`: the censored-likelihood study, the constant-correction sweep,
+  and the mechanism ladder behind the beta = 0 overload columns.
+- `results/y3_calib/`, `results/y3_verc/`, `results/y3_diag/`,
+  `results/y3_cont/`: the FMUCD override-structure calibration, the verification
+  tasks, and the diagnostic and contamination probes.
+- `results/y3_repro_check/`: the exact-replay checks. Every published cell was
+  recomputed from the released code and compared with the committed result, and
+  each reported macro was recomputed from its own source file.
 - `results/y3_checkpoints/`: the trained models (final weights, config, and
   training metrics) for the sweep, the pilots, and the insurance runs.
+
+Each experiment directory carries a `RUN_PLAN.md` written before the runs were
+launched, stating each run's purpose, the expected result, what the opposite
+outcome would mean, and the contamination and data-accuracy checks performed.
+
+## Practitioner pilot (instrument released, responses pending)
+
+`pilot/` holds the instrument for the planned pilot with facility-management
+practitioners: the paired-comparison questionnaire (`y3_w8_pilot.html`), the item
+set (`y3_w8_items.json`), the response template, the recruitment note, and the
+methods paragraph. The pre-registered analysis, fixing the hypotheses, the
+statistics and the sample size before any response exists, is
+`results/y3_w8/PREREGISTRATION.md`, and `results/y3_w8/selftest/` contains the
+synthetic-response self-test that exercises the analysis end to end.
+
+**One file is deliberately withheld until the pilot has been fielded.**
+`pilot/y3_w8_manifest.csv` maps each item to the underlying work orders and their
+covariates, so publishing it now would let a recruited participant look up the
+design before responding. It will be added, with the collected responses, once
+data collection closes. Nothing reported in the manuscript depends on it.
 
 ## Citation
 

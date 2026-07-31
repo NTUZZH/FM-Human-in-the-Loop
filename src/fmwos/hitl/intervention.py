@@ -28,7 +28,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-# Default intervention weights (overridable via config).
+# Locked P2 defaults (logged in notes/decisions.md; overridable via config).
 OVERRIDE_WEIGHT = 5.0
 CONFIRM_WEIGHT = 1.0
 DEFAULT_CAPACITY = 60000

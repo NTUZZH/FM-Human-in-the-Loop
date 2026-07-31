@@ -6,7 +6,7 @@ Covers:
 (a) DETERMINISM     -- build_coeffs twice => byte-identical; Overlay.apply twice
                        => identical shift / w* maps.
 (b) VARIANCE PRESERV-- total latent variance Var(xi) ~ constant across beta
-                       (the sqrt(beta) mixture, Appendix D.1).
+                       (the sqrt(beta) mixture, proposal Sec.4.2).
 (c) FEATURE HYGIENE -- base features never depend on the recorded class, the
                        building, or the campus (campus-agnostic, Sec.4.2).
 (d) SEMANTICS       -- s in [-2,2]; c* = clip(c - s, 1, 4); w* matches the class

@@ -1,6 +1,6 @@
 """Paper Y3 -- Phase P6 real-data anchor for the beta>0 premise.
 
-Motivation: real-data evidence that a latent, partially feature-predictable
+Reviewer ask: real-data evidence that a latent, partially feature-predictable
 urgency structure exists BEYOND the recorded priority class (the paper's beta>0
 assumption, where the latent shift is xi = sqrt(beta) f(x) + sqrt(1-beta) z and
 x is the campus-agnostic feature set {trade, log1p(p_bh), release day-of-week}).

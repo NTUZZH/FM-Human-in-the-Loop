@@ -1,0 +1,35 @@
+building the fixed decision stream (3 DAgger iterations) ...
+dataset: {'n_decisions': 19869, 'n_overrides': 957, 'n_confirmations': 18912, 'n_truncated': 0, 'n_skipped': 0, 'mean_queue': 53.15093864814535}  (18s)
+split: train=14913 val=4956 decisions
+overrides only: train=706 val=251
+/home/ziheng/PaperY3/fm-hitl/src/fmwos/hitl/choice_estimator.py:764: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  best, best_ll = float(model.tau()), -np.inf
+mse        q=False lr=0.01   b512  d=None  all            | bestep 36 val   0.2800 | r +0.468 sign 0.693 mean_s -0.066 sd_s 0.207 | ll -2.570 llov -3.863 top1 0.618 tau 1.00->1.00
+mse        q=False lr=0.003  b512  d=None  all            | bestep 39 val   0.2821 | r +0.463 sign 0.771 mean_s -0.026 sd_s 0.204 | ll -2.546 llov -3.580 top1 0.540 tau 1.00->1.00
+mse        q=False lr=0.001  b512  d=None  all            | bestep 39 val   0.2969 | r +0.458 sign 0.675 mean_s -0.019 sd_s 0.189 | ll -2.505 llov -4.342 top1 0.494 tau 1.00->1.00
+mse        q=True  lr=0.01   b512  d=None  all            | bestep 36 val   0.2560 | r +0.469 sign 0.460 mean_s -0.017 sd_s 0.191 | ll -2.782 llov -2.922 top1 0.463 tau 1.00->1.00
+mse        q=True  lr=0.003  b512  d=None  all            | bestep 39 val   0.2537 | r +0.487 sign 0.497 mean_s -0.029 sd_s 0.215 | ll -2.800 llov -3.031 top1 0.458 tau 1.00->1.00
+mse        q=True  lr=0.001  b512  d=None  all            | bestep 39 val   0.2627 | r +0.498 sign 0.532 mean_s -0.006 sd_s 0.215 | ll -2.772 llov -3.031 top1 0.408 tau 1.00->1.00
+choice     q=False lr=0.01   b512  d=None  all            | bestep 36 val   2.7700 | r +0.330 sign 0.761 mean_s -0.185 sd_s 0.953 | ll -2.483 llov -4.553 top1 0.686 tau 0.71->1.68
+choice     q=False lr=0.003  b512  d=None  all            | bestep 36 val   2.8848 | r +0.225 sign 0.550 mean_s -0.662 sd_s 0.865 | ll -2.523 llov -5.276 top1 0.792 tau 0.71->1.49
+choice     q=False lr=0.001  b512  d=None  all            | bestep 37 val   2.9637 | r +0.328 sign 0.523 mean_s -0.817 sd_s 0.708 | ll -2.544 llov -5.439 top1 0.791 tau 0.71->1.05
+choice     q=True  lr=0.01   b512  d=None  all            | bestep 37 val   2.1821 | r -0.227 sign 0.360 mean_s +0.855 sd_s 0.742 | ll -2.014 llov -2.926 top1 0.479 tau 0.71->0.69
+choice     q=True  lr=0.003  b512  d=None  all            | bestep 39 val   2.1086 | r -0.247 sign 0.375 mean_s +0.800 sd_s 0.671 | ll -1.932 llov -2.901 top1 0.496 tau 0.71->0.63
+choice     q=True  lr=0.001  b512  d=None  all            | bestep 39 val   2.1447 | r -0.199 sign 0.351 mean_s +0.572 sd_s 0.622 | ll -1.979 llov -2.891 top1 0.487 tau 0.71->0.71
+choice     q=False lr=0.01   b128  d=None  all            | bestep 27 val   2.7941 | r +0.442 sign 0.825 mean_s -0.240 sd_s 0.953 | ll -2.497 llov -4.405 top1 0.731 tau 0.71->1.46
+choice     q=False lr=0.003  b128  d=None  all            | bestep 25 val   2.7745 | r +0.228 sign 0.672 mean_s -0.499 sd_s 0.998 | ll -2.485 llov -4.428 top1 0.688 tau 0.71->1.40
+choice     q=True  lr=0.01   b128  d=None  all            | bestep 36 val   2.0702 | r -0.244 sign 0.373 mean_s +0.994 sd_s 0.775 | ll -1.914 llov -2.820 top1 0.491 tau 0.71->0.58
+choice     q=True  lr=0.003  b128  d=None  all            | bestep 36 val   2.0390 | r -0.278 sign 0.344 mean_s +0.851 sd_s 0.685 | ll -1.833 llov -2.908 top1 0.533 tau 0.71->0.55
+choice     q=False lr=0.003  b512  d=None  overrides_only | bestep 20 val   4.4474 | r +0.521 sign 0.395 mean_s -1.807 sd_s 0.436 | ll -2.899 llov -4.999 top1 0.736 tau 1.35->1.50
+choice     q=True  lr=0.003  b512  d=None  overrides_only | bestep 39 val   2.1634 | r +0.443 sign 0.514 mean_s +0.305 sd_s 0.721 | ll -3.101 llov -2.989 top1 0.411 tau 1.32->1.43
+tolerance  q=False lr=0.003  b512  d=0.25  all            | bestep 39 val  16.9741 | r +0.191 sign 0.582 mean_s -0.300 sd_s 0.833 | ll -2.510 llov -5.713 top1 0.790 tau 0.71->1.55
+tolerance  q=True  lr=0.003  b512  d=0.25  all            | bestep 39 val   8.4073 | r +0.179 sign 0.371 mean_s +0.030 sd_s 0.280 | ll -2.275 llov -5.880 top1 0.597 tau 0.71->0.57
+tolerance  q=False lr=0.003  b512  d=1.0   all            | bestep 21 val  12.6870 | r +0.279 sign 0.398 mean_s -0.772 sd_s 0.395 | ll -2.523 llov -5.973 top1 0.801 tau 0.71->1.14
+tolerance  q=True  lr=0.003  b512  d=1.0   all            | bestep 39 val   5.1338 | r +0.101 sign 0.385 mean_s +0.267 sd_s 0.419 | ll -2.244 llov -5.873 top1 0.574 tau 0.71->0.57
+tolerance  q=False lr=0.003  b512  d=4.0   all            | bestep 15 val   4.3124 | r +0.488 sign 0.410 mean_s -1.066 sd_s 0.530 | ll -2.584 llov -5.834 top1 0.792 tau 0.71->1.12
+tolerance  q=True  lr=0.003  b512  d=4.0   all            | bestep 39 val   1.6292 | r -0.147 sign 0.369 mean_s +0.764 sd_s 0.623 | ll -2.204 llov -2.598 top1 0.454 tau 0.71->0.87
+choice     q=False lr=0.003  b512  d=None  all            taufix | bestep 16 val   3.0894 | r +0.322 sign 0.506 mean_s -0.959 sd_s 0.678 | ll -2.519 llov -5.616 top1 0.791 tau 0.71->0.71
+choice     q=True  lr=0.003  b512  d=None  all            taufix | bestep 39 val   2.0800 | r -0.243 sign 0.366 mean_s +0.829 sd_s 0.723 | ll -1.938 llov -2.742 top1 0.500 tau 0.71->0.71
+
+written /home/ziheng/PaperY3/fm-hitl/results/y3_w2/diag.json

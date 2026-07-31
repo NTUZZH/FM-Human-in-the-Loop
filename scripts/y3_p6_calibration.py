@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 """Paper Y3, Phase P6, TASK 2 -- oracle calibration against real FMUCD signals.
 
-Question (Threats to Validity): does FMUCD record any
+Question (proposal Sec. validity / Threats to Validity): does FMUCD record any
 real signal that proxies supervisor OVERRIDE behaviour (reassignments, reopened /
 re-prioritised tickets, priority-vs-actual-completion mismatch) that could anchor
 plausible ranges for the supervisor parameters beta (recoverable-information
 share) and epsilon (override noise)? If not, say so honestly.
 
-Finding (no fabrication):
+Finding (no fabrication; see notes/phase6_transfer.md for the full write-up):
 
   * FMUCD is a work-order LABOUR-LINE LEDGER, not an event log. The columns the
     pipeline ingests (fmwos.io.USECOLS) are: UniversityID, Country,
@@ -15,7 +15,7 @@ Finding (no fabrication):
     SubsystemCode, WOID, WOPriority, WOStartDate, WOEndDate, WODuration, PPM/UPM,
     LaborCost, TotalCost, LaborHours. There is NO status / reopen / reassignment /
     re-prioritisation / assignee / edit-history field. The "reassignments or
-    reopened / re-prioritised tickets" we hoped for DO NOT EXIST in the
+    reopened / re-prioritised tickets" the proposal hoped for DO NOT EXIST in the
     corpus, so there is no direct override record to calibrate against.
 
   * The ONE indirect proxy that exists is the priority-vs-realised-completion

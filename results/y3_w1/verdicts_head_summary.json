@@ -1,0 +1,19 @@
+{
+ "instance": "c09_storm2_w80_u100_0020",
+ "seed": 301,
+ "alpha": 0.1,
+ "band_q": 0.29024380445480347,
+ "n_decisions_recorded": 1679,
+ "n_decisions_total": 2253,
+ "counts": {
+  "automate": 914,
+  "refer": 1339,
+  "forced": 574
+ },
+ "automation_coverage": 0.4056813138038171,
+ "mean_interval_width_class_units": 0.3404819687785156,
+ "corrected_class_matches_true_automate": 0.5558823529411765,
+ "corrected_class_matches_true_refer": 0.6631814787154593,
+ "true_class_inside_interval_automate": 0.5352941176470588,
+ "true_class_inside_interval_refer": 0.6564600448095593
+}

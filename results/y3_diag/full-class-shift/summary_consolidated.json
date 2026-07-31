@@ -1,0 +1,260 @@
+{
+ "variant": "full-class-shift",
+ "myopic_loaded_pool": [
+  {
+   "cell": "storm_a300_c80_atc",
+   "beta": 0.5,
+   "n": 60,
+   "mean_twt_rule": 256.72,
+   "mean_twt_oracle": 256.59,
+   "pct_headroom": 0.0505,
+   "wins": 1,
+   "ties": 59,
+   "losses": 0
+  },
+  {
+   "cell": "storm_a300_c80_atc",
+   "beta": 1.0,
+   "n": 60,
+   "mean_twt_rule": 241.86,
+   "mean_twt_oracle": 241.85,
+   "pct_headroom": 0.0025,
+   "wins": 0,
+   "ties": 60,
+   "losses": 0
+  },
+  {
+   "cell": "storm_a300_c80_edd",
+   "beta": 0.5,
+   "n": 60,
+   "mean_twt_rule": 256.55,
+   "mean_twt_oracle": 256.55,
+   "pct_headroom": 0.0,
+   "wins": 0,
+   "ties": 60,
+   "losses": 0
+  },
+  {
+   "cell": "storm_a300_c80_edd",
+   "beta": 1.0,
+   "n": 60,
+   "mean_twt_rule": 241.81,
+   "mean_twt_oracle": 241.81,
+   "pct_headroom": 0.0015,
+   "wins": 0,
+   "ties": 60,
+   "losses": 0
+  },
+  {
+   "cell": "storm_a200_c80_atc",
+   "beta": 0.5,
+   "n": 60,
+   "mean_twt_rule": 395.6,
+   "mean_twt_oracle": 395.6,
+   "pct_headroom": 0.0,
+   "wins": 0,
+   "ties": 60,
+   "losses": 0
+  },
+  {
+   "cell": "storm_a200_c80_atc",
+   "beta": 1.0,
+   "n": 60,
+   "mean_twt_rule": 334.76,
+   "mean_twt_oracle": 334.94,
+   "pct_headroom": -0.0545,
+   "wins": 0,
+   "ties": 59,
+   "losses": 1
+  },
+  {
+   "cell": "storm_a200_c80_edd",
+   "beta": 0.5,
+   "n": 60,
+   "mean_twt_rule": 395.6,
+   "mean_twt_oracle": 395.6,
+   "pct_headroom": 0.0,
+   "wins": 0,
+   "ties": 60,
+   "losses": 0
+  },
+  {
+   "cell": "storm_a200_c80_edd",
+   "beta": 1.0,
+   "n": 60,
+   "mean_twt_rule": 334.76,
+   "mean_twt_oracle": 334.94,
+   "pct_headroom": -0.0545,
+   "wins": 0,
+   "ties": 59,
+   "losses": 1
+  },
+  {
+   "cell": "pmmix_p50_c60_atc",
+   "beta": 0.5,
+   "n": 60,
+   "mean_twt_rule": 232.72,
+   "mean_twt_oracle": 232.76,
+   "pct_headroom": -0.0173,
+   "wins": 0,
+   "ties": 59,
+   "losses": 1
+  },
+  {
+   "cell": "pmmix_p50_c60_atc",
+   "beta": 1.0,
+   "n": 60,
+   "mean_twt_rule": 211.79,
+   "mean_twt_oracle": 211.65,
+   "pct_headroom": 0.0634,
+   "wins": 1,
+   "ties": 59,
+   "losses": 0
+  },
+  {
+   "cell": "pmmix_p50_c60_edd",
+   "beta": 0.5,
+   "n": 60,
+   "mean_twt_rule": 232.7,
+   "mean_twt_oracle": 232.74,
+   "pct_headroom": -0.0173,
+   "wins": 0,
+   "ties": 59,
+   "losses": 1
+  },
+  {
+   "cell": "pmmix_p50_c60_edd",
+   "beta": 1.0,
+   "n": 60,
+   "mean_twt_rule": 211.63,
+   "mean_twt_oracle": 211.63,
+   "pct_headroom": 0.0,
+   "wins": 0,
+   "ties": 60,
+   "losses": 0
+  }
+ ],
+ "cpsat_fair": [
+  {
+   "scope": "pooled_9+12",
+   "cell": "storm_a300_c80",
+   "beta": 0.5,
+   "n": 40,
+   "true_opt": 228.46,
+   "best_rec": 228.35,
+   "pct_headroom_nonmyopic": -0.047,
+   "pct_naive_artifact": 76.58
+  },
+  {
+   "scope": "c9",
+   "cell": "storm_a300_c80",
+   "beta": 0.5,
+   "n": 20,
+   "true_opt": 101.81,
+   "best_rec": 101.75,
+   "pct_headroom_nonmyopic": -0.0585,
+   "pct_naive_artifact": 88.85
+  },
+  {
+   "scope": "c12",
+   "cell": "storm_a300_c80",
+   "beta": 0.5,
+   "n": 20,
+   "true_opt": 355.12,
+   "best_rec": 354.96,
+   "pct_headroom_nonmyopic": -0.0437,
+   "pct_naive_artifact": 65.79
+  },
+  {
+   "scope": "pooled_9+12",
+   "cell": "storm_a300_c80",
+   "beta": 1.0,
+   "n": 40,
+   "true_opt": 226.15,
+   "best_rec": 226.05,
+   "pct_headroom_nonmyopic": -0.0446,
+   "pct_naive_artifact": 74.8
+  },
+  {
+   "scope": "c9",
+   "cell": "storm_a300_c80",
+   "beta": 1.0,
+   "n": 20,
+   "true_opt": 106.21,
+   "best_rec": 106.15,
+   "pct_headroom_nonmyopic": -0.0526,
+   "pct_naive_artifact": 88.68
+  },
+  {
+   "scope": "c12",
+   "cell": "storm_a300_c80",
+   "beta": 1.0,
+   "n": 20,
+   "true_opt": 346.09,
+   "best_rec": 345.94,
+   "pct_headroom_nonmyopic": -0.0422,
+   "pct_naive_artifact": 59.59
+  },
+  {
+   "scope": "pooled_9+12",
+   "cell": "pmmix_p50_c60",
+   "beta": 0.5,
+   "n": 40,
+   "true_opt": 240.5,
+   "best_rec": 240.43,
+   "pct_headroom_nonmyopic": -0.0279,
+   "pct_naive_artifact": 55.75
+  },
+  {
+   "scope": "c9",
+   "cell": "pmmix_p50_c60",
+   "beta": 0.5,
+   "n": 20,
+   "true_opt": 221.66,
+   "best_rec": 221.65,
+   "pct_headroom_nonmyopic": -0.0052,
+   "pct_naive_artifact": 50.19
+  },
+  {
+   "scope": "c12",
+   "cell": "pmmix_p50_c60",
+   "beta": 0.5,
+   "n": 20,
+   "true_opt": 259.34,
+   "best_rec": 259.22,
+   "pct_headroom_nonmyopic": -0.0473,
+   "pct_naive_artifact": 59.6
+  },
+  {
+   "scope": "pooled_9+12",
+   "cell": "pmmix_p50_c60",
+   "beta": 1.0,
+   "n": 40,
+   "true_opt": 207.1,
+   "best_rec": 206.97,
+   "pct_headroom_nonmyopic": -0.0601,
+   "pct_naive_artifact": 58.67
+  },
+  {
+   "scope": "c9",
+   "cell": "pmmix_p50_c60",
+   "beta": 1.0,
+   "n": 20,
+   "true_opt": 171.3,
+   "best_rec": 171.18,
+   "pct_headroom_nonmyopic": -0.0696,
+   "pct_naive_artifact": 51.03
+  },
+  {
+   "scope": "c12",
+   "cell": "pmmix_p50_c60",
+   "beta": 1.0,
+   "n": 20,
+   "true_opt": 242.9,
+   "best_rec": 242.77,
+   "pct_headroom_nonmyopic": -0.0534,
+   "pct_naive_artifact": 62.77
+  }
+ ],
+ "note": "naive CP-SAT gap is a degeneracy artifact (recorded objective flat over hidden-urgent job timing); flow tie-break removes it. true-class optimum proven OPTIMAL; recorded flow FEASIBLE (WWT-primary optimal), biasing toward MORE apparent headroom yet still ~0."
+}

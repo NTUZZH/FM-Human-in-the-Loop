@@ -1,0 +1,189 @@
+==========================================================================================
+HEADLINE CELL (c9 storm2 u100, beta 1.00, rho 0.25, eps 0), seeds 301-310
+==========================================================================================
+
+arm                 RULE        M0    M0+SUP  RULE+SUP    ORACLE    M0 gain M0S gain
+targeted_pub      3644.8    1991.5    1859.5    2692.8    1815.0     45.36%   48.98%
+targeted          3644.8    1974.3    1852.4    2692.8    1815.0     45.83%   49.18%
+stability         3644.8    1889.7    1838.5    2716.7    1815.0     48.15%   49.56%
+margin            3644.8    2069.5    2009.9    3529.9    1815.0     43.22%   44.86%
+random            3644.8    1966.4    1869.8    2993.2    1815.0     46.05%   48.70%
+
+Contrasts (seed-averaged per-instance paired Wilcoxon, n=10 instances;
+Holm within each contrast type across the 5 arms compared here)
+  M0_vs_RULE
+    targeted_pub    +45.36%  W/T/L 10/0/0   raw p=0.001953  Holm p=0.009766
+    targeted        +45.83%  W/T/L 10/0/0   raw p=0.001953  Holm p=0.009766
+    stability       +48.15%  W/T/L 10/0/0   raw p=0.001953  Holm p=0.009766
+    margin          +43.22%  W/T/L 10/0/0   raw p=0.001953  Holm p=0.009766
+    random          +46.05%  W/T/L 10/0/0   raw p=0.001953  Holm p=0.009766
+  M0sup_vs_RULEsup
+    targeted_pub    +30.94%  W/T/L 10/0/0   raw p=0.001953  Holm p=0.009766
+    targeted        +31.21%  W/T/L 10/0/0   raw p=0.001953  Holm p=0.009766
+    stability       +32.33%  W/T/L 10/0/0   raw p=0.001953  Holm p=0.009766
+    margin          +43.06%  W/T/L 10/0/0   raw p=0.001953  Holm p=0.009766
+    random          +37.53%  W/T/L 10/0/0   raw p=0.001953  Holm p=0.009766
+  M0sup_vs_ORACLE
+    targeted_pub     -2.45%  W/T/L  4/0/6   raw p=0.1934  Holm p=0.5801
+    targeted         -2.06%  W/T/L  4/0/6   raw p=0.2324  Holm p=0.5801
+    stability        -1.29%  W/T/L  4/0/6   raw p=0.2324  Holm p=0.5801
+    margin          -10.74%  W/T/L  2/0/8   raw p=0.01953  Holm p=0.09766
+    random           -3.02%  W/T/L  4/0/6   raw p=0.1055  Holm p=0.4219
+
+Routing telemetry (seed means over the ten held-out instances)
+  arm             revfrac    undet  cov_all   band q cov_true cov_weak
+  targeted_pub     0.2475      nan   0.8208      nan      nan      nan
+  targeted         0.2474      nan   0.8209   0.3822   0.3736   0.9028
+  stability        0.2457   0.8129   0.8222   0.3396   0.3598   0.8917
+  margin           0.2289      nan   0.8341   0.2208   0.3741   0.8895
+  random           0.0000      nan   0.7496   0.2916   0.3738   0.9005
+
+Direct arm-vs-arm tests (same instances, same seeds; the ONLY
+difference between two split arms is the review policy)
+  M0 alone stability   vs targeted       +2.32 pp (48.15% vs 45.83%)  W/T/L  8/0/2   p=0.03711
+  M0 alone stability   vs margin         +4.93 pp (48.15% vs 43.22%)  W/T/L  9/0/1   p=0.005859
+  M0 alone stability   vs random         +2.10 pp (48.15% vs 46.05%)  W/T/L  8/0/2   p=0.009766
+  M0 alone stability   vs targeted_pub   +2.79 pp (48.15% vs 45.36%)  W/T/L  8/0/2   p=0.009766
+  M0+SUP   stability   vs targeted       +0.38 pp (49.56% vs 49.18%)  W/T/L  4/0/6   p=0.625
+  M0+SUP   stability   vs margin         +4.70 pp (49.56% vs 44.86%)  W/T/L  9/0/1   p=0.003906
+  M0+SUP   stability   vs random         +0.86 pp (49.56% vs 48.70%)  W/T/L  6/0/4   p=0.1934
+  M0+SUP   stability   vs targeted_pub   +0.58 pp (49.56% vs 48.98%)  W/T/L  2/0/8   p=0.4316
+  price of deployability, M0 alone: -2.32 percentage points (positive = the deployable policy costs)
+  price of deployability, M0+SUP  : -0.38 percentage points (positive = the deployable policy costs)
+
+[head] wrote results/y3_w1/head_summary.json
+==========================================================================================
+EIGHT-CELL CONTENTION GRID, Holm within each contrast type across cells
+==========================================================================================
+
+arm = stability
+  cell                    M0 gain M0S gain M0vRULE p    Holm p     W/T/L
+  c9_u100_b0.75_r0.25      36.77%   40.59%  0.001953   0.01562   10/0/0
+  c9_u100_b0.75_r0.50      32.04%   43.40%  0.001953   0.01562   10/0/0
+  c9_u100_b1.00_r0.25      48.15%   49.56%  0.001953   0.01562   10/0/0
+  c9_u100_b1.00_r0.50      45.44%   49.93%  0.001953   0.01562   10/0/0
+  c9_u90_b0.75_r0.25       11.80%   13.31%  0.003906   0.01562   9/0/1
+  c9_u90_b0.75_r0.50        7.99%   13.15%  0.003906   0.01562   9/0/1
+  c9_u90_b1.00_r0.25       16.83%   17.77%  0.001953   0.01562   10/0/0
+  c9_u90_b1.00_r0.50       16.87%   18.24%  0.001953   0.01562   10/0/0
+    M0_vs_RULE: 8 of 8 cells significant at Holm 0.05
+    M0sup_vs_RULEsup: 8 of 8 cells significant at Holm 0.05
+    M0sup_vs_ORACLE: 0 of 8 cells significant at Holm 0.05
+
+arm = targeted
+  cell                    M0 gain M0S gain M0vRULE p    Holm p     W/T/L
+  c9_u100_b0.75_r0.25      33.52%   42.73%  0.001953   0.01562   10/0/0
+  c9_u100_b0.75_r0.50      31.84%   43.74%  0.001953   0.01562   10/0/0
+  c9_u100_b1.00_r0.25      45.83%   49.18%  0.001953   0.01562   10/0/0
+  c9_u100_b1.00_r0.50      46.49%   50.08%  0.001953   0.01562   10/0/0
+  c9_u90_b0.75_r0.25       11.29%   13.61%  0.003906   0.01562   9/0/1
+  c9_u90_b0.75_r0.50        8.46%   12.80%   0.01367   0.01562   8/0/2
+  c9_u90_b1.00_r0.25       17.63%   18.64%  0.001953   0.01562   10/0/0
+  c9_u90_b1.00_r0.50       17.37%   18.59%  0.001953   0.01562   10/0/0
+    M0_vs_RULE: 8 of 8 cells significant at Holm 0.05
+    M0sup_vs_RULEsup: 8 of 8 cells significant at Holm 0.05
+    M0sup_vs_ORACLE: 0 of 8 cells significant at Holm 0.05
+
+Price of deployability per cell (oracle-informed minus deployable;
+positive means the deployable policy costs; Holm across the cells)
+  cell                   deployable oracle-inf    price      W/T/L    Holm p
+  c9_u100_b0.75_r0.25        36.77%     33.52%   -3.25pp    9/0/1      0.1562
+  c9_u100_b0.75_r0.50        32.04%     31.84%   -0.20pp    4/0/6           1
+  c9_u100_b1.00_r0.25        48.15%     45.83%   -2.32pp    8/0/2      0.2227
+  c9_u100_b1.00_r0.50        45.44%     46.49%   +1.05pp    2/0/8      0.3359
+  c9_u90_b0.75_r0.25         11.80%     11.29%   -0.51pp    8/0/2      0.1562
+  c9_u90_b0.75_r0.50          7.99%      8.46%   +0.48pp    4/0/6           1
+  c9_u90_b1.00_r0.25         16.83%     17.63%   +0.80pp    3/0/7      0.3926
+  c9_u90_b1.00_r0.50         16.87%     17.37%   +0.50pp    2/0/8      0.3223
+  mean price over the 8 cells: -0.43 percentage points
+
+[grid] wrote results/y3_w1/grid_summary.json
+==========================================================================================
+ROUTING CURVE: automation coverage against true weighted tardiness
+==========================================================================================
+
+C   arm           rho  seeds  coverage     undet   M0 red%   M0+SUP% RULE+SUP%
+9   stability    0.02      3    0.9857    0.8673    39.41%    40.20%     2.67%
+9   stability    0.05      3    0.9645    0.8564    45.54%    47.39%     8.37%
+9   stability    0.10      3    0.9295    0.8389    47.44%    48.67%    15.43%
+9   stability    0.25      3    0.8221    0.8143    48.29%    49.39%    25.13%
+9   stability    0.50      3    0.6429    0.8059    47.01%    50.13%    36.54%
+9   targeted     0.02      3    0.9854       nan    45.09%    46.38%     3.08%
+9   targeted     0.05      3    0.9641       nan    45.36%    47.85%     6.73%
+9   targeted     0.10      3    0.9282       nan    46.41%    48.98%    14.51%
+9   targeted     0.25      3    0.8207       nan    46.36%    49.33%    26.12%
+9   targeted     0.50      3    0.6427       nan    45.26%    49.64%    34.06%
+10  stability    0.02      3    0.9824    0.9506    67.52%    69.13%    13.39%
+10  stability    0.05      3    0.9562    0.9356    65.95%    68.71%    19.45%
+10  stability    0.10      3    0.9125    0.8905    65.93%    68.97%    23.76%
+10  stability    0.25      3    0.7814    0.8477    65.01%    68.15%    27.40%
+10  stability    0.50      3    0.5625    0.8322    64.84%    68.32%    34.92%
+
+[curve] wrote results/y3_w1/routing_curve.{csv,json}
+==========================================================================================
+CONFORMAL LEVEL SWEEP (headline cell, rho 0.25, seeds 301-303)
+==========================================================================================
+
+arm               alpha       q    undet unbudg.aut  cov_weak  cov_true   M0 red%
+stability          0.05   0.547   0.8539     0.4071    0.9442    0.4002    46.98%
+stability          0.10   0.318   0.8143     0.4342    0.8942    0.3626    48.29%
+stability          0.20   0.054   0.5927     0.5985    0.7648    0.3466    49.00%
+stability          0.30   0.041   0.4485     0.6986    0.6108    0.3388    43.56%
+stability          0.50   0.013   0.3302     0.7805    0.4740    0.2925    43.51%
+stability_norm     0.10   0.978   0.8120     0.4350    0.8952    0.3734    49.50%
+
+[alpha] wrote results/y3_w1/alpha_summary.json
+==========================================================================================
+BAND COVERAGE PER BETA (EVALUATION ONLY; the band never sees the latent)
+==========================================================================================
+
+  beta      q  cov_weak cov_w_over   cov_true cov_true_nz  mean|err|   M0 red%
+  0.00  0.191    0.8880     0.0009     0.3621     0.0017     0.7741    -2.79%
+  0.25  0.312    0.8958     0.0217     0.3459     0.0019     0.8029    13.91%
+  0.50  0.384    0.8919     0.0133     0.3345     0.0068     0.8056    26.56%
+  0.75  0.422    0.8970     0.0787     0.3455     0.0141     0.8044    38.31%
+  1.00  0.318    0.8942     0.0173     0.3626     0.0017     0.8097    48.29%
+
+[cov] wrote results/y3_w1/coverage_summary.json
+
+% W1 macros -- deployable review routing. Do NOT paste blindly:
+% every value below is traced to a file under results/y3_w1/.
+
+\newcommand{\RoutedGain}{48.2\%}                     % head_summary.json:arms.stability.ladder.m0_alone.pct_below_rule 48.1536
+\newcommand{\RoutedGainStd}{1.6}                     % head_summary.json:arms.stability.ladder.m0_alone.twt_std 56.78 / RULE 3644.83
+\newcommand{\RoutedSupGainStd}{0.7}                  % head_summary.json:arms.stability.ladder.m0_sup.twt_std 26.52 / RULE
+\newcommand{\RoutedSupVsOracleWTL}{4/0/6}            % head_summary.json:holm.M0sup_vs_ORACLE.stability.wtl (M0+SUP against the omniscient reference)
+\newcommand{\RoutedSupVsOracleP}{0.23}               % head_summary.json:holm.M0sup_vs_ORACLE.stability.raw_p 0.232422 (raw, 10 seeds)
+\newcommand{\RoutedSupGain}{49.6\%}                  % head_summary.json:arms.stability.ladder.m0_sup.pct_below_rule 49.5591
+\newcommand{\RoutedRawP}{0.001953}                   % head_summary.json:holm.M0_vs_RULE.stability.raw_p
+\newcommand{\RoutedHolmP}{0.010}                     % head_summary.json:holm.M0_vs_RULE.stability.holm_p 0.00976562
+\newcommand{\RoutedWTL}{10/0/0}                      % head_summary.json:holm.M0_vs_RULE.stability.wtl
+\newcommand{\BandAlpha}{0.1}                         % sweep task field alpha (conformal level)
+\newcommand{\BandQ}{0.34}                            % head_summary.json:arms.stability.routing.band_q (class-shift units)
+\newcommand{\BandCovWeak}{89.2\%}                    % head_summary.json:arms.stability.routing.coverage_weak 0.8917
+\newcommand{\BandCovTrue}{36.0\%}                    % head_summary.json:arms.stability.routing.coverage_true 0.3598
+\newcommand{\BandCovTrueNz}{0.4\%}                   % head_summary.json:arms.stability.routing.coverage_true_nonzero 0.0038
+\newcommand{\UndetRate}{81.3\%}                      % head_summary.json:arms.stability.routing.m0_sup_undetermined 0.8129
+\newcommand{\AutoCoverage}{82.2\%}                   % head_summary.json:arms.stability.routing.m0_sup_cov_all 0.8222
+\newcommand{\AutoCoverageUnbudgeted}{43.7\%}         % head_summary.json:arms.stability.routing.automation_coverage_unbudgeted 0.4366
+\newcommand{\OracleRoutedGain}{45.8\%}               % head_summary.json:arms.targeted.ladder.m0_alone.pct_below_rule 45.8338 (ORACLE-INFORMED UPPER REFERENCE)
+\newcommand{\DeployPrice}{-2.3}                      % head_summary.json:price.m0_alone (percentage points, oracle-informed minus deployable; NEGATIVE means the deployable policy is better)
+\newcommand{\MarginGain}{43.2\%}                     % head_summary.json:arms.margin.ladder.m0_alone.pct_below_rule 43.2218 (observable margin-only control)
+\newcommand{\RandomRoutedGain}{46.0\%}               % head_summary.json:arms.random.ladder.m0_alone.pct_below_rule 46.0497 (lower control)
+\newcommand{\DeployPriceP}{0.037}                    % head_summary.json:price['m0_alone:stability_vs_targeted'].wilcoxon_p (raw; NOT corrected for the eight arm-vs-arm tests, where it would not survive)
+\newcommand{\DeployPriceWTL}{8/0/2}                  % head_summary.json:price['m0_alone:stability_vs_targeted'].wtl
+\newcommand{\DeployPriceGrid}{-0.4}                  % grid_summary.json:mean_price_pp_m0_alone (percentage points, mean over the eight-cell grid; NEGATIVE means the deployable policy is better)
+\newcommand{\DeployPriceGridRange}{$-3.3$ to $+1.1$} % grid_summary.json:price_per_cell, per-cell range in percentage points; no cell survives Holm (smallest Holm p = 0.156)
+\newcommand{\RoutedGainCten}{65.0\%}                 % routing_curve.json:rows[c10,stability,rho=0.25].red_m0_alone_pct 65.0064 (confirmation cell, 3 seeds)
+\newcommand{\AutoCoverageCten}{78.1\%}               % routing_curve.json:rows[c10,stability,rho=0.25].automation_coverage 0.7814
+\newcommand{\OracleClauseRate}{47.2\%}               % targeted_clause_diagnostic.json:has_plus2_rate 0.4723 -- share of multi-candidate decisions the ORACLE-INFORMED policy flags, against a budget of 0.25
+\newcommand{\RoutedGridSig}{8}                       % grid_summary.json:stability.holm.M0_vs_RULE._n_sig_holm_0.05 of 8 cells
+\newcommand{\RoutedGridWorstHolmP}{0.01562}          % grid_summary.json:stability.holm.M0_vs_RULE, largest Holm p over the eight-cell grid
+\newcommand{\OracleRoutedGridSig}{8}                 % grid_summary.json:targeted.holm.M0_vs_RULE._n_sig_holm_0.05 of 8 cells
+\newcommand{\OracleRoutedGridWorstHolmP}{0.01562}    % grid_summary.json:targeted.holm.M0_vs_RULE, largest Holm p over the eight-cell grid
+\newcommand{\CoverageAtRhoFive}{96.5\%}              % routing_curve.json:rows[c9,stability,rho=0.05].automation_coverage 0.9645
+\newcommand{\GainAtRhoFive}{45.5\%}                  % routing_curve.json:rows[c9,stability,rho=0.05].red_m0_alone_pct 45.5407
+\newcommand{\BandCovTrueBetaZero}{36.2\%}            % coverage_summary.json:[beta=0].coverage_true 0.3621
+\newcommand{\AutoCoverageLooseAlpha}{78.0\%}         % alpha_summary.json:[alpha=0.50].unbudgeted_automation 0.7805
+
+[macros] wrote /home/ziheng/PaperY3/fm-hitl/results/y3_w1/macros_w1.tex

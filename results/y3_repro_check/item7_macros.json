@@ -1,0 +1,116 @@
+{
+ "results": [
+  {
+   "macro": "MzeroGain",
+   "printed": "45.4%",
+   "recomputed": 45.4,
+   "source": "primary_multiseed.csv (rerun-validated items3/4)",
+   "match": true
+  },
+  {
+   "macro": "MzeroSupGain",
+   "printed": "49.0%",
+   "recomputed": 49.0,
+   "source": "primary_multiseed.csv",
+   "match": true
+  },
+  {
+   "macro": "OracleGap",
+   "printed": "50.2%",
+   "recomputed": 50.2,
+   "source": "primary_multiseed.csv",
+   "match": true
+  },
+  {
+   "macro": "SupGain",
+   "printed": "26.1%",
+   "recomputed": 26.1,
+   "source": "primary_multiseed.csv",
+   "match": true
+  },
+  {
+   "macro": "MoneGain",
+   "printed": "38.0%",
+   "recomputed": 38.0,
+   "source": "primary_multiseed.csv",
+   "match": true
+  },
+  {
+   "macro": "MoneSupGain",
+   "printed": "38.3%",
+   "recomputed": 38.3,
+   "source": "primary_multiseed.csv",
+   "match": true
+  },
+  {
+   "macro": "MzeroGapClosed",
+   "printed": "90%",
+   "recomputed": 90,
+   "source": "primary (RULE-M0)/(RULE-ORACLE)",
+   "match": true
+  },
+  {
+   "macro": "HoneGain",
+   "printed": "16.4%",
+   "recomputed": 16.4,
+   "source": "primary seed-avg per-instance (M1+SUP vs RULE+SUP)",
+   "match": true
+  },
+  {
+   "macro": "HtwoGain",
+   "printed": "38.0%",
+   "recomputed": 38.0,
+   "source": "primary seed-avg per-instance (M1 alone vs RULE)",
+   "match": true
+  },
+  {
+   "macro": "RuleOverrideRate",
+   "printed": "0.097",
+   "recomputed": 0.097,
+   "source": "m0_gate.csv rule_sup_orr (10 seeds)",
+   "match": true
+  },
+  {
+   "macro": "MzeroTestOverride",
+   "printed": "0.029",
+   "recomputed": 0.029,
+   "source": "m0_gate.csv m0_sup_orr (10 seeds)",
+   "match": true
+  },
+  {
+   "macro": "PIzeroAttrib",
+   "printed": "35.6%",
+   "recomputed": 35.6,
+   "source": "FRESH 10 PI-0 evals + committed m1_sup (seed-avg per-instance)",
+   "match": true
+  },
+  {
+   "macro": "PIzeroAttribP",
+   "printed": "0.006",
+   "recomputed": 0.006,
+   "source": "FRESH PI-0 attribution family Holm-p",
+   "match": true
+  }
+ ],
+ "PASS": true,
+ "raw": {
+  "rule_mean": 3644.8307199999995,
+  "m0_mean": 1991.4613160000001,
+  "oracle_mean": 1815.01868,
+  "gap_closed_pct": 90.35733549988007,
+  "H1_pct": 16.437905002509243,
+  "H2_pct": 37.9817281610269,
+  "pi0_attrib_pct": 35.6197457369392,
+  "pi0_attrib_holm_p": 0.005859375,
+  "pi0_family_raw_p": {
+   "PI0alone_vs_RULE": 0.001953125,
+   "PI0sup_vs_RULEsup": 0.00390625,
+   "M1sup_vs_PI0sup": 0.001953125
+  },
+  "pi0_family_holm_p": {
+   "PI0alone_vs_RULE": 0.005859375,
+   "M1sup_vs_PI0sup": 0.005859375,
+   "PI0sup_vs_RULEsup": 0.005859375
+  }
+ }
+}

@@ -1,0 +1,39 @@
+% W1 macros -- deployable review routing. Do NOT paste blindly:
+% every value below is traced to a file under results/y3_w1/.
+
+\newcommand{\RoutedGain}{48.2\%}                     % head_summary.json:arms.stability.ladder.m0_alone.pct_below_rule 48.1536
+\newcommand{\RoutedGainStd}{1.6}                     % head_summary.json:arms.stability.ladder.m0_alone.twt_std 56.78 / RULE 3644.83
+\newcommand{\RoutedSupGainStd}{0.7}                  % head_summary.json:arms.stability.ladder.m0_sup.twt_std 26.52 / RULE
+\newcommand{\RoutedSupVsOracleWTL}{4/0/6}            % head_summary.json:holm.M0sup_vs_ORACLE.stability.wtl (M0+SUP against the omniscient reference)
+\newcommand{\RoutedSupVsOracleP}{0.23}               % head_summary.json:holm.M0sup_vs_ORACLE.stability.raw_p 0.232422 (raw, 10 seeds)
+\newcommand{\RoutedSupGain}{49.6\%}                  % head_summary.json:arms.stability.ladder.m0_sup.pct_below_rule 49.5591
+\newcommand{\RoutedRawP}{0.001953}                   % head_summary.json:holm.M0_vs_RULE.stability.raw_p
+\newcommand{\RoutedHolmP}{0.010}                     % head_summary.json:holm.M0_vs_RULE.stability.holm_p 0.00976562
+\newcommand{\RoutedWTL}{10/0/0}                      % head_summary.json:holm.M0_vs_RULE.stability.wtl
+\newcommand{\BandAlpha}{0.1}                         % sweep task field alpha (conformal level)
+\newcommand{\BandQ}{0.34}                            % head_summary.json:arms.stability.routing.band_q (class-shift units)
+\newcommand{\BandCovWeak}{89.2\%}                    % head_summary.json:arms.stability.routing.coverage_weak 0.8917
+\newcommand{\BandCovTrue}{36.0\%}                    % head_summary.json:arms.stability.routing.coverage_true 0.3598
+\newcommand{\BandCovTrueNz}{0.4\%}                   % head_summary.json:arms.stability.routing.coverage_true_nonzero 0.0038
+\newcommand{\UndetRate}{81.3\%}                      % head_summary.json:arms.stability.routing.m0_sup_undetermined 0.8129
+\newcommand{\AutoCoverage}{82.2\%}                   % head_summary.json:arms.stability.routing.m0_sup_cov_all 0.8222
+\newcommand{\AutoCoverageUnbudgeted}{43.7\%}         % head_summary.json:arms.stability.routing.automation_coverage_unbudgeted 0.4366
+\newcommand{\OracleRoutedGain}{45.8\%}               % head_summary.json:arms.targeted.ladder.m0_alone.pct_below_rule 45.8338 (ORACLE-INFORMED UPPER REFERENCE)
+\newcommand{\DeployPrice}{-2.3}                      % head_summary.json:price.m0_alone (percentage points, oracle-informed minus deployable; NEGATIVE means the deployable policy is better)
+\newcommand{\MarginGain}{43.2\%}                     % head_summary.json:arms.margin.ladder.m0_alone.pct_below_rule 43.2218 (observable margin-only control)
+\newcommand{\RandomRoutedGain}{46.0\%}               % head_summary.json:arms.random.ladder.m0_alone.pct_below_rule 46.0497 (lower control)
+\newcommand{\DeployPriceP}{0.037}                    % head_summary.json:price['m0_alone:stability_vs_targeted'].wilcoxon_p (raw; NOT corrected for the eight arm-vs-arm tests, where it would not survive)
+\newcommand{\DeployPriceWTL}{8/0/2}                  % head_summary.json:price['m0_alone:stability_vs_targeted'].wtl
+\newcommand{\DeployPriceGrid}{-0.4}                  % grid_summary.json:mean_price_pp_m0_alone (percentage points, mean over the eight-cell grid; NEGATIVE means the deployable policy is better)
+\newcommand{\DeployPriceGridRange}{$-3.3$ to $+1.1$} % grid_summary.json:price_per_cell, per-cell range in percentage points; no cell survives Holm (smallest Holm p = 0.156)
+\newcommand{\RoutedGainCten}{65.0\%}                 % routing_curve.json:rows[c10,stability,rho=0.25].red_m0_alone_pct 65.0064 (confirmation cell, 3 seeds)
+\newcommand{\AutoCoverageCten}{78.1\%}               % routing_curve.json:rows[c10,stability,rho=0.25].automation_coverage 0.7814
+\newcommand{\OracleClauseRate}{47.2\%}               % targeted_clause_diagnostic.json:has_plus2_rate 0.4723 -- share of multi-candidate decisions the ORACLE-INFORMED policy flags, against a budget of 0.25
+\newcommand{\RoutedGridSig}{8}                       % grid_summary.json:stability.holm.M0_vs_RULE._n_sig_holm_0.05 of 8 cells
+\newcommand{\RoutedGridWorstHolmP}{0.01562}          % grid_summary.json:stability.holm.M0_vs_RULE, largest Holm p over the eight-cell grid
+\newcommand{\OracleRoutedGridSig}{8}                 % grid_summary.json:targeted.holm.M0_vs_RULE._n_sig_holm_0.05 of 8 cells
+\newcommand{\OracleRoutedGridWorstHolmP}{0.01562}    % grid_summary.json:targeted.holm.M0_vs_RULE, largest Holm p over the eight-cell grid
+\newcommand{\CoverageAtRhoFive}{96.5\%}              % routing_curve.json:rows[c9,stability,rho=0.05].automation_coverage 0.9645
+\newcommand{\GainAtRhoFive}{45.5\%}                  % routing_curve.json:rows[c9,stability,rho=0.05].red_m0_alone_pct 45.5407
+\newcommand{\BandCovTrueBetaZero}{36.2\%}            % coverage_summary.json:[beta=0].coverage_true 0.3621
+\newcommand{\AutoCoverageLooseAlpha}{78.0\%}         % alpha_summary.json:[alpha=0.50].unbudgeted_automation 0.7805

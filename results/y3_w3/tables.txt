@@ -1,0 +1,199 @@
+
+================================================================================================================================
+CELL c10_u100_b0   (10 held-out instances, seeds [301, 302, 303])
+================================================================================================================================
+rung                                         params   %<RULE  meanHatS   applied  Pearson    rAppl  signAcc     tau     sd%
+--------------------------------------------------------------------------------------------------------------------------------
+(i)    squared error [published M0]            1761   12.894   +0.0103   +0.0270   +0.002   +0.047    0.498     nan    1.33
+(iii)  Tobit, impossible labels only           1761   15.028   +0.0236   +0.0417   +0.002   +0.035    0.498     nan    0.99
+(ii)   Tobit, strict censoring                 1761   -2.442   -0.7892   -0.1191   +0.001   +0.183    0.502     nan    3.22
+ref    true class-mean constant [ORACLE]          0   -0.016   +0.3008   +0.3008   +0.004   +0.234    0.498     nan    0.00
+--------------------------------------------------------------------------------------------------------------------------------
+       RULE (recorded fields, hat_s == 0)         -    0.000   +0.0000   +0.0000        -        -        -     nan
+       TRUE effective shift E[c - c*]                                             +0.2958
+
+published (results/y3_p4) for the same cell-seeds: 12.8939 % | max |dTWT*| vs mine: rule 3.18e-12, m0_alone 3.64e-12
+
+mean fitted shift by RECORDED class (raw / applied after the deployment clip / TRUE effective):
+rung                                         class 1 (n=1126)       class 2 (n=5662)       class 3 (n=12494)      class 4 (n=74570)     
+(i)    squared error [published M0]          -0.0390/-0.0666     +0.0083/+0.0085     +0.0115/+0.0121     +0.0110/+0.0323    
+(iii)  Tobit, impossible labels only         -0.0375/-0.0750     +0.0273/+0.0304     +0.0209/+0.0241     +0.0247/+0.0472    
+(ii)   Tobit, strict censoring               -0.6654/-0.6690     -0.5004/-0.4961     -0.6373/-0.6155     -0.8385/+0.0010    
+ref    true class-mean constant [ORACLE]     -0.3795/-0.3795     -0.0515/-0.0515     +0.0688/+0.0688     +0.3766/+0.3766    
+       TRUE E[c - c* | c]                                -0.3801                 -0.0684                  0.0534                  0.3742    
+
+HEAD-TO-HEAD (seed-averaged per-instance TWT*, paired Wilcoxon (pratt), Holm within this cell; a WIN = the test rung is LOWER)
+contrast                               dTWT*%  d(%<RULE)      W/T/L    p(Holm)
+tobit vs mse_published                 -17.61     -15.34     0/0/10     0.0059
+tobit_imp vs mse_published              +2.45      +2.13      8/0/2     0.1309
+classmean_oracle vs mse_published      -14.82     -12.91      1/0/9     0.0078
+
+================================================================================================================================
+CELL c10_u130_b0   (10 held-out instances, seeds [301, 302, 303])
+================================================================================================================================
+rung                                         params   %<RULE  meanHatS   applied  Pearson    rAppl  signAcc     tau     sd%
+--------------------------------------------------------------------------------------------------------------------------------
+(i)    squared error [published M0]            1761   33.157   +0.0404   +0.0733   -0.001   +0.054    0.500   0.376    2.46
+(iii)  Tobit, impossible labels only           1761   39.378   +0.0874   +0.1082   -0.001   +0.043    0.500   0.357    1.14
+(ii)   Tobit, strict censoring                 1761    7.715   -0.5127   -0.0573   +0.001   +0.137    0.499   0.510    2.88
+(iv)   Tobit, strict, E[clip(s,L,U)] deployed   1761   31.891   -0.6213   +0.1088   +0.001   +0.206    0.499   0.392    3.53
+ref    true class-mean constant [ORACLE]          0   -0.012   +0.2963   +0.2963   +0.008   +0.239    0.503   0.532    0.00
+--------------------------------------------------------------------------------------------------------------------------------
+       RULE (recorded fields, hat_s == 0)         -    0.000   +0.0000   +0.0000        -        -        -   0.532
+       TRUE effective shift E[c - c*]                                             +0.2969
+
+published (results/y3_p4) for the same cell-seeds: 33.1566 % | max |dTWT*| vs mine: rule 5.82e-11, m0_alone 4.37e-11
+
+mean fitted shift by RECORDED class (raw / applied after the deployment clip / TRUE effective):
+rung                                         class 1 (n=1591)       class 2 (n=7207)       class 3 (n=16585)      class 4 (n=96364)     
+(i)    squared error [published M0]          +0.0257/-0.0580     +0.0362/+0.0363     +0.0382/+0.0387     +0.0414/+0.0842    
+(iii)  Tobit, impossible labels only         +0.0575/-0.0413     +0.0887/+0.0887     +0.0822/+0.0828     +0.0887/+0.1165    
+(ii)   Tobit, strict censoring               -0.4534/-0.4561     -0.2838/-0.2789     -0.3213/-0.2927     -0.5637/+0.0064    
+(iv)   Tobit, strict, E[clip(s,L,U)] deployed -0.5674/-0.7510     -0.3639/-0.3754     -0.4106/-0.2230     -0.6777/+0.2163    
+ref    true class-mean constant [ORACLE]     -0.3590/-0.3590     -0.0809/-0.0809     +0.0677/+0.0677     +0.3747/+0.3747    
+       TRUE E[c - c* | c]                                -0.4192                 -0.0859                  0.0667                  0.3770    
+
+HEAD-TO-HEAD (seed-averaged per-instance TWT*, paired Wilcoxon (pratt), Holm within this cell; a WIN = the test rung is LOWER)
+contrast                               dTWT*%  d(%<RULE)      W/T/L    p(Holm)
+tobit vs mse_published                 -38.06     -25.44     0/0/10     0.0078
+tobit_imp vs mse_published              +9.31      +6.22     10/0/0     0.0078
+tobit_exp vs mse_published              -1.89      -1.27      3/0/7     0.1602
+classmean_oracle vs mse_published      -49.62     -33.17     0/0/10     0.0078
+
+================================================================================================================================
+CELL c9_u100_b0   (10 held-out instances, seeds [301, 302, 303])
+================================================================================================================================
+rung                                         params   %<RULE  meanHatS   applied  Pearson    rAppl  signAcc     tau     sd%
+--------------------------------------------------------------------------------------------------------------------------------
+(i)    squared error [published M0]            1761   -1.082   -0.0008   +0.0263   -0.003   +0.063    0.502   0.448    1.02
+(i-b)  squared error, re-expressed loop        1761    0.166   -0.0063   +0.0208   -0.010   +0.053    0.502   0.485    0.00
+(iii)  Tobit, impossible labels only           1761   -1.924   +0.0214   +0.0484   +0.001   +0.056    0.504   0.382    1.43
+(ii)   Tobit, strict censoring                 1761   -2.209   -1.2261   -0.1026   -0.003   +0.187    0.496   0.468    1.65
+(v)    Tobit, strict, sigma fitted             1762   -4.182   -1.0596   -0.0894   -0.001   +0.177    0.496   0.477    0.84
+(iv)   Tobit, strict, E[clip(s,L,U)] deployed   1761   -2.516   -1.1362   +0.0197   +0.001   +0.232    0.494   0.346    2.08
+ref    true class-mean constant [ORACLE]          0    0.012   +0.2808   +0.2808   -0.005   +0.281    0.501   0.535    0.00
+--------------------------------------------------------------------------------------------------------------------------------
+       RULE (recorded fields, hat_s == 0)         -    0.000   +0.0000   +0.0000        -        -        -   0.535
+       TRUE effective shift E[c - c*]                                             +0.2894
+
+published (results/y3_p4) for the same cell-seeds: -1.0818 % | max |dTWT*| vs mine: rule 4.55e-13, m0_alone 1.36e-12
+
+mean fitted shift by RECORDED class (raw / applied after the deployment clip / TRUE effective):
+rung                                         class 1 (n=735)        class 2 (n=3521)       class 3 (n=79)         class 4 (n=18304)     
+(i)    squared error [published M0]          -0.0097/-0.0454     +0.0021/+0.0021     -0.0170/-0.0162     -0.0010/+0.0340    
+(i-b)  squared error, re-expressed loop      -0.0186/-0.0480     -0.0025/-0.0026     -0.0242/-0.0220     -0.0065/+0.0282    
+(iii)  Tobit, impossible labels only         -0.0027/-0.0545     +0.0245/+0.0262     -0.0423/+0.0007     +0.0221/+0.0570    
+(ii)   Tobit, strict censoring               -0.9118/-0.7763     -0.6846/-0.5630     -1.9555/-0.5564     -1.3398/+0.0150    
+(v)    Tobit, strict, sigma fitted           -0.7316/-0.6774     -0.5654/-0.5012     -1.0970/-0.4943     -1.1677/+0.0152    
+(iv)   Tobit, strict, E[clip(s,L,U)] deployed -0.8689/-0.9533     -0.6202/-0.5711     -0.9443/-0.3080     -1.2470/+0.1738    
+ref    true class-mean constant [ORACLE]     -0.3765/-0.3765     -0.0704/-0.0704     +0.1550/+0.1550     +0.3753/+0.3753    
+       TRUE E[c - c* | c]                                -0.3537                 -0.0471                  0.0000                  0.3812    
+
+HEAD-TO-HEAD (seed-averaged per-instance TWT*, paired Wilcoxon (pratt), Holm within this cell; a WIN = the test rung is LOWER)
+contrast                               dTWT*%  d(%<RULE)      W/T/L    p(Holm)
+tobit vs mse_published                  -1.12      -1.13      6/0/4     1.0000
+tobit_imp vs mse_published              -0.83      -0.84      3/0/7     1.0000
+tobit_exp vs mse_published              -1.42      -1.43      6/0/4     1.0000
+tobit_sig vs tobit                      -1.93      -1.97      3/0/7     0.8008
+classmean_oracle vs mse_published       +1.08      +1.09      7/0/3     1.0000
+
+================================================================================================================================
+CELL c9_u100_b1   (10 held-out instances, seeds [301, 302, 303, 304, 305])
+================================================================================================================================
+rung                                         params   %<RULE  meanHatS   applied  Pearson    rAppl  signAcc     tau     sd%
+--------------------------------------------------------------------------------------------------------------------------------
+(i)    squared error [published M0]            1761   44.505   -0.0388   +0.0136   +0.392   +0.453    0.702   0.805    1.12
+(iii)  Tobit, impossible labels only           1761   47.221   -0.0520   +0.0160   +0.265   +0.403    0.734   0.788    0.69
+(ii)   Tobit, strict censoring                 1761   40.519   -1.6503   -0.1436   -0.121   +0.363    0.579   0.764    4.83
+(iv)   Tobit, strict, E[clip(s,L,U)] deployed   1761   47.295   -1.8851   -0.1048   -0.145   +0.386    0.484   0.727    1.21
+--------------------------------------------------------------------------------------------------------------------------------
+       RULE (recorded fields, hat_s == 0)         -    0.000   +0.0000   +0.0000        -        -        -   0.668
+       TRUE effective shift E[c - c*]                                             +0.4653
+
+published (results/y3_p4) for the same cell-seeds: 44.5052 % | max |dTWT*| vs mine: rule 1.82e-12, m0_alone 3.18e-12
+
+mean fitted shift by RECORDED class (raw / applied after the deployment clip / TRUE effective):
+rung                                         class 1 (n=735)        class 2 (n=3521)       class 3 (n=79)         class 4 (n=18304)     
+(i)    squared error [published M0]          -0.0515/-0.0890     -0.0499/-0.0499     -0.0846/-0.0818     -0.0360/+0.0304    
+(iii)  Tobit, impossible labels only         -0.0802/-0.1222     -0.0622/-0.0565     -0.1024/-0.0756     -0.0487/+0.0360    
+(ii)   Tobit, strict censoring               -0.8836/-0.8771     -1.0365/-0.9147     -1.2552/-0.6262     -1.8008/+0.0363    
+(iv)   Tobit, strict, E[clip(s,L,U)] deployed -1.0411/-1.1319     -1.1623/-0.9577     -1.1994/-0.5564     -2.0610/+0.1025    
+       TRUE E[c - c* | c]                                -0.2327                 -0.0097                  0.5949                  0.5841    
+
+HEAD-TO-HEAD (seed-averaged per-instance TWT*, paired Wilcoxon (pratt), Holm within this cell; a WIN = the test rung is LOWER)
+contrast                               dTWT*%  d(%<RULE)      W/T/L    p(Holm)
+tobit vs mse_published                  -7.18      -3.99      1/0/9     0.0410
+tobit_imp vs mse_published              +4.89      +2.72      7/0/3     0.0977
+tobit_exp vs mse_published              +5.03      +2.79      7/0/3     0.0977
+
+================================================================================================================================
+CELL c9_u130_b0   (10 held-out instances, seeds [301, 302, 303])
+================================================================================================================================
+rung                                         params   %<RULE  meanHatS   applied  Pearson    rAppl  signAcc     tau     sd%
+--------------------------------------------------------------------------------------------------------------------------------
+(i)    squared error [published M0]            1761   14.673   +0.0206   +0.0637   -0.003   +0.077    0.497   0.385    1.20
+(i-b)  squared error, re-expressed loop        1761   16.029   +0.0340   +0.0756   -0.004   +0.074    0.495   0.386    0.00
+(iii)  Tobit, impossible labels only           1761   16.365   +0.0612   +0.0934   +0.001   +0.064    0.498   0.357    1.55
+(ii)   Tobit, strict censoring                 1761    2.253   -0.8278   -0.0384   +0.001   +0.151    0.498   0.430    0.83
+(v)    Tobit, strict, sigma fitted             1762   -1.032   -0.9336   -0.0395   +0.001   +0.146    0.500   0.469    0.56
+(iv)   Tobit, strict, E[clip(s,L,U)] deployed   1761   10.709   -0.9049   +0.1261   +0.002   +0.244    0.500   0.328    1.77
+ref    true class-mean constant [ORACLE]          0   -0.034   +0.2847   +0.2847   +0.001   +0.289    0.500   0.547    0.00
+--------------------------------------------------------------------------------------------------------------------------------
+       RULE (recorded fields, hat_s == 0)         -    0.000   +0.0000   +0.0000        -        -        -   0.547
+       TRUE effective shift E[c - c*]                                             +0.2828
+
+published (results/y3_p4) for the same cell-seeds: 14.6732 % | max |dTWT*| vs mine: rule 3.64e-12, m0_alone 2.73e-12
+
+mean fitted shift by RECORDED class (raw / applied after the deployment clip / TRUE effective):
+rung                                         class 1 (n=875)        class 2 (n=4461)       class 3 (n=100)        class 4 (n=24052)     
+(i)    squared error [published M0]          +0.0155/-0.0618     +0.0273/+0.0273     -0.0185/-0.0148     +0.0197/+0.0754    
+(i-b)  squared error, re-expressed loop      +0.0348/-0.0600     +0.0419/+0.0419     -0.0463/-0.0429     +0.0328/+0.0873    
+(iii)  Tobit, impossible labels only         +0.0581/-0.0405     +0.0714/+0.0715     +0.0253/+0.0303     +0.0596/+0.1027    
+(ii)   Tobit, strict censoring               -0.4638/-0.4214     -0.3051/-0.2797     -1.7096/-0.4465     -0.9343/+0.0220    
+(v)    Tobit, strict, sigma fitted           -0.4466/-0.3826     -0.2936/-0.2659     -1.7659/-0.3609     -1.0665/+0.0162    
+(iv)   Tobit, strict, E[clip(s,L,U)] deployed -0.4342/-0.6595     -0.3569/-0.3637     -1.0274/-0.3186     -1.0232/+0.2474    
+ref    true class-mean constant [ORACLE]     -0.3991/-0.3991     -0.0713/-0.0713     +0.1741/+0.1741     +0.3760/+0.3760    
+       TRUE E[c - c* | c]                                -0.3531                 -0.0832                 -0.0600                  0.3753    
+
+HEAD-TO-HEAD (seed-averaged per-instance TWT*, paired Wilcoxon (pratt), Holm within this cell; a WIN = the test rung is LOWER)
+contrast                               dTWT*%  d(%<RULE)      W/T/L    p(Holm)
+tobit vs mse_published                 -14.56     -12.42     0/0/10     0.0098
+tobit_imp vs mse_published              +1.98      +1.69      7/0/3     0.0488
+tobit_exp vs mse_published              -4.65      -3.96      1/0/9     0.0117
+tobit_sig vs tobit                      -3.36      -3.28      1/0/9     0.0273
+classmean_oracle vs mse_published      -17.24     -14.71     0/0/10     0.0098
+
+================================================================================================================================
+CELL c9_u130_b0_pub   (10 held-out instances, seeds [301])
+================================================================================================================================
+rung                                         params   %<RULE  meanHatS   applied  Pearson    rAppl  signAcc     tau     sd%
+--------------------------------------------------------------------------------------------------------------------------------
+(i)    squared error [published M0]            1761   19.072   +0.0194   +0.0676   -0.008   +0.066    0.499   0.341    0.00
+(i-b)  squared error, re-expressed loop        1761   19.072   +0.0194   +0.0676   -0.008   +0.066    0.499   0.341    0.00
+(iii)  Tobit, impossible labels only           1761   21.258   +0.0439   +0.0878   -0.004   +0.074    0.497   0.354    0.00
+(ii)   Tobit, strict censoring                 1761    1.106   -0.6607   -0.0383   +0.004   +0.138    0.498   0.441    0.00
+(v)    Tobit, strict, sigma fitted             1762    1.174   -0.8260   -0.0311   +0.000   +0.132    0.501   0.405    0.00
+(iv)   Tobit, strict, E[clip(s,L,U)] deployed   1761   12.116   -0.8506   +0.1246   +0.006   +0.228    0.503   0.332    0.00
+ref    true class-mean constant [ORACLE]          0   -0.030   +0.2855   +0.2855   -0.006   +0.283    0.497   0.549    0.00
+--------------------------------------------------------------------------------------------------------------------------------
+       RULE (recorded fields, hat_s == 0)         -    0.000   +0.0000   +0.0000        -        -        -   0.549
+       TRUE effective shift E[c - c*]                                             +0.2824
+
+mean fitted shift by RECORDED class (raw / applied after the deployment clip / TRUE effective):
+rung                                         class 1 (n=859)        class 2 (n=4468)       class 3 (n=101)        class 4 (n=24254)     
+(i)    squared error [published M0]          +0.0199/-0.0627     +0.0263/+0.0263     +0.0022/+0.0049     +0.0181/+0.0801    
+(i-b)  squared error, re-expressed loop      +0.0199/-0.0627     +0.0263/+0.0263     +0.0022/+0.0049     +0.0181/+0.0801    
+(iii)  Tobit, impossible labels only         +0.0107/-0.0752     +0.0481/+0.0481     -0.0103/+0.0101     +0.0445/+0.1012    
+(ii)   Tobit, strict censoring               -0.3999/-0.4181     -0.3202/-0.3028     -0.8561/-0.2838     -0.7318/+0.0249    
+(v)    Tobit, strict, sigma fitted           -0.4189/-0.4222     -0.3240/-0.2850     -0.7155/-0.1907     -0.9333/+0.0302    
+(iv)   Tobit, strict, E[clip(s,L,U)] deployed -0.5189/-0.6765     -0.3964/-0.3787     -1.6454/-0.3010     -0.9428/+0.2474    
+ref    true class-mean constant [ORACLE]     -0.3870/-0.3870     -0.0802/-0.0802     +0.1472/+0.1472     +0.3773/+0.3773    
+       TRUE E[c - c* | c]                                -0.3772                 -0.0689                  0.0792                  0.3714    
+
+HEAD-TO-HEAD (seed-averaged per-instance TWT*, paired Wilcoxon (pratt), Holm within this cell; a WIN = the test rung is LOWER)
+contrast                               dTWT*%  d(%<RULE)      W/T/L    p(Holm)
+tobit vs mse_published                 -22.20     -17.97     0/0/10     0.0098
+tobit_imp vs mse_published              +2.70      +2.19      8/0/2     0.0820
+tobit_exp vs mse_published              -8.59      -6.96      3/0/7     0.0820
+tobit_sig vs tobit                      +0.07      +0.07      5/0/5     1.0000
+classmean_oracle vs mse_published      -23.60     -19.10     0/0/10     0.0098

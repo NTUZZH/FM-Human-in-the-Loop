@@ -1,0 +1,65 @@
+{
+  "boundary_statement": "The pilot asks practitioners to rank pairs of real work orders drawn from the same corpus the study models; it does not place a practitioner inside the dispatch loop. It therefore grounds two premises of the supervisor model, that an urgency ordering exists which practitioners share beyond the recorded priority class and that it is partly predictable from the observable order attributes the estimator reads, and it grounds nothing else. It does not validate the correction loop, the dispatching results, or any reported reduction in true weighted tardiness, every one of which is measured against a simulated supervisor.",
+  "preregistration": "results/y3_w8/selftest/PREREGISTRATION.md",
+  "inputs": {
+    "manifest": "/home/ziheng/PaperY3/fm-hitl/pilot/y3_w8_manifest.csv",
+    "responses_dir": "/tmp/claude-1006/-home-ziheng-PaperY3/a0d252bf-d4f9-4eaf-9544-e4d6c846e35f/scratchpad/empty",
+    "load": {
+      "files": [],
+      "rows_read": 0,
+      "rows_blank": 0,
+      "rows_unknown_item": 0,
+      "rows_side_conflict": 0,
+      "rows_bad_choice": 0,
+      "duplicates_overwritten": 0,
+      "raters": [],
+      "rater_meta": {},
+      "answers_per_rater": {}
+    }
+  },
+  "design": {
+    "n_items": 56,
+    "n_unique_pairs": 50,
+    "n_repeat_pairs": 6,
+    "strata": {
+      "S1_equal_class": 18,
+      "S2_one_apart": 14,
+      "S3_class_vs_attributes": 12,
+      "S4_far_apart": 6
+    },
+    "campuses": [
+      1,
+      2,
+      5,
+      9,
+      10,
+      12
+    ]
+  },
+  "n_raters": 0,
+  "agreement": {
+    "computable": false,
+    "reason": "no responses yet"
+  },
+  "within_rater": {
+    "computable": false,
+    "reason": "no responses yet"
+  },
+  "class_test": {
+    "computable": false,
+    "reason": "no responses yet"
+  },
+  "predictability": {
+    "computable": false,
+    "reason": "no responses yet"
+  },
+  "translation": {
+    "computable": false,
+    "reason": "no responses yet"
+  },
+  "primary_family": {},
+  "instrument_check_H4": {
+    "passed": false,
+    "reason": "no responses yet"
+  }
+}

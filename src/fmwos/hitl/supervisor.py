@@ -38,7 +38,8 @@ deadline (set in ``__init__`` from the channel), so ``preferred_pick`` and the
 one-step ``_pair_improvement`` both use d* automatically under full_class_shift.
 k = 2 and pbar = mean processing time over the candidates. This is
 myopic-greedy on the true objective; it is NOT a true-objective upper bound, so
-ORACLE-GREEDY can occasionally invert against a rule -- flagged, not hidden. The override IMPROVEMENT over the decider's pick is the
+ORACLE-GREEDY can occasionally invert against a rule -- flagged, per the
+proposal, not hidden. The override IMPROVEMENT over the decider's pick is the
 one-step pairwise-swap true-objective increment: the extra true weighted
 tardiness of serving the decider's pick before the preferred pick versus the
 reverse, on the freed technician (completion = now + p for the first, now + p +

@@ -1,0 +1,48 @@
+{
+  "model": "(the fixture's, not the paper's)\n-------------------------------------------------\nFor pair i with observable attribute differences d = (trade prior, log job size,\ndays waited), standardised over the fifty pairs, a consensus latent difference is\n\n    Delta_i = sqrt(beta) * (a . d_i) + sqrt(1 - beta) * z_i,   z_i ~ N(0, 1)\n\nwith a fixed coefficient vector a normalised so that a . d has unit variance.\nThe consensus answer is A when Delta_i > 0. Each simulated rater reports the\nconsensus with probability 1 - q and the other order with probability q,\nindependently per item, and answers a repeated pair with an independent draw, so\nwithin-rater consistency is (1-q)^2 + q^2 by construction.\n\nUsage\n-----\n  # fixtures for the analysis smoke test (writes several response sets)\n  python results/y3_w8/selftest/make_selftest_responses.py --fixtures\n\n  # pre-registered power statement (slow-ish; a few minutes on four cores)\n  python results/y3_w8/selftest/make_selftest_responses.py --power",
+  "seed": 4242,
+  "fixtures": [
+    {
+      "tag": "R5_beta0.50_q0.20",
+      "n_raters": 5,
+      "beta": 0.5,
+      "q": 0.2,
+      "dir": "/home/ziheng/PaperY3/fm-hitl/results/y3_w8/selftest/responses/R5_beta0.50_q0.20"
+    },
+    {
+      "tag": "R3_beta0.50_q0.20",
+      "n_raters": 3,
+      "beta": 0.5,
+      "q": 0.2,
+      "dir": "/home/ziheng/PaperY3/fm-hitl/results/y3_w8/selftest/responses/R3_beta0.50_q0.20"
+    },
+    {
+      "tag": "R2_beta0.50_q0.20",
+      "n_raters": 2,
+      "beta": 0.5,
+      "q": 0.2,
+      "dir": "/home/ziheng/PaperY3/fm-hitl/results/y3_w8/selftest/responses/R2_beta0.50_q0.20"
+    },
+    {
+      "tag": "R1_beta0.50_q0.20",
+      "n_raters": 1,
+      "beta": 0.5,
+      "q": 0.2,
+      "dir": "/home/ziheng/PaperY3/fm-hitl/results/y3_w8/selftest/responses/R1_beta0.50_q0.20"
+    },
+    {
+      "tag": "R5_beta0.00_q0.20",
+      "n_raters": 5,
+      "beta": 0.0,
+      "q": 0.2,
+      "dir": "/home/ziheng/PaperY3/fm-hitl/results/y3_w8/selftest/responses/R5_beta0.00_q0.20"
+    },
+    {
+      "tag": "R5_beta0.50_q0.50",
+      "n_raters": 5,
+      "beta": 0.5,
+      "q": 0.5,
+      "dir": "/home/ziheng/PaperY3/fm-hitl/results/y3_w8/selftest/responses/R5_beta0.50_q0.50"
+    }
+  ]
+}

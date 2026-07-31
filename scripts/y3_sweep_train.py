@@ -1,16 +1,16 @@
 #!/usr/bin/env python
-"""Tier-1 multi-seed training-sweep driver (Paper Y3, Phase P5).
+"""Tier-1 multi-seed training-sweep orchestrator (Paper Y3, Phase P5).
 
 Builds and runs the 29-run Tier-1 training sweep on the headline contention gate
 cells: the fair end-to-end policy fair-M1 (deadline_head=True; the STANDARD M1 per
-the M1-fairness protocol) and the control PI-0 (Y1-style PPO
+the M1-FAIRNESS VERDICT in notes/decisions.md) and the control PI-0 (Y1-style PPO
 with the supervisor OFF, gate=0). Every run reuses the LOCKED, fair-compute-asserted
 trainers as subprocesses:
 
     fair-M1  ->  scripts/y3_p15_m1.py --deadline-head
     PI-0     ->  scripts/y3_p3_pi0.py
 
-This script only COORDINATES: it resolves each run's full config, diffs it against
+This script only ORCHESTRATES: it resolves each run's full config, diffs it against
 the committed pilot config, asserts the ONLY differences are the intended axes
 (seed, u, beta, rho for M1; seed, u for PI-0) plus deadline_head=True for M1,
 asserts the fair-M1 network parameter count matches the pilot fair-M1 checkpoint,
@@ -471,7 +471,7 @@ def run_verification(runs):
 def check_ondisk_config(r, resolved, timeout=120):
     """After a run launches, its trainer writes config.json BEFORE the loop. Wait
     for it and assert it equals the resolved config we diffed. This closes the
-    config-verification loop: we compare the config the PROGRAM actually resolved, not only
+    CLAUDE.md loop: we compare the config the PROGRAM actually resolved, not only
     the one we reconstructed. Returns (ok, message)."""
     path = os.path.join(r["out_dir"], "config.json")
     t0 = time.time()

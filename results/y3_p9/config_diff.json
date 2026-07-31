@@ -1,0 +1,265 @@
+{
+ "PASS": true,
+ "baseline_cell": "c9_storm2_u100_b1.00_r0.25",
+ "baseline_resolved_config": {
+  "beta": 1.0,
+  "campus": 9,
+  "channel": "full_class_shift",
+  "decider_set": [
+   "rule",
+   "rule_sup",
+   "m0_alone",
+   "m0_sup",
+   "oracle"
+  ],
+  "eps": 0.0,
+  "eval_inst_ids": [
+   "c09_storm2_w80_u100_0020",
+   "c09_storm2_w80_u100_0021",
+   "c09_storm2_w80_u100_0022",
+   "c09_storm2_w80_u100_0023",
+   "c09_storm2_w80_u100_0024",
+   "c09_storm2_w80_u100_0025",
+   "c09_storm2_w80_u100_0026",
+   "c09_storm2_w80_u100_0027",
+   "c09_storm2_w80_u100_0028",
+   "c09_storm2_w80_u100_0029"
+  ],
+  "family": "F-NL",
+  "m0_iters": 8,
+  "master_seed": 12345,
+  "mech": "targeted",
+  "n_eval": 10,
+  "n_eval_full": 10,
+  "n_probe": 4,
+  "n_train": 16,
+  "overlay_coeff_sha256": "21b3ef67c107d2c5fbbbe6a1ee28354851c6928cec64aa66749cf2f1c1b9413b",
+  "regime": "storm2",
+  "rho": 0.25,
+  "scoring": "TWT*(w*,d*) full_class_shift, independent validator",
+  "seeds": [
+   301,
+   302,
+   303,
+   304,
+   305,
+   306,
+   307,
+   308,
+   309,
+   310
+  ],
+  "size": null,
+  "theta": 1.0,
+  "u": 100
+ },
+ "cells": {
+  "c9_storm2_u100_b0.20_r0.25_eps0.00": {
+   "PASS": true,
+   "diff_keys": [
+    "beta"
+   ],
+   "diff_vs_headline": {
+    "beta": {
+     "headline": 1.0,
+     "this_cell": 0.2
+    }
+   },
+   "expected_diff_keys": [
+    "beta"
+   ],
+   "resolved_config": {
+    "beta": 0.2,
+    "campus": 9,
+    "channel": "full_class_shift",
+    "decider_set": [
+     "rule",
+     "rule_sup",
+     "m0_alone",
+     "m0_sup",
+     "oracle"
+    ],
+    "eps": 0.0,
+    "eval_inst_ids": [
+     "c09_storm2_w80_u100_0020",
+     "c09_storm2_w80_u100_0021",
+     "c09_storm2_w80_u100_0022",
+     "c09_storm2_w80_u100_0023",
+     "c09_storm2_w80_u100_0024",
+     "c09_storm2_w80_u100_0025",
+     "c09_storm2_w80_u100_0026",
+     "c09_storm2_w80_u100_0027",
+     "c09_storm2_w80_u100_0028",
+     "c09_storm2_w80_u100_0029"
+    ],
+    "family": "F-NL",
+    "m0_iters": 8,
+    "master_seed": 12345,
+    "mech": "targeted",
+    "n_eval": 10,
+    "n_eval_full": 10,
+    "n_probe": 4,
+    "n_train": 16,
+    "overlay_coeff_sha256": "21b3ef67c107d2c5fbbbe6a1ee28354851c6928cec64aa66749cf2f1c1b9413b",
+    "regime": "storm2",
+    "rho": 0.25,
+    "scoring": "TWT*(w*,d*) full_class_shift, independent validator",
+    "seeds": [
+     301,
+     302,
+     303,
+     304,
+     305,
+     306,
+     307,
+     308,
+     309,
+     310
+    ],
+    "size": null,
+    "theta": 1.0,
+    "u": 100
+   }
+  },
+  "c9_storm2_u100_b0.20_r0.25_eps0.25": {
+   "PASS": true,
+   "diff_keys": [
+    "beta",
+    "eps"
+   ],
+   "diff_vs_headline": {
+    "beta": {
+     "headline": 1.0,
+     "this_cell": 0.2
+    },
+    "eps": {
+     "headline": 0.0,
+     "this_cell": 0.25
+    }
+   },
+   "expected_diff_keys": [
+    "beta",
+    "eps"
+   ],
+   "resolved_config": {
+    "beta": 0.2,
+    "campus": 9,
+    "channel": "full_class_shift",
+    "decider_set": [
+     "rule",
+     "rule_sup",
+     "m0_alone",
+     "m0_sup",
+     "oracle"
+    ],
+    "eps": 0.25,
+    "eval_inst_ids": [
+     "c09_storm2_w80_u100_0020",
+     "c09_storm2_w80_u100_0021",
+     "c09_storm2_w80_u100_0022",
+     "c09_storm2_w80_u100_0023",
+     "c09_storm2_w80_u100_0024",
+     "c09_storm2_w80_u100_0025",
+     "c09_storm2_w80_u100_0026",
+     "c09_storm2_w80_u100_0027",
+     "c09_storm2_w80_u100_0028",
+     "c09_storm2_w80_u100_0029"
+    ],
+    "family": "F-NL",
+    "m0_iters": 8,
+    "master_seed": 12345,
+    "mech": "targeted",
+    "n_eval": 10,
+    "n_eval_full": 10,
+    "n_probe": 4,
+    "n_train": 16,
+    "overlay_coeff_sha256": "21b3ef67c107d2c5fbbbe6a1ee28354851c6928cec64aa66749cf2f1c1b9413b",
+    "regime": "storm2",
+    "rho": 0.25,
+    "scoring": "TWT*(w*,d*) full_class_shift, independent validator",
+    "seeds": [
+     301,
+     302,
+     303,
+     304,
+     305,
+     306,
+     307,
+     308,
+     309,
+     310
+    ],
+    "size": null,
+    "theta": 1.0,
+    "u": 100
+   }
+  },
+  "c9_storm2_u100_b0.25_r0.25_eps0.00": {
+   "PASS": true,
+   "diff_keys": [
+    "beta"
+   ],
+   "diff_vs_headline": {
+    "beta": {
+     "headline": 1.0,
+     "this_cell": 0.25
+    }
+   },
+   "expected_diff_keys": [
+    "beta"
+   ],
+   "resolved_config": {
+    "beta": 0.25,
+    "campus": 9,
+    "channel": "full_class_shift",
+    "decider_set": [
+     "rule",
+     "rule_sup",
+     "m0_alone",
+     "m0_sup",
+     "oracle"
+    ],
+    "eps": 0.0,
+    "eval_inst_ids": [
+     "c09_storm2_w80_u100_0020",
+     "c09_storm2_w80_u100_0021",
+     "c09_storm2_w80_u100_0022",
+     "c09_storm2_w80_u100_0023",
+     "c09_storm2_w80_u100_0024",
+     "c09_storm2_w80_u100_0025",
+     "c09_storm2_w80_u100_0026",
+     "c09_storm2_w80_u100_0027",
+     "c09_storm2_w80_u100_0028",
+     "c09_storm2_w80_u100_0029"
+    ],
+    "family": "F-NL",
+    "m0_iters": 8,
+    "master_seed": 12345,
+    "mech": "targeted",
+    "n_eval": 10,
+    "n_eval_full": 10,
+    "n_probe": 4,
+    "n_train": 16,
+    "overlay_coeff_sha256": "21b3ef67c107d2c5fbbbe6a1ee28354851c6928cec64aa66749cf2f1c1b9413b",
+    "regime": "storm2",
+    "rho": 0.25,
+    "scoring": "TWT*(w*,d*) full_class_shift, independent validator",
+    "seeds": [
+     301,
+     302,
+     303,
+     304,
+     305,
+     306,
+     307,
+     308,
+     309,
+     310
+    ],
+    "size": null,
+    "theta": 1.0,
+    "u": 100
+   }
+  }
+ }
+}

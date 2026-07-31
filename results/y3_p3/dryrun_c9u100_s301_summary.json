@@ -1,0 +1,259 @@
+{
+ "cell": {
+  "beta": 1.0,
+  "rho": 0.25,
+  "eps": 0.0,
+  "theta": 1.0,
+  "mechanism": "targeted",
+  "family": "F-NL",
+  "master_seed": 12345,
+  "channel": "full_class_shift",
+  "regime": "storm2",
+  "campus": 9,
+  "u": 100
+ },
+ "seed": 301,
+ "n_eval": 10,
+ "eval_files": [
+  "c09_storm2_w80_u100_0020.json",
+  "c09_storm2_w80_u100_0021.json",
+  "c09_storm2_w80_u100_0022.json",
+  "c09_storm2_w80_u100_0023.json",
+  "c09_storm2_w80_u100_0024.json",
+  "c09_storm2_w80_u100_0025.json",
+  "c09_storm2_w80_u100_0026.json",
+  "c09_storm2_w80_u100_0027.json",
+  "c09_storm2_w80_u100_0028.json",
+  "c09_storm2_w80_u100_0029.json"
+ ],
+ "n_wos_eval0": 2253,
+ "m1_ckpt": null,
+ "m1_gate": null,
+ "pi0_ckpt": null,
+ "ladder": {
+  "rule": {
+   "twt_star": 3644.8307200000004,
+   "pct_below_rule": 0.0,
+   "wtl_vs_rule": {
+    "W": 0,
+    "T": 10,
+    "L": 0
+   }
+  },
+  "m0_alone": {
+   "twt_star": 1940.8230800000001,
+   "pct_below_rule": 46.75135200791986,
+   "wtl_vs_rule": {
+    "W": 10,
+    "T": 0,
+    "L": 0
+   }
+  },
+  "oracle": {
+   "twt_star": 1815.0186800000004,
+   "pct_below_rule": 50.20293617367228,
+   "wtl_vs_rule": {
+    "W": 10,
+    "T": 0,
+    "L": 0
+   }
+  },
+  "rule_sup": {
+   "twt_star": 2692.77344,
+   "pct_below_rule": 26.120754381701445,
+   "wtl_vs_rule": {
+    "W": 10,
+    "T": 0,
+    "L": 0
+   }
+  },
+  "m0_sup": {
+   "twt_star": 1841.45036,
+   "pct_below_rule": 49.4777535237631,
+   "wtl_vs_rule": {
+    "W": 10,
+    "T": 0,
+    "L": 0
+   }
+  }
+ },
+ "contrasts": {
+  "M0_vs_RULE_alone": {
+   "name": "M0 alone vs RULE",
+   "test": "m0_alone",
+   "comparator": "rule",
+   "test_mean": 1940.8230800000001,
+   "comparator_mean": 3644.8307200000004,
+   "delta_mean": -1704.0076400000003,
+   "pct_vs_comparator": 46.75135200791986,
+   "wtl": {
+    "W": 10,
+    "T": 0,
+    "L": 0
+   },
+   "wilcoxon_p": 0.001953125
+  },
+  "RULEsup_vs_RULE": {
+   "name": "RULE+SUP vs RULE",
+   "test": "rule_sup",
+   "comparator": "rule",
+   "test_mean": 2692.77344,
+   "comparator_mean": 3644.8307200000004,
+   "delta_mean": -952.0572800000004,
+   "pct_vs_comparator": 26.120754381701445,
+   "wtl": {
+    "W": 10,
+    "T": 0,
+    "L": 0
+   },
+   "wilcoxon_p": 0.001953125
+  }
+ },
+ "H3": {
+  "m1_train_override_rate_trajectory": null,
+  "rule_sup_override_rate_flat_mean": 0.09732224992895293,
+  "rule_sup_override_rate_flat_per_inst": [
+   0.0815347721822542,
+   0.07567567567567568,
+   0.026737967914438502,
+   0.14150943396226415,
+   0.11616161616161616,
+   0.1550561797752809,
+   0.12971698113207547,
+   0.08439897698209718,
+   0.0532994923857868,
+   0.1091314031180401
+  ],
+  "rule_sup_review_fraction_mean": 0.2495430042654429
+ },
+ "supervisor_budget": {
+  "rule_sup": {
+   "review_fraction_mean": 0.2495430042654429,
+   "override_rate_mean": 0.09732224992895293
+  },
+  "m0_sup": {
+   "review_fraction_mean": 0.2475424523064987,
+   "override_rate_mean": 0.031536598745200366
+  },
+  "pi0_sup": null,
+  "m1_sup": null
+ },
+ "m0_per_iter": [
+  {
+   "iter": 0,
+   "n_reviews": 6677,
+   "n_overrides": 611,
+   "n_confirmations": 6066,
+   "override_rate": 0.09150816234836004,
+   "n_examples_agg": 7288,
+   "est_loss": 0.2609255313873291,
+   "sign_acc_nonzero": 0.6726243142806583,
+   "exact_class_acc": 0.3702965914121293,
+   "pearson_r": 0.4941187889832333,
+   "zero_baseline_acc": 0.3746126604692342,
+   "n_orders": 9036
+  },
+  {
+   "iter": 1,
+   "n_reviews": 6639,
+   "n_overrides": 214,
+   "n_confirmations": 6425,
+   "override_rate": 0.032233770146106344,
+   "n_examples_agg": 14141,
+   "est_loss": 0.3078198730945587,
+   "sign_acc_nonzero": 0.6768713502035038,
+   "exact_class_acc": 0.3701859229747676,
+   "pearson_r": 0.4973546089456939,
+   "zero_baseline_acc": 0.3746126604692342,
+   "n_orders": 9036
+  },
+  {
+   "iter": 2,
+   "n_reviews": 6611,
+   "n_overrides": 156,
+   "n_confirmations": 6455,
+   "override_rate": 0.02359703524428982,
+   "n_examples_agg": 20908,
+   "est_loss": 0.27168816328048706,
+   "sign_acc_nonzero": 0.7126172358874535,
+   "exact_class_acc": 0.37239929172200087,
+   "pearson_r": 0.4546190321808617,
+   "zero_baseline_acc": 0.3746126604692342,
+   "n_orders": 9036
+  },
+  {
+   "iter": 3,
+   "n_reviews": 6575,
+   "n_overrides": 160,
+   "n_confirmations": 6415,
+   "override_rate": 0.024334600760456272,
+   "n_examples_agg": 27643,
+   "est_loss": 0.2631451189517975,
+   "sign_acc_nonzero": 0.7462396036099805,
+   "exact_class_acc": 0.3704072598494909,
+   "pearson_r": 0.49490421000562673,
+   "zero_baseline_acc": 0.3746126604692342,
+   "n_orders": 9036
+  },
+  {
+   "iter": 4,
+   "n_reviews": 6529,
+   "n_overrides": 101,
+   "n_confirmations": 6428,
+   "override_rate": 0.015469444018992189,
+   "n_examples_agg": 34273,
+   "est_loss": 0.23608213663101196,
+   "sign_acc_nonzero": 0.6542204919483278,
+   "exact_class_acc": 0.37195661797255425,
+   "pearson_r": 0.45416674223135933,
+   "zero_baseline_acc": 0.3746126604692342,
+   "n_orders": 9036
+  },
+  {
+   "iter": 5,
+   "n_reviews": 6657,
+   "n_overrides": 204,
+   "n_confirmations": 6453,
+   "override_rate": 0.03064443442992339,
+   "n_examples_agg": 41134,
+   "est_loss": 0.1408151090145111,
+   "sign_acc_nonzero": 0.6181206866041409,
+   "exact_class_acc": 0.3711819389110226,
+   "pearson_r": 0.44502671833987917,
+   "zero_baseline_acc": 0.3746126604692342,
+   "n_orders": 9036
+  },
+  {
+   "iter": 6,
+   "n_reviews": 6612,
+   "n_overrides": 155,
+   "n_confirmations": 6457,
+   "override_rate": 0.023442226255293405,
+   "n_examples_agg": 47901,
+   "est_loss": 0.1976158767938614,
+   "sign_acc_nonzero": 0.777207573880729,
+   "exact_class_acc": 0.3702965914121293,
+   "pearson_r": 0.49089836652206975,
+   "zero_baseline_acc": 0.3746126604692342,
+   "n_orders": 9036
+  },
+  {
+   "iter": 7,
+   "n_reviews": 6571,
+   "n_overrides": 104,
+   "n_confirmations": 6467,
+   "override_rate": 0.015827119159945214,
+   "n_examples_agg": 54576,
+   "est_loss": 0.23651032149791718,
+   "sign_acc_nonzero": 0.7750840559193063,
+   "exact_class_acc": 0.3701859229747676,
+   "pearson_r": 0.4272844508169055,
+   "zero_baseline_acc": 0.3746126604692342,
+   "n_orders": 9036
+  }
+ ],
+ "have": {
+  "m1": false,
+  "pi0": false
+ }
+}

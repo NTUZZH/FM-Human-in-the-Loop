@@ -18,7 +18,7 @@ split the m0-grid and y3_p3_eval used. NO training.
 
 Run (COEXISTENCE: cap workers, OMP=1/worker, nice):
   OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
-  nice -n 15 python \
+  nice -n 15 /home/ziheng/miniconda3/envs/fjsp/bin/python \
     scripts/y3_harvest_primary.py --workers 5
 """
 
@@ -61,7 +61,7 @@ CELL = {"campus": 9, "regime": "storm2", "u": 100, "beta": 1.0, "rho": 0.25,
         "master_seed": 12345, "channel": "full_class_shift"}
 SEEDS = list(range(301, 311))
 CELL_KEY = "c9_storm2_u100_b1.00_r0.25"
-SWEEP = os.path.join(_ROOT, "results", "y3_checkpoints", "sweep")
+SWEEP = os.path.join(_ROOT, "train_log", "y3_sweep")
 CACHE = os.path.join(_ROOT, "results", "y3_p4", "cache")
 
 N_TRAIN, N_PROBE, N_EVAL = 16, 4, 10       # eval = files[20:30]

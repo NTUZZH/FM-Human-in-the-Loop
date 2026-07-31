@@ -1,0 +1,25 @@
+rung                                                 seeds params Pearson signAcc Kendall   heldLL      TWT*  %<RULE  W/T/L  p(Holm)
+------------------------------------------------------------------------------------------------------------------------------------
+(i)    squared error, per-order  [published M0]          5   1761  0.390  0.701  0.805   -2.772    2022.7  44.51% 10/0/0    0.0137
+(i-es) squared error, per-order  + split/early-stop      5   1762  0.406  0.682  0.785   -2.771    1965.9  46.06% 10/0/0    0.0137
+(ii)   choice likelihood, per-order                      5   1762  0.108  0.569  0.662   -2.495    3398.4   6.76%  7/0/3    0.2617
+(iii)  choice likelihood + queue conditioning            5   3042  0.029  0.422  0.594   -2.293    3214.6  11.80%  5/0/5    0.2617
+(iia)  choice likelihood, tolerance-aware confirmations     3   1762  0.079  0.541  0.662   -2.354    2984.1  18.13% 10/0/0    0.0137
+(iiia) (iii) + tolerance-aware confirmations             3   3042  0.034  0.375  0.636   -2.142    2769.8  24.01% 10/0/0    0.0137
+(iiib) (iii) with the choice set capped at K<=64         3   3042  0.018  0.413  0.580   -2.276    2735.0  24.96%  9/0/1    0.0137
+------------------------------------------------------------------------------------------------------------------------------------
+       RULE (recorded-field ATC, hat_s == 0)             -      -      -       -   0.668    -2.652    3644.8   0.00%
+       uniform-choice floor                              -      -      -       -       -    -3.377
+
+seeds [301, 302, 303, 304, 305]; 10 held-out instances; seed-averaged per-instance TWT*, paired Wilcoxon (pratt), Holm within this family.
+seed sd of %%<RULE: mse_published 1.12, mse_es 1.45, choice 35.63, choice_queue 39.66, choice_tol 23.72, choice_queue_tol 18.62, choice_queue_k64 23.85
+
+HEAD-TO-HEAD (seed-averaged per-instance TWT*, paired Wilcoxon, Holm within this family; a WIN = the test rung is LOWER)
+contrast                                 claim                            dTWT*%   dPear   dKend    W/T/L  p(Holm) seeds
+mse_es vs mse_published                  protocol (split + early stop)    +2.81%  +0.016  -0.020  6/0/4   0.2617  seeds=[301, 302, 303, 304, 305]
+choice vs mse_es                         CLAIM A: likelihood correction  -72.87%  -0.298  -0.123  0/0/10  0.0137  seeds=[301, 302, 303, 304, 305]
+choice_queue vs choice                   CLAIM B: queue conditioning      +5.41%  -0.079  -0.068  5/0/5   0.2617  seeds=[301, 302, 303, 304, 305]
+choice_queue vs mse_published            A+B vs the published M0         -58.93%  -0.362  -0.211  0/0/10  0.0137  seeds=[301, 302, 303, 304, 305]
+choice_tol vs choice                     tolerance-aware confirmations   +12.66%  -0.029  -0.000 10/0/0   0.0137  seeds=[301, 302, 303]
+choice_queue_tol vs choice_queue         tolerance-aware confirmations   +17.49%  +0.006  +0.042 10/0/0   0.0137  seeds=[301, 302, 303]
+choice_queue_k64 vs choice_queue         choice set capped at K<=64      +18.53%  -0.011  -0.013 10/0/0   0.0137  seeds=[301, 302, 303]

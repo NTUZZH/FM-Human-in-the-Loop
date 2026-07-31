@@ -71,3 +71,27 @@ live_m0,9,100,1.0,0.25,303,4,1175,6672,0.027578,0.739869,0.440774,2081.2362,3644
 live_m0,9,100,1.0,0.25,303,5,1393,6663,0.032718,0.702000,0.446441,2101.0209,3644.8307,1815.0187,"held-out M0-alone TWT*(w*,d*), n=10"
 live_m0,9,100,1.0,0.25,303,6,1585,6649,0.028877,0.703946,0.398911,2025.5571,3644.8307,1815.0187,"held-out M0-alone TWT*(w*,d*), n=10"
 live_m0,9,100,1.0,0.25,303,7,1767,6616,0.027509,0.685542,0.405565,2095.5614,3644.8307,1815.0187,"held-out M0-alone TWT*(w*,d*), n=10"
+m1_full,9,100,1.0,0.25,301,0,8333,111759,0.074562,0.722463,0.556847,3037.0253,,,"M1 fair-training in-loop true_twt (train-scale, ~20 insts); NOT held-out M0"
+m1_full,9,100,1.0,0.25,301,1,10992,112348,0.023668,0.712001,0.575246,2518.6881,,,"M1 fair-training in-loop true_twt (train-scale, ~20 insts); NOT held-out M0"
+m1_full,9,100,1.0,0.25,301,2,12572,111846,0.014127,0.667388,0.485160,2449.1015,,,"M1 fair-training in-loop true_twt (train-scale, ~20 insts); NOT held-out M0"
+m1_full,9,100,1.0,0.25,301,3,14044,111383,0.013216,0.650914,0.485768,2507.6564,,,"M1 fair-training in-loop true_twt (train-scale, ~20 insts); NOT held-out M0"
+m1_full,9,100,1.0,0.25,301,4,15429,111721,0.012397,0.632636,0.369157,2452.9035,,,"M1 fair-training in-loop true_twt (train-scale, ~20 insts); NOT held-out M0"
+m1_full,9,100,1.0,0.25,301,5,16455,111275,0.009220,0.611472,0.406819,2455.0538,,,"M1 fair-training in-loop true_twt (train-scale, ~20 insts); NOT held-out M0"
+m1_full,9,100,1.0,0.25,301,6,17464,112007,0.009008,0.744589,0.309000,2468.5695,,,"M1 fair-training in-loop true_twt (train-scale, ~20 insts); NOT held-out M0"
+m1_full,9,100,1.0,0.25,301,7,18362,111416,0.008060,0.750241,0.271384,2451.0760,,,"M1 fair-training in-loop true_twt (train-scale, ~20 insts); NOT held-out M0"
+m1_fair,9,100,1.0,0.25,301,0,5572,111460,0.049991,0.718254,0.572371,2416.1757,,,M1 fair-training in-loop true_twt (train-scale); NOT held-out M0
+m1_fair,9,100,1.0,0.25,301,1,6398,111848,0.007385,0.684464,0.468483,2423.7421,,,M1 fair-training in-loop true_twt (train-scale); NOT held-out M0
+m1_fair,9,100,1.0,0.25,301,2,6947,111625,0.004918,0.651635,0.316972,2397.5653,,,M1 fair-training in-loop true_twt (train-scale); NOT held-out M0
+m1_fair,9,100,1.0,0.25,301,3,7448,111513,0.004493,0.652477,0.204129,2361.8935,,,M1 fair-training in-loop true_twt (train-scale); NOT held-out M0
+m1_fair,9,100,1.0,0.25,301,4,7938,112077,0.004372,0.773208,0.309040,2338.3806,,,M1 fair-training in-loop true_twt (train-scale); NOT held-out M0
+m1_fair,9,100,1.0,0.25,301,5,8365,111664,0.003824,0.743867,0.343348,2335.3349,,,M1 fair-training in-loop true_twt (train-scale); NOT held-out M0
+m1_fair,9,100,1.0,0.25,301,6,8747,112155,0.003406,0.584295,0.183509,2343.6665,,,M1 fair-training in-loop true_twt (train-scale); NOT held-out M0
+m1_fair,9,100,1.0,0.25,301,7,9090,111504,0.003076,0.665464,0.181312,2320.8175,,,M1 fair-training in-loop true_twt (train-scale); NOT held-out M0
+m0_p2,,,,0.25,301,0,3,1813,0.001655,0.551523,0.241615,,,,"pre-P1.5 weight-only-era M0 (dead cell, orr~0.002); accuracy only, no true_twt"
+m0_p2,,,,0.25,301,1,6,1815,0.001653,0.527559,0.306940,,,,"pre-P1.5 weight-only-era M0 (dead cell, orr~0.002); accuracy only, no true_twt"
+m0_p2,,,,0.25,301,2,9,1814,0.001654,0.563506,0.238806,,,,"pre-P1.5 weight-only-era M0 (dead cell, orr~0.002); accuracy only, no true_twt"
+m0_p2,,,,0.25,301,3,12,1815,0.001653,0.551866,0.192234,,,,"pre-P1.5 weight-only-era M0 (dead cell, orr~0.002); accuracy only, no true_twt"
+m0_p2,,,,0.25,301,4,15,1815,0.001653,0.604930,0.298551,,,,"pre-P1.5 weight-only-era M0 (dead cell, orr~0.002); accuracy only, no true_twt"
+m0_p2,,,,0.25,301,5,18,1815,0.001653,0.575830,0.166272,,,,"pre-P1.5 weight-only-era M0 (dead cell, orr~0.002); accuracy only, no true_twt"
+m0_p2,,,,0.25,301,6,21,1815,0.001653,0.597740,0.210351,,,,"pre-P1.5 weight-only-era M0 (dead cell, orr~0.002); accuracy only, no true_twt"
+m0_p2,,,,0.25,301,7,24,1815,0.001653,0.611777,0.175983,,,,"pre-P1.5 weight-only-era M0 (dead cell, orr~0.002); accuracy only, no true_twt"

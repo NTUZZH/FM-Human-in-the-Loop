@@ -1,0 +1,10 @@
+(i) RULE 3-way exactness: pdrs.dispatch == run_policy == run_supervised(None)
+    checked 48 (campus x size x rule) triples: OK
+(ii) POLICY replay determinism + feasibility (Y1 MLP seed 301)
+    replayed 4 campuses twice each: OK
+(iv) M1 latent-head gate=0 bit-exactness vs Y1 forward
+    4 random batches (base + deadline-head variants): OK
+(iii) SHAPED-REWARD telescoping via tests/test_env.py
+    test_env.py exit=0  last: ALL ENV TESTS PASSED
+
+E0 ANCHOR: PASS

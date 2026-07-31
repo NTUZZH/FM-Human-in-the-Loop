@@ -1,0 +1,45 @@
+{
+ "seeds": [
+  301,
+  302,
+  303,
+  304,
+  305,
+  306,
+  307,
+  308,
+  309,
+  310
+ ],
+ "recomputed_mean_trajectory": [
+  0.051848,
+  0.006851,
+  0.005014,
+  0.004361,
+  0.004015,
+  0.003791,
+  0.003482,
+  0.003242
+ ],
+ "committed_mean_trajectory": [
+  0.051848,
+  0.006851,
+  0.005014,
+  0.004361,
+  0.004015,
+  0.003791,
+  0.003482,
+  0.003242
+ ],
+ "max_abs_diff_trajectory_vs_committed": 0.0,
+ "recomputed_mean_first": 0.05184770000000001,
+ "committed_mean_first": 0.05184770000000001,
+ "recomputed_mean_last": 0.0032423999999999994,
+ "committed_mean_last": 0.0032423999999999994,
+ "macro_HthreeStart": 0.052,
+ "macro_HthreeEnd": 0.003,
+ "mean_first_rounds_to_macro": true,
+ "mean_last_rounds_to_macro": true,
+ "falls_all_seeds": true,
+ "PASS": true
+}

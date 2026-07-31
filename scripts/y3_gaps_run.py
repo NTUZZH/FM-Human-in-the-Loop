@@ -34,7 +34,7 @@ permutation RNG, never-reset aggregate, ``train_estimator(seed=seed+it)``,
 ``probe_shift_accuracy``) with the single addition of forwarding label_source; at
 eps=0/executed it reproduces run_m0 bit-for-bit.
 
-Additive only: writes results/y3_p5/gaps/ (own cache).
+Additive only: writes results/y3_p5/gaps/ (own cache) + notes/gaps_eps_rho.md.
 The one locked-file edit is the additive ``label_source`` arg on
 ``weak_labels_from_log`` (a no-op for every committed eps=0 caller). Never writes
 results/y3_p4. Coexists with the training sweep: <=5 workers, OMP=1, niced.
@@ -758,7 +758,7 @@ def main(argv=None):
           % ", ".join("eps%.2f r=%.3f" % (e, eps_pref[e]["recovery"]["pearson_r"]) for e in sorted(eps_pref)), flush=True)
     print("[gaps] EPS verdict (executed labels): %s (all-sig vs RULE=%s; worst-eps M0 TWT* change %+.1f%%)"
           % (ev["verdict"], ev["m0_all_sig_vs_rule"], ev["m0_twt_relative_change_worst_eps_pct"]), flush=True)
-    print("[gaps] wrote eps_sweep.csv, summary.json"
+    print("[gaps] wrote eps_sweep.csv, summary.json, notes/gaps_eps_rho.md"
           + (", rho_curve.csv" if args.part in ("rho", "all") else " (rho preserved)"), flush=True)
 
 

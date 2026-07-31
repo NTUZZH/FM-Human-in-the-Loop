@@ -1,0 +1,18 @@
+[cov] 15 cell-seed tasks, 8 workers -> /home/ziheng/PaperY3/fm-hitl/results/y3_w1/coverage.csv
+  [cov 1/15] stability    c9 b0.00 r0.25 a0.10 s303 | rule=1767 m0=1836 m0sup=1546 gain=-3.90% | rev=0.248 und=0.797 cov=0.820 q=0.180  (45s, wall 46s)
+  [cov 2/15] stability    c9 b0.50 r0.25 a0.10 s302 | rule=2796 m0=2019 m0sup=1857 gain=27.81% | rev=0.244 und=0.830 cov=0.823 q=0.391  (46s, wall 46s)
+  [cov 3/15] stability    c9 b0.75 r0.25 a0.10 s301 | rule=3230 m0=1965 m0sup=1891 gain=39.16% | rev=0.245 und=0.835 cov=0.823 q=0.451 CACHED (49s, wall 46s)
+  [cov 4/15] stability    c9 b0.75 r0.25 a0.10 s302 | rule=3230 m0=1991 m0sup=1884 gain=38.36% | rev=0.244 und=0.832 cov=0.823 q=0.447 CACHED (47s, wall 46s)
+  [cov 5/15] stability    c9 b0.75 r0.25 a0.10 s303 | rule=3230 m0=2022 m0sup=1940 gain=37.40% | rev=0.246 und=0.816 cov=0.821 q=0.368 CACHED (56s, wall 46s)
+  [cov 6/15] stability    c9 b1.00 r0.25 a0.10 s301 | rule=3645 m0=1866 m0sup=1829 gain=48.80% | rev=0.247 und=0.817 cov=0.822 q=0.364 CACHED (41s, wall 46s)
+  [cov 7/15] stability    c9 b1.00 r0.25 a0.10 s302 | rule=3645 m0=1907 m0sup=1854 gain=47.67% | rev=0.246 und=0.817 cov=0.822 q=0.321 CACHED (48s, wall 46s)
+  [cov 8/15] stability    c9 b1.00 r0.25 a0.10 s303 | rule=3645 m0=1880 m0sup=1850 gain=48.41% | rev=0.245 und=0.809 cov=0.823 q=0.269 CACHED (52s, wall 46s)
+  [cov 9/15] stability    c9 b0.50 r0.25 a0.10 s301 | rule=2796 m0=2135 m0sup=1802 gain=23.65% | rev=0.248 und=0.837 cov=0.820 q=0.422  (46s, wall 46s)
+  [cov 10/15] stability    c9 b0.25 r0.25 a0.10 s302 | rule=2288 m0=1925 m0sup=1640 gain=15.87% | rev=0.249 und=0.817 cov=0.820 q=0.304  (48s, wall 48s)
+  [cov 11/15] stability    c9 b0.25 r0.25 a0.10 s301 | rule=2288 m0=2042 m0sup=1627 gain=10.75% | rev=0.243 und=0.827 cov=0.823 q=0.336  (48s, wall 48s)
+  [cov 12/15] stability    c9 b0.00 r0.25 a0.10 s301 | rule=1767 m0=1832 m0sup=1543 gain=-3.69% | rev=0.250 und=0.800 cov=0.819 q=0.194  (49s, wall 49s)
+  [cov 13/15] stability    c9 b0.00 r0.25 a0.10 s302 | rule=1767 m0=1781 m0sup=1555 gain=-0.79% | rev=0.249 und=0.795 cov=0.819 q=0.198  (50s, wall 50s)
+  [cov 14/15] stability    c9 b0.25 r0.25 a0.10 s303 | rule=2288 m0=1942 m0sup=1654 gain=15.11% | rev=0.248 und=0.815 cov=0.820 q=0.295  (59s, wall 59s)
+  [cov 15/15] stability    c9 b0.50 r0.25 a0.10 s303 | rule=2796 m0=2008 m0sup=1813 gain=28.21% | rev=0.247 und=0.832 cov=0.821 q=0.340  (41s, wall 86s)
+[dump] wrote /home/ziheng/PaperY3/fm-hitl/results/y3_w1/coverage_records.json (15 records)
+[y3_w1] part=cov complete.

@@ -1,0 +1,5 @@
+campus,population,variant,n_events,n_unique_descriptions,prevalence,auc_class_coded,auc_class_coded_text,auc_increment_text,aucsd_text,brierr2_class_coded,brierr2_class_coded_text,beta_hat_text
+1,cm,trade_w30,69796,65354,0.5506,0.7537,0.7669,0.0132,0.0293,0.2561,0.2336,0.0786
+9,cm,trade_w30,26629,26482,0.6922,0.8695,0.8668,-0.0027,0.0314,0.5121,0.5016,0.1865
+10,cm,trade_w30,109335,105642,0.8413,0.9579,0.9584,0.0005,0.0081,0.6317,0.6205,0.2519
+12,cm,trade_w30,44759,40946,0.7966,0.9862,0.9862,-0.0,0.0086,0.8485,0.8428,0.3993

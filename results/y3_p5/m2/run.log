@@ -1,0 +1,13 @@
+[m2] 8 (cell,seed) tasks x 3 pipelines, 6 workers -> /home/ziheng/PaperY3/fm-hitl/results/y3_p5/m2
+  [1/8] b1.00 s304  M0 alone=1981 r=0.43 cum=1569 | M2t alone=2789 r=0.29 | M2a alone=2833 r=0.38 cum=3646 revf=0.244 (186s, wall 186s)
+  [2/8] b0.75 s301  M0 alone=2049 r=0.41 cum=2371 | M2t alone=2777 r=0.40 | M2a alone=2812 r=0.46 cum=4251 revf=0.245 (186s, wall 186s)
+  [3/8] b1.00 s303  M0 alone=2096 r=0.41 cum=1767 | M2t alone=2789 r=0.29 | M2a alone=2832 r=0.37 cum=3658 revf=0.243 (187s, wall 187s)
+  [4/8] b1.00 s301  M0 alone=1998 r=0.32 cum=1642 | M2t alone=2789 r=0.29 | M2a alone=2830 r=0.37 cum=3706 revf=0.243 (190s, wall 190s)
+  [5/8] b1.00 s302  M0 alone=2001 r=0.39 cum=1800 | M2t alone=2789 r=0.29 | M2a alone=2835 r=0.37 cum=3674 revf=0.243 (192s, wall 192s)
+  [6/8] b1.00 s305  M0 alone=2038 r=0.40 cum=1577 | M2t alone=2789 r=0.29 | M2a alone=2826 r=0.37 cum=3708 revf=0.243 (216s, wall 216s)
+  [7/8] b0.75 s302  M0 alone=2141 r=0.45 cum=2358 | M2t alone=2777 r=0.40 | M2a alone=2814 r=0.45 cum=4261 revf=0.246 (154s, wall 340s)
+  [8/8] b0.75 s303  M0 alone=2101 r=0.39 cum=2246 | M2t alone=2777 r=0.40 | M2a alone=2810 r=0.46 cum=4183 revf=0.245 (158s, wall 345s)
+[m2] wrote /home/ziheng/PaperY3/fm-hitl/results/y3_p5/m2/m2_ladder_per_instance.csv
+[m2] wrote /home/ziheng/PaperY3/fm-hitl/results/y3_p5/m2/m2_recovery.csv
+[m2] wrote /home/ziheng/PaperY3/fm-hitl/results/y3_p5/m2/m2_summary.json
+[m2] done (345s).

@@ -1,0 +1,60 @@
+fixed decision stream: {'n_decisions': 19869, 'n_overrides': 957, 'n_confirmations': 18912, 'n_truncated': 0, 'n_skipped': 0, 'mean_queue': 53.15093864814535}
+split (by instance): train=14913 val=4956 decisions; overrides 706/251
+
+objective  queue  lr      batch delta  data            tau-fix      val Pearson signAcc  mean_s    sd_s    valLL   top1
+-----------------------------------------------------------------------------------------------------------------------
+mse        False  0.01    512   None   all             False     0.2800  +0.468   0.693  -0.066   0.207   -2.570  0.618
+mse        False  0.003   512   None   all             False     0.2821  +0.463   0.771  -0.026   0.204   -2.546  0.540
+mse        False  0.001   512   None   all             False     0.2969  +0.458   0.675  -0.019   0.189   -2.505  0.494
+mse        True   0.01    512   None   all             False     0.2560  +0.469   0.460  -0.017   0.191   -2.782  0.463
+mse        True   0.003   512   None   all             False     0.2537  +0.487   0.497  -0.029   0.215   -2.800  0.458
+mse        True   0.001   512   None   all             False     0.2627  +0.498   0.532  -0.006   0.215   -2.772  0.408
+choice     False  0.01    512   None   all             False     2.7700  +0.330   0.761  -0.185   0.953   -2.483  0.686
+choice     False  0.003   512   None   all             False     2.8848  +0.225   0.550  -0.662   0.865   -2.523  0.792
+choice     False  0.001   512   None   all             False     2.9637  +0.328   0.523  -0.817   0.708   -2.544  0.791
+choice     True   0.01    512   None   all             False     2.1821  -0.227   0.360  +0.855   0.742   -2.014  0.479
+choice     True   0.003   512   None   all             False     2.1086  -0.247   0.375  +0.800   0.671   -1.932  0.496
+choice     True   0.001   512   None   all             False     2.1447  -0.199   0.351  +0.572   0.622   -1.979  0.487
+choice     False  0.01    128   None   all             False     2.7941  +0.442   0.825  -0.240   0.953   -2.497  0.731
+choice     False  0.003   128   None   all             False     2.7745  +0.228   0.672  -0.499   0.998   -2.485  0.688
+choice     True   0.01    128   None   all             False     2.0702  -0.244   0.373  +0.994   0.775   -1.914  0.491
+choice     True   0.003   128   None   all             False     2.0390  -0.278   0.344  +0.851   0.685   -1.833  0.533
+choice     False  0.003   512   None   overrides_only  False     4.4474  +0.521   0.395  -1.807   0.436   -2.899  0.736
+choice     True   0.003   512   None   overrides_only  False     2.1634  +0.443   0.514  +0.305   0.721   -3.101  0.411
+tolerance  False  0.003   512   0.25   all             False    16.9741  +0.191   0.582  -0.300   0.833   -2.510  0.790
+tolerance  True   0.003   512   0.25   all             False     8.4073  +0.179   0.371  +0.030   0.280   -2.275  0.597
+tolerance  False  0.003   512   1.0    all             False    12.6870  +0.279   0.398  -0.772   0.395   -2.523  0.801
+tolerance  True   0.003   512   1.0    all             False     5.1338  +0.101   0.385  +0.267   0.419   -2.244  0.574
+tolerance  False  0.003   512   4.0    all             False     4.3124  +0.488   0.410  -1.066   0.530   -2.584  0.792
+tolerance  True   0.003   512   4.0    all             False     1.6292  -0.147   0.369  +0.764   0.623   -2.204  0.454
+choice     False  0.003   512   None   all             True      3.0894  +0.322   0.506  -0.959   0.678   -2.519  0.791
+choice     True   0.003   512   None   all             True      2.0800  -0.243   0.366  +0.829   0.723   -1.938  0.500
+
+SELECTED learning rate per objective (lowest VALIDATION loss, per-order inputs, batch 512, full data):
+  mse        lr=0.01    val=0.2800   (0.01:0.2800, 0.003:0.2821, 0.001:0.2969)
+  choice     lr=0.01    val=2.7700   (0.01:2.7700, 0.003:2.8848, 0.001:2.9637)
+  tolerance  lr=0.003   val=4.3124   (0.003:16.9741, 0.003:12.6870, 0.003:4.3124)
+
+Does the choice loss just want more gradient steps? (batch 128 vs 512)
+  queue=False batch 512: val 2.7700  Pearson +0.330  sign 0.761
+  queue=False batch 128: val 2.7745  Pearson +0.228  sign 0.672
+  queue=True  batch 512: val 2.1086  Pearson -0.247  sign 0.375
+  queue=True  batch 128: val 2.0390  Pearson -0.278  sign 0.344
+
+Is the CONFIRMATION term the problem? (overrides-only removes it)
+  queue=False all             Pearson +0.330  sign 0.761  sd_s 0.953
+  queue=False overrides_only  Pearson +0.521  sign 0.395  sd_s 0.436
+  queue=True  all             Pearson -0.247  sign 0.375  sd_s 0.671
+  queue=True  overrides_only  Pearson +0.443  sign 0.514  sd_s 0.721
+
+Tolerance-aware confirmations (a confirmation certifies a near-tie, not a choice):
+  delta=0.25  queue=False  Pearson +0.191  sign 0.582  sd_s 0.833  valLL -2.510
+  delta=0.25  queue=True   Pearson +0.179  sign 0.371  sd_s 0.280  valLL -2.275
+  delta=1.0   queue=False  Pearson +0.279  sign 0.398  sd_s 0.395  valLL -2.523
+  delta=1.0   queue=True   Pearson +0.101  sign 0.385  sd_s 0.419  valLL -2.244
+  delta=4.0   queue=False  Pearson +0.488  sign 0.410  sd_s 0.530  valLL -2.584
+  delta=4.0   queue=True   Pearson -0.147  sign 0.369  sd_s 0.623  valLL -2.204
+
+Frozen choice scale (removes the s_hat-scale / tau degeneracy):
+  queue=False  Pearson +0.322  sign 0.506  sd_s 0.678  tau 0.713
+  queue=True   Pearson -0.243  sign 0.366  sd_s 0.723  tau 0.707

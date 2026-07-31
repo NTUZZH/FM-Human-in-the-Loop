@@ -1,0 +1,14 @@
+  [repro 1/10] b=1.00 eps=0.00 seed=303  TWT* rule=3645 m0=2096 m0+sup=1898 rule+sup=2693 oracle=1815 | r=0.406 
+  [repro 2/10] b=1.00 eps=0.00 seed=301  TWT* rule=3645 m0=1998 m0+sup=1831 rule+sup=2693 oracle=1815 | r=0.323 
+  [repro 3/10] b=1.00 eps=0.00 seed=302  TWT* rule=3645 m0=2001 m0+sup=1860 rule+sup=2693 oracle=1815 | r=0.389 
+  [repro 4/10] b=1.00 eps=0.00 seed=304  TWT* rule=3645 m0=1981 m0+sup=1829 rule+sup=2693 oracle=1815 | r=0.431 
+  [repro 5/10] b=1.00 eps=0.00 seed=306  TWT* rule=3645 m0=1902 m0+sup=1857 rule+sup=2693 oracle=1815 | r=0.376 
+  [repro 6/10] b=1.00 eps=0.00 seed=307  TWT* rule=3645 m0=1971 m0+sup=1873 rule+sup=2693 oracle=1815 | r=0.308 
+  [repro 7/10] b=1.00 eps=0.00 seed=308  TWT* rule=3645 m0=1872 m0+sup=1822 rule+sup=2693 oracle=1815 | r=0.436 
+  [repro 8/10] b=1.00 eps=0.00 seed=305  TWT* rule=3645 m0=2038 m0+sup=1893 rule+sup=2693 oracle=1815 | r=0.402 
+  [repro 9/10] b=1.00 eps=0.00 seed=309  TWT* rule=3645 m0=2018 m0+sup=1834 rule+sup=2693 oracle=1815 | r=0.416 
+  [repro 10/10] b=1.00 eps=0.00 seed=310  TWT* rule=3645 m0=2038 m0+sup=1897 rule+sup=2693 oracle=1815 | r=0.397 
+[repro] 500 per-instance TWT* compared, 500 bit-exact, max|diff| = 0.0
+[repro] published MzeroGain = 45.3620354692%  recomputed = 45.3620354692%  diff = 0.00e+00 pp
+[repro] PASS = True
+[y3_p9] part=repro complete.

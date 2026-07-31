@@ -1,0 +1,121 @@
+{
+ "PASS": true,
+ "arms": {
+  "stability": {
+   "PASS": true,
+   "band_map_state": {
+    "band_map:cold": 480,
+    "band_map:set": 3960
+   },
+   "expected_policy": "stability",
+   "label": "deployable stability routing (split protocol)",
+   "n_StabilityRoutingSupervisor": 4440,
+   "n_plain_Supervisor": 0,
+   "per_cell": [
+    {
+     "band_n_cal_mean": 16278.1,
+     "band_q_mean": 0.31792823374271395,
+     "beta": 0.2,
+     "cell": "c9_storm2_u100_b0.20_r0.25_eps0.00",
+     "eps": 0.0,
+     "m0_sup_reviewed_fraction": 0.2462144082135767,
+     "m0_sup_undetermined_share": 0.8240513335782935,
+     "rule_sup_reviewed_fraction": 0.24849490142621922,
+     "rule_sup_undetermined_share": 0.8234788134277242,
+     "tag": "A"
+    },
+    {
+     "band_n_cal_mean": 18195.7,
+     "band_q_mean": 1.0311115462332965,
+     "beta": 0.2,
+     "cell": "c9_storm2_u100_b0.20_r0.25_eps0.25",
+     "eps": 0.25,
+     "m0_sup_reviewed_fraction": 0.24504024758879508,
+     "m0_sup_undetermined_share": 0.9755942073770999,
+     "rule_sup_reviewed_fraction": 0.24737138420715862,
+     "rule_sup_undetermined_share": 0.9741520992696608,
+     "tag": "B"
+    },
+    {
+     "band_n_cal_mean": 16224.9,
+     "band_q_mean": 0.3067454159259796,
+     "beta": 0.25,
+     "cell": "c9_storm2_u100_b0.25_r0.25_eps0.00",
+     "eps": 0.0,
+     "m0_sup_reviewed_fraction": 0.24632632854841088,
+     "m0_sup_undetermined_share": 0.8197135909068086,
+     "rule_sup_reviewed_fraction": 0.24822773562188094,
+     "rule_sup_undetermined_share": 0.8207973434619291,
+     "tag": "C"
+    }
+   ],
+   "supervisor_constructions": {
+    "band_map:cold": 480,
+    "band_map:set": 3960,
+    "cls:StabilityRoutingSupervisor": 4440,
+    "mechanism:stability": 4440,
+    "policy:stability": 4440
+   }
+  },
+  "targeted_split": {
+   "PASS": true,
+   "band_map_state": {},
+   "expected_policy": "targeted",
+   "label": "oracle-informed reference, same fold split",
+   "n_StabilityRoutingSupervisor": 0,
+   "n_plain_Supervisor": 4440,
+   "per_cell": [
+    {
+     "band_n_cal_mean": 16647.4,
+     "band_q_mean": 0.45440819561481477,
+     "beta": 0.2,
+     "cell": "c9_storm2_u100_b0.20_r0.25_eps0.00",
+     "eps": 0.0,
+     "m0_sup_reviewed_fraction": 0.247244087754905,
+     "m0_sup_undetermined_share": NaN,
+     "rule_sup_reviewed_fraction": 0.24684220647197033,
+     "rule_sup_undetermined_share": NaN,
+     "tag": "A"
+    },
+    {
+     "band_n_cal_mean": 18799.4,
+     "band_q_mean": 1.0270841872319578,
+     "beta": 0.2,
+     "cell": "c9_storm2_u100_b0.20_r0.25_eps0.25",
+     "eps": 0.25,
+     "m0_sup_reviewed_fraction": 0.24773045506903327,
+     "m0_sup_undetermined_share": NaN,
+     "rule_sup_reviewed_fraction": 0.24750837545106733,
+     "rule_sup_undetermined_share": NaN,
+     "tag": "B"
+    },
+    {
+     "band_n_cal_mean": 16649.8,
+     "band_q_mean": 0.4168898403644562,
+     "beta": 0.25,
+     "cell": "c9_storm2_u100_b0.25_r0.25_eps0.00",
+     "eps": 0.0,
+     "m0_sup_reviewed_fraction": 0.2464593195597462,
+     "m0_sup_undetermined_share": NaN,
+     "rule_sup_reviewed_fraction": 0.24674864376556327,
+     "rule_sup_undetermined_share": NaN,
+     "tag": "C"
+    }
+   ],
+   "supervisor_constructions": {
+    "cls:Supervisor": 4440,
+    "mechanism:targeted": 4440,
+    "policy:targeted": 4440
+   }
+  }
+ },
+ "published_policy_reference": {
+  "note": "results/y3_p9 records carry no routing telemetry at all: they come from y3_p4_m0grid.evaluate_cell, whose Supervisor has no stability test and therefore no undetermined share. The presence of a finite undetermined share is the proof.",
+  "p9_m0_sup_reviewed_fraction": {
+   "c9_storm2_u100_b0.20_r0.25_eps0.00": 0.24689190748148632,
+   "c9_storm2_u100_b0.20_r0.25_eps0.25": 0.24797866888566328,
+   "c9_storm2_u100_b0.25_r0.25_eps0.00": 0.2468094879598984
+  },
+  "p9_undetermined_share": "absent (the published policy produces none)"
+ }
+}

@@ -1,0 +1,91 @@
+% =========================================================================
+% W1b -- the regime map (Figure F3) under the DEPLOYABLE review policy.
+%
+% Every number below is the same cell, the same instances, the same seeds
+% and the same contrast as the published map, re-measured with the review
+% routing decided by the decision-stability test under a conformal band
+% calibrated on override-derived weak labels alone. The published map used
+% the oracle-informed policy, whose review criterion reads the realized
+% latent shift of the pending queue and which no site can run.
+%
+% Source: results/y3_w1b/map_summary.json, field cells.<cell>.deployable.*
+% Comparator: results/y3_p4/e3_map_summary.json, field cells.<cell>.*
+% Runner: scripts/y3_w1b_map.py --part map   Analysis: scripts/y3_w1b_analyze.py
+% Grid: campuses C9 and C10, utilisation 70/90/100/110/130, recoverable
+% share 0/0.5/1.0, review budget rho = 0.25, 3 seeds (301-303), 10 held-out instances per cell-seed.
+% Macro names carry no digits by construction: LaTeX rejects them.
+% =========================================================================
+
+% ---- Cell values: the plotted contrast (correction layer with the
+% supervisor against the tuned rule with the same supervisor) unless the
+% comment says 'layer alone', which is the layer alone against the rule
+% alone. Each line names the published macro it is the deployable twin of.
+\newcommand{\GainSlackDep}{0.4\%} % C9 slack capacity, high recoverable share; m0sup_over_rulesup_pct = 0.3891%, published \GainSlack = 1.2535% (-0.86 pp); map_summary.json:cells.c9_u70_b1.00.deployable.m0sup_over_rulesup_pct
+\newcommand{\GainBusyDep}{12.5\%} % C9 busy; m0sup_over_rulesup_pct = 12.5313%, published \GainBusy = 12.1751% (+0.36 pp); map_summary.json:cells.c9_u90_b1.00.deployable.m0sup_over_rulesup_pct
+\newcommand{\GainSatDep}{32.4\%} % C9 saturation (the headline load); m0sup_over_rulesup_pct = 32.4097%, published \GainSat = 30.8020% (+1.61 pp); map_summary.json:cells.c9_u100_b1.00.deployable.m0sup_over_rulesup_pct
+\newcommand{\GainBetaZeroDep}{$-$0.3\%} % C9 saturation, nothing recoverable; m0sup_over_rulesup_pct = -0.3317%, published \GainBetaZero = 0.0225% (-0.35 pp); map_summary.json:cells.c9_u100_b0.00.deployable.m0sup_over_rulesup_pct
+\newcommand{\BetaGainLowDep}{13.8\%} % C9 saturation, half recoverable; m0sup_over_rulesup_pct = 13.8081%, published \BetaGainLow = 15.9453% (-2.14 pp); map_summary.json:cells.c9_u100_b0.50.deployable.m0sup_over_rulesup_pct
+\newcommand{\BetaGainHighDep}{32.4\%} % C9 saturation, fully recoverable; m0sup_over_rulesup_pct = 32.4097%, published \BetaGainHigh = 30.8020% (+1.61 pp); map_summary.json:cells.c9_u100_b1.00.deployable.m0sup_over_rulesup_pct
+\newcommand{\GainPeakCnineDep}{75\%} % C9 overload tail; m0sup_over_rulesup_pct = 75.2755%, published \GainPeakCnine = 79.5227% (-4.25 pp); map_summary.json:cells.c9_u130_b1.00.deployable.m0sup_over_rulesup_pct
+\newcommand{\RegretMaxDep}{85\%} % C10 overload tail, the map's peak; m0sup_over_rulesup_pct = 84.5622%, published \RegretMax = 91.7911% (-7.23 pp); map_summary.json:cells.c10_u130_b1.00.deployable.m0sup_over_rulesup_pct
+\newcommand{\BetaZeroMapOverloadCnineDep}{$-$7.1\%} % C9 overload, beta = 0; m0sup_over_rulesup_pct = -7.0560%, published \BetaZeroMapOverloadCnine = 6.9843% (-14.04 pp); map_summary.json:cells.c9_u130_b0.00.deployable.m0sup_over_rulesup_pct
+\newcommand{\BetaZeroMapOverloadCtenDep}{26.9\%} % C10 overload, beta = 0; m0sup_over_rulesup_pct = 26.8587%, published \BetaZeroMapOverloadCten = 16.5656% (+10.29 pp); map_summary.json:cells.c10_u130_b0.00.deployable.m0sup_over_rulesup_pct
+\newcommand{\BetaZeroBandCnineDep}{$-$2.8\%} % C9 in the realistic-load band, beta = 0, layer alone; m0_over_rule_pct = -2.7936%, published \BetaZeroBandCnine = -1.0818% (-1.71 pp); map_summary.json:cells.c9_u100_b0.00.deployable.m0_over_rule_pct
+\newcommand{\BetaZeroBandCtenDep}{13.1\%} % C10 in the band, beta = 0, layer alone; m0_over_rule_pct = 13.0637%, published \BetaZeroBandCten = 12.8939% (+0.17 pp); map_summary.json:cells.c10_u100_b0.00.deployable.m0_over_rule_pct
+\newcommand{\BetaZeroBandCtenSupDep}{$-$2.1\%} % C10 in the band, beta = 0, in the loop; m0sup_over_rulesup_pct = -2.0577%, published \BetaZeroBandCtenSup = 3.3364% (-5.39 pp); map_summary.json:cells.c10_u100_b0.00.deployable.m0sup_over_rulesup_pct
+\newcommand{\BetaZeroOverloadCnineDep}{4\%} % C9 overload, beta = 0, layer alone; m0_over_rule_pct = 3.8946%, published \BetaZeroOverloadCnine = 14.6732% (-10.78 pp); map_summary.json:cells.c9_u130_b0.00.deployable.m0_over_rule_pct
+\newcommand{\BetaZeroOverloadCtenDep}{38\%} % C10 overload, beta = 0, layer alone; m0_over_rule_pct = 38.0743%, published \BetaZeroOverloadCten = 33.1566% (+4.92 pp); map_summary.json:cells.c10_u130_b0.00.deployable.m0_over_rule_pct
+
+% ---- What changed, over the whole map. Signed difference = deployable
+% minus published, in percentage points of reduction.
+\newcommand{\MapDeltaMeanSup}{$-$3.43} % mean signed difference over the 30 re-run cells, contrast m0sup_over_rulesup_pct; map_summary.json:cells.*.delta_m0sup_over_rulesup_pp
+\newcommand{\MapDeltaAbsMeanSup}{4.62} % mean ABSOLUTE difference, same 30 cells; map_summary.json:cells.*.delta_m0sup_over_rulesup_pp
+\newcommand{\MapDeltaMaxAbsSup}{21.06} % largest absolute difference of any cell (c10_u100_b0.50); map_summary.json:cells.c10_u100_b0.50.delta_m0sup_over_rulesup_pp
+\newcommand{\MapDeltaMeanAlone}{$-$0.68} % mean signed difference over the 30 re-run cells, contrast m0_over_rule_pct; map_summary.json:cells.*.delta_m0_over_rule_pp
+\newcommand{\MapDeltaAbsMeanAlone}{2.26} % mean ABSOLUTE difference, same 30 cells; map_summary.json:cells.*.delta_m0_over_rule_pp
+\newcommand{\MapDeltaMaxAbsAlone}{10.81} % largest absolute difference of any cell (c10_u100_b0.50); map_summary.json:cells.c10_u100_b0.50.delta_m0_over_rule_pp
+
+% ---- The same two differences restricted to the REALISTIC-LOAD BAND
+% (pooled utilisation 0.90-1.00, the operating region the figure boxes and
+% the region every claim in the results section rests on), and to campus C9
+% inside it, which is the primary campus.
+\newcommand{\MapDeltaMeanSupBand}{$-$3.60} % mean signed difference over the 12 realistic-load-band cells, contrast m0sup_over_rulesup_pct; map_summary.json:cells.*.delta_m0sup_over_rulesup_pp
+\newcommand{\MapDeltaAbsMeanSupBand}{4.02} % mean ABSOLUTE difference, same 12 cells; map_summary.json:cells.*.delta_m0sup_over_rulesup_pp
+\newcommand{\MapDeltaMaxAbsSupBand}{21.06} % largest absolute difference in that set (c10_u100_b0.50); map_summary.json:cells.c10_u100_b0.50.delta_m0sup_over_rulesup_pp
+\newcommand{\MapDeltaMeanAloneBand}{$-$1.01} % mean signed difference over the 12 realistic-load-band cells, contrast m0_over_rule_pct; map_summary.json:cells.*.delta_m0_over_rule_pp
+\newcommand{\MapDeltaAbsMeanAloneBand}{2.00} % mean ABSOLUTE difference, same 12 cells; map_summary.json:cells.*.delta_m0_over_rule_pp
+\newcommand{\MapDeltaMaxAbsAloneBand}{10.81} % largest absolute difference in that set (c10_u100_b0.50); map_summary.json:cells.c10_u100_b0.50.delta_m0_over_rule_pp
+\newcommand{\MapDeltaMeanSupBandCnine}{$-$0.06} % mean signed difference over the 6 campus-9 realistic-load-band cells, contrast m0sup_over_rulesup_pct; map_summary.json:cells.*.delta_m0sup_over_rulesup_pp
+\newcommand{\MapDeltaAbsMeanSupBandCnine}{0.90} % mean ABSOLUTE difference, same 6 cells; map_summary.json:cells.*.delta_m0sup_over_rulesup_pp
+\newcommand{\MapDeltaMaxAbsSupBandCnine}{2.14} % largest absolute difference in that set (c9_u100_b0.50); map_summary.json:cells.c9_u100_b0.50.delta_m0sup_over_rulesup_pp
+\newcommand{\MapDeltaMeanAloneBandCnine}{0.27} % mean signed difference over the 6 campus-9 realistic-load-band cells, contrast m0_over_rule_pct; map_summary.json:cells.*.delta_m0_over_rule_pp
+\newcommand{\MapDeltaAbsMeanAloneBandCnine}{1.47} % mean ABSOLUTE difference, same 6 cells; map_summary.json:cells.*.delta_m0_over_rule_pp
+\newcommand{\MapDeltaMaxAbsAloneBandCnine}{4.02} % largest absolute difference in that set (c9_u100_b1.00); map_summary.json:cells.c9_u100_b1.00.delta_m0_over_rule_pp
+
+% ---- The deployable policy's own operating numbers, which the published
+% policy does not produce at all. Seed-averaged over the map's cells.
+\newcommand{\MapReviewFracHead}{0.246} % realised reviewed fraction of reviewable decisions at the headline map cell c9_u100_b1.00; map_summary.json:cells.c9_u100_b1.00.deployable.m0_sup_revfrac_mean
+\newcommand{\MapUndeterminedHead}{81.4\%} % share of multi-candidate decisions the stability test could not certify at the same cell; map_summary.json:cells.c9_u100_b1.00.deployable.m0_sup_undetermined
+\newcommand{\MapAutomationHead}{82.2\%} % share of all decisions dispatched without review at the same cell; map_summary.json:cells.c9_u100_b1.00.deployable.m0_sup_cov_all
+\newcommand{\MapReviewFracLo}{0.000} % smallest realised reviewed fraction over the 30 re-run cells; map_summary.json:cells.*.deployable.m0_sup_revfrac_mean
+\newcommand{\MapReviewFracHi}{0.250} % largest, same cells
+\newcommand{\MapUndeterminedLo}{0.0\%} % smallest undetermined share over the same cells; map_summary.json:cells.*.deployable.m0_sup_undetermined
+\newcommand{\MapUndeterminedHi}{97.1\%} % largest, same cells
+
+% ---- Price of deployability at the map's cells, where the split-protocol
+% control was run (campus 9 only). (deployable - published) decomposes as
+% (policy effect, split held fixed) + (split effect, policy held fixed).
+\newcommand{\MapPriceSup}{$-$2.62} % mean over the 15 campus-9 cells with a split-protocol control; POSITIVE favours the deployable policy; map_summary.json:cells.*.delta_policy_m0sup_over_rulesup_pp
+\newcommand{\MapPriceAlone}{$-$1.58} % mean over the 15 campus-9 cells with a split-protocol control; POSITIVE favours the deployable policy; map_summary.json:cells.*.delta_policy_m0_over_rule_pp
+\newcommand{\MapPriceSplitSup}{0.41} % mean over the 15 campus-9 cells with a split-protocol control; POSITIVE favours the deployable policy; map_summary.json:cells.*.delta_split_m0sup_over_rulesup_pp
+\newcommand{\MapPriceSplitAlone}{0.53} % mean over the 15 campus-9 cells with a split-protocol control; POSITIVE favours the deployable policy; map_summary.json:cells.*.delta_split_m0_over_rule_pp
+\newcommand{\MapPriceSupBand}{$-$0.26} % mean over the 6 campus-9 realistic-load-band cells with a split-protocol control; POSITIVE favours the deployable policy; map_summary.json:cells.*.delta_policy_m0sup_over_rulesup_pp
+\newcommand{\MapPriceAloneBand}{$-$0.49} % mean over the 6 campus-9 realistic-load-band cells with a split-protocol control; POSITIVE favours the deployable policy; map_summary.json:cells.*.delta_policy_m0_over_rule_pp
+\newcommand{\MapPriceSplitSupBand}{0.20} % mean over the 6 campus-9 realistic-load-band cells with a split-protocol control; POSITIVE favours the deployable policy; map_summary.json:cells.*.delta_split_m0sup_over_rulesup_pp
+\newcommand{\MapPriceSplitAloneBand}{0.76} % mean over the 6 campus-9 realistic-load-band cells with a split-protocol control; POSITIVE favours the deployable policy; map_summary.json:cells.*.delta_split_m0_over_rule_pp
+
+% ---- Coverage of the re-run, for the sentence that says what is on which
+% policy. If cells_not_run is non-empty, those cells remain on the
+% published (oracle-informed) policy and must be labelled as such.
+\newcommand{\MapCellsDeployable}{30} % cells re-run under the deployable policy; map_summary.json:coverage.cells_run
+\newcommand{\MapCellsTotal}{30} % cells in the published map; map_summary.json:coverage.cells_total

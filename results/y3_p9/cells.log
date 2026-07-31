@@ -1,0 +1,36 @@
+[cells] Corpus-anchored (beta 0.20, eps 0)
+  [A 1/10] b=0.20 eps=0.00 seed=302  TWT* rule=2242 m0=1988 m0+sup=1551 rule+sup=1715 oracle=1430 | r=0.158 
+  [A 2/10] b=0.20 eps=0.00 seed=301  TWT* rule=2242 m0=1991 m0+sup=1551 rule+sup=1715 oracle=1430 | r=0.142 
+  [A 3/10] b=0.20 eps=0.00 seed=304  TWT* rule=2242 m0=1973 m0+sup=1592 rule+sup=1715 oracle=1430 | r=0.131 
+  [A 4/10] b=0.20 eps=0.00 seed=303  TWT* rule=2242 m0=1913 m0+sup=1523 rule+sup=1715 oracle=1430 | r=0.138 
+  [A 5/10] b=0.20 eps=0.00 seed=306  TWT* rule=2242 m0=1949 m0+sup=1587 rule+sup=1715 oracle=1430 | r=0.140 
+  [A 6/10] b=0.20 eps=0.00 seed=305  TWT* rule=2242 m0=1926 m0+sup=1547 rule+sup=1715 oracle=1430 | r=0.161 
+  [A 7/10] b=0.20 eps=0.00 seed=307  TWT* rule=2242 m0=1922 m0+sup=1549 rule+sup=1715 oracle=1430 | r=0.127 
+  [A 8/10] b=0.20 eps=0.00 seed=308  TWT* rule=2242 m0=1911 m0+sup=1528 rule+sup=1715 oracle=1430 | r=0.138 
+  [A 9/10] b=0.20 eps=0.00 seed=309  TWT* rule=2242 m0=1998 m0+sup=1592 rule+sup=1715 oracle=1430 | r=0.160 
+  [A 10/10] b=0.20 eps=0.00 seed=310  TWT* rule=2242 m0=2021 m0+sup=1572 rule+sup=1715 oracle=1430 | r=0.135 
+[cells] Corpus-anchored, supervisor errs (beta 0.20, eps 0.25)
+  [B 1/10] b=0.20 eps=0.25 seed=304  TWT* rule=2242 m0=2032 m0+sup=1629 rule+sup=1737 oracle=1430 | r=0.071 
+  [B 2/10] b=0.20 eps=0.25 seed=303  TWT* rule=2242 m0=2152 m0+sup=1654 rule+sup=1773 oracle=1430 | r=0.071 
+  [B 3/10] b=0.20 eps=0.25 seed=301  TWT* rule=2242 m0=2105 m0+sup=1696 rule+sup=1729 oracle=1430 | r=0.053 
+  [B 4/10] b=0.20 eps=0.25 seed=302  TWT* rule=2242 m0=2059 m0+sup=1646 rule+sup=1765 oracle=1430 | r=0.089 
+  [B 5/10] b=0.20 eps=0.25 seed=305  TWT* rule=2242 m0=2012 m0+sup=1600 rule+sup=1752 oracle=1430 | r=0.093 
+  [B 6/10] b=0.20 eps=0.25 seed=308  TWT* rule=2242 m0=2130 m0+sup=1679 rule+sup=1729 oracle=1430 | r=0.038 
+  [B 7/10] b=0.20 eps=0.25 seed=307  TWT* rule=2242 m0=2194 m0+sup=1700 rule+sup=1754 oracle=1430 | r=0.059 
+  [B 8/10] b=0.20 eps=0.25 seed=306  TWT* rule=2242 m0=2077 m0+sup=1657 rule+sup=1773 oracle=1430 | r=0.081 
+  [B 9/10] b=0.20 eps=0.25 seed=309  TWT* rule=2242 m0=2169 m0+sup=1706 rule+sup=1789 oracle=1430 | r=0.068 
+  [B 10/10] b=0.20 eps=0.25 seed=310  TWT* rule=2242 m0=2079 m0+sup=1664 rule+sup=1771 oracle=1430 | r=0.071 
+[cells] Upper corpus anchor (beta 0.25, eps 0)
+  [C 1/10] b=0.25 eps=0.00 seed=304  TWT* rule=2288 m0=1958 m0+sup=1590 rule+sup=1703 oracle=1460 | r=0.211 
+  [C 2/10] b=0.25 eps=0.00 seed=302  TWT* rule=2288 m0=1951 m0+sup=1586 rule+sup=1703 oracle=1460 | r=0.163 
+  [C 3/10] b=0.25 eps=0.00 seed=301  TWT* rule=2288 m0=1907 m0+sup=1584 rule+sup=1703 oracle=1460 | r=0.202 
+  [C 4/10] b=0.25 eps=0.00 seed=303  TWT* rule=2288 m0=2041 m0+sup=1584 rule+sup=1703 oracle=1460 | r=0.219 
+  [C 5/10] b=0.25 eps=0.00 seed=307  TWT* rule=2288 m0=1902 m0+sup=1570 rule+sup=1703 oracle=1460 | r=0.172 
+  [C 6/10] b=0.25 eps=0.00 seed=305  TWT* rule=2288 m0=2002 m0+sup=1582 rule+sup=1703 oracle=1460 | r=0.121 
+  [C 7/10] b=0.25 eps=0.00 seed=306  TWT* rule=2288 m0=1873 m0+sup=1539 rule+sup=1703 oracle=1460 | r=0.177 
+  [C 8/10] b=0.25 eps=0.00 seed=308  TWT* rule=2288 m0=1956 m0+sup=1583 rule+sup=1703 oracle=1460 | r=0.189 
+  [C 9/10] b=0.25 eps=0.00 seed=310  TWT* rule=2288 m0=1940 m0+sup=1544 rule+sup=1703 oracle=1460 | r=0.179 
+  [C 10/10] b=0.25 eps=0.00 seed=309  TWT* rule=2288 m0=1913 m0+sup=1562 rule+sup=1703 oracle=1460 | r=0.152 
+[cells] eps-invariance of RULE and ORACLE asserted across cells A and B
+[cells] wrote /home/ziheng/PaperY3/fm-hitl/results/y3_p9/cells.csv (300 rows)
+[y3_p9] part=cells complete.

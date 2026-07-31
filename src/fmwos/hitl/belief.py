@@ -1,6 +1,6 @@
 """M2: the Bayesian-belief / active-elicitation rung (Paper Y3, P5 ABLATION).
 
-M2 is the third rung of the M0/M1/M2 method ladder. It is an
+M2 is the third rung of the M0/M1/M2 method ladder (proposal Sec.5.3). It is an
 ABLATION: the headline (M0, the deployable correction layer) does not depend on
 it. M2 asks two questions the point-estimator M0 cannot:
 

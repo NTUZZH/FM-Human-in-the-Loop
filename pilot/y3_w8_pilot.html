@@ -1,0 +1,3128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work-order urgency pilot: which job goes first?</title>
+<style>
+:root { --ink:#111; --rule:#c8c8c8; --soft:#f6f5f2; --accent:#33506e; }
+* { box-sizing: border-box; }
+body { font-family: "Times New Roman", Times, "Liberation Serif", serif;
+       font-size: 16px; line-height: 1.5; color: var(--ink); background: #fff;
+       margin: 0; padding: 0 16px 80px; }
+.wrap { max-width: 940px; margin: 0 auto; }
+h1 { font-size: 26px; margin: 28px 0 4px; }
+h2 { font-size: 20px; margin: 26px 0 8px; border-bottom: 1px solid var(--rule);
+     padding-bottom: 4px; }
+h3 { font-size: 17px; margin: 18px 0 6px; }
+p, li { font-size: 16px; }
+.lead { color: var(--ink); }
+.note { background: var(--soft); border: 1px solid var(--rule); padding: 12px 16px;
+        margin: 14px 0; }
+table.legend { border-collapse: collapse; margin: 10px 0 4px; width: 100%; }
+table.legend th, table.legend td { border: 1px solid var(--rule); padding: 5px 8px;
+        text-align: left; font-size: 15px; }
+table.legend th { background: var(--soft); font-weight: bold; }
+.item { border: 1px solid var(--rule); margin: 22px 0; padding: 0 0 12px; }
+.item > .hdr { background: var(--soft); border-bottom: 1px solid var(--rule);
+        padding: 8px 14px; font-weight: bold; }
+.item .sub { font-weight: normal; font-size: 14px; }
+.cards { display: flex; flex-wrap: wrap; gap: 14px; padding: 14px; }
+.card { flex: 1 1 380px; min-width: 300px; border: 1px solid var(--rule);
+        padding: 10px 12px; }
+.card .side { font-weight: bold; text-transform: uppercase; letter-spacing: .06em;
+        font-size: 13px; color: var(--accent); margin-bottom: 6px; }
+.card .desc { font-size: 16px; margin: 0 0 10px; }
+.card dl { display: grid; grid-template-columns: max-content 1fr; gap: 2px 10px;
+        margin: 0; font-size: 15px; }
+.card dt { font-weight: bold; }
+.card dd { margin: 0; }
+.answer { padding: 0 14px; }
+.answer fieldset { border: 1px solid var(--rule); margin: 0 0 10px; padding: 8px 12px; }
+.answer legend { font-weight: bold; font-size: 15px; padding: 0 6px; }
+label.opt { display: inline-block; margin-right: 18px; font-size: 15px; }
+textarea { width: 100%; font-family: inherit; font-size: 15px; padding: 6px;
+        border: 1px solid var(--rule); }
+input[type=text] { font-family: inherit; font-size: 15px; padding: 5px;
+        border: 1px solid var(--rule); }
+.bar { position: sticky; bottom: 0; background: #fff; border-top: 2px solid var(--accent);
+        padding: 10px 0; margin-top: 28px; }
+button { font-family: inherit; font-size: 16px; padding: 8px 16px;
+        border: 1px solid var(--accent); background: var(--accent); color: #fff;
+        cursor: pointer; }
+button.secondary { background: #fff; color: var(--accent); }
+#status { font-size: 15px; margin-left: 12px; }
+#fallback { width: 100%; height: 180px; display: none; margin-top: 10px; }
+@media print { .bar, button, #fallback { display: none; } .item { page-break-inside: avoid; } }
+@media (prefers-color-scheme: dark) {
+  body { background: #fff; color: var(--ink); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Which job should go first?</h1>
+<p class="lead">A short study on how facility supervisors rank maintenance work
+orders. You will see 56 pairs of real work orders. For each pair, say which
+of the two you would start first.</p>
+
+<div class="note">
+<p><b>How long it takes.</b> About 35 to 45 minutes. You can stop and come back:
+the page keeps your answers as long as you do not close the tab.</p>
+<p><b>Anonymous, aggregate use.</b> We do not record your name, your employer, or
+anything that identifies you. Answers are reported only as group statistics
+(how often practitioners agree with each other) in a research paper on automating
+work-order dispatch. There are no right answers and nothing is being tested about
+you. You may stop at any time and your partial answers can simply be discarded.</p>
+<p><b>Where the jobs come from.</b> Every work order shown is a real, already
+completed record from a public research dataset of North American university
+campuses (FMUCD, Mendeley Data, CC BY-NC). The text is shown as it was written.</p>
+</div>
+
+<h2>Before you start</h2>
+<p>Please fill these in. The participant code is whatever the person who sent you
+this file asked you to use (for example <i>R1</i>); it is how your sheet is
+labelled, not who you are.</p>
+<p>
+  <label>Participant code &nbsp;<input type="text" id="rater_id" size="10"></label>
+  &nbsp;&nbsp;
+  <label>Your role &nbsp;<input type="text" id="rater_role" size="28"
+     placeholder="e.g. FM supervisor, planner, technician"></label>
+  &nbsp;&nbsp;
+  <label>Years in facilities &nbsp;<input type="text" id="rater_years" size="5"></label>
+</p>
+
+<h2>Instructions</h2>
+<ol>
+  <li>Each item shows two work orders that are sitting in the same site's queue at
+      the same moment. Assume a team member is free now and can start either one.</li>
+  <li>Pick the one you would start first, on operational urgency: what happens if
+      it waits another day, who or what is affected, and how far it has already
+      slipped.</li>
+  <li>You may disagree with the recorded priority. It is shown because a
+      supervisor sees it, not because it is correct.</li>
+  <li>Answer from your own judgement and go with your first instinct. Around 40
+      seconds per item is normal.</li>
+  <li>The optional one-line reason is genuinely useful to us, but skip it whenever
+      you are not sure what to write.</li>
+  <li>Some campuses record a building descriptor and some do not, so a few items
+      carry one line fewer. The two jobs within an item always show the same
+      fields, so neither is ever better documented than the other.</li>
+</ol>
+
+<h3>What the recorded priority means</h3>
+<table class="legend">
+  <tr><th>Recorded priority</th><th>Target response time</th></tr>
+  <tr><td>P1 Emergency</td><td>1 business day</td></tr><tr><td>P2 Urgent</td><td>3 business days</td></tr><tr><td>P3 Routine</td><td>10 business days</td></tr><tr><td>P4 Planned</td><td>21 business days</td></tr>
+</table>
+<p style="font-size:15px;">Fields you will <i>not</i> see, because a supervisor
+does not have them when the job is dispatched: how long the job actually took,
+what it eventually cost, and when it was closed out. "Estimated labour" is the
+work content a planner would estimate up front.</p>
+
+<h2>The items</h2>
+
+    <div class="item" id="item-I001">
+      <div class="hdr">Item 1 of 56
+        <span class="sub">&nbsp;&nbsp;Site A &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">REPLACE BROKEN TAPS (SEE BRAD FOR DETAILS)</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Plumbing Fixtures</dd>
+            <dt>Component</dt><dd>Sink</dd>
+            <dt>Building type</dt><dd>Mixed Teaching/Research</dd>
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>4.8 business days</dd>
+            <dt>Estimated labour</dt><dd>4.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">(DT)KILLIAM LIBRARY ATRIUM HAS A PANEL BEEPING</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Electrical Service &amp; Distribution</dd>
+            <dt>Component</dt><dd>Distribution Panel Board</dd>
+            <dt>Building type</dt><dd>Teaching</dd>
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>5.8 business days</dd>
+            <dt>Estimated labour</dt><dd>4.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I001" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I001" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I001" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I001" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I001" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I001" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I002">
+      <div class="hdr">Item 2 of 56
+        <span class="sub">&nbsp;&nbsp;Site A &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">SUB 1ST FL WOMENS WR - REPLACE BALLASTS - WR IS DARK</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Lighting and Branch Wiring</dd>
+            <dt>Component</dt><dd>Compact Fluorescent Lighting Fixture, Ballast</dd>
+            <dt>Building type</dt><dd>Student Experience</dd>
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>5.6 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">CALL IN - ZN1CARP - HOWE HALL FOUNTAIN DOOR HAS BROKEN SWING ARM</p>
+          <dl>
+            <dt>System</dt><dd>Interior Construction / Interior Doors</dd>
+            <dt>Component</dt><dd>Door Hardware</dd>
+            <dt>Building type</dt><dd>Student Experience</dd>
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>5.0 business days</dd>
+            <dt>Estimated labour</dt><dd>4.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I002" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I002" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I002" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I002" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I002" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I002" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I003">
+      <div class="hdr">Item 3 of 56
+        <span class="sub">&nbsp;&nbsp;Site C &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">IM WEST WOMENS LOCKER RM TOILET STALLS 2-LATCHES BROKEN.</p>
+          <dl>
+            <dt>System</dt><dd>Interior Construction / Interior Doors</dd>
+            <dt>Component</dt><dd>Door Hardware</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>9.5 business days</dd>
+            <dt>Estimated labour</dt><dd>5.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">YEARLY - GAS FIRED-INFRARAY HEATERS</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Other HVAC Systems &amp; Equipment</dd>
+            <dt>Component</dt><dd>General Other HVAC Systems &amp; Equipment</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>6.1 business days</dd>
+            <dt>Estimated labour</dt><dd>11.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I003" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I003" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I003" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I003" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I003" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I003" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I004">
+      <div class="hdr">Item 4 of 56
+        <span class="sub">&nbsp;&nbsp;Site C &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">BESSEY 257 TOO COLD. CALLER IN 235.</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Controls and Instrumentation</dd>
+            <dt>Component</dt><dd>Thermostat</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>3.2 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">CLEAN AND CHECK OPERATION OF SUMP PUMP - ROUTE #2</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Rain Water Drainage</dd>
+            <dt>Component</dt><dd>Sump Pump</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>14.6 business days</dd>
+            <dt>Estimated labour</dt><dd>7.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I004" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I004" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I004" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I004" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I004" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I004" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I005">
+      <div class="hdr">Item 5 of 56
+        <span class="sub">&nbsp;&nbsp;Site B &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">LOCK: ISSUE WITH KNOB, LOCK, LATCH, CLOSURE</p>
+          <dl>
+            <dt>System</dt><dd>Interior Construction / Interior Doors</dd>
+            <dt>Component</dt><dd>Door Hardware</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>1.0 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">ELECTRIC: LOSS OF POWER</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Communications &amp; Security</dd>
+            <dt>Component</dt><dd>Power Supply</dd>
+            
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.7 business days</dd>
+            <dt>Estimated labour</dt><dd>1.1 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I005" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I005" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I005" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I005" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I005" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I005" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I006">
+      <div class="hdr">Item 6 of 56
+        <span class="sub">&nbsp;&nbsp;Site E &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">MAI: 1 - CEILING LEAK</p>
+          <dl>
+            <dt>System</dt><dd>Interior Finishes / Ceiling Finishes</dd>
+            <dt>Component</dt><dd>Plaster Ceiling</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.7 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">JHH: 1.114 DOUBLE PANED GLASS WITH WATER VAPOR INSIDE</p>
+          <dl>
+            <dt>System</dt><dd>Interior Construction / General</dd>
+            <dt>Component</dt><dd>Unplanned Maintenance</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>3.0 business days</dd>
+            <dt>Estimated labour</dt><dd>5.2 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I006" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I006" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I006" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I006" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I006" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I006" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I007">
+      <div class="hdr">Item 7 of 56
+        <span class="sub">&nbsp;&nbsp;Site A &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">LSC BIO RM 827 - YELLOW TROUBLE LIGHT ON ALARM</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Communications &amp; Security</dd>
+            <dt>Component</dt><dd>Alarm Siren</dd>
+            <dt>Building type</dt><dd>Mixed Teaching/Research</dd>
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>2.6 business days</dd>
+            <dt>Estimated labour</dt><dd>0.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">H BLDG - INSPECT BLDG. VAV BOXES FOR PROPER OPERATION</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Distribution Systems</dd>
+            <dt>Component</dt><dd>Variable Air Volume Box</dd>
+            <dt>Building type</dt><dd>Teaching</dd>
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>9.5 business days</dd>
+            <dt>Estimated labour</dt><dd>1.5 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I007" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I007" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I007" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I007" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I007" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I007" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I008">
+      <div class="hdr">Item 8 of 56
+        <span class="sub">&nbsp;&nbsp;Site F &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">Request to hang banner for Open House.</p>
+          <dl>
+            <dt>System</dt><dd>Furnishings / Fixed Furnishings</dd>
+            <dt>Component</dt><dd>General Fixed Furnishings</dd>
+            <dt>Building</dt><dd>Olin Hall</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>3.5 business days</dd>
+            <dt>Estimated labour</dt><dd>7.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">Plumb 310 Toilet repair</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Plumbing Fixtures</dd>
+            <dt>Component</dt><dd>Toilet &amp; Wash Basin</dd>
+            <dt>Building</dt><dd>Carl Becker House</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>13.5 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I008" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I008" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I008" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I008" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I008" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I008" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I009">
+      <div class="hdr">Item 9 of 56
+        <span class="sub">&nbsp;&nbsp;Site D &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">Seal north side eaves of Watson building (Landscape Services). (General Comments)</p>
+          <dl>
+            <dt>System</dt><dd>Site Improvements</dd>
+            <dt>Component</dt><dd>General Landscaping</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>12.0 business days</dd>
+            <dt>Estimated labour</dt><dd>10.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">AHG4.HHW.HARDWARE.PMC has communication failure. It could not be reinitialized. AHG4.CONTROL_AIR.BLDG.PR is also alarming because the point it wants to read lives on the piece of hardware that failed above. (General Comments)</p>
+          <dl>
+            <dt>System</dt><dd>HVAC</dd>
+            <dt>Component</dt><dd>HVAC Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.5 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I009" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I009" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I009" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I009" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I009" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I009" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I010">
+      <div class="hdr">Item 10 of 56
+        <span class="sub">&nbsp;&nbsp;Site D &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">PM Boiler - Semi-Annual</p>
+          <dl>
+            <dt>System</dt><dd>HVAC</dd>
+            <dt>Component</dt><dd>Boiler, Electric/Gas/Oil</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">After Hours - Lost control air pressure, issue was determined to be water frozen in compressed air line from Utility Plant. (General Comments)</p>
+          <dl>
+            <dt>System</dt><dd>HVAC</dd>
+            <dt>Component</dt><dd>HVAC Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P1 Emergency
+                (target response 1 business days)</dd>
+            <dt>Waiting so far</dt><dd>11.0 business days</dd>
+            <dt>Estimated labour</dt><dd>12.8 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I010" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I010" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I010" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I010" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I010" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I010" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I011">
+      <div class="hdr">Item 11 of 56
+        <span class="sub">&nbsp;&nbsp;Site F &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">METAL Gutter near the front main entrance is clogged and/or leaking</p>
+          <dl>
+            <dt>System</dt><dd>Roofing / Roof Converings</dd>
+            <dt>Component</dt><dd>Aluminium Gutter, Downspouts/Fittings</dd>
+            <dt>Building</dt><dd>Schuyler House Section 2</dd>
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>5.6 business days</dd>
+            <dt>Estimated labour</dt><dd>3.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">Need the existing power cord for the CNC vacuum pump. lengthened.</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Electrical Service &amp; Distribution</dd>
+            <dt>Component</dt><dd>Cable, Copper</dd>
+            <dt>Building</dt><dd>Upson Hall</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>12.3 business days</dd>
+            <dt>Estimated labour</dt><dd>7.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I011" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I011" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I011" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I011" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I011" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I011" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I012">
+      <div class="hdr">Item 12 of 56
+        <span class="sub">&nbsp;&nbsp;Site C &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">BRODY MECH RM--COMPRESSOR FOR MAIN FREEZER UPSTAIRS VERY NOISY</p>
+          <dl>
+            <dt>System</dt><dd>Equipment / Commercial Equipment</dd>
+            <dt>Component</dt><dd>Freezer/Cooler, Commercial/Reach-In</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.9 business days</dd>
+            <dt>Estimated labour</dt><dd>3.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">CYCLOTRON EAST CHILLER PUMP # 2 IS IN HAND</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Cooling Generation Systems</dd>
+            <dt>Component</dt><dd>Chiller</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>9.6 business days</dd>
+            <dt>Estimated labour</dt><dd>3.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I012" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I012" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I012" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I012" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I012" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I012" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I013">
+      <div class="hdr">Item 13 of 56
+        <span class="sub">&nbsp;&nbsp;Site B &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">BMS CONSOLE ALARM. ENTER THE BSO INVESTIGATION DATA AND DESCRIPTION OF THE PROBLEM IN THE NOTES OF THE WORK ORDER. BEFORE MARKING THE BSO PHASE WORK DONE, CONFIRM ALARM HAS CLEARED, DOCUMENT THE CLEARED ALARM IN THE NOTES AND ATTACH A ...</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Controls and Instrumentation</dd>
+            <dt>Component</dt><dd>HVAC Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>8.9 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">ELECTRIC: LIGHT ISSUE-CEILING, HOOD, EMERGENCY/EXIT</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Lighting and Branch Wiring</dd>
+            <dt>Component</dt><dd>Flood Light, Exterior</dd>
+            
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>14.3 business days</dd>
+            <dt>Estimated labour</dt><dd>11.3 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I013" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I013" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I013" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I013" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I013" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I013" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I014">
+      <div class="hdr">Item 14 of 56
+        <span class="sub">&nbsp;&nbsp;Site F &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">HughesHall.MELGR25/AHU-1.Freezestat.Alarm. OAT = 20 degrees.</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Distribution Systems</dd>
+            <dt>Component</dt><dd>Air Handler, Exhaust/Multizone/Single Zone</dd>
+            <dt>Building</dt><dd>Hughes Hall</dd>
+            <dt>Recorded priority</dt><dd>P1 Emergency
+                (target response 1 business days)</dd>
+            <dt>Waiting so far</dt><dd>12.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">Elec- OFPC- exit signs out in Rm 203 and Army ROTC by back door</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Lighting and Branch Wiring</dd>
+            <dt>Component</dt><dd>Exit Lighting Fixture</dd>
+            <dt>Building</dt><dd>Barton Hall</dd>
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>1.6 business days</dd>
+            <dt>Estimated labour</dt><dd>4.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I014" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I014" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I014" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I014" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I014" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I014" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I015">
+      <div class="hdr">Item 15 of 56
+        <span class="sub">&nbsp;&nbsp;Site F &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">replace sticking flush valve on 1st urinal on left. 3rd floor mens</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Plumbing Fixtures</dd>
+            <dt>Component</dt><dd>Urinal, Vitreous China</dd>
+            <dt>Building</dt><dd>Upson Hall</dd>
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>5.2 business days</dd>
+            <dt>Estimated labour</dt><dd>2.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">Please repair fan in Phillips basement.</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Distribution Systems</dd>
+            <dt>Component</dt><dd>Fan</dd>
+            <dt>Building</dt><dd>Phillips Hall</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>2.2 business days</dd>
+            <dt>Estimated labour</dt><dd>4.5 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I015" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I015" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I015" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I015" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I015" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I015" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I016">
+      <div class="hdr">Item 16 of 56
+        <span class="sub">&nbsp;&nbsp;Site D &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">PM Monthly Building Walk Thru - Monthly</p>
+          <dl>
+            <dt>System</dt><dd>General</dd>
+            <dt>Component</dt><dd>Planned Preventive Maintenance</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">Electrical outlets on the east wall in the KRH auditorium are not working after they put the new carpet in, a breaker may have been blown.</p>
+          <dl>
+            <dt>System</dt><dd>Electrical</dd>
+            <dt>Component</dt><dd>Circuit Breaker</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.4 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I016" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I016" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I016" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I016" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I016" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I016" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I017">
+      <div class="hdr">Item 17 of 56
+        <span class="sub">&nbsp;&nbsp;Site F &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">Seems that the sheaves are bad on 012/0010/2610 this has been on going issue</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / General</dd>
+            <dt>Component</dt><dd>Unplanned Maintenance</dd>
+            <dt>Building</dt><dd>Grumman Squash Courts</dd>
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>13.7 business days</dd>
+            <dt>Estimated labour</dt><dd>4.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">MASON front steps are crumbling</p>
+          <dl>
+            <dt>System</dt><dd>Stairs / Stair Construction</dd>
+            <dt>Component</dt><dd>Concrete Exterior Stairs</dd>
+            <dt>Building</dt><dd>Stewart Ave 640,Kahin Center</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>11.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I017" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I017" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I017" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I017" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I017" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I017" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I018">
+      <div class="hdr">Item 18 of 56
+        <span class="sub">&nbsp;&nbsp;Site C &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">PLANT BIO.-LEAKY SINK IN RM.#242,CUPBOARDS LEFT OPEN FOR SINK.</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Plumbing Fixtures</dd>
+            <dt>Component</dt><dd>Sink</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>13.7 business days</dd>
+            <dt>Estimated labour</dt><dd>3.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">E.FEE C103B TOOHOT.HEAT POURING OUT.CALLER RM C103A</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Controls and Instrumentation</dd>
+            <dt>Component</dt><dd>Thermostat</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>13.8 business days</dd>
+            <dt>Estimated labour</dt><dd>4.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I018" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I018" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I018" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I018" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I018" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I018" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I019">
+      <div class="hdr">Item 19 of 56
+        <span class="sub">&nbsp;&nbsp;Site E &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">MONTHLY EMERGENCY&amp;EXIT LIGHT INSPECTION (1X MONTH)</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Lighting and Branch Wiring</dd>
+            <dt>Component</dt><dd>Exit Lighting Fixture</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.1 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">PAC:2 SEPARATE ALARM PRESENT ON PANEL FROM 4TH FL.</p>
+          <dl>
+            <dt>System</dt><dd>Fire Protection / Sprinklers</dd>
+            <dt>Component</dt><dd>Fire Alarm Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P1 Emergency
+                (target response 1 business days)</dd>
+            <dt>Waiting so far</dt><dd>0.9 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I019" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I019" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I019" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I019" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I019" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I019" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I020">
+      <div class="hdr">Item 20 of 56
+        <span class="sub">&nbsp;&nbsp;Site E &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">WEL: 2.304 - BROKEN CHAIR</p>
+          <dl>
+            <dt>System</dt><dd>Furnishings / Movable Furnishings</dd>
+            <dt>Component</dt><dd>General Movable Furnishings</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.4 business days</dd>
+            <dt>Estimated labour</dt><dd>1.2 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">TEST ALL FIRE PROTECTION EQUIPMENT</p>
+          <dl>
+            <dt>System</dt><dd>Fire Protection / General</dd>
+            <dt>Component</dt><dd>Planned Preventive Maintenance</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>8.6 business days</dd>
+            <dt>Estimated labour</dt><dd>12.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I020" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I020" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I020" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I020" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I020" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I020" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I021">
+      <div class="hdr">Item 21 of 56
+        <span class="sub">&nbsp;&nbsp;Site C &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">YEARLY - GAS FIRED-INFRARAY HEATERS</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Other HVAC Systems &amp; Equipment</dd>
+            <dt>Component</dt><dd>General Other HVAC Systems &amp; Equipment</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>6.1 business days</dd>
+            <dt>Estimated labour</dt><dd>11.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">IM WEST WOMENS LOCKER RM TOILET STALLS 2-LATCHES BROKEN.</p>
+          <dl>
+            <dt>System</dt><dd>Interior Construction / Interior Doors</dd>
+            <dt>Component</dt><dd>Door Hardware</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>9.5 business days</dd>
+            <dt>Estimated labour</dt><dd>5.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I021" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I021" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I021" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I021" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I021" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I021" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I022">
+      <div class="hdr">Item 22 of 56
+        <span class="sub">&nbsp;&nbsp;Site B &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">MTR POOL: SEDAN MAINTENANCE</p>
+          <dl>
+            <dt>System</dt><dd>Equipment / Vehicular Equipment</dd>
+            <dt>Component</dt><dd>General Vehicular Equipment</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>8.0 business days</dd>
+            <dt>Estimated labour</dt><dd>2.6 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">CARPENTRY: REPAIR/INSTALL WALKWAYS, POSTS, GATES</p>
+          <dl>
+            <dt>System</dt><dd>Exterior Enclosure / General</dd>
+            <dt>Component</dt><dd>Planned Preventive Maintenance</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>2.5 business days</dd>
+            <dt>Estimated labour</dt><dd>90.9 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I022" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I022" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I022" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I022" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I022" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I022" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I023">
+      <div class="hdr">Item 23 of 56
+        <span class="sub">&nbsp;&nbsp;Site C &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">WHARTON RM 201 URNIAL RUNNING</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Plumbing Fixtures</dd>
+            <dt>Component</dt><dd>Urinal, Vitreous China</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>15.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">FARRELL-RM 105 &amp; 106 SEWER SMELL-TASK</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Sanitary Waste</dd>
+            <dt>Component</dt><dd>Pipe &amp; Fittings</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>11.8 business days</dd>
+            <dt>Estimated labour</dt><dd>3.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I023" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I023" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I023" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I023" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I023" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I023" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I024">
+      <div class="hdr">Item 24 of 56
+        <span class="sub">&nbsp;&nbsp;Site A &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">SUB 4TH FL- DISCONNECT LIGHT</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Lighting and Branch Wiring</dd>
+            <dt>Component</dt><dd>Fluorescent Lighting Fixture</dd>
+            <dt>Building type</dt><dd>Student Experience</dd>
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.8 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">BW - ROOF DRAIN INSPECTION SEASONAL ZONE 4</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Rain Water Drainage</dd>
+            <dt>Component</dt><dd>Roof Drain</dd>
+            <dt>Building type</dt><dd>Student Experience</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I024" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I024" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I024" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I024" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I024" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I024" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I025">
+      <div class="hdr">Item 25 of 56
+        <span class="sub">&nbsp;&nbsp;Site A &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">BH MONA CAMPBELL RM 2239 - REPAIR WINDOW CASING</p>
+          <dl>
+            <dt>System</dt><dd>Interior Construction / Interior Windows</dd>
+            <dt>Component</dt><dd>General Interior Windows</dd>
+            <dt>Building type</dt><dd>Teaching</dd>
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>2.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">CW REMOVE PLUMBING EQUIPMENT FROM BASEMENT</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / General</dd>
+            <dt>Component</dt><dd>Unplanned Maintenance</dd>
+            <dt>Building type</dt><dd>Other</dd>
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>13.0 business days</dd>
+            <dt>Estimated labour</dt><dd>16.5 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I025" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I025" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I025" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I025" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I025" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I025" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I026">
+      <div class="hdr">Item 26 of 56
+        <span class="sub">&nbsp;&nbsp;Site A &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">D BUILDING WATER FILTER WEEKLY INSPECTION</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Plumbing Fixtures</dd>
+            <dt>Component</dt><dd>Drinking Fountain</dd>
+            <dt>Building type</dt><dd>Mixed Teaching/Research</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.9 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">CRC RM C314 - REPAIR CEILING</p>
+          <dl>
+            <dt>System</dt><dd>Interior Finishes / Ceiling Finishes</dd>
+            <dt>Component</dt><dd>Plaster Ceiling</dd>
+            <dt>Building type</dt><dd>Other</dd>
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>15.0 business days</dd>
+            <dt>Estimated labour</dt><dd>5.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I026" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I026" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I026" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I026" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I026" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I026" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I027">
+      <div class="hdr">Item 27 of 56
+        <span class="sub">&nbsp;&nbsp;Site D &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">PM Emergency Lighting Inspection - Monthly</p>
+          <dl>
+            <dt>System</dt><dd>Electrical</dd>
+            <dt>Component</dt><dd>Emergency Lighting Pack</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">PM Air Handler - Quarterly - MOLR</p>
+          <dl>
+            <dt>System</dt><dd>HVAC</dd>
+            <dt>Component</dt><dd>Air Handler, Exhaust/Multizone/Single Zone</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>4.5 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I027" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I027" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I027" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I027" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I027" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I027" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I028">
+      <div class="hdr">Item 28 of 56
+        <span class="sub">&nbsp;&nbsp;Site F &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">LD 121X Toilet is partially clogged. Water goes down very slowly.</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Plumbing Fixtures</dd>
+            <dt>Component</dt><dd>Toilet &amp; Wash Basin</dd>
+            <dt>Building</dt><dd>George Jameson Hall</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>8.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.2 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">OFPC, sprink covers missing,4th fl near NE stairs and bsmt hall near B30</p>
+          <dl>
+            <dt>System</dt><dd>Fire Protection / Sprinklers</dd>
+            <dt>Component</dt><dd>Fire Sprinkler System</dd>
+            <dt>Building</dt><dd>Upson Hall</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>6.0 business days</dd>
+            <dt>Estimated labour</dt><dd>14.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I028" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I028" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I028" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I028" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I028" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I028" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I029">
+      <div class="hdr">Item 29 of 56
+        <span class="sub">&nbsp;&nbsp;Site F &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">Broken garage door on Entomology Barn on Research South</p>
+          <dl>
+            <dt>System</dt><dd>Interior Construction / Interior Doors</dd>
+            <dt>Component</dt><dd>Door Hardware</dd>
+            <dt>Building</dt><dd>Gnva Veg Ent Hansen Pole Barn</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>11.2 business days</dd>
+            <dt>Estimated labour</dt><dd>5.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">PLUMB 2591 No hot water</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Domestic Water Distribution</dd>
+            <dt>Component</dt><dd>Water Heater, Condensing/Electric/Gas/Oil</dd>
+            <dt>Building</dt><dd>Clara Dickson Hall</dd>
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>11.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I029" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I029" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I029" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I029" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I029" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I029" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I030">
+      <div class="hdr">Item 30 of 56
+        <span class="sub">&nbsp;&nbsp;Site E &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">EER: DD FSD SUPERVISORY M3-54</p>
+          <dl>
+            <dt>System</dt><dd>Fire Protection / Sprinklers</dd>
+            <dt>Component</dt><dd>Fire Alarm Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P1 Emergency
+                (target response 1 business days)</dd>
+            <dt>Waiting so far</dt><dd>11.5 business days</dd>
+            <dt>Estimated labour</dt><dd>0.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">A22: ARL Req 3354 / PDC-CM</p>
+          <dl>
+            <dt>System</dt><dd>Unclassified</dd>
+            <dt>Component</dt><dd>Unclassified</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>13.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.5 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I030" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I030" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I030" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I030" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I030" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I030" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I031">
+      <div class="hdr">Item 31 of 56
+        <span class="sub">&nbsp;&nbsp;Site B &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">MTR POOL: CART MAINTENANCE</p>
+          <dl>
+            <dt>System</dt><dd>Equipment / Vehicular Equipment</dd>
+            <dt>Component</dt><dd>General Vehicular Equipment</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>6.8 business days</dd>
+            <dt>Estimated labour</dt><dd>1.1 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">CARPENTRY: FABRICATE, MODIFY, ASSEMBLE, ITEMS</p>
+          <dl>
+            <dt>System</dt><dd>Furnishings / Fixed Furnishings</dd>
+            <dt>Component</dt><dd>General Fixed Furnishings</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>14.6 business days</dd>
+            <dt>Estimated labour</dt><dd>90.9 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I031" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I031" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I031" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I031" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I031" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I031" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I032">
+      <div class="hdr">Item 32 of 56
+        <span class="sub">&nbsp;&nbsp;Site A &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">BS - LIGHT ISSUE - FIRST GENDER NEUTRAL WASHROOM ON 3RD FLOOR</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Lighting and Branch Wiring</dd>
+            <dt>Component</dt><dd>Fluorescent Lighting Fixture</dd>
+            <dt>Building type</dt><dd>Student Experience</dd>
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>4.9 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">1390 LEMARCHANT ST - REPLACE FAULTY LAMPS</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Lighting and Branch Wiring</dd>
+            <dt>Component</dt><dd>Fluorescent Lighting Fixture</dd>
+            <dt>Building type</dt><dd>Other</dd>
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>8.6 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I032" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I032" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I032" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I032" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I032" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I032" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I033">
+      <div class="hdr">Item 33 of 56
+        <span class="sub">&nbsp;&nbsp;Site E &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">ANNUAL FIRE SAFETY INITIATING DEVICES INSPECTION BY FLOOR</p>
+          <dl>
+            <dt>System</dt><dd>Fire Protection / Sprinklers</dd>
+            <dt>Component</dt><dd>Fire Alarm Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>4.5 business days</dd>
+            <dt>Estimated labour</dt><dd>40.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">GDC-6.508 / LOW WATER PRESSURE</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Domestic Water Distribution</dd>
+            <dt>Component</dt><dd>Pipe &amp; Fittings</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>9.6 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I033" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I033" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I033" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I033" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I033" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I033" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I034">
+      <div class="hdr">Item 34 of 56
+        <span class="sub">&nbsp;&nbsp;Site B &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">GENERAL INVESTIGATION: PROVIDE INVESTIGATION SERVICES</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Distribution Systems</dd>
+            <dt>Component</dt><dd>Air Handler, Exhaust/Multizone/Single Zone</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>2.4 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">BMS: FUME HOOD AIR FLOW ISSUE</p>
+          <dl>
+            <dt>System</dt><dd>Equipment / Institutional Equipment</dd>
+            <dt>Component</dt><dd>Laboratory Exhaust Hood</dd>
+            
+            <dt>Recorded priority</dt><dd>P1 Emergency
+                (target response 1 business days)</dd>
+            <dt>Waiting so far</dt><dd>14.1 business days</dd>
+            <dt>Estimated labour</dt><dd>23.8 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I034" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I034" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I034" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I034" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I034" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I034" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I035">
+      <div class="hdr">Item 35 of 56
+        <span class="sub">&nbsp;&nbsp;Site C &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">YEARLY - SERVICE &amp; FUNCTIONAL CHECK FURNACE</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Heat Generation Systems</dd>
+            <dt>Component</dt><dd>Furnace, Gas/Oil/Electric</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.9 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">PAVILION OVERHEAD DOORS--ROLLERS OFF TRACK 1) BIG DOOR, EAST (T</p>
+          <dl>
+            <dt>System</dt><dd>Exterior Enclosure / Exterior Doors</dd>
+            <dt>Component</dt><dd>Steel 20&#x27;x20&#x27;, Painted/Roll-up</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>4.3 business days</dd>
+            <dt>Estimated labour</dt><dd>8.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I035" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I035" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I035" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I035" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I035" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I035" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I036">
+      <div class="hdr">Item 36 of 56
+        <span class="sub">&nbsp;&nbsp;Site B &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">ELECTRIC: REPAIR RECEPTACLE OR SWITCH</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Lighting and Branch Wiring</dd>
+            <dt>Component</dt><dd>Receptacle</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>6.6 business days</dd>
+            <dt>Estimated labour</dt><dd>8.4 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">BMS: AIR FLOW/PRESSURE OUT OF RANGE</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Controls and Instrumentation</dd>
+            <dt>Component</dt><dd>HVAC Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.1 business days</dd>
+            <dt>Estimated labour</dt><dd>2.2 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I036" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I036" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I036" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I036" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I036" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I036" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I037">
+      <div class="hdr">Item 37 of 56
+        <span class="sub">&nbsp;&nbsp;Site F &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">LD 4660 desk lamp is flickering</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Lighting and Branch Wiring</dd>
+            <dt>Component</dt><dd>Compact Fluorescent Lighting Fixture, Ballast</dd>
+            <dt>Building</dt><dd>Clara Dickson Hall</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>5.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">Boiler condensate pumps are not operating properly</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Heat Generation Systems</dd>
+            <dt>Component</dt><dd>Circulation Pump, Hot Water</dd>
+            <dt>Building</dt><dd>Baker Institute GB</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>0.9 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I037" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I037" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I037" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I037" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I037" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I037" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I038">
+      <div class="hdr">Item 38 of 56
+        <span class="sub">&nbsp;&nbsp;Site D &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">AHG4.HHW.HARDWARE.PMC has communication failure. It could not be reinitialized. AHG4.CONTROL_AIR.BLDG.PR is also alarming because the point it wants to read lives on the piece of hardware that failed above. (General Comments)</p>
+          <dl>
+            <dt>System</dt><dd>HVAC</dd>
+            <dt>Component</dt><dd>HVAC Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">Seal north side eaves of Watson building (Landscape Services). (General Comments)</p>
+          <dl>
+            <dt>System</dt><dd>Site Improvements</dd>
+            <dt>Component</dt><dd>General Landscaping</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>12.0 business days</dd>
+            <dt>Estimated labour</dt><dd>10.5 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I038" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I038" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I038" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I038" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I038" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I038" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I039">
+      <div class="hdr">Item 39 of 56
+        <span class="sub">&nbsp;&nbsp;Site D &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">Electrical outlets on the east wall in the KRH auditorium are not working after they put the new carpet in, a breaker may have been blown.</p>
+          <dl>
+            <dt>System</dt><dd>Electrical</dd>
+            <dt>Component</dt><dd>Circuit Breaker</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.4 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">PM Monthly Building Walk Thru - Monthly</p>
+          <dl>
+            <dt>System</dt><dd>General</dd>
+            <dt>Component</dt><dd>Planned Preventive Maintenance</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I039" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I039" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I039" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I039" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I039" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I039" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I040">
+      <div class="hdr">Item 40 of 56
+        <span class="sub">&nbsp;&nbsp;Site D &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">After Hours: There is a leak in the ceiling of room 123 FOOD. (General Comments)</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing</dd>
+            <dt>Component</dt><dd>Pipe &amp; Fittings</dd>
+            
+            <dt>Recorded priority</dt><dd>P1 Emergency
+                (target response 1 business days)</dd>
+            <dt>Waiting so far</dt><dd>4.0 business days</dd>
+            <dt>Estimated labour</dt><dd>9.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">There is a sewer smell in lab 224 of VBS. They tryed putting water down the drains etc but that doesn&#x27;t seem to help.</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing</dd>
+            <dt>Component</dt><dd>Pipe &amp; Fittings</dd>
+            
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>0.0 business days</dd>
+            <dt>Estimated labour</dt><dd>3.5 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I040" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I040" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I040" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I040" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I040" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I040" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I041">
+      <div class="hdr">Item 41 of 56
+        <span class="sub">&nbsp;&nbsp;Site C &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">WINTERIZE PM - DISTRIBUTION</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / General</dd>
+            <dt>Component</dt><dd>Planned Preventive Maintenance</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>9.9 business days</dd>
+            <dt>Estimated labour</dt><dd>18.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">ENGR--HOT WATER SYSTEM C OVER 200 DEGREES</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Controls and Instrumentation</dd>
+            <dt>Component</dt><dd>Thermostat</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>0.4 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I041" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I041" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I041" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I041" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I041" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I041" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I042">
+      <div class="hdr">Item 42 of 56
+        <span class="sub">&nbsp;&nbsp;Site E &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">SEMI ANNUAL INDUCTION UNIT PM</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Other HVAC Systems &amp; Equipment</dd>
+            <dt>Component</dt><dd>General Other HVAC Systems &amp; Equipment</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>12.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.8 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">QUARTERLY AC DX UNIT PM</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Terminal &amp; Package Units</dd>
+            <dt>Component</dt><dd>Air Conditioner</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>13.0 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I042" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I042" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I042" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I042" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I042" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I042" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I043">
+      <div class="hdr">Item 43 of 56
+        <span class="sub">&nbsp;&nbsp;Site D &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">PM Fire Pump Inspection - Monthly</p>
+          <dl>
+            <dt>System</dt><dd>Fire Protection</dd>
+            <dt>Component</dt><dd>Fire Suppression System Water Pump</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">Request electrician&#x27;s help with ectronic components on bowling pin setters. Dean Krugman ususally works on this with him.</p>
+          <dl>
+            <dt>System</dt><dd>Electrical</dd>
+            <dt>Component</dt><dd>Unplanned Maintenance</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>9.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.5 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I043" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I043" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I043" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I043" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I043" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I043" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I044">
+      <div class="hdr">Item 44 of 56
+        <span class="sub">&nbsp;&nbsp;Site C &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">S.HUBBARD-RM 921 EMERG CORE CHG CORE # JP2-289</p>
+          <dl>
+            <dt>System</dt><dd>Interior Construction / Interior Doors</dd>
+            <dt>Component</dt><dd>Door Hardware</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>11.8 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">MUSIC PRACT 100 &amp; 101 NO HEAT. CALLER IN MUSIC BLDG 253.</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Controls and Instrumentation</dd>
+            <dt>Component</dt><dd>Thermostat</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>2.1 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I044" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I044" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I044" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I044" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I044" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I044" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I045">
+      <div class="hdr">Item 45 of 56
+        <span class="sub">&nbsp;&nbsp;Site B &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">PM WORK WITH PURCHASE REQ. SUBMITTED WHEN SCHEDULED</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Distribution Systems</dd>
+            <dt>Component</dt><dd>Exhaust Fan</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">LOCK: CHANGE OR REKEY LOCK/COMBO</p>
+          <dl>
+            <dt>System</dt><dd>Interior Construction / Interior Doors</dd>
+            <dt>Component</dt><dd>Door Hardware</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I045" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I045" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I045" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I045" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I045" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I045" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I046">
+      <div class="hdr">Item 46 of 56
+        <span class="sub">&nbsp;&nbsp;Site E &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">PAC:2 SEPARATE ALARM PRESENT ON PANEL FROM 4TH FL.</p>
+          <dl>
+            <dt>System</dt><dd>Fire Protection / Sprinklers</dd>
+            <dt>Component</dt><dd>Fire Alarm Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P1 Emergency
+                (target response 1 business days)</dd>
+            <dt>Waiting so far</dt><dd>0.9 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">MONTHLY EMERGENCY&amp;EXIT LIGHT INSPECTION (1X MONTH)</p>
+          <dl>
+            <dt>System</dt><dd>Electrical / Lighting and Branch Wiring</dd>
+            <dt>Component</dt><dd>Exit Lighting Fixture</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.1 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I046" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I046" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I046" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I046" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I046" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I046" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I047">
+      <div class="hdr">Item 47 of 56
+        <span class="sub">&nbsp;&nbsp;Site B &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">PLUMBING FLUSH VALVE ISSUE</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Plumbing Fixtures</dd>
+            <dt>Component</dt><dd>Toilet &amp; Wash Basin</dd>
+            
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>12.1 business days</dd>
+            <dt>Estimated labour</dt><dd>0.4 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">BMS: TEMPERATURE/HUMIDITY OUT OF RANGE</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Controls and Instrumentation</dd>
+            <dt>Component</dt><dd>HVAC Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.3 business days</dd>
+            <dt>Estimated labour</dt><dd>0.8 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I047" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I047" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I047" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I047" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I047" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I047" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I048">
+      <div class="hdr">Item 48 of 56
+        <span class="sub">&nbsp;&nbsp;Site E &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">BMC: 5.346 HAS A LEAK ON THE EAST WALL</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Domestic Water Distribution</dd>
+            <dt>Component</dt><dd>Pipe &amp; Fittings</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.7 business days</dd>
+            <dt>Estimated labour</dt><dd>1.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">ETC: 9.148: CEILING LEAKS-NEAR EQUIPMENT</p>
+          <dl>
+            <dt>System</dt><dd>Interior Finishes / Ceiling Finishes</dd>
+            <dt>Component</dt><dd>Plaster Ceiling</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.2 business days</dd>
+            <dt>Estimated labour</dt><dd>0.8 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I048" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I048" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I048" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I048" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I048" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I048" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I049">
+      <div class="hdr">Item 49 of 56
+        <span class="sub">&nbsp;&nbsp;Site D &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">ASSEMBLY ECCPC00305 - QTY: 15</p>
+          <dl>
+            <dt>System</dt><dd>Equipment</dd>
+            <dt>Component</dt><dd>General Other Equipment</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>5.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">PM Fire Sprinkler Winter Inspection - Annual</p>
+          <dl>
+            <dt>System</dt><dd>Fire Protection</dd>
+            <dt>Component</dt><dd>Fire Sprinkler System</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>10.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I049" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I049" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I049" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I049" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I049" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I049" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I050">
+      <div class="hdr">Item 50 of 56
+        <span class="sub">&nbsp;&nbsp;Site B &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">MIGRATED FAMIS WORK ORDERS</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / General</dd>
+            <dt>Component</dt><dd>Unplanned Maintenance</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>6.0 business days</dd>
+            <dt>Estimated labour</dt><dd>3.3 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">GENERAL MATERIAL CONDITION: WORK PERFORMED ON EQUIPMENT OR A PROPERTY</p>
+          <dl>
+            <dt>System</dt><dd>General / Inspection</dd>
+            <dt>Component</dt><dd>Planned Preventive Maintenance</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.0 business days</dd>
+            <dt>Estimated labour</dt><dd>90.9 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I050" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I050" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I050" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I050" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I050" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I050" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I051">
+      <div class="hdr">Item 51 of 56
+        <span class="sub">&nbsp;&nbsp;Site E &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">UTC: 1.146 CEILING WAS LEAKING. SEE TASK LIST</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Domestic Water Distribution</dd>
+            <dt>Component</dt><dd>Pipe &amp; Fittings</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>6.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">MAI; EAST SIDE GROUND DOOR WILL NOT CLOSE</p>
+          <dl>
+            <dt>System</dt><dd>Exterior Enclosure / Exterior Doors</dd>
+            <dt>Component</dt><dd>Sliding, Motor-Operated</dd>
+            
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>8.0 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I051" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I051" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I051" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I051" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I051" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I051" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I052">
+      <div class="hdr">Item 52 of 56
+        <span class="sub">&nbsp;&nbsp;Site A &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">TUPPER 15TH FL - FEMALE WASHROOM TOILET OUT OF ORDER</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Plumbing Fixtures</dd>
+            <dt>Component</dt><dd>Toilet &amp; Wash Basin</dd>
+            <dt>Building type</dt><dd>Mixed Teaching/Research</dd>
+            <dt>Recorded priority</dt><dd>P2 Urgent
+                (target response 3 business days)</dd>
+            <dt>Waiting so far</dt><dd>8.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">SIX MONTH FILTER PM ON AHU &amp; AC UNITS</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Distribution Systems</dd>
+            <dt>Component</dt><dd>Air Handler, Exhaust/Multizone/Single Zone</dd>
+            <dt>Building type</dt><dd>Mixed Teaching/Research</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>11.0 business days</dd>
+            <dt>Estimated labour</dt><dd>3.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I052" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I052" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I052" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I052" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I052" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I052" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I053">
+      <div class="hdr">Item 53 of 56
+        <span class="sub">&nbsp;&nbsp;Site C &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">PAVILION OVERHEAD DOORS--ROLLERS OFF TRACK 1) BIG DOOR, EAST (T</p>
+          <dl>
+            <dt>System</dt><dd>Exterior Enclosure / Exterior Doors</dd>
+            <dt>Component</dt><dd>Steel 20&#x27;x20&#x27;, Painted/Roll-up</dd>
+            
+            <dt>Recorded priority</dt><dd>P3 Routine
+                (target response 10 business days)</dd>
+            <dt>Waiting so far</dt><dd>4.3 business days</dd>
+            <dt>Estimated labour</dt><dd>8.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">YEARLY - SERVICE &amp; FUNCTIONAL CHECK FURNACE</p>
+          <dl>
+            <dt>System</dt><dd>HVAC / Heat Generation Systems</dd>
+            <dt>Component</dt><dd>Furnace, Gas/Oil/Electric</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>7.9 business days</dd>
+            <dt>Estimated labour</dt><dd>2.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I053" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I053" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I053" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I053" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I053" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I053" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I054">
+      <div class="hdr">Item 54 of 56
+        <span class="sub">&nbsp;&nbsp;Site D &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">CJPRJ - STEAM TRAP RECOMMISSIONING</p>
+          <dl>
+            <dt>System</dt><dd>HVAC</dd>
+            <dt>Component</dt><dd>Steam Trap</dd>
+            
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>13.5 business days</dd>
+            <dt>Estimated labour</dt><dd>1.2 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">After hours - trouble on fire panel at West Stadium. (General Comments)</p>
+          <dl>
+            <dt>System</dt><dd>Fire Protection</dd>
+            <dt>Component</dt><dd>Fire Alarm Control Panel</dd>
+            
+            <dt>Recorded priority</dt><dd>P1 Emergency
+                (target response 1 business days)</dd>
+            <dt>Waiting so far</dt><dd>1.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.0 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I054" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I054" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I054" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I054" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I054" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I054" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I055">
+      <div class="hdr">Item 55 of 56
+        <span class="sub">&nbsp;&nbsp;Site A &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">ESCAPE HATCH MAINTENANCE - QUARTERLY - ZONE 2</p>
+          <dl>
+            <dt>System</dt><dd>Roofing / Roof Openings</dd>
+            <dt>Component</dt><dd>Roof Hatch, Aluminum</dd>
+            <dt>Building type</dt><dd>Other</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>2.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.5 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">MAINTENANCE MECHANIC WEEKLY ROUNDS</p>
+          <dl>
+            <dt>System</dt><dd>General / Inspection</dd>
+            <dt>Component</dt><dd>Planned Preventive Maintenance</dd>
+            <dt>Building type</dt><dd>Research</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>2.0 business days</dd>
+            <dt>Estimated labour</dt><dd>1.5 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I055" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I055" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I055" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I055" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I055" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I055" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+    <div class="item" id="item-I056">
+      <div class="hdr">Item 56 of 56
+        <span class="sub">&nbsp;&nbsp;Site F &middot; both jobs are
+        waiting in the same queue at the same moment</span></div>
+      <div class="cards">
+        
+        <div class="card">
+          <div class="side">Job on the left</div>
+          <p class="desc">OFPC, sprink covers missing,4th fl near NE stairs and bsmt hall near B30</p>
+          <dl>
+            <dt>System</dt><dd>Fire Protection / Sprinklers</dd>
+            <dt>Component</dt><dd>Fire Sprinkler System</dd>
+            <dt>Building</dt><dd>Upson Hall</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>6.0 business days</dd>
+            <dt>Estimated labour</dt><dd>14.0 hours</dd>
+          </dl>
+        </div>
+        
+        <div class="card">
+          <div class="side">Job on the right</div>
+          <p class="desc">LD 121X Toilet is partially clogged. Water goes down very slowly.</p>
+          <dl>
+            <dt>System</dt><dd>Plumbing / Plumbing Fixtures</dd>
+            <dt>Component</dt><dd>Toilet &amp; Wash Basin</dd>
+            <dt>Building</dt><dd>George Jameson Hall</dd>
+            <dt>Recorded priority</dt><dd>P4 Planned
+                (target response 21 business days)</dd>
+            <dt>Waiting so far</dt><dd>8.0 business days</dd>
+            <dt>Estimated labour</dt><dd>0.2 hours</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="answer">
+        <fieldset>
+          <legend>Which job should be started first?</legend>
+          <label class="opt"><input type="radio" name="q_I056" value="L"> The job on the left</label>
+          <label class="opt"><input type="radio" name="q_I056" value="R"> The job on the right</label>
+        </fieldset>
+        <fieldset>
+          <legend>How confident are you?</legend>
+          <label class="opt"><input type="radio" name="c_I056" value="1"> Not confident</label>
+          <label class="opt"><input type="radio" name="c_I056" value="2"> Fairly confident</label>
+          <label class="opt"><input type="radio" name="c_I056" value="3"> Very confident</label>
+        </fieldset>
+        <fieldset>
+          <legend>Why? (optional, one line)</legend>
+          <textarea id="r_I056" rows="2" placeholder="e.g. a leak spreads, the other can wait"></textarea>
+        </fieldset>
+      </div>
+    </div>
+
+<h2>Finishing</h2>
+<p>When you are done, press <b>Save my answers</b>. Your browser will download one
+small CSV file. Email that file back. If nothing downloads, press
+<b>Show answers as text</b> and paste the text into your reply instead.</p>
+
+<div class="bar">
+  <button id="btn-save" type="button">Save my answers (CSV)</button>
+  <button id="btn-show" type="button" class="secondary">Show answers as text</button>
+  <span id="status"></span>
+  <textarea id="fallback" readonly></textarea>
+</div>
+
+<p style="font-size:14px; color:#333; margin-top:24px;">
+Instrument build 2026-07-31 &middot; seed 908 &middot;
+50 pairs, 56 items &middot; manifest
+y3_w8_manifest.csv. Questions: ziheng.zhang@singaporetech.edu.sg.
+</p>
+
+</div>
+<script>
+(function () {
+  var ITEMS = [{"id":"I001","pair":"P031","left":"WO507528","right":"WO507377"},{"id":"I002","pair":"P001","left":"WO511131","right":"WO511212"},{"id":"I003","pair":"P045","left":"WO175094","right":"WO175765"},{"id":"I004","pair":"P009","left":"W12086332","right":"W12082404"},{"id":"I005","pair":"P008","left":"CAHILL19150666","right":"SCHLNGR19149223"},{"id":"I006","pair":"P029","left":"37450572","right":"37454200"},{"id":"I007","pair":"P049","left":"WO507920","right":"WO506985"},{"id":"I008","pair":"P024","left":"11564992","right":"11522301"},{"id":"I009","pair":"P004","left":"FM-508752","right":"FM-509114"},{"id":"I010","pair":"P015","left":"FM-542489","right":"FM-542118"},{"id":"I011","pair":"P006","left":"11554909","right":"11522340"},{"id":"I012","pair":"P021","left":"WO174850","right":"WO175085"},{"id":"I013","pair":"P026","left":"CHURCH19175637","right":"305HIL19174844"},{"id":"I014","pair":"P017","left":"11522369","right":"11566976"},{"id":"I015","pair":"P042","left":"11554352","right":"11569165"},{"id":"I016","pair":"P022","left":"FM-542213","right":"FM-542832"},{"id":"I017","pair":"P048","left":"11514163","right":"11671266"},{"id":"I018","pair":"P033","left":"WO174317","right":"WO174309"},{"id":"I019","pair":"P016","left":"38287447","right":"38293558"},{"id":"I020","pair":"P011","left":"37449070","right":"37450330"},{"id":"I021","pair":"P045","left":"WO175765","right":"WO175094"},{"id":"I022","pair":"P032","left":"TRNSGRD16019278","right":"HR_SHPS16021561"},{"id":"I023","pair":"P019","left":"WO173549","right":"WO174651"},{"id":"I024","pair":"P007","left":"WO442241","right":"WO442516"},{"id":"I025","pair":"P037","left":"WO508088","right":"WO506578"},{"id":"I026","pair":"P018","left":"WO507164","right":"WO506102"},{"id":"I027","pair":"P034","left":"FM-542578","right":"FM-542623"},{"id":"I028","pair":"P036","left":"11550813","right":"11554309"},{"id":"I029","pair":"P012","left":"11524722","right":"11524685"},{"id":"I030","pair":"P005","left":"38286716","right":"38286652"},{"id":"I031","pair":"P050","left":"TRNSGRD16022903","right":"HR_SHPS16021554"},{"id":"I032","pair":"P043","left":"WO507502","right":"WO507098"},{"id":"I033","pair":"P041","left":"38291527","right":"38288333"},{"id":"I034","pair":"P014","left":"K_SPALD19150477","right":"NOYES19148741"},{"id":"I035","pair":"P039","left":"WO175462","right":"WO176109"},{"id":"I036","pair":"P044","left":"BRN_LAB17049841","right":"BKMNINS17049711"},{"id":"I037","pair":"P030","left":"11554943","right":"11569155"},{"id":"I038","pair":"P004","left":"FM-509114","right":"FM-508752"},{"id":"I039","pair":"P022","left":"FM-542832","right":"FM-542213"},{"id":"I040","pair":"P046","left":"FM-509363","right":"FM-509815"},{"id":"I041","pair":"P003","left":"W09151210","right":"W09159287"},{"id":"I042","pair":"P023","left":"38286143","right":"38285621"},{"id":"I043","pair":"P040","left":"FM-571757","right":"FM-572355"},{"id":"I044","pair":"P027","left":"WO174670","right":"WO177067"},{"id":"I045","pair":"P038","left":"BKMNINS19159499","right":"305HIL19160000"},{"id":"I046","pair":"P016","left":"38293558","right":"38287447"},{"id":"I047","pair":"P020","left":"KCK_CTR19175103","right":"305HIL19175360"},{"id":"I048","pair":"P035","left":"37450559","right":"37450746"},{"id":"I049","pair":"P028","left":"FM-543078","right":"FM-542400"},{"id":"I050","pair":"P002","left":"DMWO738697","right":"BAXTER16002655"},{"id":"I051","pair":"P047","left":"37451900","right":"37450454"},{"id":"I052","pair":"P013","left":"WO507142","right":"WO506763"},{"id":"I053","pair":"P039","left":"WO176109","right":"WO175462"},{"id":"I054","pair":"P010","left":"FM-508595","right":"FM-509773"},{"id":"I055","pair":"P025","left":"WO508074","right":"WO508055"},{"id":"I056","pair":"P036","left":"11554309","right":"11550813"}];
+  var t0 = {}, seen = {};
+  ITEMS.forEach(function (it) {
+    var name = "q_" + it.id;
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (el) {
+      el.addEventListener('change', function () {
+        if (!seen[it.id]) { seen[it.id] = true; }
+        if (!t0[it.id]) { t0[it.id] = Date.now(); }
+      });
+    });
+  });
+  var pageOpen = Date.now();
+  function val(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : "";
+  }
+  function txt(id) { var el = document.getElementById(id); return el ? el.value : ""; }
+  function esc(s) {
+    s = (s === null || s === undefined) ? "" : String(s);
+    if (/[",\n\r]/.test(s)) { return '"' + s.replace(/"/g, '""') + '"'; }
+    return s;
+  }
+  function buildCSV() {
+    var head = ["rater_id", "rater_role", "rater_years_fm", "item_id", "pair_id",
+                "presented_left_order", "presented_right_order", "choice_side",
+                "chosen_order_id", "confidence", "reason",
+                "seconds_from_start"];
+    var rid = txt("rater_id").trim();
+    var role = txt("rater_role").trim();
+    var yrs = txt("rater_years").trim();
+    var lines = [head.join(",")];
+    var missing = 0;
+    ITEMS.forEach(function (it) {
+      var side = val("q_" + it.id);
+      var conf = val("c_" + it.id);
+      var reason = txt("r_" + it.id);
+      if (!side) { missing += 1; }
+      var chosen = side === "L" ? it.left : (side === "R" ? it.right : "");
+      // elapsed seconds from opening the page to first answering this item;
+      // differences between consecutive items give the time each one took
+      var secs = t0[it.id] ? Math.round((t0[it.id] - pageOpen) / 1000) : "";
+      lines.push([rid, role, yrs, it.id, it.pair, it.left, it.right,
+                  side, chosen, conf, reason, secs].map(esc).join(","));
+    });
+    return { csv: lines.join("\n") + "\n", missing: missing, rid: rid };
+  }
+  function report(msg) { document.getElementById("status").textContent = msg; }
+  document.getElementById("btn-save").addEventListener("click", function () {
+    var r = buildCSV();
+    if (!r.rid) { report("Please type your participant code at the top first."); return; }
+    var name = "y3_w8_responses_" + r.rid.replace(/[^A-Za-z0-9_-]/g, "_") + ".csv";
+    var blob = new Blob([r.csv], { type: "text/csv;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = name; document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+    report(r.missing ? ("Saved " + name + " -- " + r.missing + " item(s) still blank.")
+                     : ("Saved " + name + " -- all items answered. Thank you."));
+  });
+  document.getElementById("btn-show").addEventListener("click", function () {
+    var r = buildCSV();
+    var fb = document.getElementById("fallback");
+    fb.style.display = "block"; fb.value = r.csv; fb.select();
+    report("Text shown below: select all, copy, and paste it into an email or a file.");
+  });
+})();
+</script>
+</body>
+</html>

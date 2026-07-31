@@ -1,7 +1,7 @@
 """E0 regression anchor (Paper Y3, Phase P1).
 
 With the supervisor DISABLED the modified environment must be behaviourally
-byte-identical to the unmodified Y1 dispatcher (E0 anchor). This script
+byte-identical to the unmodified Y1 dispatcher (proposal Sec.6, E0). This script
 checks, fast (< 5 min) and self-contained, exiting NONZERO on any mismatch:
 
   (i)  RULE 3-way exactness. For all 4 verdict campuses (5, 9, 10, 12) and both

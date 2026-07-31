@@ -1,14 +1,14 @@
 """Supervisor overlay: seeded, bit-for-bit reproducible latent-urgency generator.
 
-Paper Y3, Phase P1. Implements the variance-preserving latent urgency
-(Appendix D.1):
+Paper Y3, Phase P1. Implements the variance-preserving latent of proposal
+Sec.4.2 / Appendix D.1:
 
     xi_j = sqrt(beta) * f(x_j) + sqrt(1 - beta) * z_j
     s_j  = clip(round(sigma_s * xi_j), -2, +2)        (sigma_s = 1.0)
     c*_j = clip(c_j - s_j, 1, 4)                       (positive s = more urgent)
     w*_j = w(c*_j)                                     (w = 8/4/2/1)
 
-Design choices:
+Design choices (recorded in notes/decisions.md):
 
 * Features ``x`` are CAMPUS-AGNOSTIC only: trade one-hot (fixed 14-trade vocab),
   log1p(p_bh), release day-of-week one-hot (bh-axis day index mod 5). The FMUCD

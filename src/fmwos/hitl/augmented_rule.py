@@ -1,7 +1,7 @@
 """M0: the augmented rule (Paper Y3, P2, method-ladder rung 0).
 
-M0 is the "just make the rule learn" baseline, the simplest correction layer.
-It trains the SAME shift estimator as M1 (same architecture, same weak-label
+M0 is the "just make the rule learn" baseline, built before a reviewer demands
+it. It trains the SAME shift estimator as M1 (same architecture, same weak-label
 training) but from the override log of the RULE(ATC)+SUP system, and then
 re-scores ATC with corrected weights ``w(clip(c - hat_s, 1, 4))``. No RL, no
 policy network anywhere in the loop.
@@ -15,7 +15,7 @@ M1.
 
 The corrected weight interpolates the class->weight table (w = 8/4/2/1 on classes
 1..4) at the continuous corrected class ``clip(c - hat_s, 1, 4)``, so a graded
-``hat_s`` produces a graded weight.
+``hat_s`` produces a graded weight (recorded as a P2 default in decisions.md).
 """
 
 from __future__ import annotations

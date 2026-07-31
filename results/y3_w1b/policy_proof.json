@@ -1,0 +1,41 @@
+{
+ "map": {
+  "cells": 90,
+  "n_make_supervisor": 13320,
+  "classes": {
+   "StabilityRoutingSupervisor": 13320
+  },
+  "has_plus2_calls": 0,
+  "from_cache": 0,
+  "cells_with_undetermined_rate": 90,
+  "cells_with_band": 90,
+  "run_config_policies": [
+   "stability"
+  ]
+ },
+ "ctrl": {
+  "cells": 45,
+  "n_make_supervisor": 6660,
+  "classes": {
+   "Supervisor": 6660
+  },
+  "has_plus2_calls": 10382078,
+  "from_cache": 0,
+  "run_config_policies": [
+   "targeted"
+  ]
+ },
+ "gate": {
+  "cells": 10,
+  "n_make_supervisor": 1480,
+  "classes": {
+   "Supervisor": 1480
+  },
+  "has_plus2_calls": 2472929,
+  "from_cache": 0,
+  "run_config_policies": [
+   "targeted"
+  ]
+ },
+ "note": "has_plus2 is the published policy's undeployable clause: it reads the realized latent shift of the pending queue. It must be 0 on every deployable cell and large on the gate."
+}

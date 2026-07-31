@@ -1,0 +1,8 @@
+{
+ "frac_s_plus2": 0.20009458331597813,
+ "has_plus2_rate": 0.47230860137259,
+ "has_plus2_sd": 0.035405799205638196,
+ "n_instances": 10,
+ "seed": 301,
+ "note": "diagnostic on the held-out instances of the headline cell; the published TARGETED policy ORs this clause with the margin quantile, so a flagged decision is reviewed in arrival order until the budget is spent"
+}

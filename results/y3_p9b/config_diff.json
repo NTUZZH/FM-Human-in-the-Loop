@@ -1,0 +1,214 @@
+{
+ "PASS": true,
+ "cells": {
+  "c9_storm2_u100_b0.20_r0.25_eps0.00": {
+   "PASS": true,
+   "decider_set": [
+    "rule",
+    "rule_sup",
+    "m0_alone",
+    "m0_sup",
+    "oracle"
+   ],
+   "eval_inst_ids": [
+    "c09_storm2_w80_u100_0020",
+    "c09_storm2_w80_u100_0021",
+    "c09_storm2_w80_u100_0022",
+    "c09_storm2_w80_u100_0023",
+    "c09_storm2_w80_u100_0024",
+    "c09_storm2_w80_u100_0025",
+    "c09_storm2_w80_u100_0026",
+    "c09_storm2_w80_u100_0027",
+    "c09_storm2_w80_u100_0028",
+    "c09_storm2_w80_u100_0029"
+   ],
+   "overlay_coeff_sha256": "21b3ef67c107d2c5fbbbe6a1ee28354851c6928cec64aa66749cf2f1c1b9413b",
+   "review_policy_y3_p9": {
+    "mech": "targeted"
+   },
+   "review_policy_y3_p9b": {
+    "alpha": 0.1,
+    "band_mode": "global",
+    "cal_frac": 0.3,
+    "policy": "stability",
+    "split_fit": true
+   },
+   "scoring": "TWT*(w*,d*) full_class_shift, independent validator",
+   "seeds_y3_p9": [
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310
+   ],
+   "seeds_y3_p9b": [
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310
+   ],
+   "shared_field_diff": {}
+  },
+  "c9_storm2_u100_b0.20_r0.25_eps0.25": {
+   "PASS": true,
+   "decider_set": [
+    "rule",
+    "rule_sup",
+    "m0_alone",
+    "m0_sup",
+    "oracle"
+   ],
+   "eval_inst_ids": [
+    "c09_storm2_w80_u100_0020",
+    "c09_storm2_w80_u100_0021",
+    "c09_storm2_w80_u100_0022",
+    "c09_storm2_w80_u100_0023",
+    "c09_storm2_w80_u100_0024",
+    "c09_storm2_w80_u100_0025",
+    "c09_storm2_w80_u100_0026",
+    "c09_storm2_w80_u100_0027",
+    "c09_storm2_w80_u100_0028",
+    "c09_storm2_w80_u100_0029"
+   ],
+   "overlay_coeff_sha256": "21b3ef67c107d2c5fbbbe6a1ee28354851c6928cec64aa66749cf2f1c1b9413b",
+   "review_policy_y3_p9": {
+    "mech": "targeted"
+   },
+   "review_policy_y3_p9b": {
+    "alpha": 0.1,
+    "band_mode": "global",
+    "cal_frac": 0.3,
+    "policy": "stability",
+    "split_fit": true
+   },
+   "scoring": "TWT*(w*,d*) full_class_shift, independent validator",
+   "seeds_y3_p9": [
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310
+   ],
+   "seeds_y3_p9b": [
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310
+   ],
+   "shared_field_diff": {}
+  },
+  "c9_storm2_u100_b0.25_r0.25_eps0.00": {
+   "PASS": true,
+   "decider_set": [
+    "rule",
+    "rule_sup",
+    "m0_alone",
+    "m0_sup",
+    "oracle"
+   ],
+   "eval_inst_ids": [
+    "c09_storm2_w80_u100_0020",
+    "c09_storm2_w80_u100_0021",
+    "c09_storm2_w80_u100_0022",
+    "c09_storm2_w80_u100_0023",
+    "c09_storm2_w80_u100_0024",
+    "c09_storm2_w80_u100_0025",
+    "c09_storm2_w80_u100_0026",
+    "c09_storm2_w80_u100_0027",
+    "c09_storm2_w80_u100_0028",
+    "c09_storm2_w80_u100_0029"
+   ],
+   "overlay_coeff_sha256": "21b3ef67c107d2c5fbbbe6a1ee28354851c6928cec64aa66749cf2f1c1b9413b",
+   "review_policy_y3_p9": {
+    "mech": "targeted"
+   },
+   "review_policy_y3_p9b": {
+    "alpha": 0.1,
+    "band_mode": "global",
+    "cal_frac": 0.3,
+    "policy": "stability",
+    "split_fit": true
+   },
+   "scoring": "TWT*(w*,d*) full_class_shift, independent validator",
+   "seeds_y3_p9": [
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310
+   ],
+   "seeds_y3_p9b": [
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310
+   ],
+   "shared_field_diff": {}
+  }
+ },
+ "intended_difference": {
+  "note": "The conformal band the stability test needs must be calibrated on examples the estimator has never seen, so the fold split is part of the deployable protocol, not an independent knob. The targeted_split arm isolates it.",
+  "y3_p9": {
+   "estimator_fit": "whole weak-label aggregate",
+   "mech": "targeted"
+  },
+  "y3_p9b": {
+   "alpha": 0.1,
+   "band_mode": "global",
+   "cal_frac": 0.3,
+   "estimator_fit": "proper-training fold only; the calibration fold is never fitted on",
+   "policy": "stability",
+   "split_fit": true
+  }
+ },
+ "shared_fields": [
+  "campus",
+  "regime",
+  "u",
+  "size",
+  "beta",
+  "rho",
+  "eps",
+  "theta",
+  "channel",
+  "family",
+  "master_seed",
+  "n_train",
+  "n_probe",
+  "n_eval",
+  "m0_iters"
+ ]
+}

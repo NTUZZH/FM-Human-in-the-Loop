@@ -1,0 +1,47 @@
+[w3] cell=c9_u130_b0  18 jobs (6 variants x 3 seeds), 4 workers
+  [ 1/18] tobit_exp        s301   13.017% <RULE  mean_hat_s=-1.0473 applied=+0.1172  r=+0.000  tau=0.316  (169s, wall 169s)
+  [ 2/18] mse_published    s301   16.029% <RULE  mean_hat_s=+0.0340 applied=+0.0756  r=-0.004  tau=0.386  (175s, wall 175s)
+  [ 3/18] tobit_imp        s301   18.213% <RULE  mean_hat_s=+0.0795 applied=+0.1061  r=-0.000  tau=0.340  (178s, wall 179s)
+  [ 4/18] tobit            s301    1.872% <RULE  mean_hat_s=-0.7894 applied=-0.0336  r=+0.000  tau=0.409  (195s, wall 195s)
+  [ 5/18] classmean_oracle s301   -0.034% <RULE  mean_hat_s=+0.2847 applied=+0.2847  r=+0.001  tau=0.547  (27s, wall 203s)
+  [ 6/18] mse_published    s302   13.108% <RULE  mean_hat_s=+0.0060 applied=+0.0515  r=-0.001  tau=0.406  (160s, wall 338s)
+  [ 7/18] tobit_sig        s301   -0.559% <RULE  mean_hat_s=-0.9913 applied=-0.0502  r=+0.001  tau=0.488  (188s, wall 356s)
+  [ 8/18] tobit_imp        s302   14.409% <RULE  mean_hat_s=+0.0538 applied=+0.0907  r=-0.001  tau=0.353  (169s, wall 372s)
+  [ 9/18] tobit            s302    3.403% <RULE  mean_hat_s=-0.7233 applied=-0.0402  r=+0.001  tau=0.444  (180s, wall 375s)
+  [10/18] classmean_oracle s302   -0.034% <RULE  mean_hat_s=+0.2847 applied=+0.2847  r=+0.001  tau=0.547  (23s, wall 395s)
+  [11/18] tobit_exp        s302    8.716% <RULE  mean_hat_s=-0.8881 applied=+0.1295  r=+0.001  tau=0.335  (142s, wall 480s)
+  [12/18] mse_published    s303   14.883% <RULE  mean_hat_s=+0.0218 applied=+0.0641  r=-0.005  tau=0.362  (148s, wall 523s)
+  [13/18] tobit_sig        s302   -0.710% <RULE  mean_hat_s=-0.5786 applied=-0.0317  r=+0.002  tau=0.443  (168s, wall 524s)
+  [14/18] tobit            s303    1.482% <RULE  mean_hat_s=-0.9707 applied=-0.0415  r=+0.001  tau=0.437  (166s, wall 561s)
+  [15/18] classmean_oracle s303   -0.034% <RULE  mean_hat_s=+0.2847 applied=+0.2847  r=+0.001  tau=0.547  (23s, wall 585s)
+  [16/18] tobit_imp        s303   16.471% <RULE  mean_hat_s=+0.0503 applied=+0.0835  r=+0.005  tau=0.377  (150s, wall 630s)
+  [17/18] tobit_exp        s303   10.395% <RULE  mean_hat_s=-0.7793 applied=+0.1317  r=+0.003  tau=0.334  (140s, wall 663s)
+  [18/18] tobit_sig        s303   -1.825% <RULE  mean_hat_s=-1.2309 applied=-0.0367  r=+0.001  tau=0.477  (170s, wall 694s)
+[w3] cell=c9_u130_b0 complete.
+[w3] cell=c9_u130_b0  1 jobs (1 variants x 1 seeds), 1 workers
+  [ 1/ 1] mse_reexpr       s301   16.029% <RULE  mean_hat_s=+0.0340 applied=+0.0756  r=-0.004  tau=0.386  (157s, wall 157s)
+[w3] cell=c9_u130_b0 complete.
+[w3] cell=c9_u100_b0  18 jobs (6 variants x 3 seeds), 4 workers
+  [ 1/18] mse_published    s301    0.166% <RULE  mean_hat_s=-0.0063 applied=+0.0208  r=-0.010  tau=0.485  (63s, wall 64s)
+  [ 2/18] tobit_exp        s301   -3.505% <RULE  mean_hat_s=-1.0717 applied=+0.0291  r=+0.002  tau=0.342  (66s, wall 66s)
+  [ 3/18] tobit_imp        s301   -1.497% <RULE  mean_hat_s=+0.0327 applied=+0.0585  r=+0.004  tau=0.432  (66s, wall 66s)
+  [ 4/18] tobit            s301   -4.473% <RULE  mean_hat_s=-1.0926 applied=-0.0868  r=+0.002  tau=0.428  (68s, wall 68s)
+  [ 5/18] classmean_oracle s301    0.012% <RULE  mean_hat_s=+0.2808 applied=+0.2808  r=-0.005  tau=0.535  (11s, wall 77s)
+  [ 6/18] mse_published    s302   -1.084% <RULE  mean_hat_s=+0.0146 applied=+0.0339  r=-0.003  tau=0.438  (61s, wall 128s)
+  [ 7/18] tobit_sig        s301   -4.860% <RULE  mean_hat_s=-0.9704 applied=-0.0907  r=-0.005  tau=0.491  (70s, wall 134s)
+  [ 8/18] tobit            s302   -1.568% <RULE  mean_hat_s=-1.3008 applied=-0.1015  r=-0.004  tau=0.477  (67s, wall 135s)
+  [ 9/18] tobit_imp        s302   -0.421% <RULE  mean_hat_s=+0.0158 applied=+0.0436  r=-0.005  tau=0.361  (67s, wall 144s)
+  [10/18] classmean_oracle s302    0.012% <RULE  mean_hat_s=+0.2808 applied=+0.2808  r=-0.005  tau=0.535  (11s, wall 146s)
+  [11/18] tobit_exp        s302    0.375% <RULE  mean_hat_s=-1.1409 applied=+0.0211  r=+0.002  tau=0.349  (65s, wall 193s)
+  [12/18] tobit_sig        s302   -4.690% <RULE  mean_hat_s=-0.9095 applied=-0.0800  r=+0.001  tau=0.450  (70s, wall 203s)
+  [13/18] mse_published    s303   -2.327% <RULE  mean_hat_s=-0.0108 applied=+0.0243  r=+0.003  tau=0.420  (63s, wall 208s)
+  [14/18] tobit            s303   -0.587% <RULE  mean_hat_s=-1.2849 applied=-0.1195  r=-0.006  tau=0.498  (70s, wall 216s)
+  [15/18] classmean_oracle s303    0.012% <RULE  mean_hat_s=+0.2808 applied=+0.2808  r=-0.005  tau=0.535  (11s, wall 227s)
+  [16/18] tobit_imp        s303   -3.855% <RULE  mean_hat_s=+0.0156 applied=+0.0432  r=+0.005  tau=0.353  (66s, wall 259s)
+  [17/18] tobit_exp        s303   -4.419% <RULE  mean_hat_s=-1.1958 applied=+0.0089  r=-0.001  tau=0.348  (66s, wall 269s)
+  [18/18] tobit_sig        s303   -2.997% <RULE  mean_hat_s=-1.2989 applied=-0.0974  r=+0.001  tau=0.490  (71s, wall 279s)
+[w3] cell=c9_u100_b0 complete.
+[w3] cell=c9_u100_b0  1 jobs (1 variants x 1 seeds), 1 workers
+  [ 1/ 1] mse_reexpr       s301    0.166% <RULE  mean_hat_s=-0.0063 applied=+0.0208  r=-0.010  tau=0.485  (71s, wall 71s)
+[w3] cell=c9_u100_b0 complete.
+R2 DONE

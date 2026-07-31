@@ -1,0 +1,1 @@
+Every CSV under this directory is machine-generated from a known model with a fixed seed, for the sole purpose of testing that scripts/y3_w8_pilot_analyse.py runs and degrades correctly. No practitioner was recruited and no response was collected. Nothing here is a finding and nothing here may be quoted in the manuscript.

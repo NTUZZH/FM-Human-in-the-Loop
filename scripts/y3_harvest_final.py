@@ -52,7 +52,7 @@ from fmwos.hitl import overlay as ov                               # noqa: E402
 from fmwos.hitl import true_objective as TO                        # noqa: E402
 from fmwos.hitl.latent_head import LatentDispatchPolicy            # noqa: E402
 
-SWEEP = os.path.join(_ROOT, "results", "y3_checkpoints", "sweep")
+SWEEP = os.path.join(_ROOT, "train_log", "y3_sweep")
 CACHE = os.path.join(_ROOT, "results", "y3_p4", "cache")
 PRIMARY_CSV = os.path.join(_ROOT, "results", "y3_p5", "harvest", "primary_multiseed.csv")
 N_TRAIN, N_PROBE, N_EVAL = 16, 4, 10       # eval = files[20:30]

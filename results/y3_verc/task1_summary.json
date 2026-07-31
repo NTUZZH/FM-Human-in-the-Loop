@@ -1,0 +1,88 @@
+[
+ {
+  "campus": 9,
+  "u": 90,
+  "n": 12,
+  "mean_oracle": 1519.5583,
+  "mean_atc": 1912.818166666667,
+  "mean_best_portfolio": 1761.807733333333,
+  "mean_best_all": 1761.807733333333,
+  "mean_ga": null,
+  "hr_vs_atc": 20.559187146992294,
+  "hr_vs_best_portfolio": 13.750049381097803,
+  "hr_vs_best_all": 13.750049381097803,
+  "wtl_vs_bp": "11/0/1",
+  "wtl_vs_best_all": "11/0/1",
+  "best_rule_counts": {
+   "edd": 12
+  },
+  "ga_n": 0,
+  "ga_mean_gens": null
+ },
+ {
+  "campus": 9,
+  "u": 100,
+  "n": 12,
+  "mean_oracle": 1460.0681833333335,
+  "mean_atc": 2849.343550000001,
+  "mean_best_portfolio": 2588.82,
+  "mean_best_all": 2588.82,
+  "mean_ga": 2444.7067000000006,
+  "hr_vs_atc": 48.757734625109244,
+  "hr_vs_best_portfolio": 43.601015778102244,
+  "hr_vs_best_all": 43.601015778102244,
+  "wtl_vs_bp": "11/0/1",
+  "wtl_vs_best_all": "11/0/1",
+  "best_rule_counts": {
+   "edd": 8,
+   "wspt": 3,
+   "atc": 1
+  },
+  "ga_n": 6,
+  "ga_mean_gens": 70.0
+ },
+ {
+  "campus": 10,
+  "u": 90,
+  "n": 12,
+  "mean_oracle": 2376.4819,
+  "mean_atc": 3176.217433333333,
+  "mean_best_portfolio": 3070.040466666667,
+  "mean_best_all": 3070.040466666667,
+  "mean_ga": null,
+  "hr_vs_atc": 25.17886606062851,
+  "hr_vs_best_portfolio": 22.591186474480125,
+  "hr_vs_best_all": 22.591186474480125,
+  "wtl_vs_bp": "12/0/0",
+  "wtl_vs_best_all": "12/0/0",
+  "best_rule_counts": {
+   "edd": 6,
+   "atc": 5,
+   "wspt": 1
+  },
+  "ga_n": 0,
+  "ga_mean_gens": null
+ },
+ {
+  "campus": 10,
+  "u": 100,
+  "n": 12,
+  "mean_oracle": 2739.742166666667,
+  "mean_atc": 7662.226066666663,
+  "mean_best_portfolio": 6643.440216666666,
+  "mean_best_all": 6643.440216666666,
+  "mean_ga": 8718.80406666667,
+  "hr_vs_atc": 64.24352214579659,
+  "hr_vs_best_portfolio": 58.760189339954245,
+  "hr_vs_best_all": 58.760189339954245,
+  "wtl_vs_bp": "12/0/0",
+  "wtl_vs_best_all": "12/0/0",
+  "best_rule_counts": {
+   "atc": 5,
+   "edd": 1,
+   "wspt": 6
+  },
+  "ga_n": 6,
+  "ga_mean_gens": 4.666666666666667
+ }
+]

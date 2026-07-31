@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "built": "2026-07-31",
+    "seed": 908,
+    "n_pairs": 50,
+    "n_items": 56,
+    "n_repeats": 6,
+    "manifest_name": "y3_w8_manifest.csv",
+    "contact": "ziheng.zhang@singaporetech.edu.sg",
+    "raw_path": "/home/ziheng/PaperY-FMScheduling/data/raw/FMUCD.csv",
+    "campuses": [
+      1,
+      2,
+      5,
+      9,
+      10,
+      12
+    ],
+    "backlog_bh": 120.0,
+    "min_backlog": 10,
+    "anchors_per_campus": 600,
+    "pairs_per_anchor": 25,
+    "disagree_margin": 0.25,
+    "stratum_target": {
+      "S1_equal_class": 18,
+      "S2_one_apart": 14,
+      "S3_class_vs_attributes": 12,
+      "S4_far_apart": 6
+    },
+    "stratum_realised": {
+      "S3_class_vs_attributes": 12,
+      "S4_far_apart": 6,
+      "S1_equal_class": 18,
+      "S2_one_apart": 14
+    },
+    "per_campus_pairs": {
+      "1": 9,
+      "2": 9,
+      "5": 8,
+      "9": 8,
+      "10": 8,
+      "12": 8
+    },
+    "repeat_pair_ids": [
+      "P022",
+      "P039",
+      "P004",
+      "P016",
+      "P036",
+      "P045"
+    ],
+    "repeat_min_gap": 15,
+    "a_on_left_count": 25,
+    "a_on_left_of": 50,
+    "urgent_class_left_count": 16,
+    "urgent_class_left_of": 32,
+    "class_sla_business_days": {
+      "1": 1.0,
+      "2": 3.0,
+      "3": 10.0,
+      "4": 21.43
+    },
+    "attribute_class_model": {
+      "n": 1325805,
+      "n_params": 24,
+      "r2": 0.19088391331706,
+      "coefficients": {
+        "campus[1]": 3.235237,
+        "campus[2]": 3.713316,
+        "campus[5]": 3.671374,
+        "campus[9]": 3.817148,
+        "campus[10]": 3.841551,
+        "campus[12]": 3.320435,
+        "trade[B30]": 0.221342,
+        "trade[C10]": -0.446533,
+        "trade[C30]": -0.322874,
+        "trade[D10]": -0.258486,
+        "trade[D20]": -0.237036,
+        "trade[D30]": -0.090993,
+        "trade[D40]": 0.207335,
+        "trade[D50]": -0.002788,
+        "trade[D90]": 0.426391,
+        "trade[E10]": -0.261437,
+        "trade[E20]": 0.248682,
+        "trade[MISC]": -0.058088,
+        "trade[UNK]": -0.623515,
+        "log1p_labor_h": -0.158107,
+        "dow[1]": -0.022798,
+        "dow[2]": 0.078334,
+        "dow[3]": 0.024344,
+        "dow[4]": -0.004557
+      }
+    },
+    "trade_urgency_prior": {
+      "B20": 1.427687,
+      "B30": 1.373594,
+      "C10": 1.992687,
+      "C30": 1.966518,
+      "D10": 1.517674,
+      "D20": 1.732145,
+      "D30": 1.551515,
+      "D40": 1.309406,
+      "D50": 1.298315,
+      "D90": 1.086779,
+      "E10": 1.775152,
+      "E20": 1.446365,
+      "MISC": 1.731138,
+      "UNK": 2.340909
+    },
+    "corpus_audit": {
+      "rows_in": 3731442.0,
+      "R2_dropped_missing_key": 1362908.0,
+      "R3_dropped_zero_hours": 461669.0,
+      "R7_rows_before_dedup": 1906865.0,
+      "R7_work_orders_after_dedup": 1454039.0,
+      "R4_labor_cap_hours": 90.86480000000446,
+      "R4_rows_capped": 7271.0,
+      "rows_out": 1454039.0,
+      "pm_share": 0.6157447779477426,
+      "campus_filter_kept": 1449262,
+      "pilot_pool_before_eligibility": 1449262,
+      "pilot_drop_short_or_missing_description": 123395,
+      "pilot_drop_missing_component": 64,
+      "pilot_drop_missing_system": 2,
+      "pilot_pool_eligible": 1325805,
+      "pilot_building_descriptor_coverage": {
+        "1": 0.9851,
+        "2": 0.0,
+        "5": 0.0,
+        "9": 0.0,
+        "10": 0.0,
+        "12": 0.9997
+      }
+    }
+  },
+  "realised_strata": {
+    "S1_equal_class": 18,
+    "S2_one_apart": 14,
+    "S3_class_vs_attributes": 12,
+    "S4_far_apart": 6
+  },
+  "realised_per_campus": {
+    "1": 9,
+    "2": 9,
+    "5": 8,
+    "9": 8,
+    "10": 8,
+    "12": 8
+  },
+  "candidate_pairs_by_stratum": {
+    "S1_equal_class": 29385,
+    "S2_one_apart": 14061,
+    "S4_far_apart": 12808,
+    "S3_class_vs_attributes": 4529
+  },
+  "balance": {
+    "a_on_left": 25,
+    "of": 50,
+    "urgent_recorded_class_on_left": 16,
+    "of_class_differing": 32
+  },
+  "waiting_days": {
+    "min": 0.0,
+    "max": 15.0
+  },
+  "items_with_building_line": 18,
+  "recorded_class_counts": {
+    "1": 8,
+    "2": 20,
+    "3": 37,
+    "4": 47
+  },
+  "outputs": [
+    "/home/ziheng/PaperY3/fm-hitl/pilot/y3_w8_pilot.html",
+    "/home/ziheng/PaperY3/fm-hitl/pilot/y3_w8_manifest.csv",
+    "/home/ziheng/PaperY3/fm-hitl/pilot/y3_w8_response_template.csv",
+    "/home/ziheng/PaperY3/fm-hitl/pilot/y3_w8_items.json"
+  ]
+}

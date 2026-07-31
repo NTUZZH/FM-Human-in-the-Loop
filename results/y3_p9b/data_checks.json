@@ -1,0 +1,64 @@
+{
+ "corpus_anchor": {
+  "beta_hat_by_campus": {
+   "1": 0.1056,
+   "10": 0.2727,
+   "9": 0.2038
+  },
+  "campus9_beta_hat": 0.2038,
+  "headline_campuses": [
+   1,
+   9,
+   10
+  ],
+  "max": 0.2727,
+  "median": 0.2038,
+  "min": 0.1056,
+  "primary_label": [
+   "cm",
+   "trade_w30"
+  ]
+ },
+ "eval_file_sha256": {
+  "c09_storm2_w80_u100_0020.json": "06a8f16508e9e9c03c653d3cc7cd4e3aaf02c64cdf52a3f88cb85b92088e3223",
+  "c09_storm2_w80_u100_0021.json": "c3467526629726eac0654365d5f277f86b83073625b7d23865ff146340443b5f",
+  "c09_storm2_w80_u100_0022.json": "f75da099d21fd3f8bee303fbdbdec377edfa6f38a5a735ca697b1c1af3dd36c4",
+  "c09_storm2_w80_u100_0023.json": "6493954905142e678bbc3c30bc6f062970bd5840028afd7da90daf53dadf2960",
+  "c09_storm2_w80_u100_0024.json": "949804da32ab868125a5ed4612c6f18a0adacfcb8c22b83faabb4484efd1e560",
+  "c09_storm2_w80_u100_0025.json": "16f31a749407b330adcc09d5bacdba9deb581cad8b3b7a872e96125251e4d0a3",
+  "c09_storm2_w80_u100_0026.json": "c8780249fba1213c3585e8b7e9a4dbea431b5d6471fd7f4495744c8b3cc8ab61",
+  "c09_storm2_w80_u100_0027.json": "caf233b3f7660f7858e044ddf91a939e44baec3b0de60a744dcafe5cfef5e42c",
+  "c09_storm2_w80_u100_0028.json": "ecd7907b8963157df150a9fcb545e6c04d86f59434de3686d479b162f661fb51",
+  "c09_storm2_w80_u100_0029.json": "b78b50ae322c1e7820efbbef20810a4e63087ac1f2a83e6a9605ffd70632f246"
+ },
+ "eval_file_sha256_match_p9": true,
+ "eval_inst_ids": [
+  "c09_storm2_w80_u100_0020",
+  "c09_storm2_w80_u100_0021",
+  "c09_storm2_w80_u100_0022",
+  "c09_storm2_w80_u100_0023",
+  "c09_storm2_w80_u100_0024",
+  "c09_storm2_w80_u100_0025",
+  "c09_storm2_w80_u100_0026",
+  "c09_storm2_w80_u100_0027",
+  "c09_storm2_w80_u100_0028",
+  "c09_storm2_w80_u100_0029"
+ ],
+ "eval_inst_ids_match_published": true,
+ "eval_slice": "files[20:30]",
+ "instance_pool_dir": "/home/ziheng/PaperY3/fm-hitl/data/processed/instances/c09/storm2/w80",
+ "n_files": 30,
+ "overlay_coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed12345.json",
+ "overlay_coeff_sha256": "21b3ef67c107d2c5fbbbe6a1ee28354851c6928cec64aa66749cf2f1c1b9413b",
+ "overlay_coeff_sha256_match_p9": true,
+ "probe_slice": "files[16:20]",
+ "threads": {
+  "MKL_NUM_THREADS": "1",
+  "NUMEXPR_NUM_THREADS": "1",
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "torch_num_threads_parent": 1,
+ "train_slice": "files[0:16]"
+}
