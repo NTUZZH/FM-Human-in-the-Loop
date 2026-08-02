@@ -1,0 +1,199 @@
+{
+ "cells": [
+  {
+   "beta": 0.0,
+   "campus": 10,
+   "eps": 0.0,
+   "key": "G",
+   "name": "G_c10_u130_b0.00_eps0.00",
+   "rho": 0.25,
+   "tag": "anomaly campus, overload",
+   "u": 130
+  }
+ ],
+ "locked_base_task": {
+  "alpha": 0.1,
+  "band_mode": "global",
+  "cal_frac": 0.3,
+  "channel": "full_class_shift",
+  "eps": 0.0,
+  "family": "F-NL",
+  "m0_iters": 8,
+  "master_seed": 12345,
+  "n_eval": 10,
+  "n_probe": 4,
+  "n_train": 16,
+  "policy": "stability",
+  "regime": "storm2",
+  "size": null,
+  "split_fit": true,
+  "theta": 1.0,
+  "u": null
+ },
+ "nparams_expected": 1761,
+ "pools": {
+  "c10_u130": {
+   "dir": "data/processed/instances/c10/storm2/w80",
+   "eval_file_sha256": {
+    "c10_storm2_w80_u130_0020.json": "3dcba09dbb3cfa39b9840f739ae53c3386624cf415454180e315201625c8ad7e",
+    "c10_storm2_w80_u130_0021.json": "71d0baa5e9145a149b09022c05b87e65f38c7822329c65bcb5f2f6292eeee255",
+    "c10_storm2_w80_u130_0022.json": "538ddee9f65b5eb40df4bbac3a8df5b31136e4c322901b28d56b9f671010d91f",
+    "c10_storm2_w80_u130_0023.json": "250902e44ce741466b02d7feca12120110841d9a7a2c741d4a248664011aee99",
+    "c10_storm2_w80_u130_0024.json": "3b1cb2890d204aa241ab630a5c50c12db724563b02e952531ab8ade9e4d320a4",
+    "c10_storm2_w80_u130_0025.json": "a61c6d5010c25fc10724f6db3ecbdb3d1aa1073174abce83e06ef012639db749",
+    "c10_storm2_w80_u130_0026.json": "dbbb8fcc039545302cdfe0509b701aaa8abb86a0d6e6c42a534fb210fcefec51",
+    "c10_storm2_w80_u130_0027.json": "259f77b6f55ca63aaf76d85b1724110aec7838b9738bd3ac37742151c5801a11",
+    "c10_storm2_w80_u130_0028.json": "be84500be85feb9e5035bff96584014cc062942c0ccb14ebed662875136e72a1",
+    "c10_storm2_w80_u130_0029.json": "912770e25979c6c879dfb249053648212511ab0395c050c4e38e0690fae9349a"
+   },
+   "eval_inst_ids": [
+    "c10_storm2_w80_u130_0020",
+    "c10_storm2_w80_u130_0021",
+    "c10_storm2_w80_u130_0022",
+    "c10_storm2_w80_u130_0023",
+    "c10_storm2_w80_u130_0024",
+    "c10_storm2_w80_u130_0025",
+    "c10_storm2_w80_u130_0026",
+    "c10_storm2_w80_u130_0027",
+    "c10_storm2_w80_u130_0028",
+    "c10_storm2_w80_u130_0029"
+   ],
+   "eval_slice": "files[20:30]",
+   "matches_published_eval_ids": false,
+   "n_files": 30,
+   "n_work_orders_first_eval_instance": 12155,
+   "probe_slice": "files[16:20]",
+   "train_slice": "files[0:16]"
+  }
+ },
+ "published_world": 12345,
+ "seeds": [
+  301,
+  302,
+  303
+ ],
+ "sig_keys": [
+  "campus",
+  "regime",
+  "u",
+  "size",
+  "beta",
+  "rho",
+  "eps",
+  "theta",
+  "channel",
+  "family",
+  "master_seed",
+  "seed",
+  "n_train",
+  "n_probe",
+  "n_eval",
+  "m0_iters",
+  "policy",
+  "split_fit",
+  "cal_frac",
+  "alpha",
+  "band_mode"
+ ],
+ "threads": {
+  "MKL_NUM_THREADS": "1",
+  "NUMEXPR_NUM_THREADS": "1",
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "torch_num_threads_parent": 1,
+ "worlds": {
+  "12345": {
+   "a_l2": 4.261347688012267,
+   "coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed12345.json",
+   "n_interactions": 4,
+   "population_n_orders": 224000,
+   "sha256": "21b3ef67c107d2c5fbbbe6a1ee28354851c6928cec64aa66749cf2f1c1b9413b"
+  },
+  "20001": {
+   "a_l2": 5.065896106097663,
+   "coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed20001.json",
+   "cos_with_published_f_coeffs": -0.2160763188380811,
+   "n_interactions": 4,
+   "population_n_orders": 224000,
+   "sha256": "388cbdeb6d4bc597e0aed8dfff064cb0f1d6dd8e640e0db64e312ab0a04d6184"
+  },
+  "20002": {
+   "a_l2": 3.7720942587855966,
+   "coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed20002.json",
+   "cos_with_published_f_coeffs": 0.00398851281957222,
+   "n_interactions": 4,
+   "population_n_orders": 224000,
+   "sha256": "4e39fe48aa96cc19c15d050a12d5a55ea643e6c974affed37049bb71bbd4f47d"
+  },
+  "20003": {
+   "a_l2": 4.2926748356234325,
+   "coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed20003.json",
+   "cos_with_published_f_coeffs": 0.034344312808744004,
+   "n_interactions": 4,
+   "population_n_orders": 224000,
+   "sha256": "3336552301b8c1488bd51c9feb626644849b54c516933068df1d0fe78d0ce564"
+  },
+  "20004": {
+   "a_l2": 3.4583760216487063,
+   "coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed20004.json",
+   "cos_with_published_f_coeffs": 0.2511068918794123,
+   "n_interactions": 4,
+   "population_n_orders": 224000,
+   "sha256": "64b20d6ba30c2c8ef5b63e2b05004f03d3d02a7a72902b19ed8193efd363e91f"
+  },
+  "20005": {
+   "a_l2": 4.42440722089709,
+   "coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed20005.json",
+   "cos_with_published_f_coeffs": -0.39153072458342236,
+   "n_interactions": 4,
+   "population_n_orders": 224000,
+   "sha256": "d7f96d039882168af3f008eb2a04f204ce307ce8c339a216886afec1e5f5615b"
+  },
+  "20006": {
+   "a_l2": 6.214846596282911,
+   "coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed20006.json",
+   "cos_with_published_f_coeffs": -0.26656503209671367,
+   "n_interactions": 4,
+   "population_n_orders": 224000,
+   "sha256": "12ffc382a90d8c4456ed7d666540f62fe6b8996dd95ef2828157ed73252480f7"
+  },
+  "20007": {
+   "a_l2": 4.425970330966132,
+   "coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed20007.json",
+   "cos_with_published_f_coeffs": -0.07144662853121743,
+   "n_interactions": 4,
+   "population_n_orders": 224000,
+   "sha256": "6c291e95f9daa07f16e89b8aed1280e45dc8af1be08de147ea490145dced0e84"
+  },
+  "20008": {
+   "a_l2": 3.7998597808399586,
+   "coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed20008.json",
+   "cos_with_published_f_coeffs": -0.2479429664867234,
+   "n_interactions": 4,
+   "population_n_orders": 224000,
+   "sha256": "e6930ca995b5acb539b8b6a9fb85c1904079728c16954983eabb6ec2c8bb7215"
+  },
+  "20009": {
+   "a_l2": 4.739471278299959,
+   "coeff_file": "results/y3_p1/overlay_coeffs/F-NL_seed20009.json",
+   "cos_with_published_f_coeffs": 0.016136863954818365,
+   "n_interactions": 4,
+   "population_n_orders": 224000,
+   "sha256": "ae9e642929fc42aaef964cab7f3705cdb5802c6c64320c3557352271186e14d1"
+  }
+ },
+ "worlds_order": [
+  12345,
+  20001,
+  20002,
+  20003,
+  20004,
+  20005,
+  20006,
+  20007,
+  20008,
+  20009
+ ]
+}

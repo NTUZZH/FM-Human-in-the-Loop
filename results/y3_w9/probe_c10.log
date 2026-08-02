@@ -1,0 +1,6 @@
+[config] locked cell matches y3_w1_sweep; deployable stability routing; 1 numeric thread asserted
+  [pool] c10_u130  30 files, held-out 0020..0029, 12155 orders/instance
+[preflight] 1 overlay worlds built and recorded, 1 instance pools checked -> results/y3_w9/preflight.json
+[sweep] 1 cells x 1 worlds x 1 seeds = 1 folds; 0 already on disk, 1 to run, 1 workers
+  [  1/  1] G_c10_u130_b0.00_eps0.00 world 20001 seed 301 | rule= 32580.5 m0= 19213.3 gain=+41.03% | rev=0.248 und=0.970 | 1458s (elapsed 1458s)
+[done] 1 folds run, 2 fold files on disk, 0 reproduction gates passed; estimator parameters asserted at 1761 on every fit

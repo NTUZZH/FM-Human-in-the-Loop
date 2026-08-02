@@ -191,6 +191,10 @@ python scripts/y3_figs_f4.py && python scripts/y3_figs_f5.py
 
 - `results/y3_w7/`: leave-one-campus-out transfer, holding each campus out in
   turn and scoring a layer fitted on the others against one fitted natively.
+- `results/y3_w9/`: robustness across ten independent draws of the hidden
+  urgency (overlay worlds), three training seeds each, eight cells, under the
+  shipped deployable protocol; the runner reproduces the published headline
+  cache bit-exactly before sweeping.
 
 Each experiment directory carries a `RUN_PLAN.md` stating each run's purpose, the
 expected result, what the opposite outcome would mean, and the contamination and

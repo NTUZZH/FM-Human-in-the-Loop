@@ -1,0 +1,7 @@
+[config] locked cell matches y3_w1_sweep; deployable stability routing; 1 numeric thread asserted
+  [pool] c09_u100  30 files, held-out 0020..0029, 2253 orders/instance
+[preflight] 1 overlay worlds built and recorded, 1 instance pools checked -> results/y3_w9/preflight.json
+[pilot] one fold: A_c9_u100_b1.00_eps0.00 world 20001 seed 301 (sig 0654b957c303de33)
+[pilot] rule=1399.2 m0_alone=1125.6 oracle=1111.8 (one fold; NO conclusion is drawn from it)
+[pilot] reviewed fraction 0.250, undetermined 0.786
+[pilot] WALL TIME 37.0 s  (single fold, one thread; a scheduling estimate, not a measurement)
