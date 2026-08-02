@@ -195,6 +195,10 @@ python scripts/y3_figs_f4.py && python scripts/y3_figs_f5.py
   urgency (overlay worlds), three training seeds each, eight cells, under the
   shipped deployable protocol; the runner reproduces the published headline
   cache bit-exactly before sweeping.
+- `results/y3_w10_w11/`: override-weight sensitivity (one/two/five/ten) and a
+  gradient-boosted-tree estimator variant under fixed, untuned settings, both
+  against the shipped incumbent, whose cached folds are reused after a
+  bit-compatibility gate.
 
 Each experiment directory carries a `RUN_PLAN.md` stating each run's purpose, the
 expected result, what the opposite outcome would mean, and the contamination and

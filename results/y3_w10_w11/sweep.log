@@ -1,0 +1,43 @@
+[config] locked cell matches y3_w1_sweep; deployable stability routing; 1 numeric thread asserted
+[config] sklearn 1.9.0, one OpenMP thread asserted for parent and workers
+  [pool] c09_u100  30 files, held-out 0020..0029, ids match the published set
+  [keys] 30 distinct variant-extended fold keys over 5 variants x 2 cells x 3 seeds
+[preflight] 1 instance pools checked, 5 variants config-diffed against the incumbent -> results/y3_w10_w11/preflight.json
+[sweep] 4 variants x 2 cells x 3 seeds = 24 folds; 2 already on disk, 22 to run, 6 workers
+  [  1/ 22] W11_ow1          B_c9_u100_b0.20_eps0.00  seed 301 | rule=  2242.3 m0=  2053.3 gain= +8.43% | r=0.164 | 38s (elapsed 38s)
+  [  2/ 22] W11_ow1          B_c9_u100_b0.20_eps0.00  seed 302 | rule=  2242.3 m0=  2020.3 gain= +9.90% | r=0.085 | 38s (elapsed 38s)
+  [  3/ 22] W11_ow1          A_c9_u100_b1.00_eps0.00  seed 303 | rule=  3644.8 m0=  1940.1 gain=+46.77% | r=0.469 | 38s (elapsed 38s)
+  [  4/ 22] W11_ow1          B_c9_u100_b0.20_eps0.00  seed 303 | rule=  2242.3 m0=  1975.0 gain=+11.92% | r=0.199 | 38s (elapsed 39s)
+  [  5/ 22] W11_ow1          A_c9_u100_b1.00_eps0.00  seed 302 | rule=  3644.8 m0=  2181.1 gain=+40.16% | r=0.386 | 39s (elapsed 39s)
+  [  6/ 22] W11_ow2          A_c9_u100_b1.00_eps0.00  seed 301 | rule=  3644.8 m0=  1862.5 gain=+48.90% | r=0.502 | 39s (elapsed 39s)
+  [  7/ 22] W11_ow2          B_c9_u100_b0.20_eps0.00  seed 302 | rule=  2242.3 m0=  2001.8 gain=+10.73% | r=0.204 | 38s (elapsed 76s)
+  [  8/ 22] W11_ow2          A_c9_u100_b1.00_eps0.00  seed 303 | rule=  3644.8 m0=  1896.9 gain=+47.96% | r=0.534 | 38s (elapsed 76s)
+  [  9/ 22] W11_ow2          A_c9_u100_b1.00_eps0.00  seed 302 | rule=  3644.8 m0=  2023.3 gain=+44.49% | r=0.434 | 38s (elapsed 76s)
+  [ 10/ 22] W11_ow2          B_c9_u100_b0.20_eps0.00  seed 301 | rule=  2242.3 m0=  2023.9 gain= +9.74% | r=0.157 | 38s (elapsed 77s)
+  [ 11/ 22] W11_ow2          B_c9_u100_b0.20_eps0.00  seed 303 | rule=  2242.3 m0=  1952.1 gain=+12.94% | r=0.208 | 38s (elapsed 77s)
+  [ 12/ 22] W11_ow10         A_c9_u100_b1.00_eps0.00  seed 301 | rule=  3644.8 m0=  1904.8 gain=+47.74% | r=0.586 | 38s (elapsed 77s)
+  [ 13/ 22] W11_ow10         B_c9_u100_b0.20_eps0.00  seed 301 | rule=  2242.3 m0=  2051.4 gain= +8.52% | r=0.169 | 37s (elapsed 113s)
+  [ 14/ 22] W11_ow10         A_c9_u100_b1.00_eps0.00  seed 303 | rule=  3644.8 m0=  1851.9 gain=+49.19% | r=0.532 | 38s (elapsed 114s)
+  [ 15/ 22] W11_ow10         B_c9_u100_b0.20_eps0.00  seed 303 | rule=  2242.3 m0=  1952.5 gain=+12.93% | r=0.231 | 37s (elapsed 114s)
+  [ 16/ 22] W11_ow10         B_c9_u100_b0.20_eps0.00  seed 302 | rule=  2242.3 m0=  2096.0 gain= +6.53% | r=0.249 | 37s (elapsed 114s)
+  [ 17/ 22] W11_ow10         A_c9_u100_b1.00_eps0.00  seed 302 | rule=  3644.8 m0=  1819.6 gain=+50.08% | r=0.570 | 38s (elapsed 114s)
+  [ 18/ 22] W10_gbt_ow5      A_c9_u100_b1.00_eps0.00  seed 302 | rule=  3644.8 m0=  1923.4 gain=+47.23% | r=0.608 | 41s (elapsed 118s)
+  [ 19/ 22] W10_gbt_ow5      B_c9_u100_b0.20_eps0.00  seed 301 | rule=  2242.3 m0=  2049.4 gain= +8.61% | r=0.184 | 40s (elapsed 154s)
+  [ 20/ 22] W10_gbt_ow5      A_c9_u100_b1.00_eps0.00  seed 303 | rule=  3644.8 m0=  1922.1 gain=+47.27% | r=0.596 | 41s (elapsed 154s)
+  [ 21/ 22] W10_gbt_ow5      B_c9_u100_b0.20_eps0.00  seed 303 | rule=  2242.3 m0=  2047.9 gain= +8.67% | r=0.214 | 40s (elapsed 154s)
+  [ 22/ 22] W10_gbt_ow5      B_c9_u100_b0.20_eps0.00  seed 302 | rule=  2242.3 m0=  2079.2 gain= +7.27% | r=0.234 | 40s (elapsed 154s)
+[done] 22 folds run, 25 fold files on disk, 0 bit-equality gates passed
+
+variant          cell                        gain%      sd       r signacc     rev
+W10_gbt_ow5      A_c9_u100_b1.00_eps0.00    47.387   0.242   0.607   0.775   0.245
+W10_gbt_ow5      B_c9_u100_b0.20_eps0.00     8.184   0.788   0.211   0.611   0.247
+W11_ow1          A_c9_u100_b1.00_eps0.00    44.758   3.993   0.448   0.679   0.246
+W11_ow1          B_c9_u100_b0.20_eps0.00    10.086   1.753   0.149   0.572   0.246
+W11_ow10         A_c9_u100_b1.00_eps0.00    49.002   1.180   0.563   0.670   0.246
+W11_ow10         B_c9_u100_b0.20_eps0.00     9.322   3.275   0.217   0.647   0.246
+W11_ow2          A_c9_u100_b1.00_eps0.00    47.115   2.323   0.490   0.693   0.246
+W11_ow2          B_c9_u100_b0.20_eps0.00    11.138   1.638   0.190   0.585   0.245
+W11_ow5          A_c9_u100_b1.00_eps0.00    48.292   0.576   0.523   0.703   0.246
+W11_ow5          B_c9_u100_b0.20_eps0.00     9.869   2.861   0.180   0.644   0.245
+
+[summary] -> results/y3_w10_w11/summary.json

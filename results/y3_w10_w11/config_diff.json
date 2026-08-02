@@ -1,0 +1,83 @@
+{
+ "allowed_diff": {
+  "W10": [
+   "fit.estimator_arch",
+   "fit.estimator_family",
+   "fit.estimator_nparams",
+   "fit.estimator_training"
+  ],
+  "W11": [
+   "fit.override_weight"
+  ]
+ },
+ "diffs": {
+  "W10_gbt_ow5": {
+   "fit.estimator_arch": {
+    "incumbent": "lat_dim=20, hidden=32, 2 hidden layers",
+    "variant": "early_stopping=False, l2_regularization=0.0, learning_rate=0.1, max_depth=None, max_iter=200, max_leaf_nodes=31, min_samples_leaf=20"
+   },
+   "fit.estimator_family": {
+    "incumbent": "ShiftEstimator (torch MLP)",
+    "variant": "HistGradientBoostingRegressor (sklearn)"
+   },
+   "fit.estimator_nparams": {
+    "incumbent": 1761,
+    "variant": null
+   },
+   "fit.estimator_training": {
+    "incumbent": "weighted MSE, Adam lr=1e-2, epochs=40, batch=512, warm-started across DAgger iterations",
+    "variant": "weighted squared error via sample_weight, random_state=seed+iter, refit from scratch on the full aggregate each DAgger iteration"
+   }
+  },
+  "W11_ow1": {
+   "fit.override_weight": {
+    "incumbent": 5.0,
+    "variant": 1.0
+   }
+  },
+  "W11_ow10": {
+   "fit.override_weight": {
+    "incumbent": 5.0,
+    "variant": 10.0
+   }
+  },
+  "W11_ow2": {
+   "fit.override_weight": {
+    "incumbent": 5.0,
+    "variant": 2.0
+   }
+  },
+  "W11_ow5": {}
+ },
+ "incumbent_variant": "W11_ow5",
+ "resolved_incumbent": {
+  "fit.confirm_weight": 1.0,
+  "fit.estimator_arch": "lat_dim=20, hidden=32, 2 hidden layers",
+  "fit.estimator_family": "ShiftEstimator (torch MLP)",
+  "fit.estimator_nparams": 1761,
+  "fit.estimator_training": "weighted MSE, Adam lr=1e-2, epochs=40, batch=512, warm-started across DAgger iterations",
+  "fit.label_source": "executed",
+  "fit.override_weight": 5.0,
+  "task.alpha": 0.1,
+  "task.band_mode": "global",
+  "task.beta": 1.0,
+  "task.cal_frac": 0.3,
+  "task.campus": 9,
+  "task.channel": "full_class_shift",
+  "task.eps": 0.0,
+  "task.family": "F-NL",
+  "task.m0_iters": 8,
+  "task.master_seed": 12345,
+  "task.n_eval": 10,
+  "task.n_probe": 4,
+  "task.n_train": 16,
+  "task.policy": "stability",
+  "task.regime": "storm2",
+  "task.rho": 0.25,
+  "task.seed": 301,
+  "task.size": null,
+  "task.split_fit": true,
+  "task.theta": 1.0,
+  "task.u": 100
+ }
+}
