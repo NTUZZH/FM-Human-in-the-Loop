@@ -1,4 +1,4 @@
-# FM-Human-in-the-Loop — learning maintenance work-order dispatch from supervisor overrides
+# FM-Human-in-the-Loop: learning maintenance work-order dispatch from supervisor overrides
 
 Companion repository for the manuscript *"SURGE: A human-in-the-loop framework
 that recovers hidden urgency from supervisor overrides and applies it to every
@@ -13,7 +13,7 @@ underlying dispatch benchmark so the study reproduces end to end.
 
 **What the overlay is.** A work order's recorded priority class is a coarse proxy
 for how urgent the job really is. The supervisor overlay
-(`src/fmwos/hitl/overlay.py`) adds a seeded, reproducible latent urgency to each
+(`src/fmwos/hitl/overlay.py`) adds a seeded, reproducible hidden urgency to each
 order and uses it to define the *true* objective a schedule is graded on: a
 weighted tardiness computed with corrected weights and corrected deadlines. An
 independent validator (`src/fmwos/hitl/true_objective.py`) scores every method
@@ -21,12 +21,12 @@ against that true objective and shares no code with any scheduler.
 
 **The review-and-override loop.** A supervisor (`src/fmwos/hitl/supervisor.py`)
 inspects a budgeted fraction (the review budget, rho) of dispatch decisions. On a
-reviewed decision it may replace the base rule's pick with the one the latent
+reviewed decision it may replace the base rule's pick with the one the hidden
 urgency prefers. Every decision is logged, so the override log records exactly
 where recorded priority and true urgency disagree.
 
-**The methods.** M0, M1, and M2 all recover the same latent urgency; they differ
-in how.
+**The methods.** M0, M1, and M2 all recover the same hidden urgency; they differ
+in how they do it.
 
 - **M0**, called **SURGE** in the paper, the correction layer
   (`src/fmwos/hitl/augmented_rule.py`): fits an urgency estimator to the override
@@ -62,10 +62,10 @@ reproduces the published numbers exactly only at `OMP_NUM_THREADS=1`,
 `MKL_NUM_THREADS=1` and `torch.set_num_threads(1)`. At four threads the
 floating-point reduction order changes and the headline cell moves by more than
 one percentage point. Every published cell was produced single-threaded, and each
-worker asserts its own thread and environment caps before it computes anything;
-parallelism belongs across processes, not inside them. The hazard and the
-enforcement are set out in `results/y3_w1b/RUN_PLAN.md` and
-`results/y3_p9b/RUN_PLAN.md`.
+worker asserts its own thread and environment caps before it computes anything.
+To use more than one core, run several single-threaded processes rather than one
+multi-threaded process. The hazard and the enforcement are set out in
+`results/y3_w1b/RUN_PLAN.md` and `results/y3_p9b/RUN_PLAN.md`.
 
 ```bash
 conda env create -f environment.yml && conda activate fmwos
@@ -153,9 +153,9 @@ data collection closes. Nothing reported in the manuscript depends on it.
 ## The base dispatch benchmark
 
 SURGE is evaluated on the instances of an open work-order dispatch benchmark,
-released at https://github.com/NTUZZH/FM-Scheduling and bundled here so this
-repository reproduces end to end. Those instances are reproducible from the open
-FMUCD corpus alone. The benchmark provides, for reuse and verification:
+released at https://github.com/NTUZZH/FM-Scheduling and bundled here, so this
+repository runs without it. Those instances are reproducible from the open FMUCD
+corpus alone. The benchmark provides, for reuse and verification:
 
 - **Benchmark instances** (`data/instances.tar.zst`): 3,186 real-data replay
   instances and 1,800 calibrated generator instances (4,986 total) built from
@@ -195,14 +195,14 @@ Tests (plain python): `PYTHONPATH=src python tests/<file>.py`.
 
 ### Layout
 
-- `src/fmwos/` — io/cleaning, calibration, instances, generator, validator,
+- `src/fmwos/`: io/cleaning, calibration, instances, generator, validator,
   dispatching rules, CP-SAT (static + rolling), GA, environment, lower
   bound, policies (MLP + attention), PPO training; `src/fmwos/hitl/` holds the
   SURGE modules listed above.
-- `scripts/` — one entry point per experiment; `y3_*.py` are the SURGE runs and
+- `scripts/`: one entry point per experiment; `y3_*.py` are the SURGE runs and
   `r2_*.py` the benchmark's revision diagnostics (travel, weights, candidate cap).
-- `results/` — every reported number traces to a file here.
-- `docs/` — pre-specified protocol and the public decision log.
+- `results/`: every reported number traces to a file here.
+- `docs/`: pre-specified protocol and the public decision log.
 
 ## Data source and licence
 
