@@ -9,76 +9,7 @@ trained checkpoints, evaluation scripts, the practitioner-pilot instrument, and
 the per-method scored results behind every reported number, together with the
 underlying dispatch benchmark so the study reproduces end to end.
 
-The base benchmark is the authors' FM-Scheduling repository
-(https://github.com/NTUZZH/FM-Scheduling); its instances are reproducible from
-the open FMUCD corpus alone.
-
-The base benchmark provides, for reuse and verification:
-
-- **Benchmark instances** (`data/instances.tar.zst`): 3,186 real-data replay
-  instances and 1,800 calibrated generator instances (4,986 total) built from
-  the public FMUCD work-order database, in a documented JSON schema.
-- **The instance generator** with per-campus fitted parameter packs
-  (`src/fmwos/generator.py`, `results/p2_generator/`).
-- **The independent feasibility validator** (`src/fmwos/validator.py`) that
-  scores every method and shares no code with any scheduler.
-- **All methods under test**: six dispatching rules, exact and rolling CP-SAT,
-  a genetic algorithm, and the PPO-trained dispatcher (MLP and attention
-  variants), plus training code.
-- **Scored results** for every experiment in the paper (`results/`), and the
-  diagnostic re-simulations (travel, weight-vector, candidate-cap sweeps).
-- **The pre-specified evaluation protocol** (`docs/protocol.md`): the two
-  decision gates, their pass/fail criteria, and the dated amendment history.
-
-## Data source and licence
-
-Raw data: FMUCD (Facility Management Unified Classification Database),
-Mendeley Data, DOI [10.17632/cb8d2nsjss.1](https://doi.org/10.17632/cb8d2nsjss.1),
-released by its authors under **CC BY 4.0**. The exact distribution file used has
-SHA-256 `4464648252c4bdca2a6deba9d467e94aec7568d675f51e06d6d343b3c09f006a`.
-Everything in this repository is released under **CC BY-NC 4.0**. That is our own
-choice for this repository and is not inherited from FMUCD, whose licence carries
-no non-commercial restriction.
-
-## Reproduce
-
-```bash
-conda env create -f environment.yml && conda activate fmwos
-# 1. download FMUCD to data/raw/FMUCD.csv (SHA-256 above must match)
-python scripts/p0_profile.py                    # cleaning audit + profiling
-python scripts/p1_instances.py                  # calibration + replay track
-python scripts/p2_generator.py                  # generator track
-PYTHONPATH=src python scripts/p2_e1.py          # E1 static (sharded, resumable)
-PYTHONPATH=src python -m fmwos.train --seed 301 --curriculum v2  # PPO
-PYTHONPATH=src python scripts/p4_dyneval.py --with-pmmix --with-storm2 \
-    --storm-arrivals 1.25,1.5,2.0,3.0           # dynamic evaluation
-PYTHONPATH=src python scripts/p4_analysis.py    # Gate-B tables
-python scripts/p5_figures.py                    # paper figures
-```
-
-Unpack the released instances instead of rebuilding them:
-
-```bash
-mkdir -p data/processed && tar -C data/processed --zstd -xf data/instances.tar.zst
-```
-
-Tests (plain python): `PYTHONPATH=src python tests/<file>.py`.
-
-## Layout
-
-- `src/fmwos/` — io/cleaning, calibration, instances, generator, validator,
-  dispatching rules, CP-SAT (static + rolling), GA, environment, lower
-  bound, policies (MLP + attention), PPO training.
-- `scripts/` — one entry point per experiment; `r2_*.py` are the revision
-  diagnostics (travel, weights, candidate cap).
-- `results/` — every number in the paper traces to a file here.
-- `docs/` — pre-specified protocol and the public decision log.
-
-## Human-in-the-loop correction layer (follow-on study)
-
-This repository also carries the code, trained models, and scored results for a
-follow-on study on recovering a hidden urgency signal from supervisor overrides.
-The manuscript is under review; citation details will be added on publication.
+## What SURGE does
 
 **What the overlay is.** A work order's recorded priority class is a coarse proxy
 for how urgent the job really is. The supervisor overlay
@@ -121,8 +52,10 @@ in how.
   two-limit censored likelihood for the class-boundary labels
   (`src/fmwos/hitl/censored.py`).
 
-With no supervisor attached, the loop reproduces the Y1 dispatcher exactly; the
+With no supervisor attached, the loop reproduces the base dispatcher exactly; the
 `y3_e0_anchor.py` script asserts that equivalence by replay.
+
+## Reproduce
 
 **Reproducibility hazard: run one numeric thread per process.** The pipeline
 reproduces the published numbers exactly only at `OMP_NUM_THREADS=1`,
@@ -134,14 +67,12 @@ parallelism belongs across processes, not inside them. The hazard and the
 enforcement are set out in `results/y3_w1b/RUN_PLAN.md` and
 `results/y3_p9b/RUN_PLAN.md`.
 
-**Reproduce.**
-
 ```bash
 conda env create -f environment.yml && conda activate fmwos
 mkdir -p data/processed && tar -C data/processed --zstd -xf data/instances.tar.zst
 
 # 1. tests and the E0 equivalence anchor
-PYTHONPATH=src python tests/test_overlay.py        # and the other Y3 test_*.py
+PYTHONPATH=src python tests/test_overlay.py        # and the other test_*.py
 PYTHONPATH=src python scripts/y3_e0_anchor.py
 
 # 2. train the learner sweep (M1 with the urgency head, plus the PI-0 control)
@@ -158,7 +89,7 @@ python scripts/y3_figs_f2.py && python scripts/y3_figs_f3.py
 python scripts/y3_figs_f4.py && python scripts/y3_figs_f5.py
 ```
 
-**Where the follow-on results live.**
+## Where the results live
 
 - `src/fmwos/hitl/`: the overlay, supervisor, true-objective validator, and the
   M0/M1/M2 methods. `src/fmwos/env.py` gains a flag-gated supervised episode
@@ -178,15 +109,6 @@ python scripts/y3_figs_f4.py && python scripts/y3_figs_f5.py
   queue-conditioned choice likelihood) with held-out choice log-likelihoods.
 - `results/y3_w3/`: the censored-likelihood study, the constant-correction sweep,
   and the mechanism ladder behind the beta = 0 overload columns.
-- `results/y3_calib/`, `results/y3_verc/`, `results/y3_diag/`,
-  `results/y3_cont/`: the FMUCD override-structure calibration, the verification
-  tasks, and the diagnostic and contamination probes.
-- `results/y3_repro_check/`: the exact-replay checks. Every published cell was
-  recomputed from the released code and compared with the committed result, and
-  each reported macro was recomputed from its own source file.
-- `results/y3_checkpoints/`: the trained models (final weights, config, and
-  training metrics) for the sweep, the pilots, and the insurance runs.
-
 - `results/y3_w7/`: leave-one-campus-out transfer, holding each campus out in
   turn and scoring a layer fitted on the others against one fitted natively.
 - `results/y3_w9/`: robustness across ten independent draws of the hidden
@@ -197,6 +119,14 @@ python scripts/y3_figs_f4.py && python scripts/y3_figs_f5.py
   gradient-boosted-tree estimator variant under fixed, untuned settings, both
   against the shipped incumbent, whose cached folds are reused after a
   bit-compatibility gate.
+- `results/y3_calib/`, `results/y3_verc/`, `results/y3_diag/`,
+  `results/y3_cont/`: the FMUCD override-structure calibration, the verification
+  tasks, and the diagnostic and contamination probes.
+- `results/y3_repro_check/`: the exact-replay checks. Every published cell was
+  recomputed from the released code and compared with the committed result, and
+  each reported macro was recomputed from its own source file.
+- `results/y3_checkpoints/`: the trained models (final weights, config, and
+  training metrics) for the sweep, the pilots, and the insurance runs.
 
 Each experiment directory carries a `RUN_PLAN.md` stating each run's purpose, the
 expected result, what the opposite outcome would mean, and the contamination and
@@ -219,6 +149,70 @@ synthetic-response self-test that exercises the analysis end to end.
 covariates, so publishing it now would let a recruited participant look up the
 design before responding. It will be added, with the collected responses, once
 data collection closes. Nothing reported in the manuscript depends on it.
+
+## The base dispatch benchmark
+
+SURGE is evaluated on the instances of an open work-order dispatch benchmark,
+released at https://github.com/NTUZZH/FM-Scheduling and bundled here so this
+repository reproduces end to end. Those instances are reproducible from the open
+FMUCD corpus alone. The benchmark provides, for reuse and verification:
+
+- **Benchmark instances** (`data/instances.tar.zst`): 3,186 real-data replay
+  instances and 1,800 calibrated generator instances (4,986 total) built from
+  the public FMUCD work-order database, in a documented JSON schema.
+- **The instance generator** with per-campus fitted parameter packs
+  (`src/fmwos/generator.py`, `results/p2_generator/`).
+- **The independent feasibility validator** (`src/fmwos/validator.py`) that
+  scores every method and shares no code with any scheduler.
+- **All methods under test**: six dispatching rules, exact and rolling CP-SAT,
+  a genetic algorithm, and the PPO-trained dispatcher (MLP and attention
+  variants), plus training code.
+- **Scored results** for every benchmark experiment (`results/`), and the
+  diagnostic re-simulations (travel, weight-vector, candidate-cap sweeps).
+- **The pre-specified evaluation protocol** (`docs/protocol.md`): the two
+  decision gates, their pass/fail criteria, and the dated amendment history.
+
+### Rebuilding the benchmark instances
+
+Unpacking the released archive is enough for everything above. To rebuild the
+instances from the raw corpus instead:
+
+```bash
+conda env create -f environment.yml && conda activate fmwos
+# 1. download FMUCD to data/raw/FMUCD.csv (SHA-256 below must match)
+python scripts/p0_profile.py                    # cleaning audit + profiling
+python scripts/p1_instances.py                  # calibration + replay track
+python scripts/p2_generator.py                  # generator track
+PYTHONPATH=src python scripts/p2_e1.py          # E1 static (sharded, resumable)
+PYTHONPATH=src python -m fmwos.train --seed 301 --curriculum v2  # PPO
+PYTHONPATH=src python scripts/p4_dyneval.py --with-pmmix --with-storm2 \
+    --storm-arrivals 1.25,1.5,2.0,3.0           # dynamic evaluation
+PYTHONPATH=src python scripts/p4_analysis.py    # Gate-B tables
+python scripts/p5_figures.py                    # benchmark figures
+```
+
+Tests (plain python): `PYTHONPATH=src python tests/<file>.py`.
+
+### Layout
+
+- `src/fmwos/` — io/cleaning, calibration, instances, generator, validator,
+  dispatching rules, CP-SAT (static + rolling), GA, environment, lower
+  bound, policies (MLP + attention), PPO training; `src/fmwos/hitl/` holds the
+  SURGE modules listed above.
+- `scripts/` — one entry point per experiment; `y3_*.py` are the SURGE runs and
+  `r2_*.py` the benchmark's revision diagnostics (travel, weights, candidate cap).
+- `results/` — every reported number traces to a file here.
+- `docs/` — pre-specified protocol and the public decision log.
+
+## Data source and licence
+
+Raw data: FMUCD (Facility Management Unified Classification Database),
+Mendeley Data, DOI [10.17632/cb8d2nsjss.1](https://doi.org/10.17632/cb8d2nsjss.1),
+released by its authors under **CC BY 4.0**. The exact distribution file used has
+SHA-256 `4464648252c4bdca2a6deba9d467e94aec7568d675f51e06d6d343b3c09f006a`.
+Everything in this repository is released under **CC BY-NC 4.0**. That is our own
+choice for this repository and is not inherited from FMUCD, whose licence carries
+no non-commercial restriction.
 
 ## Citation
 
