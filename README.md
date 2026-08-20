@@ -1,18 +1,16 @@
 # FM-Human-in-the-Loop — learning maintenance work-order dispatch from supervisor overrides
 
-Companion repository for the manuscript *"SURGE: A rule-preserving correction
-layer that learns hidden urgency from supervisor overrides to automate
-maintenance work-order dispatching"* (submitted). It releases the supervisor
-overlay, the SURGE correction-layer pipeline (named M0 throughout the code), the
+Companion repository for the manuscript *"SURGE: A human-in-the-loop framework
+that recovers hidden urgency from supervisor overrides and applies it to every
+maintenance dispatch"* (submitted). It releases the supervisor overlay, the
+SURGE correction-layer pipeline (named M0 throughout the code), the
 review-routing test, the end-to-end learner (M1) and belief (M2) variants,
 trained checkpoints, evaluation scripts, the practitioner-pilot instrument, and
 the per-method scored results behind every reported number, together with the
 underlying dispatch benchmark so the study reproduces end to end.
 
-The base benchmark is described in *"When Does Learned Dispatching Beat
-Priority Rules? An Open Benchmark for Technician-Constrained Maintenance
-Work-Order Scheduling in Building Portfolios"* (preprint:
-http://dx.doi.org/10.2139/ssrn.7095162); its instances are reproducible from
+The base benchmark is the authors' FM-Scheduling repository
+(https://github.com/NTUZZH/FM-Scheduling); its instances are reproducible from
 the open FMUCD corpus alone.
 
 The base benchmark provides, for reuse and verification:
