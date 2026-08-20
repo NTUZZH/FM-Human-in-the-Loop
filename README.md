@@ -2,7 +2,7 @@
 
 Companion repository for the manuscript *"SURGE: A human-in-the-loop framework
 that recovers hidden urgency from supervisor overrides and applies it to every
-maintenance dispatch"* (submitted). It releases the supervisor overlay, the
+maintenance dispatch"* (under review). It releases the supervisor overlay, the
 SURGE correction-layer pipeline (named M0 throughout the code), the
 review-routing test, the end-to-end learner (M1) and belief (M2) variants,
 trained checkpoints, evaluation scripts, the practitioner-pilot instrument, and
